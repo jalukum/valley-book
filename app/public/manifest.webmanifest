@@ -1,0 +1,16 @@
+{
+  "name": "Valley Book — Stardew Companion",
+  "short_name": "Valley Book",
+  "description": "Unofficial Stardew Valley companion: bundles, villagers, schedules, collections and perfection.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#a9dcf6",
+  "theme_color": "#6fc2ee",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

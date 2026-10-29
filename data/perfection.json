@@ -1,0 +1,129 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": [
+   "https://stardewvalleywiki.com/Qi's_Walnut_Room#Perfection_Tracker",
+   "https://stardewvalleywiki.com/Perfection",
+   "https://stardewvalleywiki.com/Stardrop"
+  ],
+  "license": "CC BY-NC-SA 3.0 (Stardew Valley Wiki, https://stardewvalleywiki.com)"
+ },
+ "data": {
+  "categories": [
+   {
+    "name": "Produce & Forage Shipped",
+    "requirement": "Ship one of every item in the Items Shipped (Farm & Forage) tab in the collections menu.",
+    "total": 154,
+    "weightPercent": 15
+   },
+   {
+    "name": "Obelisks on Farm",
+    "requirement": "Build Earth Obelisk, Water Obelisk, Desert Obelisk, and Island Obelisk on the farm.",
+    "total": 4,
+    "weightPercent": 4
+   },
+   {
+    "name": "Golden Clock on Farm",
+    "requirement": "Build Gold Clock on the farm.",
+    "total": 1,
+    "weightPercent": 10
+   },
+   {
+    "name": "Monster Slayer Hero",
+    "requirement": "Complete all monster eradication goals for the Adventurer's Guild.",
+    "total": 12,
+    "weightPercent": 10
+   },
+   {
+    "name": "Great Friends",
+    "requirement": "Reach maximum hearts with every villager. This includes Kent, so it is not possible to complete this in year 1. Note: The \"maximum hearts\" for datable villagers is 8, and for non-datable villagers, 10 is the max. If the player has children, their friendship status does not affect the score.",
+    "total": 34,
+    "weightPercent": 11
+   },
+   {
+    "name": "Farmer Level",
+    "requirement": "Reach level 10 in every skill.",
+    "total": 25,
+    "weightPercent": 5
+   },
+   {
+    "name": "Found All Stardrops",
+    "requirement": "Find all Stardrops.",
+    "total": 7,
+    "weightPercent": 10
+   },
+   {
+    "name": "Cooking Recipes Made",
+    "requirement": "Cook every recipe.",
+    "total": 81,
+    "weightPercent": 10
+   },
+   {
+    "name": "Crafting Recipes Made",
+    "requirement": "Craft all items. The Wedding Ring is not required, even in Multiplayer games.",
+    "total": 149,
+    "weightPercent": 10
+   },
+   {
+    "name": "Fish Caught",
+    "requirement": "Catch every fish in the Fish tab in the collections menu.",
+    "total": 72,
+    "weightPercent": 10
+   },
+   {
+    "name": "Golden Walnuts found",
+    "requirement": "Find all Golden Walnuts on Ginger Island.",
+    "total": 130,
+    "weightPercent": 5
+   }
+  ],
+  "stardrops": [
+   {
+    "id": "CF_Fair",
+    "source": "Stardew Valley Fair: buy for 2,000 star tokens"
+   },
+   {
+    "id": "CF_Mines",
+    "source": "The Mines: treasure chest on floor 100"
+   },
+   {
+    "id": "CF_Sewer",
+    "source": "Krobus' shop in the Sewers: 20,000g"
+   },
+   {
+    "id": "CF_Fish",
+    "source": "Letter from Willy the day after earning the Master Angler achievement"
+   },
+   {
+    "id": "CF_Spouse",
+    "source": "From your spouse or roommate when friendship reaches 12.5 hearts"
+   },
+   {
+    "id": "museumComplete",
+    "source": "Museum: reward for donating all 95 items"
+   },
+   {
+    "id": "CF_Statue",
+    "source": "Old Master Cannoli statue in the Secret Woods: give a Sweet Gem Berry"
+   }
+  ],
+  "skills": [
+   "Farming",
+   "Mining",
+   "Foraging",
+   "Fishing",
+   "Combat"
+  ],
+  "obelisks": [
+   "Earth Obelisk",
+   "Water Obelisk",
+   "Desert Obelisk",
+   "Island Obelisk"
+  ],
+  "waiver": {
+   "vendor": "Fizz (Ginger Island mushroom cave)",
+   "price": 500000,
+   "percent": 1
+  }
+ }
+}

@@ -1,0 +1,3848 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": [
+   {
+    "repo": "https://github.com/kronosta/stardew-data",
+    "commit": "de69cb5ce6f3708a63d53ed414b757b39b3f105e"
+   },
+   {
+    "repo": "https://github.com/communitycenter/stardew.app",
+    "commit": "7b27120442a4ee265f04fab2568c97521922f2d1"
+   }
+  ],
+  "license": [
+   "Game data/art (c) ConcernedApe; used for a non-commercial fan app",
+   "stardew.app MIT"
+  ],
+  "note": "collection=true marks the 72 fish in the Collections tab (perfection). times are game clock HHMM (600-2600)."
+ },
+ "data": [
+  {
+   "qid": "(O)128",
+   "name": "Pufferfish",
+   "method": "rod",
+   "difficulty": 80,
+   "behavior": "floater",
+   "size": [
+    1,
+    36
+   ],
+   "times": [
+    [
+     1200,
+     1600
+    ]
+   ],
+   "seasons": [
+    "summer"
+   ],
+   "weather": "sunny",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 200,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island"
+    ],
+    "time": "12PM - 4PM",
+    "seasons": [
+     "Summer"
+    ],
+    "weather": "Sunny",
+    "difficulty": "80 floater"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "season": "Summer"
+    },
+    {
+     "location": "IslandSouth",
+     "locationName": "Ginger Island (south)"
+    },
+    {
+     "location": "IslandSouthEast",
+     "locationName": "Ginger Island (southeast)"
+    },
+    {
+     "location": "IslandSouthEastCave",
+     "locationName": "Pirate Cove"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)129",
+   "name": "Anchovy",
+   "method": "rod",
+   "difficulty": 30,
+   "behavior": "dart",
+   "size": [
+    1,
+    16
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "fall"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 30,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "30 dart"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here spring fall"
+    }
+   ]
+  },
+  {
+   "qid": "(O)130",
+   "name": "Tuna",
+   "method": "rod",
+   "difficulty": 70,
+   "behavior": "smooth",
+   "size": [
+    12,
+    60
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "70 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here summer winter"
+    },
+    {
+     "location": "IslandSouth",
+     "locationName": "Ginger Island (south)"
+    },
+    {
+     "location": "IslandSouthEast",
+     "locationName": "Ginger Island (southeast)"
+    },
+    {
+     "location": "IslandSouthEastCave",
+     "locationName": "Pirate Cove"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)131",
+   "name": "Sardine",
+   "method": "rod",
+   "difficulty": 30,
+   "behavior": "dart",
+   "size": [
+    1,
+    12
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 40,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "30 dart"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here spring fall winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)132",
+   "name": "Bream",
+   "method": "rod",
+   "difficulty": 35,
+   "behavior": "smooth",
+   "size": [
+    12,
+    30
+   ],
+   "times": [
+    [
+     1800,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 45,
+   "summary": {
+    "locations": [
+     "River"
+    ],
+    "time": "6PM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "35 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "area": "River"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp"
+    }
+   ]
+  },
+  {
+   "qid": "(O)136",
+   "name": "Largemouth Bass",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "mixed",
+   "size": [
+    11,
+    30
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Mountain Lake",
+     "Wilderness Farm"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "50 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods"
+    }
+   ]
+  },
+  {
+   "qid": "(O)137",
+   "name": "Smallmouth Bass",
+   "method": "rod",
+   "difficulty": 28,
+   "behavior": "mixed",
+   "size": [
+    12,
+    24
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "fall"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 50,
+   "summary": {
+    "locations": [
+     "Town River",
+     "Forest Pond"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "28 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here spring fall"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here spring fall",
+     "area": "Lake"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp"
+    }
+   ]
+  },
+  {
+   "qid": "(O)138",
+   "name": "Rainbow Trout",
+   "method": "rod",
+   "difficulty": 45,
+   "behavior": "mixed",
+   "size": [
+    10,
+    25
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "summer"
+   ],
+   "weather": "sunny",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 65,
+   "summary": {
+    "locations": [
+     "River",
+     "Mountain Lake"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Summer"
+    ],
+    "weather": "Sunny",
+    "difficulty": "45 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "season": "Summer"
+    },
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "season": "Summer"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Summer",
+     "condition": "IS_PASSIVE_FESTIVAL_OPEN TroutDerby",
+     "area": "River"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Summer",
+     "area": "River"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "season": "Summer"
+    }
+   ]
+  },
+  {
+   "qid": "(O)139",
+   "name": "Salmon",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "mixed",
+   "size": [
+    24,
+    65
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "fall"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "River",
+     "Waterfalls"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Fall"
+    ],
+    "weather": "Both",
+    "difficulty": "50 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "season": "Fall"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Fall",
+     "area": "River"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    }
+   ]
+  },
+  {
+   "qid": "(O)140",
+   "name": "Walleye",
+   "method": "rod",
+   "difficulty": 45,
+   "behavior": "smooth",
+   "size": [
+    10,
+    40
+   ],
+   "times": [
+    [
+     1200,
+     2600
+    ]
+   ],
+   "seasons": [
+    "fall",
+    "winter"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 105,
+   "summary": {
+    "locations": [
+     "River",
+     "Mountain Lake",
+     "Forest Pond",
+     "Forest Farm Pond"
+    ],
+    "time": "12PM - 2AM",
+    "seasons": [
+     "Winter",
+     "Fall"
+    ],
+    "weather": "Rainy",
+    "difficulty": "45 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here fall winter"
+    },
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "condition": "LOCATION_SEASON Here fall winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here fall winter"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "condition": "LOCATION_SEASON Here fall winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)141",
+   "name": "Perch",
+   "method": "rod",
+   "difficulty": 35,
+   "behavior": "dart",
+   "size": [
+    10,
+    24
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 55,
+   "summary": {
+    "locations": [
+     "River",
+     "Mountain Lake",
+     "Forest Pond"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "35 dart"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "season": "Winter"
+    },
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "season": "Winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Winter"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "season": "Winter"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "IS_FESTIVAL_DAY, SEASON winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)142",
+   "name": "Carp",
+   "method": "rod",
+   "difficulty": 15,
+   "behavior": "mixed",
+   "size": [
+    15,
+    50
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 30,
+   "summary": {
+    "locations": [
+     "Mountain Lake",
+     "Secret Woods",
+     "The Sewers",
+     "Mutant Bug Lair"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Summer",
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "15 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "condition": "LOCATION_SEASON Here spring summer fall"
+    },
+    {
+     "location": "Sewer",
+     "locationName": "Sewers"
+    },
+    {
+     "location": "BugLand",
+     "locationName": "Mutant Bug Lair"
+    },
+    {
+     "location": "Woods",
+     "locationName": "Secret Woods"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "condition": "LOCATION_SEASON Here spring summer fall"
+    }
+   ]
+  },
+  {
+   "qid": "(O)143",
+   "name": "Catfish",
+   "method": "rod",
+   "difficulty": 75,
+   "behavior": "mixed",
+   "size": [
+    12,
+    72
+   ],
+   "times": [
+    [
+     600,
+     2400
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "fall",
+    "winter"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 200,
+   "summary": {
+    "locations": [
+     "River",
+     "Secret Woods",
+     "Witch's Swamp"
+    ],
+    "time": "6AM - 12AM",
+    "seasons": [
+     "Winter",
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Rainy",
+    "difficulty": "75 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here spring fall winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here spring fall winter",
+     "area": "River"
+    },
+    {
+     "location": "Woods",
+     "locationName": "Secret Woods"
+    },
+    {
+     "location": "WitchSwamp",
+     "locationName": "Witch's Swamp"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    }
+   ]
+  },
+  {
+   "qid": "(O)144",
+   "name": "Pike",
+   "method": "rod",
+   "difficulty": 60,
+   "behavior": "dart",
+   "size": [
+    15,
+    60
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "River",
+     "Forest Pond"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter",
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "60 dart"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here summer winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here summer winter"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "IS_FESTIVAL_DAY, SEASON winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)145",
+   "name": "Sunfish",
+   "method": "rod",
+   "difficulty": 30,
+   "behavior": "mixed",
+   "size": [
+    5,
+    15
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer"
+   ],
+   "weather": "sunny",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 30,
+   "summary": {
+    "locations": [
+     "River"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Summer",
+     "Spring"
+    ],
+    "weather": "Sunny",
+    "difficulty": "30 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here spring summer"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here spring summer",
+     "area": "River"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "!IS_FESTIVAL_DAY"
+    }
+   ]
+  },
+  {
+   "qid": "(O)146",
+   "name": "Red Mullet",
+   "method": "rod",
+   "difficulty": 55,
+   "behavior": "smooth",
+   "size": [
+    8,
+    22
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "55 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here summer winter"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "IS_FESTIVAL_DAY, SEASON winter, RANDOM 0.6"
+    }
+   ]
+  },
+  {
+   "qid": "(O)147",
+   "name": "Herring",
+   "method": "rod",
+   "difficulty": 25,
+   "behavior": "dart",
+   "size": [
+    8,
+    20
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 30,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "25 dart"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here spring winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)148",
+   "name": "Eel",
+   "method": "rod",
+   "difficulty": 70,
+   "behavior": "smooth",
+   "size": [
+    12,
+    80
+   ],
+   "times": [
+    [
+     1600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "fall"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 85,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "4PM - 2AM",
+    "seasons": [
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Rainy",
+    "difficulty": "70 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here spring fall"
+    }
+   ]
+  },
+  {
+   "qid": "(O)149",
+   "name": "Octopus",
+   "method": "rod",
+   "difficulty": 95,
+   "behavior": "sinker",
+   "size": [
+    12,
+    48
+   ],
+   "times": [
+    [
+     600,
+     1300
+    ]
+   ],
+   "seasons": [
+    "summer"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 150,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island",
+     "Submarine at Night Market"
+    ],
+    "time": "6AM - 1PM",
+    "seasons": [
+     "Summer",
+     "Winter (submarine)"
+    ],
+    "weather": "Both",
+    "difficulty": "95 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "season": "Summer"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)150",
+   "name": "Red Snapper",
+   "method": "rod",
+   "difficulty": 40,
+   "behavior": "mixed",
+   "size": [
+    8,
+    25
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 50,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Beach Farm"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Fall",
+     "Summer"
+    ],
+    "weather": "Rainy",
+    "difficulty": "40 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here summer fall winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)151",
+   "name": "Squid",
+   "method": "rod",
+   "difficulty": 75,
+   "behavior": "sinker",
+   "size": [
+    12,
+    48
+   ],
+   "times": [
+    [
+     1800,
+     2600
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 80,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6PM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "75 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "season": "Winter"
+    },
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "IS_PASSIVE_FESTIVAL_OPEN SquidFest, TIME 0600 1800"
+    },
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "IS_PASSIVE_FESTIVAL_OPEN SquidFest"
+    }
+   ]
+  },
+  {
+   "qid": "(O)152",
+   "name": "Seaweed",
+   "method": "rod",
+   "difficulty": 5,
+   "behavior": "floater",
+   "size": [
+    5,
+    30
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 20,
+   "summary": {
+    "locations": [
+     "Fishing Pole: Ocean",
+     "Foraging: The Beach",
+     "Garbage Cans",
+     "Fish Pond",
+     "The \"Dangerous Mines\""
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Spring",
+     "Summer",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "5 floater"
+   },
+   "spawns": [
+    {
+     "location": "Farm_Beach",
+     "locationName": "Farm_Beach",
+     "area": "Ocean"
+    },
+    {
+     "location": "Beach",
+     "locationName": "The Beach"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    }
+   ]
+  },
+  {
+   "qid": "(O)153",
+   "name": "Green Algae",
+   "method": "rod",
+   "difficulty": 5,
+   "behavior": "floater",
+   "size": [
+    5,
+    30
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 15,
+   "summary": {
+    "locations": [
+     "Fishing Pole: freshwater",
+     "Green Slimes",
+     "Garbage Cans",
+     "Fish Pond",
+     "Cat"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "5 floater"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town"
+    },
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest"
+    },
+    {
+     "location": "Sewer",
+     "locationName": "Sewers"
+    },
+    {
+     "location": "BugLand",
+     "locationName": "Mutant Bug Lair"
+    },
+    {
+     "location": "Desert",
+     "locationName": "Calico Desert",
+     "area": "TopPond"
+    },
+    {
+     "location": "WitchSwamp",
+     "locationName": "Witch's Swamp"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods"
+    },
+    {
+     "location": "UndergroundMine",
+     "locationName": "The Mines"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "!IS_FESTIVAL_DAY"
+    }
+   ]
+  },
+  {
+   "qid": "(O)154",
+   "name": "Sea Cucumber",
+   "method": "rod",
+   "difficulty": 40,
+   "behavior": "sinker",
+   "size": [
+    3,
+    20
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Submarine at Night Market"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Fall"
+    ],
+    "weather": "Both",
+    "difficulty": "40 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here fall winter"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    }
+   ]
+  },
+  {
+   "qid": "(O)155",
+   "name": "Super Cucumber",
+   "method": "rod",
+   "difficulty": 80,
+   "behavior": "sinker",
+   "size": [
+    12,
+    36
+   ],
+   "times": [
+    [
+     1800,
+     2600
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 250,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island",
+     "Submarine at Night Market"
+    ],
+    "time": "6PM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Winter (submarine)"
+    ],
+    "weather": "Both",
+    "difficulty": "80 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here summer fall"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    },
+    {
+     "location": "IslandSouth",
+     "locationName": "Ginger Island (south)"
+    },
+    {
+     "location": "IslandSouthEast",
+     "locationName": "Ginger Island (southeast)"
+    },
+    {
+     "location": "IslandSouthEastCave",
+     "locationName": "Pirate Cove"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)156",
+   "name": "Ghostfish",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "mixed",
+   "size": [
+    10,
+    35
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 45,
+   "summary": {
+    "locations": [
+     "The Mines"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "50 mixed"
+   },
+   "spawns": [
+    {
+     "location": "UndergroundMine",
+     "locationName": "The Mines"
+    }
+   ]
+  },
+  {
+   "qid": "(O)157",
+   "name": "White Algae",
+   "method": "rod",
+   "difficulty": 5,
+   "behavior": "floater",
+   "size": [
+    5,
+    30
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 25,
+   "summary": {
+    "locations": [
+     "Fishing Pole",
+     "Monster drops",
+     "Fish Pond (Ghostfish)"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "5 floater"
+   },
+   "spawns": [
+    {
+     "location": "Sewer",
+     "locationName": "Sewers"
+    },
+    {
+     "location": "BugLand",
+     "locationName": "Mutant Bug Lair"
+    },
+    {
+     "location": "WitchSwamp",
+     "locationName": "Witch's Swamp"
+    },
+    {
+     "location": "UndergroundMine",
+     "locationName": "The Mines"
+    }
+   ]
+  },
+  {
+   "qid": "(O)158",
+   "name": "Stonefish",
+   "method": "rod",
+   "difficulty": 65,
+   "behavior": "sinker",
+   "size": [
+    15,
+    15
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 3,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 300,
+   "summary": {
+    "locations": [
+     "Floor 20 of The Mines"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "65 sinker"
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)159",
+   "name": "Crimsonfish",
+   "method": "rod",
+   "difficulty": 95,
+   "behavior": "mixed",
+   "size": [
+    20,
+    20
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 5,
+   "collection": true,
+   "legendary": true,
+   "legendaryFamily": false,
+   "price": 1500,
+   "summary": {
+    "locations": [
+     "East Pier on The Beach"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "95 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "season": "Summer",
+     "condition": "!PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "legendary": true,
+     "minFishingLevel": 5
+    }
+   ]
+  },
+  {
+   "qid": "(O)160",
+   "name": "Angler",
+   "method": "rod",
+   "difficulty": 85,
+   "behavior": "smooth",
+   "size": [
+    18,
+    18
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 3,
+   "collection": true,
+   "legendary": true,
+   "legendaryFamily": false,
+   "price": 900,
+   "summary": {
+    "locations": [
+     "North of JojaMart on the wooden plank bridge"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall"
+    ],
+    "weather": "Both",
+    "difficulty": "85 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "season": "Fall",
+     "condition": "!PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "legendary": true,
+     "minFishingLevel": 3
+    }
+   ]
+  },
+  {
+   "qid": "(O)161",
+   "name": "Ice Pip",
+   "method": "rod",
+   "difficulty": 85,
+   "behavior": "dart",
+   "size": [
+    8,
+    8
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 5,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 500,
+   "summary": {
+    "locations": [
+     "The Mines, Floor 60"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "85 dart"
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)162",
+   "name": "Lava Eel",
+   "method": "rod",
+   "difficulty": 90,
+   "behavior": "mixed",
+   "size": [
+    32,
+    32
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 7,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 700,
+   "summary": {
+    "locations": [
+     "Floor 100 of The Mines",
+     "Volcano Caldera"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "90 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    },
+    {
+     "location": "Caldera",
+     "locationName": "Volcano Caldera"
+    }
+   ]
+  },
+  {
+   "qid": "(O)163",
+   "name": "Legend",
+   "method": "rod",
+   "difficulty": 110,
+   "behavior": "mixed",
+   "size": [
+    50,
+    50
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 10,
+   "collection": true,
+   "legendary": true,
+   "legendaryFamily": false,
+   "price": 5000,
+   "summary": {
+    "locations": [
+     "The Mountain Lake, near the log"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Spring"
+    ],
+    "weather": "Rainy",
+    "difficulty": "110 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "season": "Spring",
+     "condition": "!PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY, WEATHER Here Rain Storm GreenRain",
+     "legendary": true,
+     "minFishingLevel": 10
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "season": "Spring",
+     "legendary": true
+    }
+   ]
+  },
+  {
+   "qid": "(O)164",
+   "name": "Sandfish",
+   "method": "rod",
+   "difficulty": 65,
+   "behavior": "mixed",
+   "size": [
+    8,
+    24
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "The Desert"
+    ],
+    "time": "6AM - 8PM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "65 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Desert",
+     "locationName": "Calico Desert",
+     "area": "TopPond"
+    }
+   ]
+  },
+  {
+   "qid": "(O)165",
+   "name": "Scorpion Carp",
+   "method": "rod",
+   "difficulty": 90,
+   "behavior": "dart",
+   "size": [
+    12,
+    32
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 4,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 150,
+   "summary": {
+    "locations": [
+     "The Desert"
+    ],
+    "time": "6AM - 8PM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "90 dart"
+   },
+   "spawns": [
+    {
+     "location": "Desert",
+     "locationName": "Calico Desert",
+     "area": "TopPond"
+    }
+   ]
+  },
+  {
+   "qid": "(O)267",
+   "name": "Flounder",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "sinker",
+   "size": [
+    4,
+    16
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island"
+    ],
+    "time": "6AM - 8PM",
+    "seasons": [
+     "Summer",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "50 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here spring summer"
+    },
+    {
+     "location": "IslandSouth",
+     "locationName": "Ginger Island (south)"
+    },
+    {
+     "location": "IslandSouthEast",
+     "locationName": "Ginger Island (southeast)"
+    },
+    {
+     "location": "IslandSouthEastCave",
+     "locationName": "Pirate Cove"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)269",
+   "name": "Midnight Carp",
+   "method": "rod",
+   "difficulty": 55,
+   "behavior": "mixed",
+   "size": [
+    12,
+    52
+   ],
+   "times": [
+    [
+     2200,
+     2600
+    ]
+   ],
+   "seasons": [
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 150,
+   "summary": {
+    "locations": [
+     "Mountain Lake",
+     "Forest Pond",
+     "Ginger Island North & West (freshwater)"
+    ],
+    "time": "10PM - 2AM",
+    "seasons": [
+     "Winter",
+     "Fall"
+    ],
+    "weather": "Both",
+    "difficulty": "55 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "condition": "LOCATION_SEASON Here fall winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here fall winter",
+     "area": "Lake"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Freshwater"
+    },
+    {
+     "location": "IslandNorth",
+     "locationName": "Ginger Island (north)"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "IS_FESTIVAL_DAY, SEASON winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)372",
+   "name": "Clam",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.15,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 50,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater",
+     "Foraging: The Beach",
+     "Turtle"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)682",
+   "name": "Mutant Carp",
+   "method": "rod",
+   "difficulty": 80,
+   "behavior": "dart",
+   "size": [
+    36,
+    36
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": true,
+   "legendaryFamily": false,
+   "price": 1000,
+   "summary": {
+    "locations": [
+     "The Sewers"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "80 dart"
+   },
+   "spawns": [
+    {
+     "location": "Sewer",
+     "locationName": "Sewers",
+     "condition": "!PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "legendary": true
+    }
+   ]
+  },
+  {
+   "qid": "(O)698",
+   "name": "Sturgeon",
+   "method": "rod",
+   "difficulty": 78,
+   "behavior": "mixed",
+   "size": [
+    12,
+    60
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 200,
+   "summary": {
+    "locations": [
+     "Mountain Lake"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "78 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "condition": "LOCATION_SEASON Here summer winter"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "condition": "LOCATION_SEASON Here summer winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)699",
+   "name": "Tiger Trout",
+   "method": "rod",
+   "difficulty": 60,
+   "behavior": "dart",
+   "size": [
+    10,
+    20
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 150,
+   "summary": {
+    "locations": [
+     "River"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Winter",
+     "Fall"
+    ],
+    "weather": "Both",
+    "difficulty": "60 dart"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here fall winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here fall winter",
+     "area": "River"
+    }
+   ]
+  },
+  {
+   "qid": "(O)700",
+   "name": "Bullhead",
+   "method": "rod",
+   "difficulty": 46,
+   "behavior": "smooth",
+   "size": [
+    12,
+    30
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Mountain Lake"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "46 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods"
+    }
+   ]
+  },
+  {
+   "qid": "(O)701",
+   "name": "Tilapia",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "mixed",
+   "size": [
+    11,
+    30
+   ],
+   "times": [
+    [
+     600,
+     1400
+    ]
+   ],
+   "seasons": [
+    "summer",
+    "fall"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island"
+    ],
+    "time": "6AM - 2PM",
+    "seasons": [
+     "Fall",
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "50 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here summer fall"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Freshwater"
+    },
+    {
+     "location": "IslandNorth",
+     "locationName": "Ginger Island (north)"
+    }
+   ]
+  },
+  {
+   "qid": "(O)702",
+   "name": "Chub",
+   "method": "rod",
+   "difficulty": 35,
+   "behavior": "dart",
+   "size": [
+    12,
+    24
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 50,
+   "summary": {
+    "locations": [
+     "Mountain Lake",
+     "Forest River"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "35 dart"
+   },
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "area": "River"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp"
+    }
+   ]
+  },
+  {
+   "qid": "(O)704",
+   "name": "Dorado",
+   "method": "rod",
+   "difficulty": 78,
+   "behavior": "mixed",
+   "size": [
+    24,
+    32
+   ],
+   "times": [
+    [
+     600,
+     1900
+    ]
+   ],
+   "seasons": [
+    "summer"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Forest River"
+    ],
+    "time": "6AM - 7PM",
+    "seasons": [
+     "Summer"
+    ],
+    "weather": "Both",
+    "difficulty": "78 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Summer",
+     "area": "River"
+    }
+   ]
+  },
+  {
+   "qid": "(O)705",
+   "name": "Albacore",
+   "method": "rod",
+   "difficulty": 60,
+   "behavior": "mixed",
+   "size": [
+    20,
+    40
+   ],
+   "times": [
+    [
+     600,
+     1100
+    ],
+    [
+     1800,
+     2600
+    ]
+   ],
+   "seasons": [
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6AM - 11AM",
+    "seasons": [
+     "Winter",
+     "Fall"
+    ],
+    "weather": "Both",
+    "difficulty": "60 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here fall winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)706",
+   "name": "Shad",
+   "method": "rod",
+   "difficulty": 45,
+   "behavior": "smooth",
+   "size": [
+    20,
+    48
+   ],
+   "times": [
+    [
+     900,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 60,
+   "summary": {
+    "locations": [
+     "River"
+    ],
+    "time": "9AM - 2AM",
+    "seasons": [
+     "Summer",
+     "Fall",
+     "Spring"
+    ],
+    "weather": "Rainy",
+    "difficulty": "45 smooth"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "LOCATION_SEASON Here spring summer fall"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "LOCATION_SEASON Here spring summer fall",
+     "area": "River"
+    },
+    {
+     "location": "fishingGame",
+     "locationName": "fishingGame"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp"
+    }
+   ]
+  },
+  {
+   "qid": "(O)707",
+   "name": "Lingcod",
+   "method": "rod",
+   "difficulty": 85,
+   "behavior": "mixed",
+   "size": [
+    30,
+    50
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 120,
+   "summary": {
+    "locations": [
+     "River",
+     "Mountain Lake"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "85 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "season": "Winter"
+    },
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "season": "Winter"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Winter",
+     "area": "River"
+    },
+    {
+     "location": "Backwoods",
+     "locationName": "Backwoods",
+     "season": "Winter"
+    },
+    {
+     "location": "Temp",
+     "locationName": "Temp",
+     "condition": "IS_FESTIVAL_DAY, SEASON winter, YEAR 2, RANDOM 0.4"
+    }
+   ]
+  },
+  {
+   "qid": "(O)708",
+   "name": "Halibut",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "sinker",
+   "size": [
+    10,
+    33
+   ],
+   "times": [
+    [
+     600,
+     1100
+    ],
+    [
+     1900,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 80,
+   "summary": {
+    "locations": [
+     "Ocean"
+    ],
+    "time": "6AM - 11AM",
+    "seasons": [
+     "Winter",
+     "Summer",
+     "Spring"
+    ],
+    "weather": "Both",
+    "difficulty": "50 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "LOCATION_SEASON Here spring summer winter"
+    }
+   ]
+  },
+  {
+   "qid": "(O)715",
+   "name": "Lobster",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.05,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 120,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater",
+     "Turtle",
+     "Statue of Endless Fortune"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)716",
+   "name": "Crayfish",
+   "method": "crab pot",
+   "water": "freshwater",
+   "chance": 0.35,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Crab Pot: Freshwater",
+     "Turtle"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)717",
+   "name": "Crab",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.1,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater",
+     "Monster Drops: Rock Crab • Lava Crab",
+     "Turtle"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)718",
+   "name": "Cockle",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.3,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 50,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater",
+     "Foraging: The Beach",
+     "Turtle"
+    ]
+   },
+   "spawns": [
+    {
+     "location": "Farm_Beach",
+     "locationName": "Farm_Beach",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)719",
+   "name": "Mussel",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.35,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 30,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater",
+     "Foraging: The Beach",
+     "Mussel Node",
+     "Turtle"
+    ]
+   },
+   "spawns": [
+    {
+     "location": "Farm_Beach",
+     "locationName": "Farm_Beach",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)720",
+   "name": "Shrimp",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.2,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 60,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)721",
+   "name": "Snail",
+   "method": "crab pot",
+   "water": "freshwater",
+   "chance": 0.25,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 65,
+   "summary": {
+    "locations": [
+     "Crab Pot: Freshwater"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)722",
+   "name": "Periwinkle",
+   "method": "crab pot",
+   "water": "freshwater",
+   "chance": 0.55,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 20,
+   "summary": {
+    "locations": [
+     "Crab Pot: Freshwater"
+    ]
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)723",
+   "name": "Oyster",
+   "method": "crab pot",
+   "water": "ocean",
+   "chance": 0.15,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 40,
+   "summary": {
+    "locations": [
+     "Crab Pot: Saltwater",
+     "Foraging: The Beach"
+    ]
+   },
+   "spawns": [
+    {
+     "location": "Farm_Beach",
+     "locationName": "Farm_Beach",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)734",
+   "name": "Woodskip",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "mixed",
+   "size": [
+    11,
+    30
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 75,
+   "summary": {
+    "locations": [
+     "Secret Woods",
+     "Forest Farm"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "50 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Farm_Forest",
+     "locationName": "Farm_Forest"
+    },
+    {
+     "location": "Woods",
+     "locationName": "Secret Woods"
+    }
+   ]
+  },
+  {
+   "qid": "(O)775",
+   "name": "Glacierfish",
+   "method": "rod",
+   "difficulty": 100,
+   "behavior": "mixed",
+   "size": [
+    27,
+    27
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "sunny",
+   "minFishingLevel": 7,
+   "collection": true,
+   "legendary": true,
+   "legendaryFamily": false,
+   "price": 1000,
+   "summary": {
+    "locations": [
+     "South end of Arrowhead Island in Cindersap Forest"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Sunny",
+    "difficulty": "100 mixed"
+   },
+   "spawns": [
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "season": "Winter",
+     "condition": "!PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "legendary": true,
+     "minFishingLevel": 6
+    }
+   ]
+  },
+  {
+   "qid": "(O)795",
+   "name": "Void Salmon",
+   "method": "rod",
+   "difficulty": 80,
+   "behavior": "mixed",
+   "size": [
+    24,
+    65
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 150,
+   "summary": {
+    "locations": [
+     "Witch's Swamp"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "80 mixed"
+   },
+   "spawns": [
+    {
+     "location": "WitchSwamp",
+     "locationName": "Witch's Swamp"
+    }
+   ]
+  },
+  {
+   "qid": "(O)796",
+   "name": "Slimejack",
+   "method": "rod",
+   "difficulty": 55,
+   "behavior": "dart",
+   "size": [
+    8,
+    25
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Mutant Bug Lair"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "55 dart"
+   },
+   "spawns": [
+    {
+     "location": "BugLand",
+     "locationName": "Mutant Bug Lair"
+    }
+   ]
+  },
+  {
+   "qid": "(O)798",
+   "name": "Midnight Squid",
+   "method": "rod",
+   "difficulty": 55,
+   "behavior": "sinker",
+   "size": [
+    8,
+    25
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Submarine at Night Market"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "55 sinker"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    }
+   ]
+  },
+  {
+   "qid": "(O)799",
+   "name": "Spook Fish",
+   "method": "rod",
+   "difficulty": 60,
+   "behavior": "dart",
+   "size": [
+    8,
+    25
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 220,
+   "summary": {
+    "locations": [
+     "Submarine at Night Market"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "60 dart"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    }
+   ]
+  },
+  {
+   "qid": "(O)800",
+   "name": "Blobfish",
+   "method": "rod",
+   "difficulty": 75,
+   "behavior": "floater",
+   "size": [
+    8,
+    25
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 500,
+   "summary": {
+    "locations": [
+     "Submarine at Night Market"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "75 floater"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    }
+   ]
+  },
+  {
+   "qid": "(O)836",
+   "name": "Stingray",
+   "method": "rod",
+   "difficulty": 80,
+   "behavior": "sinker",
+   "size": [
+    18,
+    60
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 180,
+   "summary": {
+    "locations": [
+     "Pirate Cove"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "80 sinker"
+   },
+   "spawns": [
+    {
+     "location": "IslandSouthEastCave",
+     "locationName": "Pirate Cove"
+    }
+   ]
+  },
+  {
+   "qid": "(O)837",
+   "name": "Lionfish",
+   "method": "rod",
+   "difficulty": 50,
+   "behavior": "smooth",
+   "size": [
+    3,
+    12
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 100,
+   "summary": {
+    "locations": [
+     "Ginger Island"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "50 smooth"
+   },
+   "spawns": [
+    {
+     "location": "IslandSouth",
+     "locationName": "Ginger Island (south)"
+    },
+    {
+     "location": "IslandSouthEast",
+     "locationName": "Ginger Island (southeast)"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)838",
+   "name": "Blue Discus",
+   "method": "rod",
+   "difficulty": 60,
+   "behavior": "dart",
+   "size": [
+    2,
+    9
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 120,
+   "summary": {
+    "locations": [
+     "Ginger Island"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "60 dart"
+   },
+   "spawns": [
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Freshwater"
+    },
+    {
+     "location": "IslandNorth",
+     "locationName": "Ginger Island (north)"
+    }
+   ]
+  },
+  {
+   "qid": "(O)CaveJelly",
+   "name": "Cave Jelly",
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 180,
+   "summary": {
+    "locations": [
+     "The Mines"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Spring",
+     "Summer",
+     "Fall",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "None"
+   },
+   "spawns": [
+    {
+     "location": "UndergroundMine",
+     "locationName": "The Mines"
+    }
+   ]
+  },
+  {
+   "qid": "(O)Goby",
+   "name": "Goby",
+   "method": "rod",
+   "difficulty": 55,
+   "behavior": "dart",
+   "size": [
+    3,
+    12
+   ],
+   "times": [
+    [
+     800,
+     1800
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 150,
+   "summary": {
+    "locations": [
+     "Cindersap Forest Waterfalls"
+    ],
+    "time": "8AM - 6PM",
+    "seasons": [
+     "Fall",
+     "Summer",
+     "Spring",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "55 dart"
+   },
+   "spawns": []
+  },
+  {
+   "qid": "(O)RiverJelly",
+   "name": "River Jelly",
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 125,
+   "summary": {
+    "locations": [
+     "River",
+     "Mountain Lake",
+     "Forest River",
+     "The Desert",
+     "Secret Woods",
+     "Ginger Island North & West (freshwater)"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Spring",
+     "Summer",
+     "Fall",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "None"
+   },
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town"
+    },
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake"
+    },
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest"
+    },
+    {
+     "location": "Desert",
+     "locationName": "Calico Desert"
+    },
+    {
+     "location": "Woods",
+     "locationName": "Secret Woods"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Freshwater"
+    },
+    {
+     "location": "IslandNorth",
+     "locationName": "Ginger Island (north)"
+    }
+   ]
+  },
+  {
+   "qid": "(O)SeaJelly",
+   "name": "Sea Jelly",
+   "collection": true,
+   "legendary": false,
+   "legendaryFamily": false,
+   "price": 200,
+   "summary": {
+    "locations": [
+     "Ocean",
+     "Ginger Island",
+     "Submarine at Night Market",
+     "Pirate Cove"
+    ],
+    "time": "6AM - 2AM",
+    "seasons": [
+     "Spring",
+     "Summer",
+     "Fall",
+     "Winter"
+    ],
+    "weather": "Both",
+    "difficulty": "None"
+   },
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach"
+    },
+    {
+     "location": "Submarine",
+     "locationName": "Night Market submarine"
+    },
+    {
+     "location": "IslandSouth",
+     "locationName": "Ginger Island (south)"
+    },
+    {
+     "location": "IslandSouthEast",
+     "locationName": "Ginger Island (southeast)"
+    },
+    {
+     "location": "IslandSouthEastCave",
+     "locationName": "Pirate Cove"
+    },
+    {
+     "location": "IslandWest",
+     "locationName": "Ginger Island (west)",
+     "area": "Ocean"
+    }
+   ]
+  },
+  {
+   "qid": "(O)898",
+   "name": "Son of Crimsonfish",
+   "method": "rod",
+   "difficulty": 95,
+   "behavior": "mixed",
+   "size": [
+    20,
+    20
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 5,
+   "collection": false,
+   "legendary": false,
+   "legendaryFamily": true,
+   "price": 1500,
+   "summary": {},
+   "spawns": [
+    {
+     "location": "Beach",
+     "locationName": "The Beach",
+     "condition": "PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "minFishingLevel": 5
+    }
+   ]
+  },
+  {
+   "qid": "(O)899",
+   "name": "Ms. Angler",
+   "method": "rod",
+   "difficulty": 85,
+   "behavior": "smooth",
+   "size": [
+    18,
+    18
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 3,
+   "collection": false,
+   "legendary": false,
+   "legendaryFamily": true,
+   "price": 900,
+   "summary": {},
+   "spawns": [
+    {
+     "location": "Town",
+     "locationName": "Pelican Town",
+     "condition": "PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "minFishingLevel": 3
+    }
+   ]
+  },
+  {
+   "qid": "(O)900",
+   "name": "Legend II",
+   "method": "rod",
+   "difficulty": 110,
+   "behavior": "mixed",
+   "size": [
+    50,
+    50
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "rainy",
+   "minFishingLevel": 10,
+   "collection": false,
+   "legendary": false,
+   "legendaryFamily": true,
+   "price": 5000,
+   "summary": {},
+   "spawns": [
+    {
+     "location": "Mountain",
+     "locationName": "Mountain lake",
+     "condition": "PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "minFishingLevel": 10
+    }
+   ]
+  },
+  {
+   "qid": "(O)901",
+   "name": "Radioactive Carp",
+   "method": "rod",
+   "difficulty": 80,
+   "behavior": "dart",
+   "size": [
+    36,
+    36
+   ],
+   "times": [
+    [
+     600,
+     2600
+    ]
+   ],
+   "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+   ],
+   "weather": "both",
+   "minFishingLevel": 0,
+   "collection": false,
+   "legendary": false,
+   "legendaryFamily": true,
+   "price": 1000,
+   "summary": {},
+   "spawns": [
+    {
+     "location": "Sewer",
+     "locationName": "Sewers",
+     "condition": "PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY"
+    }
+   ]
+  },
+  {
+   "qid": "(O)902",
+   "name": "Glacierfish Jr.",
+   "method": "rod",
+   "difficulty": 100,
+   "behavior": "mixed",
+   "size": [
+    27,
+    27
+   ],
+   "times": [
+    [
+     600,
+     2000
+    ]
+   ],
+   "seasons": [
+    "winter"
+   ],
+   "weather": "sunny",
+   "minFishingLevel": 7,
+   "collection": false,
+   "legendary": false,
+   "legendaryFamily": true,
+   "price": 1000,
+   "summary": {},
+   "spawns": [
+    {
+     "location": "Forest",
+     "locationName": "Cindersap Forest",
+     "condition": "PLAYER_SPECIAL_ORDER_RULE_ACTIVE Current LEGENDARY_FAMILY",
+     "minFishingLevel": 6
+    }
+   ]
+  }
+ ]
+}

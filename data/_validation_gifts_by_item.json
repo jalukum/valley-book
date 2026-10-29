@@ -1,0 +1,82 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "checked": 21115,
+  "mismatches": 9,
+  "itemsWithoutGiftsByItem": 70
+ },
+ "data": [
+  {
+   "item": "Bait And Bobber",
+   "npc": "Penny",
+   "wiki": "neutral",
+   "computed": [
+    "love"
+   ]
+  },
+  {
+   "item": "Bait And Bobber",
+   "npc": "Elliott",
+   "wiki": "neutral",
+   "computed": [
+    "like"
+   ]
+  },
+  {
+   "item": "Bait And Bobber",
+   "npc": "Willy",
+   "wiki": "neutral",
+   "computed": [
+    "like"
+   ]
+  },
+  {
+   "item": "Bone Fragment",
+   "npc": "Clint",
+   "wiki": "dislike",
+   "computed": [
+    "neutral"
+   ]
+  },
+  {
+   "item": "Cinder Shard",
+   "npc": "Clint",
+   "wiki": "dislike",
+   "computed": [
+    "neutral"
+   ]
+  },
+  {
+   "item": "Jewels Of The Sea",
+   "npc": "Penny",
+   "wiki": "neutral",
+   "computed": [
+    "love"
+   ]
+  },
+  {
+   "item": "The Art O' Crabbing",
+   "npc": "Penny",
+   "wiki": "neutral",
+   "computed": [
+    "love"
+   ]
+  },
+  {
+   "item": "The Art O' Crabbing",
+   "npc": "Elliott",
+   "wiki": "neutral",
+   "computed": [
+    "like"
+   ]
+  },
+  {
+   "item": "The Art O' Crabbing",
+   "npc": "Willy",
+   "wiki": "neutral",
+   "computed": [
+    "love"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,178 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "note": "computed tastes vs wiki ==Gifts== tables"
+ },
+ "data": {
+  "Robin": {
+   "wikiListed": 21,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Demetrius": {
+   "wikiListed": 20,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Maru": {
+   "wikiListed": 39,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Sebastian": {
+   "wikiListed": 30,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Linus": {
+   "wikiListed": 23,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Pierre": {
+   "wikiListed": 21,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Caroline": {
+   "wikiListed": 24,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Abigail": {
+   "wikiListed": 29,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Alex": {
+   "wikiListed": 23,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "George": {
+   "wikiListed": 18,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Evelyn": {
+   "wikiListed": 39,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Lewis": {
+   "wikiListed": 24,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Clint": {
+   "wikiListed": 34,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Penny": {
+   "wikiListed": 38,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Pam": {
+   "wikiListed": 26,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Emily": {
+   "wikiListed": 34,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Haley": {
+   "wikiListed": 22,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Jas": {
+   "wikiListed": 26,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Vincent": {
+   "wikiListed": 25,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Jodi": {
+   "wikiListed": 25,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Kent": {
+   "wikiListed": 22,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Sam": {
+   "wikiListed": 34,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Leah": {
+   "wikiListed": 37,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Shane": {
+   "wikiListed": 22,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Marnie": {
+   "wikiListed": 23,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Elliott": {
+   "wikiListed": 30,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Gus": {
+   "wikiListed": 23,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Dwarf": {
+   "wikiListed": 28,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Wizard": {
+   "wikiListed": 22,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Harvey": {
+   "wikiListed": 48,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Sandy": {
+   "wikiListed": 23,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Willy": {
+   "wikiListed": 48,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Krobus": {
+   "wikiListed": 27,
+   "mismatches": [],
+   "unmatchedNames": []
+  },
+  "Leo": {
+   "wikiListed": 38,
+   "mismatches": [],
+   "unmatchedNames": []
+  }
+ }
+}

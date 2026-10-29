@@ -1,0 +1,5051 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "sources": [
+   "https://github.com/kronosta/stardew-data@de69cb5 Data/Crops, Shops, Objects, Locations, Events",
+   "https://stardewvalleywiki.com/Quests",
+   "https://stardewvalleywiki.com/Raccoon",
+   "https://stardewvalleywiki.com/Traveling_Cart",
+   "https://stardewvalleywiki.com/Weather"
+  ]
+ },
+ "data": {
+  "crops": [
+   {
+    "seed": "472",
+    "seedName": "Parsnip Seeds",
+    "item": "24",
+    "name": "Parsnip",
+    "seasons": [
+     "spring"
+    ],
+    "days": 4,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 35,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 20,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 20,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "473",
+    "seedName": "Bean Starter",
+    "item": "188",
+    "name": "Green Bean",
+    "seasons": [
+     "spring"
+    ],
+    "days": 10,
+    "regrow": 3,
+    "raised": true,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 40,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 60,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 60,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "474",
+    "seedName": "Cauliflower Seeds",
+    "item": "190",
+    "name": "Cauliflower",
+    "seasons": [
+     "spring"
+    ],
+    "days": 12,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 175,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 80,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 80,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "475",
+    "seedName": "Potato Seeds",
+    "item": "192",
+    "name": "Potato",
+    "seasons": [
+     "spring"
+    ],
+    "days": 6,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.25,
+    "sell": 80,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 50,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 50,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "476",
+    "seedName": "Garlic Seeds",
+    "item": "248",
+    "name": "Garlic",
+    "seasons": [
+     "spring"
+    ],
+    "days": 4,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 60,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 40,
+       "seasons": [
+        "spring"
+       ],
+       "year": 2,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "273",
+    "seedName": "Rice Shoot",
+    "item": "271",
+    "name": "Unmilled Rice",
+    "seasons": [
+     "spring"
+    ],
+    "days": 8,
+    "regrow": -1,
+    "raised": false,
+    "paddy": true,
+    "yield": 1.111,
+    "sell": 30,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 40,
+       "seasons": [
+        "spring"
+       ],
+       "year": 2,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "477",
+    "seedName": "Kale Seeds",
+    "item": "250",
+    "name": "Kale",
+    "seasons": [
+     "spring"
+    ],
+    "days": 6,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 110,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 70,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 70,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "478",
+    "seedName": "Rhubarb Seeds",
+    "item": "252",
+    "name": "Rhubarb",
+    "seasons": [
+     "spring"
+    ],
+    "days": 13,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 220,
+    "cat": -79,
+    "shops": {
+     "oasis": [
+      {
+       "price": 100,
+       "seasons": null,
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "745",
+    "seedName": "Strawberry Seeds",
+    "item": "400",
+    "name": "Strawberry",
+    "seasons": [
+     "spring"
+    ],
+    "days": 8,
+    "regrow": 4,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.02,
+    "sell": 120,
+    "cat": -79,
+    "shops": {
+     "egg": [
+      {
+       "price": 100,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "festival": "spring13"
+      }
+     ]
+    }
+   },
+   {
+    "seed": "479",
+    "seedName": "Melon Seeds",
+    "item": "254",
+    "name": "Melon",
+    "seasons": [
+     "summer"
+    ],
+    "days": 12,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 250,
+    "cat": -79,
+    "shops": {
+     "pierre": [
+      {
+       "price": 80,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 80,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "480",
+    "seedName": "Tomato Seeds",
+    "item": "256",
+    "name": "Tomato",
+    "seasons": [
+     "summer"
+    ],
+    "days": 11,
+    "regrow": 4,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.053,
+    "sell": 60,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 50,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 50,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "481",
+    "seedName": "Blueberry Seeds",
+    "item": "258",
+    "name": "Blueberry",
+    "seasons": [
+     "summer"
+    ],
+    "days": 13,
+    "regrow": 4,
+    "raised": false,
+    "paddy": false,
+    "yield": 3.02,
+    "sell": 50,
+    "cat": -79,
+    "shops": {
+     "pierre": [
+      {
+       "price": 80,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "482",
+    "seedName": "Pepper Seeds",
+    "item": "260",
+    "name": "Hot Pepper",
+    "seasons": [
+     "summer"
+    ],
+    "days": 5,
+    "regrow": 3,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.031,
+    "sell": 40,
+    "cat": -79,
+    "shops": {
+     "pierre": [
+      {
+       "price": 40,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 40,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "483",
+    "seedName": "Wheat Seeds",
+    "item": "262",
+    "name": "Wheat",
+    "seasons": [
+     "summer",
+     "fall"
+    ],
+    "days": 4,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 25,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 10,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      },
+      {
+       "price": 10,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 10,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      },
+      {
+       "price": 10,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "484",
+    "seedName": "Radish Seeds",
+    "item": "264",
+    "name": "Radish",
+    "seasons": [
+     "summer"
+    ],
+    "days": 6,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 90,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 40,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 40,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "485",
+    "seedName": "Red Cabbage Seeds",
+    "item": "266",
+    "name": "Red Cabbage",
+    "seasons": [
+     "summer"
+    ],
+    "days": 9,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 260,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 100,
+       "seasons": [
+        "summer"
+       ],
+       "year": 2,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "486",
+    "seedName": "Starfruit Seeds",
+    "item": "268",
+    "name": "Starfruit",
+    "seasons": [
+     "summer"
+    ],
+    "days": 13,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 750,
+    "cat": -79,
+    "shops": {
+     "oasis": [
+      {
+       "price": 400,
+       "seasons": null,
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "487",
+    "seedName": "Corn Seeds",
+    "item": "270",
+    "name": "Corn",
+    "seasons": [
+     "summer",
+     "fall"
+    ],
+    "days": 14,
+    "regrow": 4,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 50,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 150,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      },
+      {
+       "price": 150,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 150,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "302",
+    "seedName": "Hops Starter",
+    "item": "304",
+    "name": "Hops",
+    "seasons": [
+     "summer"
+    ],
+    "days": 11,
+    "regrow": 1,
+    "raised": true,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 25,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 60,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 60,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "301",
+    "seedName": "Grape Starter",
+    "item": "398",
+    "name": "Grape",
+    "seasons": [
+     "fall"
+    ],
+    "days": 10,
+    "regrow": 3,
+    "raised": true,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 80,
+    "cat": -79,
+    "shops": {
+     "pierre": [
+      {
+       "price": 60,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 60,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "299",
+    "seedName": "Amaranth Seeds",
+    "item": "300",
+    "name": "Amaranth",
+    "seasons": [
+     "fall"
+    ],
+    "days": 7,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 150,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 70,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 70,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "488",
+    "seedName": "Eggplant Seeds",
+    "item": "272",
+    "name": "Eggplant",
+    "seasons": [
+     "fall"
+    ],
+    "days": 5,
+    "regrow": 5,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.002,
+    "sell": 60,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 20,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 20,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "489",
+    "seedName": "Artichoke Seeds",
+    "item": "274",
+    "name": "Artichoke",
+    "seasons": [
+     "fall"
+    ],
+    "days": 8,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 160,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 30,
+       "seasons": [
+        "fall"
+       ],
+       "year": 2,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "490",
+    "seedName": "Pumpkin Seeds",
+    "item": "276",
+    "name": "Pumpkin",
+    "seasons": [
+     "fall"
+    ],
+    "days": 13,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 320,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 100,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 100,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "491",
+    "seedName": "Bok Choy Seeds",
+    "item": "278",
+    "name": "Bok Choy",
+    "seasons": [
+     "fall"
+    ],
+    "days": 4,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 80,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 50,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 50,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "492",
+    "seedName": "Yam Seeds",
+    "item": "280",
+    "name": "Yam",
+    "seasons": [
+     "fall"
+    ],
+    "days": 10,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 160,
+    "cat": -75,
+    "shops": {
+     "pierre": [
+      {
+       "price": 60,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 60,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "493",
+    "seedName": "Cranberry Seeds",
+    "item": "282",
+    "name": "Cranberries",
+    "seasons": [
+     "fall"
+    ],
+    "days": 7,
+    "regrow": 5,
+    "raised": false,
+    "paddy": false,
+    "yield": 2.111,
+    "sell": 75,
+    "cat": -79,
+    "shops": {
+     "pierre": [
+      {
+       "price": 240,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 240,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "494",
+    "seedName": "Beet Seeds",
+    "item": "284",
+    "name": "Beet",
+    "seasons": [
+     "fall"
+    ],
+    "days": 6,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 100,
+    "cat": -75,
+    "shops": {
+     "oasis": [
+      {
+       "price": 20,
+       "seasons": null,
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "427",
+    "seedName": "Tulip Bulb",
+    "item": "591",
+    "name": "Tulip",
+    "seasons": [
+     "spring"
+    ],
+    "days": 6,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 30,
+    "cat": -80,
+    "shops": {
+     "pierre": [
+      {
+       "price": 20,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 20,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "429",
+    "seedName": "Jazz Seeds",
+    "item": "597",
+    "name": "Blue Jazz",
+    "seasons": [
+     "spring"
+    ],
+    "days": 7,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 50,
+    "cat": -80,
+    "shops": {
+     "pierre": [
+      {
+       "price": 30,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 30,
+       "seasons": [
+        "spring"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "453",
+    "seedName": "Poppy Seeds",
+    "item": "376",
+    "name": "Poppy",
+    "seasons": [
+     "summer"
+    ],
+    "days": 7,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 140,
+    "cat": -80,
+    "shops": {
+     "pierre": [
+      {
+       "price": 100,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 100,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "455",
+    "seedName": "Spangle Seeds",
+    "item": "593",
+    "name": "Summer Spangle",
+    "seasons": [
+     "summer"
+    ],
+    "days": 8,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 90,
+    "cat": -80,
+    "shops": {
+     "pierre": [
+      {
+       "price": 50,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 50,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "431",
+    "seedName": "Sunflower Seeds",
+    "item": "421",
+    "name": "Sunflower",
+    "seasons": [
+     "summer",
+     "fall"
+    ],
+    "days": 8,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 80,
+    "cat": -80,
+    "shops": {
+     "pierre": [
+      {
+       "price": 200,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      },
+      {
+       "price": 200,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 100,
+       "seasons": [
+        "summer"
+       ],
+       "year": 1,
+       "dow": null
+      },
+      {
+       "price": 100,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "425",
+    "seedName": "Fairy Seeds",
+    "item": "595",
+    "name": "Fairy Rose",
+    "seasons": [
+     "fall"
+    ],
+    "days": 12,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 290,
+    "cat": -80,
+    "shops": {
+     "pierre": [
+      {
+       "price": 200,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ],
+     "joja": [
+      {
+       "price": 200,
+       "seasons": [
+        "fall"
+       ],
+       "year": 1,
+       "dow": null
+      }
+     ]
+    }
+   },
+   {
+    "seed": "347",
+    "seedName": "Rare Seed",
+    "item": "417",
+    "name": "Sweet Gem Berry",
+    "seasons": [
+     "fall"
+    ],
+    "days": 24,
+    "regrow": -1,
+    "raised": false,
+    "paddy": false,
+    "yield": 1.0,
+    "sell": 3000,
+    "cat": -17,
+    "shops": {
+     "cart": [
+      {
+       "price": 1000,
+       "seasons": [
+        "spring",
+        "summer"
+       ],
+       "year": 1
+      }
+     ]
+    }
+   }
+  ],
+  "forage": [
+   {
+    "item": "18",
+    "loc": "Town",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "402",
+    "loc": "Town",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "410",
+    "loc": "Town",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "418",
+    "loc": "Town",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "414",
+    "loc": "Town",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.1
+   },
+   {
+    "item": "283",
+    "loc": "Town",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "372",
+    "loc": "Beach",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "718",
+    "loc": "Beach",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall"
+    ],
+    "chance": 0.1
+   },
+   {
+    "item": "719",
+    "loc": "Beach",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall"
+    ],
+    "chance": 0.3
+   },
+   {
+    "item": "723",
+    "loc": "Beach",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall"
+    ],
+    "chance": 0.3
+   },
+   {
+    "item": "394",
+    "loc": "Beach",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "372",
+    "loc": "Beach",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "392",
+    "loc": "Beach",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.8
+   },
+   {
+    "item": "718",
+    "loc": "Beach",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.05
+   },
+   {
+    "item": "719",
+    "loc": "Beach",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.2
+   },
+   {
+    "item": "723",
+    "loc": "Beach",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.2
+   },
+   {
+    "item": "20",
+    "loc": "Mountain",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "16",
+    "loc": "Mountain",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "396",
+    "loc": "Mountain",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "398",
+    "loc": "Mountain",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.8
+   },
+   {
+    "item": "404",
+    "loc": "Mountain",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "406",
+    "loc": "Mountain",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "408",
+    "loc": "Mountain",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "414",
+    "loc": "Mountain",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.85
+   },
+   {
+    "item": "418",
+    "loc": "Mountain",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "283",
+    "loc": "Mountain",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "16",
+    "loc": "Forest",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "22",
+    "loc": "Forest",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "396",
+    "loc": "Forest",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "402",
+    "loc": "Forest",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "404",
+    "loc": "Forest",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "410",
+    "loc": "Forest",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "418",
+    "loc": "Forest",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "414",
+    "loc": "Forest",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "283",
+    "loc": "Forest",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "18",
+    "loc": "BusStop",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "20",
+    "loc": "BusStop",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "22",
+    "loc": "BusStop",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "396",
+    "loc": "BusStop",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "398",
+    "loc": "BusStop",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "402",
+    "loc": "BusStop",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "406",
+    "loc": "BusStop",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "408",
+    "loc": "BusStop",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "414",
+    "loc": "BusStop",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.33
+   },
+   {
+    "item": "418",
+    "loc": "BusStop",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "283",
+    "loc": "BusStop",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "88",
+    "loc": "Desert",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "90",
+    "loc": "Desert",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "257",
+    "loc": "Woods",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "404",
+    "loc": "Woods",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.25
+   },
+   {
+    "item": "16",
+    "loc": "Woods",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.8
+   },
+   {
+    "item": "259",
+    "loc": "Woods",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "420",
+    "loc": "Woods",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.25
+   },
+   {
+    "item": "281",
+    "loc": "Woods",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "404",
+    "loc": "Woods",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "420",
+    "loc": "Woods",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.2
+   },
+   {
+    "item": "283",
+    "loc": "Woods",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "18",
+    "loc": "Railroad",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "20",
+    "loc": "Railroad",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "22",
+    "loc": "Railroad",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "396",
+    "loc": "Railroad",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "398",
+    "loc": "Railroad",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "402",
+    "loc": "Railroad",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "406",
+    "loc": "Railroad",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "408",
+    "loc": "Railroad",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "410",
+    "loc": "Railroad",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.6
+   },
+   {
+    "item": "414",
+    "loc": "Railroad",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.8
+   },
+   {
+    "item": "418",
+    "loc": "Railroad",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.8
+   },
+   {
+    "item": "20",
+    "loc": "Backwoods",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.7
+   },
+   {
+    "item": "16",
+    "loc": "Backwoods",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "396",
+    "loc": "Backwoods",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "398",
+    "loc": "Backwoods",
+    "seasons": [
+     "summer"
+    ],
+    "chance": 0.8
+   },
+   {
+    "item": "404",
+    "loc": "Backwoods",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "406",
+    "loc": "Backwoods",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "408",
+    "loc": "Backwoods",
+    "seasons": [
+     "fall"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "414",
+    "loc": "Backwoods",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.25
+   },
+   {
+    "item": "418",
+    "loc": "Backwoods",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.4
+   },
+   {
+    "item": "283",
+    "loc": "Backwoods",
+    "seasons": [
+     "winter"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "281",
+    "loc": "IslandNorthCave1",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "404",
+    "loc": "IslandNorthCave1",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "420",
+    "loc": "IslandNorthCave1",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "422",
+    "loc": "IslandNorthCave1",
+    "seasons": [
+     "spring"
+    ],
+    "chance": 0.5
+   },
+   {
+    "item": "420",
+    "loc": "IslandNorthCave1",
+    "seasons": [
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "422",
+    "loc": "IslandNorthCave1",
+    "seasons": [
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "chance": 0.9
+   },
+   {
+    "item": "399",
+    "loc": "Forest",
+    "seasons": [
+     "spring"
+    ],
+    "note": "Spring Onions grow in a patch in the south of Cindersap Forest.",
+    "src": "https://stardewvalleywiki.com/Spring_Onion"
+   },
+   {
+    "item": "296",
+    "loc": "Forest",
+    "seasons": [
+     "spring"
+    ],
+    "days": [
+     15,
+     18
+    ],
+    "note": "Salmonberry bushes fruit on Spring 15–18.",
+    "src": "https://stardewvalleywiki.com/Salmonberry"
+   },
+   {
+    "item": "410",
+    "loc": "Forest",
+    "seasons": [
+     "fall"
+    ],
+    "days": [
+     8,
+     11
+    ],
+    "note": "Blackberry bushes fruit on Fall 8–11.",
+    "src": "https://stardewvalleywiki.com/Blackberry"
+   },
+   {
+    "item": "393",
+    "loc": "Beach",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "access": "bridge",
+    "note": "Coral washes up in the tide pools east of the repaired bridge.",
+    "src": "https://stardewvalleywiki.com/Coral"
+   },
+   {
+    "item": "397",
+    "loc": "Beach",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "access": "bridge",
+    "note": "Sea Urchins wash up in the tide pools east of the repaired bridge.",
+    "src": "https://stardewvalleywiki.com/Sea_Urchin"
+   },
+   {
+    "item": "78",
+    "loc": "Mine",
+    "seasons": [
+     "spring",
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "access": "mine",
+    "note": "Cave Carrots appear on Mines floors.",
+    "src": "https://stardewvalleywiki.com/Cave_Carrot"
+   }
+  ],
+  "forageLoc": {
+   "Town": "Pelican Town",
+   "Beach": "the Beach",
+   "Mountain": "the Mountain",
+   "Forest": "Cindersap Forest",
+   "BusStop": "the Bus Stop",
+   "Backwoods": "the Backwoods",
+   "Railroad": "the Railroad",
+   "Desert": "the Calico Desert",
+   "Woods": "the Secret Woods",
+   "IslandNorthCave1": "Ginger Island (north cave)",
+   "Mine": "the Mines"
+  },
+  "forageAccess": {
+   "Town": null,
+   "Beach": null,
+   "Mountain": null,
+   "Forest": null,
+   "BusStop": null,
+   "Backwoods": null,
+   "Railroad": "railroad",
+   "Desert": "bus",
+   "Woods": "woods",
+   "IslandNorthCave1": "island",
+   "Mine": "mine"
+  },
+  "events": [
+   {
+    "id": "1",
+    "loc": "SeedShop",
+    "locName": "Pierre's General Store",
+    "access": null,
+    "special": [],
+    "notDays": [
+     5
+    ],
+    "npc": "Abigail",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "2",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "w": "rainy",
+    "t": [
+     1200,
+     1900
+    ],
+    "notSeasons": [
+     "winter"
+    ],
+    "npc": "Abigail",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "4",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "t": [
+     2100,
+     2400
+    ],
+    "w": "sunny",
+    "npc": "Abigail",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "3",
+    "loc": "SeedShop",
+    "locName": "Pierre's General Store",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "t": [
+     2000,
+     2200
+    ],
+    "npc": "Abigail",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "901756",
+    "loc": "Mine",
+    "locName": "the Mines entrance",
+    "access": null,
+    "special": [],
+    "t": [
+     1700,
+     2400
+    ],
+    "notMarriedTo": "Abigail",
+    "npc": "Abigail",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "6963327",
+    "loc": "Backwoods",
+    "locName": "the Backwoods",
+    "access": null,
+    "special": [],
+    "marriedTo": "Abigail",
+    "t": [
+     610,
+     1700
+    ],
+    "npc": "Abigail",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "20",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "notSeasons": [
+     "winter"
+    ],
+    "w": "sunny",
+    "npc": "Alex",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "2481135",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "t": [
+     900,
+     1600
+    ],
+    "npc": "Alex",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "21",
+    "loc": "JoshHouse",
+    "locName": "1 River Road (Alex)",
+    "access": null,
+    "special": [],
+    "npc": "Alex",
+    "hearts": 5,
+    "others": []
+   },
+   {
+    "id": "2119820",
+    "loc": "JoshHouse",
+    "locName": "1 River Road (Alex)",
+    "access": null,
+    "special": [],
+    "npc": "Alex",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "288847",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "npc": "Alex",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "911526",
+    "loc": "Saloon",
+    "locName": "the Stardrop Saloon",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "t": [
+     1900,
+     2200
+    ],
+    "npc": "Alex",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "3917587",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [
+     "M"
+    ],
+    "marriedTo": "Alex",
+    "t": [
+     500,
+     820
+    ],
+    "notDays": [
+     6
+    ],
+    "y": 2,
+    "npc": "Alex",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "17",
+    "loc": "SeedShop",
+    "locName": "Pierre's General Store",
+    "access": null,
+    "special": [],
+    "npc": "Caroline",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "97",
+    "loc": "Saloon",
+    "locName": "the Stardrop Saloon",
+    "access": null,
+    "special": [],
+    "t": [
+     1900,
+     2300
+    ],
+    "notDays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "npc": "Clint",
+    "hearts": 3,
+    "others": []
+   },
+   {
+    "id": "101",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [
+     "!D"
+    ],
+    "after": [
+     "97"
+    ],
+    "notAfter": [
+     "2123243",
+     "2123343"
+    ],
+    "notMarriedTo": "Emily",
+    "t": [
+     900,
+     1830
+    ],
+    "npc": "Clint",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "25",
+    "loc": "ScienceHouse",
+    "locName": "the Carpenter's Shop",
+    "access": null,
+    "special": [],
+    "npc": "Demetrius",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "691039",
+    "loc": "Sewer",
+    "locName": "the Sewers",
+    "access": "sewer",
+    "special": [
+     "n"
+    ],
+    "notDays": [
+     4
+    ],
+    "npc": "Dwarf",
+    "hearts": 0,
+    "others": []
+   },
+   {
+    "id": "39",
+    "loc": "ElliottHouse",
+    "locName": "Elliott's cabin",
+    "access": null,
+    "special": [],
+    "npc": "Elliott",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "40",
+    "loc": "Saloon",
+    "locName": "the Stardrop Saloon",
+    "access": null,
+    "special": [],
+    "t": [
+     1500,
+     2200
+    ],
+    "npc": "Elliott",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "423502",
+    "loc": "ElliottHouse",
+    "locName": "Elliott's cabin",
+    "access": null,
+    "special": [],
+    "npc": "Elliott",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "1848481",
+    "loc": "ArchaeologyHouse",
+    "locName": "the Museum",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "t": [
+     1300,
+     1900
+    ],
+    "npc": "Elliott",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "43",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "t": [
+     700,
+     1300
+    ],
+    "npc": "Elliott",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "3912125",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "marriedTo": "Elliott",
+    "t": [
+     500,
+     1500
+    ],
+    "npc": "Elliott",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "471942",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [],
+    "npc": "Emily",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "463391",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "after": [
+     "471942"
+    ],
+    "w": "sunny",
+    "notSeasons": [
+     "winter"
+    ],
+    "t": [
+     600,
+     1700
+    ],
+    "npc": "Emily",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "917409",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [],
+    "after": [
+     "463391"
+    ],
+    "npc": "Emily",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "3917600",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "marriedTo": "Emily",
+    "t": [
+     500,
+     820
+    ],
+    "npc": "Emily",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "3917601",
+    "loc": "FarmHouse",
+    "locName": "your farmhouse",
+    "access": null,
+    "special": [
+     "A",
+     "n"
+    ],
+    "marriedTo": "Emily",
+    "t": [
+     2000,
+     2400
+    ],
+    "npc": "Emily",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "19",
+    "loc": "JoshHouse",
+    "locName": "1 River Road (Alex)",
+    "access": null,
+    "special": [],
+    "npc": "Evelyn",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "18",
+    "loc": "JoshHouse",
+    "locName": "1 River Road (Alex)",
+    "access": null,
+    "special": [],
+    "npc": "George",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "96",
+    "loc": "Saloon",
+    "locName": "the Stardrop Saloon",
+    "access": null,
+    "special": [],
+    "npc": "Gus",
+    "hearts": 4,
+    "others": [
+     [
+      "Pam",
+      500
+     ]
+    ]
+   },
+   {
+    "id": "980558",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     1130
+    ],
+    "w": "sunny",
+    "npc": "Gus",
+    "hearts": 5,
+    "others": []
+   },
+   {
+    "id": "11",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [],
+    "npc": "Haley",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "12",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [],
+    "npc": "Haley",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "13",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "notSeasons": [
+     "winter"
+    ],
+    "t": [
+     1000,
+     1600
+    ],
+    "npc": "Haley",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "14",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "notSeasons": [
+     "winter"
+    ],
+    "t": [
+     1000,
+     1600
+    ],
+    "w": "sunny",
+    "npc": "Haley",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "15",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [],
+    "npc": "Haley",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "195019",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [
+     "i"
+    ],
+    "notMarriedTo": "Alex",
+    "after": [
+     "38",
+     "2123343",
+     "10",
+     "901756",
+     "54",
+     "15"
+    ],
+    "notAfter": [
+     "195012"
+    ],
+    "npc": "Haley",
+    "hearts": 10,
+    "others": [
+     [
+      "Emily",
+      2500
+     ],
+     [
+      "Penny",
+      2500
+     ],
+     [
+      "Abigail",
+      2500
+     ],
+     [
+      "Leah",
+      2500
+     ],
+     [
+      "Maru",
+      2500
+     ]
+    ]
+   },
+   {
+    "id": "195012",
+    "loc": "HaleyHouse",
+    "locName": "2 Willow Lane (Haley & Emily)",
+    "access": null,
+    "special": [],
+    "notMarriedTo": "Alex",
+    "after": [
+     "38",
+     "2123343",
+     "10",
+     "901756",
+     "54",
+     "15"
+    ],
+    "notAfter": [
+     "195019"
+    ],
+    "npc": "Haley",
+    "hearts": 10,
+    "others": [
+     [
+      "Emily",
+      2500
+     ],
+     [
+      "Penny",
+      2500
+     ],
+     [
+      "Abigail",
+      2500
+     ],
+     [
+      "Leah",
+      2500
+     ],
+     [
+      "Maru",
+      2500
+     ]
+    ]
+   },
+   {
+    "id": "6184643",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "marriedTo": "Haley",
+    "t": [
+     800,
+     1500
+    ],
+    "w": "sunny",
+    "npc": "Haley",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "56",
+    "loc": "JoshHouse",
+    "locName": "1 River Road (Alex)",
+    "access": null,
+    "special": [],
+    "npc": "Harvey",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "57",
+    "loc": "Hospital",
+    "locName": "the Clinic",
+    "access": null,
+    "special": [],
+    "npc": "Harvey",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "58",
+    "loc": "SeedShop",
+    "locName": "Pierre's General Store",
+    "access": null,
+    "special": [],
+    "t": [
+     1100,
+     1500
+    ],
+    "npc": "Harvey",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "571102",
+    "loc": "Hospital",
+    "locName": "the Clinic",
+    "access": null,
+    "special": [],
+    "npc": "Harvey",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "528052",
+    "loc": "Railroad",
+    "locName": "the Railroad",
+    "access": "railroad",
+    "special": [
+     "n"
+    ],
+    "t": [
+     900,
+     1700
+    ],
+    "npc": "Harvey",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "3917626",
+    "loc": "FarmHouse",
+    "locName": "your farmhouse",
+    "access": null,
+    "special": [
+     "L"
+    ],
+    "marriedTo": "Harvey",
+    "t": [
+     2000,
+     2400
+    ],
+    "npc": "Harvey",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "93",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     930
+    ],
+    "notDays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "npc": "Jodi",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "100",
+    "loc": "SamHouse",
+    "locName": "1 Willow Lane (Sam)",
+    "access": null,
+    "special": [],
+    "npc": "Kent",
+    "hearts": 3,
+    "others": []
+   },
+   {
+    "id": "7771191",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "t": [
+     2000,
+     2500
+    ],
+    "w": "sunny",
+    "npc": "Krobus",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "50",
+    "loc": "LeahHouse",
+    "locName": "Leah's cottage",
+    "access": null,
+    "special": [],
+    "npc": "Leah",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "51",
+    "loc": "LeahHouse",
+    "locName": "Leah's cottage",
+    "access": null,
+    "special": [],
+    "npc": "Leah",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "992253",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     1130
+    ],
+    "w": "sunny",
+    "npc": "Leah",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "52",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "notSeasons": [
+     "winter"
+    ],
+    "npc": "Leah",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "55",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "t": [
+     600,
+     800
+    ],
+    "notSeasons": [
+     "winter"
+    ],
+    "npc": "Leah",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "584059",
+    "loc": "LeahHouse",
+    "locName": "Leah's cottage",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "npc": "Leah",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "54",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "t": [
+     1100,
+     1600
+    ],
+    "notSeasons": [
+     "winter"
+    ],
+    "w": "sunny",
+    "npc": "Leah",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "3911124",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "marriedTo": "Leah",
+    "t": [
+     500,
+     820
+    ],
+    "w": "sunny",
+    "notSeasons": [
+     "winter"
+    ],
+    "notDays": [
+     6
+    ],
+    "npc": "Leah",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "6497423",
+    "loc": "IslandWest",
+    "locName": "Ginger Island (west)",
+    "access": "island",
+    "special": [
+     "Hl"
+    ],
+    "after": [
+     "1039573"
+    ],
+    "w": "sunny",
+    "t": [
+     600,
+     1800
+    ],
+    "npc": "Leo",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "6497421",
+    "loc": "IslandNorth",
+    "locName": "Ginger Island (north)",
+    "access": "island",
+    "special": [
+     "Hl"
+    ],
+    "after": [
+     "6497423"
+    ],
+    "w": "sunny",
+    "t": [
+     600,
+     1800
+    ],
+    "npc": "Leo",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "6497428",
+    "loc": "IslandSouth",
+    "locName": "Ginger Island",
+    "access": "island",
+    "special": [
+     "Hl"
+    ],
+    "after": [
+     "6497423"
+    ],
+    "w": "sunny",
+    "t": [
+     600,
+     1800
+    ],
+    "npc": "Leo",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "8959199",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "t": [
+     600,
+     1900
+    ],
+    "after": [
+     "6497428"
+    ],
+    "npc": "Leo",
+    "hearts": 9,
+    "others": []
+   },
+   {
+    "id": "639373",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "t": [
+     1900,
+     2300
+    ],
+    "w": "sunny",
+    "npc": "Lewis",
+    "hearts": 6,
+    "others": [
+     [
+      "Marnie",
+      1500
+     ]
+    ]
+   },
+   {
+    "id": "502969",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "minPlayed": 7,
+    "t": [
+     2000,
+     2400
+    ],
+    "npc": "Linus",
+    "hearts": 0,
+    "others": []
+   },
+   {
+    "id": "26",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "t": [
+     2000,
+     2400
+    ],
+    "npc": "Linus",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "371652",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "t": [
+     600,
+     1700
+    ],
+    "npc": "Linus",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "91",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     930
+    ],
+    "npc": "Marnie",
+    "hearts": 3,
+    "others": []
+   },
+   {
+    "id": "6",
+    "loc": "ScienceHouse",
+    "locName": "the Carpenter's Shop",
+    "access": null,
+    "special": [],
+    "npc": "Maru",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "7",
+    "loc": "Hospital",
+    "locName": "the Clinic",
+    "access": null,
+    "special": [],
+    "npc": "Maru",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "8",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "t": [
+     2100,
+     2340
+    ],
+    "npc": "Maru",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "9",
+    "loc": "ScienceHouse",
+    "locName": "the Carpenter's Shop",
+    "access": null,
+    "special": [],
+    "npc": "Maru",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "10",
+    "loc": "ScienceHouse",
+    "locName": "the Carpenter's Shop",
+    "access": null,
+    "special": [],
+    "t": [
+     900,
+     1600
+    ],
+    "npc": "Maru",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "3917666",
+    "loc": "FarmHouse",
+    "locName": "your farmhouse",
+    "access": null,
+    "special": [],
+    "marriedTo": "Maru",
+    "t": [
+     610,
+     1700
+    ],
+    "notDays": [
+     6
+    ],
+    "notSeasons": [
+     "winter"
+    ],
+    "npc": "Maru",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "503180",
+    "loc": "Trailer_Big",
+    "locName": "Pam's house",
+    "access": null,
+    "special": [
+     "A",
+     "Hn"
+    ],
+    "npc": "Pam",
+    "hearts": 9,
+    "others": []
+   },
+   {
+    "id": "34",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "t": [
+     900,
+     1400
+    ],
+    "w": "sunny",
+    "npc": "Penny",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "35",
+    "loc": "Trailer",
+    "locName": "Pam's trailer",
+    "access": null,
+    "special": [],
+    "npc": "Penny",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "36",
+    "loc": "Trailer",
+    "locName": "Pam's trailer",
+    "access": null,
+    "special": [],
+    "npc": "Penny",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "181928",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "t": [
+     900,
+     1600
+    ],
+    "w": "sunny",
+    "npc": "Penny",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "38",
+    "loc": "BathHouse_Pool",
+    "locName": "the Spa pool",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "t": [
+     1900,
+     2400
+    ],
+    "npc": "Penny",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "4325434",
+    "loc": "FarmHouse",
+    "locName": "your farmhouse",
+    "access": null,
+    "special": [],
+    "marriedTo": "Penny",
+    "t": [
+     1500,
+     1900
+    ],
+    "npc": "Penny",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "16",
+    "loc": "SeedShop",
+    "locName": "Pierre's General Store",
+    "access": null,
+    "special": [],
+    "npc": "Pierre",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "33",
+    "loc": "ScienceHouse",
+    "locName": "the Carpenter's Shop",
+    "access": null,
+    "special": [],
+    "npc": "Robin",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "44",
+    "loc": "SamHouse",
+    "locName": "1 Willow Lane (Sam)",
+    "access": null,
+    "special": [],
+    "npc": "Sam",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "733330",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "w": "sunny",
+    "t": [
+     700,
+     1500
+    ],
+    "notSeasons": [
+     "winter"
+    ],
+    "y": 1,
+    "npc": "Sam",
+    "hearts": 3,
+    "others": []
+   },
+   {
+    "id": "46",
+    "loc": "SamHouse",
+    "locName": "1 Willow Lane (Sam)",
+    "access": null,
+    "special": [],
+    "npc": "Sam",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "45",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "t": [
+     1200,
+     1600
+    ],
+    "w": "sunny",
+    "npc": "Sam",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "47",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     800
+    ],
+    "after": [
+     "44"
+    ],
+    "npc": "Sam",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "233104",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [
+     "n"
+    ],
+    "t": [
+     2000,
+     2400
+    ],
+    "w": "sunny",
+    "npc": "Sam",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "3918600",
+    "loc": "FarmHouse",
+    "locName": "your farmhouse",
+    "access": null,
+    "special": [
+     "L"
+    ],
+    "marriedTo": "Sam",
+    "t": [
+     610,
+     1700
+    ],
+    "npc": "Sam",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "2794460",
+    "loc": "SebastianRoom",
+    "locName": "Sebastian's room",
+    "access": null,
+    "special": [],
+    "npc": "Sebastian",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "384883",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "t": [
+     1100,
+     1700
+    ],
+    "npc": "Sebastian",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "27",
+    "loc": "SebastianRoom",
+    "locName": "Sebastian's room",
+    "access": null,
+    "special": [],
+    "npc": "Sebastian",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "29",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "t": [
+     1200,
+     2300
+    ],
+    "w": "rainy",
+    "npc": "Sebastian",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "384882",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "t": [
+     2000,
+     2400
+    ],
+    "npc": "Sebastian",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "9333219",
+    "loc": "Mountain",
+    "locName": "the Mountain",
+    "access": null,
+    "special": [],
+    "marriedTo": "Sebastian",
+    "w": "rainy",
+    "t": [
+     600,
+     1900
+    ],
+    "npc": "Sebastian",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "611944",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "t": [
+     2000,
+     2400
+    ],
+    "npc": "Shane",
+    "hearts": 2,
+    "others": []
+   },
+   {
+    "id": "3910674",
+    "loc": "AnimalShop",
+    "locName": "Marnie's Ranch",
+    "access": null,
+    "special": [],
+    "npc": "Shane",
+    "hearts": 4,
+    "others": []
+   },
+   {
+    "id": "3910974",
+    "loc": "AnimalShop",
+    "locName": "Marnie's Ranch",
+    "access": null,
+    "special": [],
+    "after": [
+     "3910975"
+    ],
+    "npc": "Shane",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "3910975",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "after": [
+     "3910674"
+    ],
+    "t": [
+     900,
+     2000
+    ],
+    "w": "rainy",
+    "npc": "Shane",
+    "hearts": 6,
+    "others": []
+   },
+   {
+    "id": "831125",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "t": [
+     1000,
+     1600
+    ],
+    "w": "sunny",
+    "npc": "Shane",
+    "hearts": 7,
+    "others": [
+     [
+      "Clint",
+      500
+     ],
+     [
+      "Emily",
+      500
+     ]
+    ]
+   },
+   {
+    "id": "3900074",
+    "loc": "AnimalShop",
+    "locName": "Marnie's Ranch",
+    "access": null,
+    "special": [],
+    "after": [
+     "2118991"
+    ],
+    "npc": "Shane",
+    "hearts": 8,
+    "others": []
+   },
+   {
+    "id": "2128292",
+    "loc": "Farm",
+    "locName": "your Farm",
+    "access": null,
+    "special": [
+     "D"
+    ],
+    "after": [
+     "3900074"
+    ],
+    "t": [
+     600,
+     630
+    ],
+    "npc": "Shane",
+    "hearts": 10,
+    "others": []
+   },
+   {
+    "id": "195099",
+    "loc": "Saloon",
+    "locName": "the Stardrop Saloon",
+    "access": null,
+    "special": [
+     "i"
+    ],
+    "notMarriedTo": "Alex",
+    "after": [
+     "911526",
+     "528052",
+     "9581348",
+     "43",
+     "384882",
+     "233104"
+    ],
+    "notAfter": [
+     "195013"
+    ],
+    "npc": "Shane",
+    "hearts": 10,
+    "others": [
+     [
+      "Sebastian",
+      2500
+     ],
+     [
+      "Sam",
+      2500
+     ],
+     [
+      "Harvey",
+      2500
+     ],
+     [
+      "Alex",
+      2500
+     ],
+     [
+      "Elliott",
+      2500
+     ]
+    ]
+   },
+   {
+    "id": "195013",
+    "loc": "Saloon",
+    "locName": "the Stardrop Saloon",
+    "access": null,
+    "special": [],
+    "notMarriedTo": "Alex",
+    "after": [
+     "911526",
+     "528052",
+     "9581348",
+     "43",
+     "384882",
+     "233104"
+    ],
+    "notAfter": [
+     "195099"
+    ],
+    "npc": "Shane",
+    "hearts": 10,
+    "others": [
+     [
+      "Sebastian",
+      2500
+     ],
+     [
+      "Sam",
+      2500
+     ],
+     [
+      "Harvey",
+      2500
+     ],
+     [
+      "Alex",
+      2500
+     ],
+     [
+      "Elliott",
+      2500
+     ]
+    ]
+   },
+   {
+    "id": "3917584",
+    "loc": "Town",
+    "locName": "Pelican Town",
+    "access": null,
+    "special": [],
+    "marriedTo": "Shane",
+    "notDays": [
+     4
+    ],
+    "t": [
+     800,
+     1700
+    ],
+    "npc": "Shane",
+    "hearts": 14,
+    "others": []
+   },
+   {
+    "id": "3910979",
+    "loc": "Forest",
+    "locName": "Cindersap Forest",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     1700
+    ],
+    "notSeasons": [
+     "summer",
+     "fall",
+     "winter"
+    ],
+    "w": "sunny",
+    "npc": "Vincent",
+    "hearts": 8,
+    "others": [
+     [
+      "Jas",
+      2000
+     ]
+    ]
+   },
+   {
+    "id": "711130",
+    "loc": "Beach",
+    "locName": "the Beach",
+    "access": null,
+    "special": [],
+    "t": [
+     600,
+     1710
+    ],
+    "npc": "Willy",
+    "hearts": 6,
+    "others": []
+   }
+  ],
+  "quests": [
+   {
+    "id": "introductions",
+    "name": "Introductions",
+    "text": "It would be a nice gesture to introduce yourself around town. Some people might be anxious to meet the new farmer.",
+    "start": "Introductory quest",
+    "task": "28 people greeted.",
+    "reward": "100 Friendship points (2/5 of a heart) with every known NPC",
+    "src": "https://stardewvalleywiki.com/Quests#Introductions",
+    "date": {
+     "season": 0,
+     "day": 1,
+     "year": 1
+    }
+   },
+   {
+    "id": "how-to-win-friends",
+    "name": "How to Win Friends",
+    "text": "Giving gifts is a great way to build friendships. Learn each person's individual tastes and you'll be popular in no time.",
+    "start": "Complete \"Introductions\"",
+    "task": "Give anyone a gift.",
+    "reward": "100g",
+    "src": "https://stardewvalleywiki.com/Quests#How_to_Win_Friends",
+    "after": [
+     "introductions"
+    ]
+   },
+   {
+    "id": "getting-started",
+    "name": "Getting Started",
+    "text": "If you want to become a farmer, you have to start with the basics. Use your hoe to till the soil, then use a seed packet on the tilled soil to sow a crop. Water every day until the crop is ready for harvest.",
+    "start": "Package in room at start",
+    "task": "Cultivate and harvest a parsnip.",
+    "reward": "100g",
+    "src": "https://stardewvalleywiki.com/Quests#Getting_Started",
+    "date": {
+     "season": 0,
+     "day": 1,
+     "year": 1
+    }
+   },
+   {
+    "id": "to-the-beach",
+    "name": "To The Beach",
+    "text": "Someone named Willy invited you to visit the beach south of town. He says he has something to give you.",
+    "start": "Mail, Spring 2",
+    "task": "Visit the beach south of town before 5:00pm.",
+    "reward": "Bamboo Pole",
+    "src": "https://stardewvalleywiki.com/Quests#To_The_Beach",
+    "date": {
+     "season": 0,
+     "day": 2,
+     "year": 1
+    }
+   },
+   {
+    "id": "raising-animals",
+    "name": "Raising Animals",
+    "text": "Robin, the local carpenter, lives north of town. In exchange for raw materials and money, she'll construct new buildings on your farm. You'll need her to build a coop or barn so that you can raise animals.",
+    "start": "Complete \"Getting Started\"",
+    "task": "Build a Coop. Note that this quest does not require the player to purchase animals.",
+    "reward": "100g",
+    "src": "https://stardewvalleywiki.com/Quests#Raising_Animals",
+    "after": [
+     "getting-started"
+    ]
+   },
+   {
+    "id": "advancement",
+    "name": "Advancement",
+    "text": "As you gain experience you'll discover new crafting recipes to increase profit and make life easier. A Scarecrow, for example, will prevent crows from snacking on your precious crops.",
+    "start": "Complete \"Getting Started\"",
+    "task": "Reach Farming level 1 and craft a Scarecrow.",
+    "reward": "100g",
+    "src": "https://stardewvalleywiki.com/Quests#Advancement",
+    "after": [
+     "getting-started"
+    ]
+   },
+   {
+    "id": "explore-the-mine",
+    "name": "Explore The Mine",
+    "text": "There's an old mine shaft in the mountains north of town. There could be valuable minerals inside, but Marlon hinted that it might be dangerous.",
+    "start": "Enter the Mines.",
+    "task": "Reach level 5 in the mines.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#Explore_The_Mine",
+    "date": {
+     "season": 0,
+     "day": 5,
+     "year": 1
+    }
+   },
+   {
+    "id": "deeper-in-the-mine",
+    "name": "Deeper In The Mine",
+    "text": "It seems that the mine elevator is still functional. It will allow you to quickly return to any elevator doors you've discovered. A deeper expedition might be in order.",
+    "start": "Reach level 5 in the mines.",
+    "task": "Reach level 40 in the mines.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#Deeper_In_The_Mine",
+    "mine": 5
+   },
+   {
+    "id": "to-the-bottom",
+    "name": "To The Bottom?",
+    "text": "So far, there's no sign of the bottom. How low does it go?",
+    "start": "Reach floor 40 in the mines.",
+    "task": "Reach the bottom of the mine.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#To_The_Bottom?",
+    "mine": 40
+   },
+   {
+    "id": "archaeology",
+    "name": "Archaeology",
+    "text": "Gunther asked if you'd consider donating any new artifacts or minerals you find to the museum. He says he'll compensate you by way of occasional rare goods.",
+    "start": "Enter the Museum with a mineral or artifact in inventory.",
+    "task": "Donate an item to the Museum.",
+    "reward": "250g",
+    "src": "https://stardewvalleywiki.com/Quests#Archaeology"
+   },
+   {
+    "id": "rat-problem",
+    "name": "Rat Problem",
+    "text": "There's something odd going on in the Community Center... Investigate the Community Center.",
+    "start": "Trigger the initial Community Center cutscene by entering Pelican Town from the Bus Stop between 8am and 1pm on a sunny day (Spring 5+)",
+    "task": "Enter the Community Center and examine the Golden Scroll in the Crafts Room.",
+    "reward": "The following morning, a letter from the Wizard arrives in the mail, triggering the \"Meet the Wizard\" quest.",
+    "src": "https://stardewvalleywiki.com/Quests#Rat_Problem",
+    "date": {
+     "season": 0,
+     "day": 5,
+     "year": 1
+    },
+    "weather": "sun",
+    "tip": "Walk into Pelican Town from the Bus Stop between 8am and 1pm on a sunny day."
+   },
+   {
+    "id": "meet-the-wizard",
+    "name": "Meet The Wizard",
+    "text": "You received a letter from the local wizard. He claims to have information regarding the old community center.",
+    "start": "The morning after the player examines the first golden scroll in the Community Center, they receive a letter from the Wizard saying he has information.",
+    "task": "Enter the wizard's tower.",
+    "reward": "The Wizard gives the player a potion that allows them to read the language of the Junimos.",
+    "src": "https://stardewvalleywiki.com/Quests#Meet_The_Wizard",
+    "after": [
+     "rat-problem"
+    ]
+   },
+   {
+    "id": "forging-ahead",
+    "name": "Forging Ahead",
+    "text": "If you're going to keep mining you should build a furnace.",
+    "start": "Morning after collecting a Copper Ore, Clint visits and gives the player the Furnace blueprints.",
+    "task": "Craft a Furnace.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#Forging_Ahead"
+   },
+   {
+    "id": "smelting",
+    "name": "Smelting",
+    "text": "Now that you've built a furnace, you can smelt some metal. According to Clint's instructions, if you place 5 copper ore and 1 piece of coal in the furnace, it should produce a copper bar.",
+    "start": "Complete \"Forging Ahead\".",
+    "task": "Use the crafted furnace to smelt a copper bar.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#Smelting",
+    "after": [
+     "forging-ahead"
+    ]
+   },
+   {
+    "id": "initiation",
+    "name": "Initiation",
+    "text": "If you can slay 10 slimes, you'll have earned your place in the Adventurer's Guild.",
+    "start": "Mailbox, morning after reaching floor 5 in the Mines.",
+    "task": "10 Slimes slain in the Mines, Secret Woods, or on the Farm.",
+    "reward": "Get to enter the Adventurer's Guild",
+    "src": "https://stardewvalleywiki.com/Quests#Initiation",
+    "mine": 5
+   },
+   {
+    "id": "robin-s-lost-axe",
+    "name": "Robin's Lost Axe",
+    "text": "Robin lost her favorite axe. The last time she remembers using it, she was cutting wood south of Marnie's ranch.",
+    "start": "Mail, Spring 11",
+    "task": "Find Robin's lost axe. Can be found near the Sewer Pipe in Cindersap Forest.",
+    "reward": "250g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Robin's_Lost_Axe",
+    "date": {
+     "season": 0,
+     "day": 11,
+     "year": 1
+    }
+   },
+   {
+    "id": "jodi-s-request",
+    "name": "Jodi's Request",
+    "text": "Jodi needs a fresh cauliflower for a recipe she's making. She's asking you to bring her one.",
+    "start": "Mail, Spring 19",
+    "task": "Bring Jodi a Cauliflower.",
+    "reward": "350g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Jodi's_Request",
+    "date": {
+     "season": 0,
+     "day": 19,
+     "year": 1
+    },
+    "item": "190",
+    "npc": "Jodi"
+   },
+   {
+    "id": "mayor-s-shorts",
+    "name": "Mayor's \"Shorts\"",
+    "text": "Mayor Lewis has lost his purple \"shorts\". He's asking you to find and return them...Discreetly.",
+    "start": "Mail, Summer 3",
+    "task": "Find and return Mayor Lewis' purple shorts. Can be found in Marnie's bedroom, or by placing a staircase inside Lewis' bedroom and following the path.",
+    "reward": "750g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Mayor's_\"Shorts\"",
+    "date": {
+     "season": 1,
+     "day": 3,
+     "year": 1
+    }
+   },
+   {
+    "id": "blackberry-basket",
+    "name": "Blackberry Basket",
+    "text": "It's blackberry season, but Linus can't find his basket! He's asking you to help him find it. He has no idea where it is.",
+    "start": "Mail, Fall 8",
+    "task": "Find Linus' basket and return it to him. It's in the Backwoods near the entrance to the tunnel, which is to the left of the bus stop.",
+    "reward": "1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Blackberry_Basket",
+    "date": {
+     "season": 2,
+     "day": 8,
+     "year": 1
+    }
+   },
+   {
+    "id": "marnie-s-request",
+    "name": "Marnie's Request",
+    "text": "Marnie came by the farm and asked if you'd bring her a cave carrot. She's trying to train her goats to speak, and cave carrot is their favorite snack.",
+    "start": "She visits the farm house after the player is at 3 Friendship hearts with her.",
+    "task": "Bring a Cave Carrot into Marnie's shop.",
+    "reward": "100 Friendship points",
+    "src": "https://stardewvalleywiki.com/Quests#Marnie's_Request",
+    "hearts": [
+     "Marnie",
+     3
+    ]
+   },
+   {
+    "id": "pam-is-thirsty",
+    "name": "Pam Is Thirsty",
+    "text": "Pam is hankerin' for a pale ale. Regular old beer won't do. You can brew one yourself if you have hops and a keg.",
+    "start": "Mail, Summer 14",
+    "task": "Bring Pam a pale ale.",
+    "reward": "350g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Pam_Is_Thirsty",
+    "date": {
+     "season": 1,
+     "day": 14,
+     "year": 1
+    },
+    "item": "303",
+    "npc": "Pam"
+   },
+   {
+    "id": "a-dark-reagent",
+    "name": "A Dark Reagent",
+    "text": "The wizard wants you to descend into the mines and fetch him a Void Essence. He needs it for some kind of dark magic.",
+    "start": "Mail, Winter 12",
+    "task": "Bring the Wizard a Void Essence.",
+    "reward": "1000g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#A_Dark_Reagent",
+    "date": {
+     "season": 3,
+     "day": 12,
+     "year": 1
+    },
+    "item": "769"
+   },
+   {
+    "id": "cow-s-delight",
+    "name": "Cow's Delight",
+    "text": "Marnie wants to give her cows a special treat. She's asking for a single bunch of amaranth.",
+    "start": "Mail, Fall 3",
+    "task": "Bring Marnie one bunch of Amaranth.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Cow's_Delight",
+    "date": {
+     "season": 2,
+     "day": 3,
+     "year": 1
+    },
+    "item": "300",
+    "npc": "Marnie"
+   },
+   {
+    "id": "the-skull-key",
+    "name": "The Skull Key",
+    "text": "You found a strange looking key in the bottom of the mines.",
+    "start": "Reach the bottom floor of the Mines.",
+    "task": "Discover the purpose of the Skull Key.",
+    "reward": "Access to the Skull Cavern in the Desert",
+    "src": "https://stardewvalleywiki.com/Quests#The_Skull_Key",
+    "gate": "skullkey",
+    "mine": 120
+   },
+   {
+    "id": "crop-research",
+    "name": "Crop Research",
+    "text": "Demetrius needs a fresh melon for his research.",
+    "start": "Mail, Summer 20",
+    "task": "Bring Demetrius a melon.",
+    "reward": "550g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Crop_Research",
+    "date": {
+     "season": 1,
+     "day": 20,
+     "year": 1
+    },
+    "item": "254",
+    "npc": "Demetrius"
+   },
+   {
+    "id": "knee-therapy",
+    "name": "Knee Therapy",
+    "text": "George needs a hot pepper to soothe his aching knee.",
+    "start": "Mail, Summer 25",
+    "task": "Bring George a hot pepper.",
+    "reward": "200g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Knee_Therapy",
+    "date": {
+     "season": 1,
+     "day": 25,
+     "year": 1
+    },
+    "item": "260",
+    "npc": "George"
+   },
+   {
+    "id": "robin-s-request",
+    "name": "Robin's Request",
+    "text": "Robin needs 10 pieces of Hardwood.",
+    "start": "Mail, Winter 21",
+    "task": "Bring Robin 10 Hardwood.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Robin's_Request",
+    "date": {
+     "season": 3,
+     "day": 21,
+     "year": 1
+    },
+    "item": "709",
+    "qty": 10,
+    "npc": "Robin"
+   },
+   {
+    "id": "qi-s-challenge",
+    "name": "Qi's Challenge",
+    "text": "You've been challenged to reach level 25 in the skull cavern. You've been promised a substantial reward if you're successful.",
+    "start": "Received by mail the day after entering the Skull Cavern.",
+    "task": "Reach level 25 in the Skull Cavern.",
+    "reward": "10000g, delivered by mail the next day",
+    "src": "https://stardewvalleywiki.com/Quests#Qi's_Challenge",
+    "gate": "skull"
+   },
+   {
+    "id": "the-mysterious-qi",
+    "name": "The Mysterious Qi",
+    "text": "Within a secret lock-box, you found a note with peculiar instructions. It's signed by a 'Mr. Qi'.",
+    "start": "Put a Battery Pack in the lock-box in the tunnel next to the bus stop.",
+    "task": "Leave a Rainbow Shell in the box at the train platform.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#The_Mysterious_Qi",
+    "gate": "bus"
+   },
+   {
+    "id": "the-mysterious-qi-2",
+    "name": "The Mysterious Qi (2)",
+    "text": "You found another note written by 'Mr. Qi'. The request is even more unusual this time.",
+    "start": "Complete \"The Mysterious Qi\" first quest.",
+    "task": "Place 10 beets inside Mayor Lewis' fridge.",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#The_Mysterious_Qi",
+    "gate": "bus",
+    "after": [
+     "the-mysterious-qi"
+    ]
+   },
+   {
+    "id": "the-mysterious-qi-3",
+    "name": "The Mysterious Qi (3)",
+    "text": "You've found yet another strange note within the Mayor's fridge. This time, the instructions are more cryptic.",
+    "start": "Complete \"The Mysterious Qi\" second quest.",
+    "task": "\"Give the sand dragon his final meal.\" (Put a Solar Essence in the sand dragon's mouth at the Desert.)",
+    "reward": "",
+    "src": "https://stardewvalleywiki.com/Quests#The_Mysterious_Qi",
+    "gate": "bus",
+    "after": [
+     "the-mysterious-qi-2"
+    ]
+   },
+   {
+    "id": "the-mysterious-qi-4",
+    "name": "The Mysterious Qi (4)",
+    "text": "You found another note in the sand dragon's eye. It seems Mr. Qi's strange scavenger hunt has come to an end.",
+    "start": "Complete \"The Mysterious Qi\" third quest.",
+    "task": "Inspect the lumber pile beside the Farmhouse.",
+    "reward": "Club Card, which grants access to the Casino in the Oasis.",
+    "src": "https://stardewvalleywiki.com/Quests#The_Mysterious_Qi",
+    "gate": "bus",
+    "after": [
+     "the-mysterious-qi-3"
+    ]
+   },
+   {
+    "id": "carving-pumpkins",
+    "name": "Carving Pumpkins",
+    "text": "Caroline wants to carve a pumpkin with her daughter. She asked you to bring her one from the farm.",
+    "start": "Mail, Fall 19",
+    "task": "Bring Caroline a pumpkin.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Carving_Pumpkins",
+    "date": {
+     "season": 2,
+     "day": 19,
+     "year": 1
+    },
+    "item": "276",
+    "npc": "Caroline"
+   },
+   {
+    "id": "a-winter-mystery",
+    "name": "A Winter Mystery",
+    "text": "You encountered a suspicious looking figure by the bus stop. When it saw you, it fled toward town. Could there be a clue to its whereabouts?",
+    "start": "After triggering the cutscene by entering the Bus Stop from the Farm during Winter between 6am and 4pm.",
+    "task": "Interact with the bush to the right of the playground in Pelican Town.",
+    "reward": "Magnifying Glass",
+    "src": "https://stardewvalleywiki.com/Quests#A_Winter_Mystery",
+    "seasons": [
+     3
+    ],
+    "tip": "Leave the Farm toward the Bus Stop in winter between 6am and 4pm."
+   },
+   {
+    "id": "strange-note",
+    "name": "Strange Note",
+    "text": "You found a note, barely legible, asking you to bring \"may-pal serrup\" to the \"seecrit wuds\".",
+    "start": "After reading Secret Note #23",
+    "task": "Enter the Secret Woods between 6am and 7pm with Maple Syrup in inventory to trigger a cutscene.",
+    "reward": "Bear's Knowledge",
+    "src": "https://stardewvalleywiki.com/Quests#Strange_Note",
+    "gate": "woods"
+   },
+   {
+    "id": "cryptic-note",
+    "name": "Cryptic Note",
+    "text": "You found a note that reads, \"Someone is waiting for you on level 100 in the Skull Cavern.\"",
+    "start": "Reading Secret Note #10",
+    "task": "Reach level 100 in the Skull Cavern.",
+    "reward": "Mr. Qi awards the player with \"iridium snake milk\", which permanently increases the player's health by 25 points.",
+    "src": "https://stardewvalleywiki.com/Quests#Cryptic_Note",
+    "gate": "skull"
+   },
+   {
+    "id": "fresh-fruit",
+    "name": "Fresh Fruit",
+    "text": "Emily wants a taste of spring. She's asking for a fresh apricot.",
+    "start": "Mail, Spring 6, Year 2",
+    "task": "Bring Emily an Apricot.",
+    "reward": "600g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Fresh_Fruit",
+    "date": {
+     "season": 0,
+     "day": 6,
+     "year": 2
+    },
+    "item": "634",
+    "npc": "Emily"
+   },
+   {
+    "id": "aquatic-research",
+    "name": "Aquatic Research",
+    "text": "Demetrius is studying the toxin levels of the local pufferfish. He'd like you to bring him one.",
+    "start": "Mail, Summer 6, Year 2",
+    "task": "Bring Demetrius a Pufferfish.",
+    "reward": "1000g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Aquatic_Research",
+    "date": {
+     "season": 1,
+     "day": 6,
+     "year": 2
+    },
+    "item": "128",
+    "npc": "Demetrius"
+   },
+   {
+    "id": "a-soldier-s-star",
+    "name": "A Soldier's Star",
+    "text": "Kent wants to give his wife a starfruit for their anniversary.",
+    "start": "Mail, Summer 15, Year 2",
+    "task": "Bring Kent a starfruit.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#A_Soldier's_Star",
+    "date": {
+     "season": 1,
+     "day": 15,
+     "year": 2
+    },
+    "item": "268",
+    "npc": "Kent"
+   },
+   {
+    "id": "mayor-s-need",
+    "name": "Mayor's Need",
+    "text": "Mayor Lewis wants truffle oil. He won't explain what it's for. Maybe it's none of your business.",
+    "start": "Mail, Summer 21, Year 2",
+    "task": "Bring Lewis a bottle of Truffle Oil.",
+    "reward": "750g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Mayor's_Need",
+    "date": {
+     "season": 1,
+     "day": 21,
+     "year": 2
+    },
+    "item": "432",
+    "npc": "Lewis"
+   },
+   {
+    "id": "wanted-lobster",
+    "name": "Wanted: Lobster",
+    "text": "Gus put out a notice requesting a fresh lobster.",
+    "start": "Mail, Fall 6, Year 2",
+    "task": "Bring Gus a Lobster.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Wanted:_Lobster",
+    "date": {
+     "season": 2,
+     "day": 6,
+     "year": 2
+    },
+    "item": "715",
+    "npc": "Gus"
+   },
+   {
+    "id": "pam-needs-juice",
+    "name": "Pam Needs Juice",
+    "text": "Pam's TV remote is dead. She's having a tough time going back and forth between the couch and the TV dial.",
+    "start": "Mail, Fall 19, Year 2",
+    "task": "Bring Pam a Battery Pack.",
+    "reward": "400g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Pam_Needs_Juice",
+    "date": {
+     "season": 2,
+     "day": 19,
+     "year": 2
+    },
+    "item": "787",
+    "npc": "Pam"
+   },
+   {
+    "id": "fish-casserole",
+    "name": "Fish Casserole",
+    "text": "Jodi swung by the farm to ask you to dinner at 7:00 PM. Her only request was that you bring a Largemouth Bass for her fish casserole.",
+    "start": "Event - Jodi at 4 Hearts; Exit the Farmhouse between 6am and 9:30am on a Monday to trigger the event.",
+    "task": "Enter Jodi's house with a Largemouth Bass at 7:00 PM on any day after being invited (not a festival day).",
+    "reward": "Event Scene",
+    "src": "https://stardewvalleywiki.com/Quests#Fish_Casserole",
+    "hearts": [
+     "Jodi",
+     4
+    ]
+   },
+   {
+    "id": "catch-a-squid",
+    "name": "Catch a Squid",
+    "text": "Willy is challenging you to catch a squid. He says you can fish them from the ocean on winter nights.",
+    "start": "Mail, Winter 2",
+    "task": "Bring Willy a Squid.",
+    "reward": "800g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Catch_a_Squid",
+    "date": {
+     "season": 3,
+     "day": 2,
+     "year": 1
+    },
+    "item": "151",
+    "npc": "Willy"
+   },
+   {
+    "id": "fish-stew",
+    "name": "Fish Stew",
+    "text": "Gus wants to make fish stew, but he needs an albacore.",
+    "start": "Mail, Winter 26",
+    "task": "Bring Gus an Albacore.",
+    "reward": "400g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Fish_Stew",
+    "date": {
+     "season": 3,
+     "day": 26,
+     "year": 1
+    },
+    "item": "705",
+    "npc": "Gus"
+   },
+   {
+    "id": "pierre-s-notice",
+    "name": "Pierre's Notice",
+    "text": "Pierre will pay \"top coin\" to whoever brings him a plate of sashimi. Apparently he's really craving the stuff.",
+    "start": "Mail, Spring 21, Year 2",
+    "task": "Bring Pierre some Sashimi.",
+    "reward": "1000g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Pierre's_Notice",
+    "date": {
+     "season": 0,
+     "day": 21,
+     "year": 2
+    },
+    "item": "227",
+    "npc": "Pierre"
+   },
+   {
+    "id": "clint-s-attempt",
+    "name": "Clint's Attempt",
+    "text": "Clint wants you to give Emily an amethyst. He wants you to tell her it's from him.",
+    "start": "Mail, Winter 6",
+    "task": "Bring Emily an Amethyst.",
+    "reward": "1 Friendship heart with Emily",
+    "src": "https://stardewvalleywiki.com/Quests#Clint's_Attempt",
+    "date": {
+     "season": 3,
+     "day": 6,
+     "year": 1
+    },
+    "item": "66",
+    "npc": "Emily"
+   },
+   {
+    "id": "a-favor-for-clint",
+    "name": "A Favor For Clint",
+    "text": "Clint got a new hammer and he wants to test it out on a variety of metals.",
+    "start": "Mail, Winter 17",
+    "task": "Bring Clint an Iron Bar.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#A_Favor_For_Clint",
+    "date": {
+     "season": 3,
+     "day": 17,
+     "year": 1
+    },
+    "item": "335",
+    "npc": "Clint"
+   },
+   {
+    "id": "staff-of-power",
+    "name": "Staff of Power",
+    "text": "The Wizard is creating a staff of phenomenal power. Who knows what it's for. He needs an iridium bar to finish it.",
+    "start": "Mail, Winter 5, Year 2",
+    "task": "Bring Wizard an Iridium Bar.",
+    "reward": "5000g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Staff_of_Power",
+    "date": {
+     "season": 3,
+     "day": 5,
+     "year": 2
+    },
+    "item": "337",
+    "npc": "Wizard"
+   },
+   {
+    "id": "granny-s-gift",
+    "name": "Granny's Gift",
+    "text": "Evelyn wants to surprise her husband with a gift.",
+    "start": "Mail, Spring 15, Year 2",
+    "task": "Bring Evelyn a Leek.",
+    "reward": "500g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Granny's_Gift",
+    "date": {
+     "season": 0,
+     "day": 15,
+     "year": 2
+    },
+    "item": "20",
+    "npc": "Evelyn"
+   },
+   {
+    "id": "exotic-spirits",
+    "name": "Exotic Spirits",
+    "text": "Gus wants to make a Coco-no-no, but he's missing the main ingredient.",
+    "start": "Mail, Winter 19, Year 2",
+    "task": "Bring Gus a Coconut.",
+    "reward": "600g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Exotic_Spirits",
+    "date": {
+     "season": 3,
+     "day": 19,
+     "year": 2
+    },
+    "gate": "bus",
+    "item": "88",
+    "npc": "Gus"
+   },
+   {
+    "id": "catch-a-lingcod",
+    "name": "Catch a Lingcod",
+    "text": "Willy is challenging you to catch a Lingcod.",
+    "start": "Mail, Winter 13, Year 2",
+    "task": "Bring Willy a Lingcod. (Does not have to be caught after accepting the quest)",
+    "reward": "550g, 1 Friendship heart",
+    "src": "https://stardewvalleywiki.com/Quests#Catch_a_Lingcod",
+    "date": {
+     "season": 3,
+     "day": 13,
+     "year": 2
+    },
+    "item": "707",
+    "npc": "Willy"
+   },
+   {
+    "id": "dark-talisman",
+    "name": "Dark Talisman",
+    "text": "The Wizard asked me to retrieve the magic ink from his ex-wife's house... but to gain access I'll need a dark talisman. Enter the sewer and ask Krobus about the dark talisman.",
+    "start": "Railroad cutscene (after completing Community Center or Joja Warehouse tasks).",
+    "task": "Speak to Krobus and then venture through to the Mutant Bug Lair to retrieve the talisman. Return to the cave at the Railroad with it once it's collected.",
+    "reward": "Access to Witch's Swamp",
+    "src": "https://stardewvalleywiki.com/Quests#Dark_Talisman",
+    "gate": "ccdone"
+   },
+   {
+    "id": "goblin-problem",
+    "name": "Goblin Problem",
+    "text": "There's a goblin blocking the path to the Witch's Hut. There must be some way to get him to move... Perhaps I should seek out more information on Goblins.",
+    "start": "Through the cave by the Railroad after completing the Dark Talisman quest.",
+    "task": "Speak to the Henchman outside the Witch's hut and give him Void Mayonnaise as a gift. Take the Magic Ink from the Witch's Hut and give it to the Wizard.",
+    "reward": "Wizard buildings available. Dark shrines now accessible in Witch's Hut.",
+    "src": "https://stardewvalleywiki.com/Quests#Goblin_Problem",
+    "gate": "talisman",
+    "after": [
+     "dark-talisman"
+    ]
+   },
+   {
+    "id": "the-pirate-s-wife",
+    "name": "The Pirate's Wife",
+    "text": "An old lady living on Ginger Island is asking you to find a keepsake of her husband's. She gave you an old photograph of a soldier that washed up on shore, hoping it would help in some way.",
+    "start": "Speak to Birdie",
+    "task": "Find a keepsake that belonged to Birdie's husband.",
+    "reward": "Fairy Dust Recipe, 5 Golden Walnuts",
+    "src": "https://stardewvalleywiki.com/Quests#The_Pirate's_Wife",
+    "gate": "island"
+   },
+   {
+    "id": "the-giant-stump",
+    "name": "The Giant Stump",
+    "text": "The big tree to the south of my farm blew down. With 100 hardwood, I could turn the stump into something interesting...",
+    "start": "Giant Stump in Cindersap Forest after the wind storm cutscene",
+    "task": "Fix the giant stump with 100 Hardwood.",
+    "reward": "Access to Raccoon quests",
+    "src": "https://stardewvalleywiki.com/Quests#The_Giant_Stump",
+    "raccoon": 1
+   }
+  ],
+  "raccoon": {
+   "src": "https://stardewvalleywiki.com/Raccoon",
+   "unlock": "A strong wind storm can fell the big tree in Cindersap Forest: 10% chance each night once the Greenhouse is built. Repair the Giant Stump with 100 Hardwood.",
+   "unlockSrc": "https://stardewvalleywiki.com/Random_Events#Strong_Wind_Storm",
+   "gap": "A new request appears 7 days after the previous one is completed.",
+   "stages": [
+    {
+     "n": 1,
+     "task": "5 crab-pot fish (one kind) + 1 Smoked Fish",
+     "items": [
+      "372",
+      "718",
+      "716",
+      "719",
+      "723",
+      "721",
+      "717"
+     ],
+     "artisan": "Fish Smoker"
+    },
+    {
+     "n": 2,
+     "task": "1 Dried Fruit + 1 Jelly of an in-season fruit",
+     "artisan": "Dehydrator + Preserves Jar"
+    },
+    {
+     "n": 3,
+     "task": "1 Dried Mushrooms + 5 eggs, Cave Carrots or White Algae",
+     "items": [
+      "78",
+      "157"
+     ],
+     "artisan": "Dehydrator"
+    },
+    {
+     "n": 4,
+     "task": "1 Pickles + 1 Juice of an in-season vegetable",
+     "artisan": "Preserves Jar + Keg"
+    },
+    {
+     "n": 5,
+     "task": "2 random items, e.g. 20 Bat Wing, 4 Coral, 8 Geodes, 3 Ghostfish, 10 Moss",
+     "items": [
+      "767",
+      "684",
+      "393",
+      "72",
+      "535",
+      "156",
+      "397"
+     ]
+    },
+    {
+     "n": 6,
+     "task": "Repeats one of the first five requests at random"
+    }
+   ]
+  },
+  "cartPool": [
+   16,
+   18,
+   20,
+   22,
+   24,
+   32,
+   34,
+   36,
+   38,
+   40,
+   42,
+   78,
+   88,
+   90,
+   92,
+   128,
+   129,
+   130,
+   131,
+   132,
+   136,
+   137,
+   138,
+   139,
+   140,
+   141,
+   142,
+   143,
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   151,
+   154,
+   155,
+   156,
+   164,
+   165,
+   167,
+   174,
+   176,
+   180,
+   182,
+   184,
+   186,
+   188,
+   190,
+   192,
+   194,
+   195,
+   196,
+   197,
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   209,
+   210,
+   211,
+   212,
+   213,
+   214,
+   215,
+   216,
+   218,
+   219,
+   220,
+   221,
+   222,
+   223,
+   224,
+   225,
+   226,
+   227,
+   228,
+   229,
+   230,
+   231,
+   232,
+   233,
+   234,
+   235,
+   236,
+   237,
+   238,
+   239,
+   240,
+   241,
+   242,
+   243,
+   244,
+   248,
+   250,
+   251,
+   252,
+   253,
+   254,
+   256,
+   257,
+   258,
+   259,
+   260,
+   262,
+   264,
+   265,
+   266,
+   267,
+   268,
+   269,
+   270,
+   271,
+   272,
+   273,
+   274,
+   276,
+   278,
+   280,
+   281,
+   282,
+   283,
+   284,
+   286,
+   287,
+   288,
+   293,
+   296,
+   298,
+   299,
+   300,
+   301,
+   302,
+   303,
+   304,
+   306,
+   307,
+   309,
+   310,
+   311,
+   322,
+   323,
+   324,
+   325,
+   328,
+   329,
+   330,
+   331,
+   333,
+   334,
+   335,
+   336,
+   337,
+   338,
+   340,
+   342,
+   343,
+   344,
+   346,
+   347,
+   348,
+   350,
+   368,
+   369,
+   370,
+   371,
+   372,
+   376,
+   378,
+   380,
+   382,
+   384,
+   386,
+   388,
+   390,
+   392,
+   393,
+   394,
+   396,
+   397,
+   398,
+   399,
+   400,
+   401,
+   402,
+   404,
+   405,
+   406,
+   407,
+   408,
+   409,
+   410,
+   411,
+   412,
+   414,
+   415,
+   416,
+   418,
+   420,
+   421,
+   422,
+   424,
+   425,
+   426,
+   427,
+   428,
+   429,
+   430,
+   431,
+   432,
+   433,
+   436,
+   438,
+   440,
+   442,
+   444,
+   445,
+   446,
+   450,
+   453,
+   455,
+   456,
+   457,
+   459,
+   465,
+   466,
+   472,
+   473,
+   474,
+   475,
+   476,
+   477,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485,
+   486,
+   487,
+   488,
+   489,
+   490,
+   491,
+   492,
+   493,
+   494,
+   495,
+   496,
+   497,
+   498,
+   591,
+   593,
+   595,
+   597,
+   599,
+   604,
+   605,
+   606,
+   607,
+   608,
+   609,
+   610,
+   611,
+   612,
+   613,
+   614,
+   618,
+   621,
+   628,
+   629,
+   630,
+   631,
+   632,
+   633,
+   634,
+   635,
+   636,
+   637,
+   638,
+   648,
+   649,
+   651,
+   668,
+   670,
+   684,
+   685,
+   686,
+   687,
+   691,
+   692,
+   693,
+   694,
+   695,
+   698,
+   699,
+   700,
+   701,
+   702,
+   703,
+   704,
+   705,
+   706,
+   707,
+   708,
+   709,
+   715,
+   716,
+   717,
+   718,
+   719,
+   720,
+   721,
+   722,
+   723,
+   724,
+   725,
+   726,
+   727,
+   728,
+   729,
+   730,
+   731,
+   732,
+   733,
+   734,
+   760,
+   762,
+   766,
+   767,
+   768,
+   769,
+   771,
+   772,
+   773,
+   787,
+   845,
+   846,
+   847
+  ],
+  "facts": {
+   "rod": {
+    "text": "Willy gives you a Bamboo Pole on Spring 2 (Year 1) when you visit the beach — no fishing before that.",
+    "src": "https://stardewvalleywiki.com/Quests#To_The_Beach"
+   },
+   "fishShop": {
+    "text": "Willy's shop is open 9am–5pm; closed Saturdays unless it's raining.",
+    "src": "https://stardewvalleywiki.com/Fish_Shop"
+   },
+   "pierre": {
+    "text": "Pierre's is open 9am–5pm and closed on Wednesdays until the Community Center is restored.",
+    "src": "https://stardewvalleywiki.com/Pierre%27s_General_Store"
+   },
+   "joja": {
+    "text": "JojaMart sells seeds at a 25% markup unless you buy a Joja membership; it closes for good once the Community Center is restored.",
+    "src": "https://stardewvalleywiki.com/JojaMart"
+   },
+   "cart": {
+    "text": "The Traveling Cart visits Cindersap Forest on Fridays and Sundays, 6am–8pm, plus every day of the Night Market (Winter 15–17) and Desert Festival (Spring 15–17). Stock is random.",
+    "src": "https://stardewvalleywiki.com/Traveling_Cart"
+   },
+   "railroad": {
+    "text": "The Railroad opens after the earthquake on Summer 3, Year 1.",
+    "src": "https://stardewvalleywiki.com/Railroad"
+   },
+   "woods": {
+    "text": "The Secret Woods are behind a large log in Cindersap Forest; you need a Steel Axe to cut it.",
+    "src": "https://stardewvalleywiki.com/Secret_Woods"
+   },
+   "sewer": {
+    "text": "The Sewers need the Rusty Key, which Gunther mails you after 60 museum donations.",
+    "src": "https://stardewvalleywiki.com/The_Sewers"
+   },
+   "bus": {
+    "text": "The bus to the Desert is repaired by the Vault bundles (or the Joja form, 40,000g).",
+    "src": "https://stardewvalleywiki.com/Bus_Stop"
+   },
+   "skull": {
+    "text": "Skull Cavern needs the Skull Key (Mines floor 120) and the bus to the Desert.",
+    "src": "https://stardewvalleywiki.com/Skull_Cavern"
+   },
+   "island": {
+    "text": "Willy's boat to Ginger Island needs the Community Center (or Joja) finished, then 200 Hardwood, 5 Iridium Bars and 5 Battery Packs; tickets are 1,000g.",
+    "src": "https://stardewvalleywiki.com/Willy%27s_Boat"
+   },
+   "greenhouse": {
+    "text": "The Greenhouse is restored by the Pantry bundles (or the Joja form, 35,000g).",
+    "src": "https://stardewvalleywiki.com/Greenhouse"
+   },
+   "orders": {
+    "text": "The Special Orders board next to Pierre's opens on Fall 2, Year 1.",
+    "src": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+   },
+   "qi": {
+    "text": "Qi's Walnut Room opens after collecting 100 Golden Walnuts.",
+    "src": "https://stardewvalleywiki.com/Qi%27s_Walnut_Room"
+   },
+   "kegJar": {
+    "text": "Preserves Jar recipe at Farming level 4, Keg at Farming level 8.",
+    "src": "https://stardewvalleywiki.com/Farming#Farming_Skill"
+   },
+   "artisan": {
+    "text": "Wine sells for 3× the fruit; Juice 2.25× the vegetable; Jelly/Pickles 2× + 50g.",
+    "src": "https://stardewvalleywiki.com/Artisan_Goods"
+   },
+   "helpWanted": {
+    "text": "The Help Wanted board outside Pierre's may post a random request every day except the first day; delivery requests pay 3× the item's price.",
+    "src": "https://stardewvalleywiki.com/Quests#Help_Wanted_Quests"
+   },
+   "rain": {
+    "text": "Rain waters your crops for you, and some fish only bite in rain. Storms and Green Rain count as rain; windy and snowy days count as dry.",
+    "src": "https://stardewvalleywiki.com/Weather"
+   },
+   "mineFloors": {
+    "text": "Mine fish: Ghostfish & Stonefish from floor 20, Ice Pip from floor 60, Lava Eel from floor 100.",
+    "src": "https://stardewvalleywiki.com/The_Mines"
+   },
+   "greenRain": {
+    "text": "Green Rain happens once each Summer, on one of these days: 5, 6, 7, 14, 15, 16, 18 or 23. It covers about half of all grown trees in Moss, spawns large weeds worth 15 Foraging XP each, and farm Green Rain Trees can give Mossy Seeds.",
+    "src": "https://stardewvalleywiki.com/Weather#Green_Rain"
+   },
+   "greenRainY1": {
+    "text": "In Year 1, most villagers stay indoors during Green Rain (except Demetrius, Leah and Linus) and you can't give gifts.",
+    "src": "https://stardewvalleywiki.com/Weather#Green_Rain"
+   },
+   "fixedWeather": {
+    "text": "Always sunny on the 1st of Spring, Summer, Fall and Winter and on festival days; in Year 1, Spring 2, 4 and 5 are sunny and Spring 3 rains. Snow only falls in Winter (it never rains then), windy days only happen in Spring and Fall, and Spring has no storms in Year 1.",
+    "src": "https://stardewvalleywiki.com/Modding:Weather_data"
+   },
+   "mines": {
+    "text": "The Mines are blocked by a rockslide until Spring 5, Year 1. Every 5th floor is an elevator stop; floor 120 gives the Skull Key.",
+    "src": "https://stardewvalleywiki.com/The_Mines"
+   },
+   "backpack": {
+    "text": "Pierre sells the Large Pack (24 slots) for 2,000g and the Deluxe Pack (36 slots) for 10,000g.",
+    "src": "https://stardewvalleywiki.com/Backpack"
+   },
+   "tools": {
+    "text": "Clint upgrades tools in 2 days: Copper 2,000g + 5 Copper Bars, Steel 5,000g + 5 Iron Bars, Gold 10,000g + 5 Gold Bars, Iridium 25,000g + 5 Iridium Bars.",
+    "src": "https://stardewvalleywiki.com/Blacksmith"
+   },
+   "house": {
+    "text": "Robin's first house upgrade (kitchen) costs 10,000g + 450 Wood; the second 65,000g + 100 Hardwood; the cellar 100,000g.",
+    "src": "https://stardewvalleywiki.com/Farmhouse"
+   },
+   "crabPot": {
+    "text": "Crab Pots unlock at Fishing level 3 (craft them or buy from Willy for 1,500g).",
+    "src": "https://stardewvalleywiki.com/Crab_Pot"
+   },
+   "storm": {
+    "text": "It is always stormy on Summer 13 and 26. Storms count as rain; lightning can hit your farm, and Lightning Rods (Foraging level 6) turn strikes into Battery Packs.",
+    "src": "https://stardewvalleywiki.com/Weather#Storm"
+   }
+  }
+ }
+}

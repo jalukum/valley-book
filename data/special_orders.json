@@ -1,0 +1,1389 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": [
+   {
+    "repo": "https://github.com/kronosta/stardew-data",
+    "commit": "de69cb5ce6f3708a63d53ed414b757b39b3f105e"
+   },
+   "https://stardewvalleywiki.com/Quests"
+  ],
+  "license": "Game data/art (c) ConcernedApe; used for a non-commercial fan app",
+  "note": "text may contain {placeholders} filled by RandomizedElements at runtime"
+ },
+ "data": [
+  {
+   "id": "Willy",
+   "name": "[Willy_Name]",
+   "requester": "Willy",
+   "board": "Town",
+   "text": "[Willy_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Willy_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "AcceptedContextTags": "item_bug_meat"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Willy_Objective_1_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "WillyBarrel",
+      "DropBoxGameLocation": "Beach",
+      "DropBoxIndicatorLocation": "37 32",
+      "AcceptedContextTags": "item_bug_meat"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "3000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "willyBugWadCutscene"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Pam",
+   "name": "[Pam_Name]",
+   "requester": "Pam",
+   "board": "Town",
+   "text": "[Pam_Text]",
+   "duration": "TwoWeeks",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "season_spring",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Pam_Objective_0_Text]",
+     "count": "12",
+     "data": {
+      "AcceptedContextTags": "juice_item, preserve_sheet_index_192"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Pam_Objective_1_Text]",
+     "count": "12",
+     "data": {
+      "DropBox": "PamKitchen",
+      "DropBoxGameLocation": "Trailer",
+      "DropBoxIndicatorLocation": "10 5",
+      "AcceptedContextTags": "juice_item, preserve_sheet_index_192"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "3000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "pamPotatoJuice"
+    },
+    {
+     "type": "friendship"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Pierre",
+   "name": "[Pierre_Name]",
+   "requester": "Pierre",
+   "board": "Town",
+   "text": "[Pierre_Text]",
+   "duration": "Month",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Pierre_Objective_0_Text]",
+     "count": "25",
+     "data": {
+      "AcceptedContextTags": "!forage_item, category_vegetable, quality_gold"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Pierre_Objective_1_Text]",
+     "count": "25",
+     "data": {
+      "DropBox": "PierreBox",
+      "DropBoxGameLocation": "SeedShop",
+      "DropBoxIndicatorLocation": "18.5 27",
+      "AcceptedContextTags": "!forage_item, category_vegetable, quality_gold"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "2500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "pierreQualityCrops"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Robin",
+   "name": "[Robin_Name]",
+   "requester": "Robin",
+   "board": "Town",
+   "text": "[Robin_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Robin_Objective_0_Text]",
+     "count": "80",
+     "data": {
+      "AcceptedContextTags": "item_hardwood"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Robin_Objective_1_Text]",
+     "count": "80",
+     "data": {
+      "DropBox": "RobinWood",
+      "DropBoxGameLocation": "ScienceHouse",
+      "DropBoxIndicatorLocation": "10.5 18",
+      "AcceptedContextTags": "item_hardwood"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "2000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "robinDeluxeBed"
+    },
+    {
+     "type": "friendship"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Emily",
+   "name": "[Emily_Name]",
+   "requester": "Emily",
+   "board": "Town",
+   "text": "[Emily_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "event_992559",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Deliver",
+     "text": "[Emily_Objective_0_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_ruby",
+      "TargetName": "Emily"
+     }
+    },
+    {
+     "type": "Deliver",
+     "text": "[Emily_Objective_1_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_topaz",
+      "TargetName": "Emily"
+     }
+    },
+    {
+     "type": "Deliver",
+     "text": "[Emily_Objective_2_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_emerald",
+      "TargetName": "Emily"
+     }
+    },
+    {
+     "type": "Deliver",
+     "text": "[Emily_Objective_3_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_jade",
+      "TargetName": "Emily"
+     }
+    },
+    {
+     "type": "Deliver",
+     "text": "[Emily_Objective_4_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_amethyst",
+      "TargetName": "Emily"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "1000"
+    },
+    {
+     "type": "friendship"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "emilyStones"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Demetrius",
+   "name": "[Demetrius_Name]",
+   "requester": "Demetrius",
+   "board": "Town",
+   "text": "[Demetrius_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Fish",
+     "text": "[Demetrius_Objective_0_Text]",
+     "count": "10",
+     "data": {
+      "AcceptedContextTags": "{FishType:Tags}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "{FishType:Price}"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "DemetriusReward"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Demetrius2",
+   "name": "[Demetrius2_Name]",
+   "requester": "Demetrius",
+   "board": "Town",
+   "text": "[Demetrius2_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Fish",
+     "text": "[Demetrius2_Objective_0_Text]",
+     "count": "20",
+     "data": {
+      "AcceptedContextTags": "{FishType:Tags}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "1500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "DemetriusReward"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Gus",
+   "name": "[Gus_Name]",
+   "requester": "Gus",
+   "board": "Town",
+   "text": "[Gus_Text]",
+   "duration": "TwoWeeks",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Gus_Objective_0_Text]",
+     "count": "24",
+     "data": {
+      "AcceptedContextTags": "egg_item"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Gus_Objective_1_Text]",
+     "count": "24",
+     "data": {
+      "DropBox": "GusFridge",
+      "DropBoxGameLocation": "Saloon",
+      "DropBoxIndicatorLocation": "18 15",
+      "MinimumCapacity": "30",
+      "AcceptedContextTags": "egg_item"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "3000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "gusGiantOmelet"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Lewis",
+   "name": "[Lewis_Name]",
+   "requester": "Lewis",
+   "board": "Town",
+   "text": "[Lewis_Text]",
+   "duration": "Month",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "!season_winter",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Lewis_Objective_1_Text]",
+     "count": "100",
+     "data": {
+      "AcceptedContextTags": "{Crop:Tags}"
+     }
+    },
+    {
+     "type": "Ship",
+     "text": "[Lewis_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "AcceptedContextTags": "{Crop:Tags}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "{Crop:Price}"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "MSB_Lewis"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Wizard",
+   "name": "[Wizard_Name]",
+   "requester": "Wizard",
+   "board": "Town",
+   "text": "[Wizard_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Deliver",
+     "text": "[Wizard_Objective_0_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_ectoplasm",
+      "Message": "[Wizard_Objective_0_Message]",
+      "TargetName": "Wizard"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "2500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "WizardReward2"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Clint",
+   "name": "[Clint_Name]",
+   "requester": "Clint",
+   "board": "Town",
+   "text": "[Clint_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Slay",
+     "text": "[Clint_Objective_0_Text]",
+     "count": "50",
+     "data": {
+      "TargetName": "{Monster:Target}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "6000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "ClintReward"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Linus",
+   "name": "[Linus_Name]",
+   "requester": "Linus",
+   "board": "Town",
+   "text": "[Linus_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Linus_Objective_0_Text]",
+     "count": "20",
+     "data": {
+      "AcceptedContextTags": "trash_item"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Linus_Objective_1_Text]",
+     "count": "20",
+     "data": {
+      "DropBox": "Dumpster",
+      "DropBoxGameLocation": "Railroad",
+      "DropBoxIndicatorLocation": "28.5 36",
+      "AcceptedContextTags": "trash_item"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "linusTrashCleanup"
+    },
+    {
+     "type": "friendship"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Evelyn",
+   "name": "[Evelyn_Name]",
+   "requester": "Evelyn",
+   "board": "Town",
+   "text": "[Evelyn_Text]",
+   "duration": "Month",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "season_spring",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Evelyn_Objective_0_Text]",
+     "count": "12",
+     "data": {
+      "AcceptedContextTags": "item_leek"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Evelyn_Objective_1_Text]",
+     "count": "12",
+     "data": {
+      "DropBox": "EvelynKitchen",
+      "DropBoxGameLocation": "JoshHouse",
+      "DropBoxIndicatorLocation": "3 15",
+      "AcceptedContextTags": "item_leek"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "2000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "georgeGifts"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Wizard2",
+   "name": "[Wizard2_Name]",
+   "requester": "Wizard",
+   "board": "Town",
+   "text": "[Wizard2_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Slay",
+     "text": "[Wizard2_Objective_0_Text]",
+     "count": "1",
+     "data": {
+      "TargetName": "Prismatic Slime"
+     }
+    },
+    {
+     "type": "Deliver",
+     "text": "[Wizard2_Objective_1_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_prismatic_jelly",
+      "TargetName": "Wizard",
+      "Message": "[Wizard2_Objective_1_Message]"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "5000"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "WizardReward"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Robin2",
+   "name": "[Robin2_Name]",
+   "requester": "Robin",
+   "board": "Town",
+   "text": "[Robin2_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Robin2_Objective_0_Text]",
+     "count": "1000",
+     "data": {
+      "AcceptedContextTags": "{Resource:Tags}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "2500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "robinResource"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Gunther",
+   "name": "[Gunther_Name]",
+   "requester": "Gunther",
+   "board": "Town",
+   "text": "[Gunther_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Gunther_Objective_1_Text]",
+     "count": "100",
+     "data": {
+      "AcceptedContextTags": "bone_item"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[Gunther_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "GuntherBox",
+      "DropBoxGameLocation": "ArchaeologyHouse",
+      "DropBoxIndicatorLocation": "6 8",
+      "AcceptedContextTags": "bone_item"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "3500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "guntherBones"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Caroline",
+   "name": "[Caroline_Name]",
+   "requester": "Caroline",
+   "board": "Town",
+   "text": "[Caroline_Text]",
+   "duration": "Month",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "island",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Lewis_Objective_1_Text]",
+     "count": "100",
+     "data": {
+      "AcceptedContextTags": "{Crop:Tags}"
+     }
+    },
+    {
+     "type": "Ship",
+     "text": "[Caroline_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "AcceptedContextTags": "{Crop:Tags}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "{Crop:Price}"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "carolineSO"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "Willy2",
+   "name": "[Willy2_Name]",
+   "requester": "Willy",
+   "board": "Town",
+   "text": "[Willy2_Text]",
+   "duration": "Week",
+   "repeatable": false,
+   "unused": false,
+   "requiredTags": "island, mail_Island_Resort",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Fish",
+     "text": "[Willy2_Objective_0_Text]",
+     "count": "5",
+     "data": {
+      "AcceptedContextTags": "item_lionfish"
+     }
+    },
+    {
+     "type": "Fish",
+     "text": "[Willy2_Objective_1_Text]",
+     "count": "5",
+     "data": {
+      "AcceptedContextTags": "item_blue_discus"
+     }
+    },
+    {
+     "type": "Fish",
+     "text": "[Willy2_Objective_2_Text]",
+     "count": "5",
+     "data": {
+      "AcceptedContextTags": "item_stingray"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": "2500"
+    },
+    {
+     "type": "unlock",
+     "mailFlag": "WillyTropicalFish"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge",
+   "name": "[QiChallenge_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": true,
+   "requiredTags": "NOT_IMPLEMENTED, !rule_QI_BEANS",
+   "condition": "",
+   "specialRule": "FIVE_PLAGUES, QI_BEANS",
+   "objectives": [
+    {
+     "type": "Ship",
+     "text": "[QiChallenge_Objective_0_Text]",
+     "count": "500",
+     "data": {
+      "AcceptedContextTags": "item_qi_fruit"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "50"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge2",
+   "name": "[QiChallenge2_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge2_Text]",
+   "duration": "Month",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "!rule_QI_BEANS",
+   "condition": "",
+   "specialRule": "QI_BEANS, DROP_QI_BEANS",
+   "objectives": [
+    {
+     "type": "Ship",
+     "text": "[QiChallenge2_Objective_0_Text]",
+     "count": "500",
+     "data": {
+      "AcceptedContextTags": "item_qi_fruit"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "100"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge3",
+   "name": "[QiChallenge3_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge3_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "JKScore",
+     "text": "[QiChallenge3_Objective_0_Text]",
+     "count": "50000",
+     "data": {
+      "AcceptedContextTags": "placeholder"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "10"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge4",
+   "name": "[QiChallenge4_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge4_Text]",
+   "duration": "Month",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "!dropbox_QiChallengeBox",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Donate",
+     "text": "[QiChallenge4_Objective_0_Text]",
+     "count": "4",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "AcceptedContextTags": "item_prismatic_shard"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "40"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge5",
+   "name": "[QiChallenge5_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge5_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "SC_NO_FOOD",
+   "objectives": [
+    {
+     "type": "ReachMineFloor",
+     "text": "[QiChallenge5_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "SkullCave": "true"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "25"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge6",
+   "name": "[QiChallenge6_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge6_Text]",
+   "duration": "TwoWeeks",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "QI_COOKING",
+   "objectives": [
+    {
+     "type": "Ship",
+     "text": "[QiChallenge6_Objective_0_Text]",
+     "count": "100000",
+     "data": {
+      "AcceptedContextTags": "quality_qi",
+      "UseShipmentValue": "True"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "25"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge7",
+   "name": "[QiChallenge7_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge7_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Gift",
+     "text": "[QiChallenge7_Objective_0_Text]",
+     "count": "50",
+     "data": {
+      "MinimumLikeLevel": "Loved"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "40"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge8",
+   "name": "[QiChallenge8_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge8_Text]",
+   "duration": "ThreeDays",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "LEGENDARY_FAMILY",
+   "objectives": [
+    {
+     "type": "Fish",
+     "text": "[QiChallenge8_Objective_0_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_ms._angler"
+     }
+    },
+    {
+     "type": "Fish",
+     "text": "[QiChallenge8_Objective_1_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_glacierfish_jr."
+     }
+    },
+    {
+     "type": "Fish",
+     "text": "[QiChallenge8_Objective_2_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_son_of_crimsonfish"
+     }
+    },
+    {
+     "type": "Fish",
+     "text": "[QiChallenge8_Objective_3_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_radioactive_carp"
+     }
+    },
+    {
+     "type": "Fish",
+     "text": "[QiChallenge8_Objective_4_Text]",
+     "count": "1",
+     "data": {
+      "AcceptedContextTags": "item_legend_ii"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "20"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge9",
+   "name": "[QiChallenge9_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge9_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "MINE_HARD",
+   "objectives": [
+    {
+     "type": "ReachMineFloor",
+     "text": "[QiChallenge9_Objective_0_Text]",
+     "count": "120",
+     "data": {}
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "50"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge10",
+   "name": "[QiChallenge10_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge10_Text]",
+   "duration": "Week",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "SC_HARD",
+   "objectives": [
+    {
+     "type": "ReachMineFloor",
+     "text": "[QiChallenge10_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "SkullCave": "true"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "40"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge11",
+   "name": "[QiChallenge11_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge11_Text]",
+   "duration": "OneDay",
+   "repeatable": true,
+   "unused": true,
+   "requiredTags": "NOT_IMPLEMENTED",
+   "condition": "",
+   "specialRule": "QI_DOUBLE",
+   "objectives": [
+    {
+     "type": "Custom",
+     "text": "[QiChallenge11_Objective_0_Text]",
+     "count": "120",
+     "data": {
+      "AcceptedContextTags": "placeholder"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "10"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "QiChallenge12",
+   "name": "[QiChallenge12_Name]",
+   "requester": "Qi",
+   "board": "Qi",
+   "text": "[QiChallenge12_Text]",
+   "duration": "TwoWeeks",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "!dropbox_QiChallengeBox",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Donate",
+     "text": "[QiChallenge12_Objective_0_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "MinimumCapacity": "36",
+      "AcceptedContextTags": "color_red/color_dark_red"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[QiChallenge12_Objective_1_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "AcceptedContextTags": "color_orange/color_copper/color_dark_orange"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[QiChallenge12_Objective_2_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "AcceptedContextTags": "color_yellow/color_dark_yellow/color_gold"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[QiChallenge12_Objective_3_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "AcceptedContextTags": "color_green/color_dark_green/color_lime/color_yellow_green/color_jade"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[QiChallenge12_Objective_4_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "AcceptedContextTags": "color_blue/color_dark_blue/color_dark_cyan/color_light_cyan/color_cyan/color_aquamarine"
+     }
+    },
+    {
+     "type": "Donate",
+     "text": "[QiChallenge12_Objective_5_Text]",
+     "count": "100",
+     "data": {
+      "DropBox": "QiChallengeBox",
+      "DropBoxGameLocation": "QiNutRoom",
+      "DropBoxIndicatorLocation": "1 3",
+      "AcceptedContextTags": "color_purple/color_dark_purple/color_dark_pink/color_pale_violet_red/color_poppyseed/color_iridium"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "qiGems",
+     "amount": "35"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "DesertFestivalMarlon1",
+   "name": "[Marlon_DF_0_Name]",
+   "requester": "Marlon",
+   "board": "Desert Festival",
+   "text": "[Marlon_DF_0_Text]",
+   "duration": "OneDay",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Slay",
+     "text": "[Marlon_DF_0_Objective]",
+     "count": "10",
+     "data": {
+      "TargetName": "{Monster:Target}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "object",
+     "Item": "CalicoEgg",
+     "Amount": "35"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "DesertFestivalMarlon2",
+   "name": "[Marlon_DF_1_Name]",
+   "requester": "Marlon",
+   "board": "Desert Festival",
+   "text": "[Marlon_DF_1_Text]",
+   "duration": "OneDay",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "ReachMineFloor",
+     "text": "[Marlon_DF_1_Objective]",
+     "count": "30",
+     "data": {
+      "SkullCave": "true"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "object",
+     "Item": "CalicoEgg",
+     "Amount": "50"
+    }
+   ],
+   "randomized": false,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  },
+  {
+   "id": "DesertFestivalMarlon3",
+   "name": "[Marlon_DF_2_Name]",
+   "requester": "Marlon",
+   "board": "Desert Festival",
+   "text": "[Marlon_DF_2_Text]",
+   "duration": "OneDay",
+   "repeatable": true,
+   "unused": false,
+   "requiredTags": "",
+   "condition": "",
+   "specialRule": "",
+   "objectives": [
+    {
+     "type": "Collect",
+     "text": "[Marlon_DF_2_Objective]",
+     "count": "{Treasure:Count}",
+     "data": {
+      "AcceptedContextTags": "{Treasure:Target}"
+     }
+    }
+   ],
+   "rewards": [
+    {
+     "type": "object",
+     "Item": "CalicoEgg",
+     "Amount": "40"
+    }
+   ],
+   "randomized": true,
+   "wikiUrl": "https://stardewvalleywiki.com/Quests#List_of_Special_Orders"
+  }
+ ]
+}

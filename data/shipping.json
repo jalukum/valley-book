@@ -1,0 +1,1404 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": {
+   "repo": "https://github.com/communitycenter/stardew.app",
+   "commit": "7b27120442a4ee265f04fab2568c97521922f2d1"
+  },
+  "license": "stardew.app MIT; names from game data",
+  "note": "Farm & Forage collection. Wiki Perfection table counts 154 for perfection; this list has 154 (see validation)."
+ },
+ "data": [
+  {
+   "qid": "(O)16",
+   "name": "Wild Horseradish",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)18",
+   "name": "Daffodil",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)20",
+   "name": "Leek",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)22",
+   "name": "Dandelion",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)24",
+   "name": "Parsnip",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)78",
+   "name": "Cave Carrot",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)88",
+   "name": "Coconut",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)90",
+   "name": "Cactus Fruit",
+   "seasons": [
+    "Spring",
+    "Summer",
+    "Fall",
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)91",
+   "name": "Banana",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)92",
+   "name": "Sap",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)174",
+   "name": "Large Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)176",
+   "name": "Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)180",
+   "name": "Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)182",
+   "name": "Large Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)184",
+   "name": "Milk",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Milk"
+  },
+  {
+   "qid": "(O)186",
+   "name": "Large Milk",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Milk"
+  },
+  {
+   "qid": "(O)188",
+   "name": "Green Bean",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)190",
+   "name": "Cauliflower",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)192",
+   "name": "Potato",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)248",
+   "name": "Garlic",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)250",
+   "name": "Kale",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)252",
+   "name": "Rhubarb",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)254",
+   "name": "Melon",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)256",
+   "name": "Tomato",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)257",
+   "name": "Morel",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)258",
+   "name": "Blueberry",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)259",
+   "name": "Fiddlehead Fern",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)260",
+   "name": "Hot Pepper",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)262",
+   "name": "Wheat",
+   "seasons": [
+    "Summer",
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)264",
+   "name": "Radish",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)266",
+   "name": "Red Cabbage",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)268",
+   "name": "Starfruit",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)270",
+   "name": "Corn",
+   "seasons": [
+    "Summer",
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)271",
+   "name": "Unmilled Rice",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)272",
+   "name": "Eggplant",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)274",
+   "name": "Artichoke",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)276",
+   "name": "Pumpkin",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)278",
+   "name": "Bok Choy",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)280",
+   "name": "Yam",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)281",
+   "name": "Chanterelle",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)282",
+   "name": "Cranberries",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)283",
+   "name": "Holly",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)284",
+   "name": "Beet",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)289",
+   "name": "Ostrich Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)296",
+   "name": "Salmonberry",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)300",
+   "name": "Amaranth",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)303",
+   "name": "Pale Ale",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)304",
+   "name": "Hops",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)305",
+   "name": "Void Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)306",
+   "name": "Mayonnaise",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)307",
+   "name": "Duck Mayonnaise",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)308",
+   "name": "Void Mayonnaise",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)330",
+   "name": "Clay",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)334",
+   "name": "Copper Bar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)335",
+   "name": "Iron Bar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)336",
+   "name": "Gold Bar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)337",
+   "name": "Iridium Bar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)338",
+   "name": "Refined Quartz",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)340",
+   "name": "Honey",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)342",
+   "name": "Pickles",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)344",
+   "name": "Jelly",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)346",
+   "name": "Beer",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)348",
+   "name": "Wine",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)350",
+   "name": "Juice",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)376",
+   "name": "Poppy",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)378",
+   "name": "Copper Ore",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)380",
+   "name": "Iron Ore",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)382",
+   "name": "Coal",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)384",
+   "name": "Gold Ore",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)386",
+   "name": "Iridium Ore",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)388",
+   "name": "Wood",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)390",
+   "name": "Stone",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)392",
+   "name": "Nautilus Shell",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Fish Shop"
+  },
+  {
+   "qid": "(O)393",
+   "name": "Coral",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Fish Shop"
+  },
+  {
+   "qid": "(O)394",
+   "name": "Rainbow Shell",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Fish Shop"
+  },
+  {
+   "qid": "(O)396",
+   "name": "Spice Berry",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)397",
+   "name": "Sea Urchin",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Fish Shop"
+  },
+  {
+   "qid": "(O)398",
+   "name": "Grape",
+   "seasons": [
+    "Fall",
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)399",
+   "name": "Spring Onion",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)400",
+   "name": "Strawberry",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)402",
+   "name": "Sweet Pea",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)404",
+   "name": "Common Mushroom",
+   "seasons": [
+    "Fall",
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)406",
+   "name": "Wild Plum",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)408",
+   "name": "Hazelnut",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)410",
+   "name": "Blackberry",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)412",
+   "name": "Winter Root",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)414",
+   "name": "Crystal Fruit",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)416",
+   "name": "Snow Yam",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)417",
+   "name": "Sweet Gem Berry",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Pierre's"
+  },
+  {
+   "qid": "(O)418",
+   "name": "Crocus",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)420",
+   "name": "Red Mushroom",
+   "seasons": [
+    "Summer",
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)421",
+   "name": "Sunflower",
+   "seasons": [
+    "Summer",
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)422",
+   "name": "Purple Mushroom",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)424",
+   "name": "Cheese",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)426",
+   "name": "Goat Cheese",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)428",
+   "name": "Cloth",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)430",
+   "name": "Truffle",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Pierre's"
+  },
+  {
+   "qid": "(O)432",
+   "name": "Truffle Oil",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)433",
+   "name": "Coffee Bean",
+   "seasons": [
+    "Spring",
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": true,
+   "category": "Seed"
+  },
+  {
+   "qid": "(O)436",
+   "name": "Goat Milk",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Milk"
+  },
+  {
+   "qid": "(O)438",
+   "name": "L. Goat Milk",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Milk"
+  },
+  {
+   "qid": "(O)440",
+   "name": "Wool",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Pierre's and Marnie's"
+  },
+  {
+   "qid": "(O)442",
+   "name": "Duck Egg",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Egg"
+  },
+  {
+   "qid": "(O)444",
+   "name": "Duck Feather",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Pierre's and Marnie's"
+  },
+  {
+   "qid": "(O)445",
+   "name": "Caviar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)446",
+   "name": "Rabbit's Foot",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Pierre's and Marnie's"
+  },
+  {
+   "qid": "(O)447",
+   "name": "Aged Roe",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)454",
+   "name": "Ancient Fruit",
+   "seasons": [
+    "Spring",
+    "Summer",
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)459",
+   "name": "Mead",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)591",
+   "name": "Tulip",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)593",
+   "name": "Summer Spangle",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": true,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)595",
+   "name": "Fairy Rose",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": true,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)597",
+   "name": "Blue Jazz",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": true,
+   "polyculture": false,
+   "category": "Flower"
+  },
+  {
+   "qid": "(O)613",
+   "name": "Apple",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)614",
+   "name": "Green Tea",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)634",
+   "name": "Apricot",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)635",
+   "name": "Orange",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)636",
+   "name": "Peach",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)637",
+   "name": "Pomegranate",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)638",
+   "name": "Cherry",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)684",
+   "name": "Bug Meat",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Monster Loot"
+  },
+  {
+   "qid": "(O)709",
+   "name": "Hardwood",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)724",
+   "name": "Maple Syrup",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Syrup"
+  },
+  {
+   "qid": "(O)725",
+   "name": "Oak Resin",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Syrup"
+  },
+  {
+   "qid": "(O)726",
+   "name": "Pine Tar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Syrup"
+  },
+  {
+   "qid": "(O)766",
+   "name": "Slime",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Monster Loot"
+  },
+  {
+   "qid": "(O)767",
+   "name": "Bat Wing",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Monster Loot"
+  },
+  {
+   "qid": "(O)768",
+   "name": "Solar Essence",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Monster Loot"
+  },
+  {
+   "qid": "(O)769",
+   "name": "Void Essence",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Monster Loot"
+  },
+  {
+   "qid": "(O)771",
+   "name": "Fiber",
+   "seasons": [
+    "Spring",
+    "Summer",
+    "Fall",
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)787",
+   "name": "Battery Pack",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)807",
+   "name": "Dinosaur Mayonnaise",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)812",
+   "name": "Roe",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Fish Shop"
+  },
+  {
+   "qid": "(O)814",
+   "name": "Squid Ink",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Sell at Fish Shop"
+  },
+  {
+   "qid": "(O)815",
+   "name": "Tea Leaves",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)829",
+   "name": "Ginger",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)830",
+   "name": "Taro Root",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)832",
+   "name": "Pineapple",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)834",
+   "name": "Mango",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)848",
+   "name": "Cinder Shard",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)851",
+   "name": "Magma Cap",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Forage"
+  },
+  {
+   "qid": "(O)881",
+   "name": "Bone Fragment",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)909",
+   "name": "Radioactive Ore",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)910",
+   "name": "Radioactive Bar",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Metal Resource"
+  },
+  {
+   "qid": "(O)Broccoli",
+   "name": "Broccoli",
+   "seasons": [
+    "Fall"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)Carrot",
+   "name": "Carrot",
+   "seasons": [
+    "Spring"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  },
+  {
+   "qid": "(O)DriedFruit",
+   "name": "Dried Fruit",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)DriedMushrooms",
+   "name": "Dried Mushrooms",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)Moss",
+   "name": "Moss",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Building Resource"
+  },
+  {
+   "qid": "(O)MysticSyrup",
+   "name": "Mystic Syrup",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Syrup"
+  },
+  {
+   "qid": "(O)Powdermelon",
+   "name": "Powdermelon",
+   "seasons": [
+    "Winter"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Fruit"
+  },
+  {
+   "qid": "(O)Raisins",
+   "name": "Raisins",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)SmokedFish",
+   "name": "Smoked Fish",
+   "seasons": [],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Artisan Goods"
+  },
+  {
+   "qid": "(O)SummerSquash",
+   "name": "Summer Squash",
+   "seasons": [
+    "Summer"
+   ],
+   "monoculture": false,
+   "polyculture": false,
+   "category": "Vegetable"
+  }
+ ]
+}

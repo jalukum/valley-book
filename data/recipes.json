@@ -1,0 +1,6170 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": [
+   {
+    "repo": "https://github.com/kronosta/stardew-data",
+    "commit": "de69cb5ce6f3708a63d53ed414b757b39b3f105e"
+   },
+   {
+    "repo": "https://github.com/communitycenter/stardew.app",
+    "commit": "7b27120442a4ee265f04fab2568c97521922f2d1"
+   }
+  ],
+  "license": [
+   "Game data/art (c) ConcernedApe; used for a non-commercial fan app",
+   "stardew.app MIT"
+  ],
+  "note": "unlock = human-readable (stardew.app); unlockRaw = game data ('default', 's Farming 2', 'f Lewis 9', 'l N' = learned elsewhere e.g. TV/mail, 'none')."
+ },
+ "data": {
+  "cooking": [
+   {
+    "recipe": "Fried Egg",
+    "displayName": "Fried Egg",
+    "ingredients": [
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)194",
+     "name": "Fried Egg",
+     "count": 1
+    },
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required!",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Omelet",
+    "displayName": "Omelet",
+    "ingredients": [
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)195",
+     "name": "Omelet",
+     "count": 1
+    },
+    "unlockRaw": "l 10",
+    "unlock": "Spring 28, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Salad",
+    "displayName": "Salad",
+    "ingredients": [
+     {
+      "qid": "(O)20",
+      "name": "Leek",
+      "count": 1
+     },
+     {
+      "qid": "(O)22",
+      "name": "Dandelion",
+      "count": 1
+     },
+     {
+      "qid": "(O)419",
+      "name": "Vinegar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)196",
+     "name": "Salad",
+     "count": 1
+    },
+    "unlockRaw": "f Emily 3",
+    "unlock": "Reach 3 hearts with Emily.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cheese Cauli.",
+    "displayName": "Cheese Cauli.",
+    "ingredients": [
+     {
+      "qid": "(O)190",
+      "name": "Cauliflower",
+      "count": 1
+     },
+     {
+      "qid": "(O)424",
+      "name": "Cheese",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)197",
+     "name": "Cheese Cauliflower",
+     "count": 1
+    },
+    "unlockRaw": "f Pam 3",
+    "unlock": "Reach 3 hearts with Pam.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Baked Fish",
+    "displayName": "Baked Fish",
+    "ingredients": [
+     {
+      "qid": "(O)145",
+      "name": "Sunfish",
+      "count": 1
+     },
+     {
+      "qid": "(O)132",
+      "name": "Bream",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)198",
+     "name": "Baked Fish",
+     "count": 1
+    },
+    "unlockRaw": "l 12",
+    "unlock": "Summer 7, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Parsnip Soup",
+    "displayName": "Parsnip Soup",
+    "ingredients": [
+     {
+      "qid": "(O)24",
+      "name": "Parsnip",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     },
+     {
+      "qid": "(O)419",
+      "name": "Vinegar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)199",
+     "name": "Parsnip Soup",
+     "count": 1
+    },
+    "unlockRaw": "f Caroline 3",
+    "unlock": "Reach 3 hearts with Caroline.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Vegetable Stew",
+    "displayName": "Vegetable Stew",
+    "ingredients": [
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     },
+     {
+      "qid": "(O)284",
+      "name": "Beet",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)200",
+     "name": "Vegetable Medley",
+     "count": 1
+    },
+    "unlockRaw": "f Caroline 7",
+    "unlock": "Reach 7 hearts with Caroline.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Complete Breakfast",
+    "displayName": "Complete Breakfast",
+    "ingredients": [
+     {
+      "qid": "(O)194",
+      "name": "Fried Egg",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     },
+     {
+      "qid": "(O)210",
+      "name": "Hashbrowns",
+      "count": 1
+     },
+     {
+      "qid": "(O)211",
+      "name": "Pancakes",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)201",
+     "name": "Complete Breakfast",
+     "count": 1
+    },
+    "unlockRaw": "l 26",
+    "unlock": "Spring 21, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fried Calamari",
+    "displayName": "Fried Calamari",
+    "ingredients": [
+     {
+      "qid": "(O)151",
+      "name": "Squid",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)202",
+     "name": "Fried Calamari",
+     "count": 1
+    },
+    "unlockRaw": "f Jodi 3",
+    "unlock": "Reach 3 hearts with Jodi.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Strange Bun",
+    "displayName": "Strange Bun",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)722",
+      "name": "Periwinkle",
+      "count": 1
+     },
+     {
+      "qid": "(O)308",
+      "name": "Void Mayonnaise",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)203",
+     "name": "Strange Bun",
+     "count": 1
+    },
+    "unlockRaw": "f Shane 7",
+    "unlock": "Reach 7 hearts with Shane.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Lucky Lunch",
+    "displayName": "Lucky Lunch",
+    "ingredients": [
+     {
+      "qid": "(O)154",
+      "name": "Sea Cucumber",
+      "count": 1
+     },
+     {
+      "qid": "(O)229",
+      "name": "Tortilla",
+      "count": 1
+     },
+     {
+      "qid": "(O)597",
+      "name": "Blue Jazz",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)204",
+     "name": "Lucky Lunch",
+     "count": 1
+    },
+    "unlockRaw": "s Luck 8",
+    "unlock": "Spring 28, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fried Mushroom",
+    "displayName": "Fried Mushroom",
+    "ingredients": [
+     {
+      "qid": "(O)404",
+      "name": "Common Mushroom",
+      "count": 1
+     },
+     {
+      "qid": "(O)257",
+      "name": "Morel",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)205",
+     "name": "Fried Mushroom",
+     "count": 1
+    },
+    "unlockRaw": "f Demetrius 3",
+    "unlock": "Reach 3 hearts with Demetrius.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pizza",
+    "displayName": "Pizza",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     },
+     {
+      "qid": "(O)424",
+      "name": "Cheese",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)206",
+     "name": "Pizza",
+     "count": 1
+    },
+    "unlockRaw": "l 20",
+    "unlock": "Spring 7, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bean Hotpot",
+    "displayName": "Bean Hotpot",
+    "ingredients": [
+     {
+      "qid": "(O)188",
+      "name": "Green Bean",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)207",
+     "name": "Bean Hotpot",
+     "count": 1
+    },
+    "unlockRaw": "f Clint 7",
+    "unlock": "Reach 7 hearts with Clint.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Glazed Yams",
+    "displayName": "Glazed Yams",
+    "ingredients": [
+     {
+      "qid": "(O)280",
+      "name": "Yam",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)208",
+     "name": "Glazed Yams",
+     "count": 1
+    },
+    "unlockRaw": "l 22",
+    "unlock": "Fall 21, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Carp Surprise",
+    "displayName": "Carp Surprise",
+    "ingredients": [
+     {
+      "qid": "(O)142",
+      "name": "Carp",
+      "count": 4
+     }
+    ],
+    "output": {
+     "qid": "(O)209",
+     "name": "Carp Surprise",
+     "count": 1
+    },
+    "unlockRaw": "l 16",
+    "unlock": "Summer 7, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Hashbrowns",
+    "displayName": "Hashbrowns",
+    "ingredients": [
+     {
+      "qid": "(O)192",
+      "name": "Potato",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)210",
+     "name": "Hashbrowns",
+     "count": 1
+    },
+    "unlockRaw": "l 14",
+    "unlock": "Spring 14, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pancakes",
+    "displayName": "Pancakes",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)211",
+     "name": "Pancakes",
+     "count": 1
+    },
+    "unlockRaw": "l 18",
+    "unlock": "Summer 14, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Salmon Dinner",
+    "displayName": "Salmon Dinner",
+    "ingredients": [
+     {
+      "qid": "(O)139",
+      "name": "Salmon",
+      "count": 1
+     },
+     {
+      "qid": "(O)300",
+      "name": "Amaranth",
+      "count": 1
+     },
+     {
+      "qid": "(O)250",
+      "name": "Kale",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)212",
+     "name": "Salmon Dinner",
+     "count": 1
+    },
+    "unlockRaw": "f Gus 3",
+    "unlock": "Reach 3 hearts with Gus.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fish Taco",
+    "displayName": "Fish Taco",
+    "ingredients": [
+     {
+      "qid": "(O)130",
+      "name": "Tuna",
+      "count": 1
+     },
+     {
+      "qid": "(O)229",
+      "name": "Tortilla",
+      "count": 1
+     },
+     {
+      "qid": "(O)266",
+      "name": "Red Cabbage",
+      "count": 1
+     },
+     {
+      "qid": "(O)306",
+      "name": "Mayonnaise",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)213",
+     "name": "Fish Taco",
+     "count": 1
+    },
+    "unlockRaw": "f Linus 7",
+    "unlock": "Reach 7 hearts with Linus.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Crispy Bass",
+    "displayName": "Crispy Bass",
+    "ingredients": [
+     {
+      "qid": "(O)136",
+      "name": "Largemouth Bass",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)214",
+     "name": "Crispy Bass",
+     "count": 1
+    },
+    "unlockRaw": "f Kent 3",
+    "unlock": "Reach 3 hearts with Kent.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pepper Poppers",
+    "displayName": "Pepper Poppers",
+    "ingredients": [
+     {
+      "qid": "(O)260",
+      "name": "Hot Pepper",
+      "count": 1
+     },
+     {
+      "qid": "(O)424",
+      "name": "Cheese",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)215",
+     "name": "Pepper Poppers",
+     "count": 1
+    },
+    "unlockRaw": "f Shane 3",
+    "unlock": "Reach 3 hearts with Shane.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bread",
+    "displayName": "Bread",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)216",
+     "name": "Bread",
+     "count": 1
+    },
+    "unlockRaw": "l 11",
+    "unlock": "Summer 28, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tom Kha Soup",
+    "displayName": "Tom Kha Soup",
+    "ingredients": [
+     {
+      "qid": "(O)88",
+      "name": "Coconut",
+      "count": 1
+     },
+     {
+      "qid": "(O)720",
+      "name": "Shrimp",
+      "count": 1
+     },
+     {
+      "qid": "(O)404",
+      "name": "Common Mushroom",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)218",
+     "name": "Tom Kha Soup",
+     "count": 1
+    },
+    "unlockRaw": "f Sandy 7",
+    "unlock": "Reach 7 hearts with Sandy.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Trout Soup",
+    "displayName": "Trout Soup",
+    "ingredients": [
+     {
+      "qid": "(O)138",
+      "name": "Rainbow Trout",
+      "count": 1
+     },
+     {
+      "qid": "(O)153",
+      "name": "Green Algae",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)219",
+     "name": "Trout Soup",
+     "count": 1
+    },
+    "unlockRaw": "l 19",
+    "unlock": "Fall 14, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Chocolate Cake",
+    "displayName": "Chocolate Cake",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)220",
+     "name": "Chocolate Cake",
+     "count": 1
+    },
+    "unlockRaw": "l 23",
+    "unlock": "Winter 14, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pink Cake",
+    "displayName": "Pink Cake",
+    "ingredients": [
+     {
+      "qid": "(O)254",
+      "name": "Melon",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)221",
+     "name": "Pink Cake",
+     "count": 1
+    },
+    "unlockRaw": "l 25",
+    "unlock": "Summer 21, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Rhubarb Pie",
+    "displayName": "Rhubarb Pie",
+    "ingredients": [
+     {
+      "qid": "(O)252",
+      "name": "Rhubarb",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)222",
+     "name": "Rhubarb Pie",
+     "count": 1
+    },
+    "unlockRaw": "f Marnie 7",
+    "unlock": "Reach 7 hearts with Marnie.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cookies",
+    "displayName": "Cookies",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)223",
+     "name": "Cookies",
+     "count": 1
+    },
+    "unlockRaw": "null",
+    "unlock": "Evelyn (4-heart event).",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Spaghetti",
+    "displayName": "Spaghetti",
+    "ingredients": [
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)224",
+     "name": "Spaghetti",
+     "count": 1
+    },
+    "unlockRaw": "f Lewis 3",
+    "unlock": "Reach 3 hearts with Lewis.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fried Eel",
+    "displayName": "Fried Eel",
+    "ingredients": [
+     {
+      "qid": "(O)148",
+      "name": "Eel",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)225",
+     "name": "Fried Eel",
+     "count": 1
+    },
+    "unlockRaw": "f George 3",
+    "unlock": "Reach 3 hearts with George.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Spicy Eel",
+    "displayName": "Spicy Eel",
+    "ingredients": [
+     {
+      "qid": "(O)148",
+      "name": "Eel",
+      "count": 1
+     },
+     {
+      "qid": "(O)260",
+      "name": "Hot Pepper",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)226",
+     "name": "Spicy Eel",
+     "count": 1
+    },
+    "unlockRaw": "f George 7",
+    "unlock": "Reach 7 hearts with George.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Sashimi",
+    "displayName": "Sashimi",
+    "ingredients": [
+     {
+      "category": -4,
+      "name": "Any Fish",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)227",
+     "name": "Sashimi",
+     "count": 1
+    },
+    "unlockRaw": "f Linus 3",
+    "unlock": "Reach 3 hearts with Linus.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Maki Roll",
+    "displayName": "Maki Roll",
+    "ingredients": [
+     {
+      "category": -4,
+      "name": "Any Fish",
+      "count": 1
+     },
+     {
+      "qid": "(O)152",
+      "name": "Seaweed",
+      "count": 1
+     },
+     {
+      "qid": "(O)423",
+      "name": "Rice",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)228",
+     "name": "Maki Roll",
+     "count": 1
+    },
+    "unlockRaw": "l 15",
+    "unlock": "Summer 21, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tortilla",
+    "displayName": "Tortilla",
+    "ingredients": [
+     {
+      "qid": "(O)270",
+      "name": "Corn",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)229",
+     "name": "Tortilla",
+     "count": 1
+    },
+    "unlockRaw": "l 13",
+    "unlock": "Fall 7, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Red Plate",
+    "displayName": "Red Plate",
+    "ingredients": [
+     {
+      "qid": "(O)266",
+      "name": "Red Cabbage",
+      "count": 1
+     },
+     {
+      "qid": "(O)264",
+      "name": "Radish",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)230",
+     "name": "Red Plate",
+     "count": 1
+    },
+    "unlockRaw": "f Emily 7",
+    "unlock": "Reach 7 hearts with Emily.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Eggplant Parm.",
+    "displayName": "Eggplant Parm.",
+    "ingredients": [
+     {
+      "qid": "(O)272",
+      "name": "Eggplant",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)231",
+     "name": "Eggplant Parmesan",
+     "count": 1
+    },
+    "unlockRaw": "f Lewis 7",
+    "unlock": "Reach 7 hearts with Lewis.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Rice Pudding",
+    "displayName": "Rice Pudding",
+    "ingredients": [
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "qid": "(O)423",
+      "name": "Rice",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)232",
+     "name": "Rice Pudding",
+     "count": 1
+    },
+    "unlockRaw": "f Evelyn 7",
+    "unlock": "Reach 7 hearts with Evelyn.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Ice Cream",
+    "displayName": "Ice Cream",
+    "ingredients": [
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)233",
+     "name": "Ice Cream",
+     "count": 1
+    },
+    "unlockRaw": "f Jodi 7",
+    "unlock": "Reach 7 hearts with Jodi.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Blueberry Tart",
+    "displayName": "Blueberry Tart",
+    "ingredients": [
+     {
+      "qid": "(O)258",
+      "name": "Blueberry",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)234",
+     "name": "Blueberry Tart",
+     "count": 1
+    },
+    "unlockRaw": "f Pierre 3",
+    "unlock": "Reach 3 hearts with Pierre.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Autumn's Bounty",
+    "displayName": "Autumn's Bounty",
+    "ingredients": [
+     {
+      "qid": "(O)280",
+      "name": "Yam",
+      "count": 1
+     },
+     {
+      "qid": "(O)276",
+      "name": "Pumpkin",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)235",
+     "name": "Autumn's Bounty",
+     "count": 1
+    },
+    "unlockRaw": "f Demetrius 7",
+    "unlock": "Reach 7 hearts with Demetrius.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pumpkin Soup",
+    "displayName": "Pumpkin Soup",
+    "ingredients": [
+     {
+      "qid": "(O)276",
+      "name": "Pumpkin",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)236",
+     "name": "Pumpkin Soup",
+     "count": 1
+    },
+    "unlockRaw": "f Robin 7",
+    "unlock": "Reach 7 hearts with Robin.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Super Meal",
+    "displayName": "Super Meal",
+    "ingredients": [
+     {
+      "qid": "(O)278",
+      "name": "Bok Choy",
+      "count": 1
+     },
+     {
+      "qid": "(O)282",
+      "name": "Cranberries",
+      "count": 1
+     },
+     {
+      "qid": "(O)274",
+      "name": "Artichoke",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)237",
+     "name": "Super Meal",
+     "count": 1
+    },
+    "unlockRaw": "f Kent 7",
+    "unlock": "Reach 7 hearts with Kent.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cran. Sauce",
+    "displayName": "Cran. Sauce",
+    "ingredients": [
+     {
+      "qid": "(O)282",
+      "name": "Cranberries",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)238",
+     "name": "Cranberry Sauce",
+     "count": 1
+    },
+    "unlockRaw": "f Gus 7",
+    "unlock": "Reach 7 hearts with Gus.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stuffing",
+    "displayName": "Stuffing",
+    "ingredients": [
+     {
+      "qid": "(O)216",
+      "name": "Bread",
+      "count": 1
+     },
+     {
+      "qid": "(O)282",
+      "name": "Cranberries",
+      "count": 1
+     },
+     {
+      "qid": "(O)408",
+      "name": "Hazelnut",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)239",
+     "name": "Stuffing",
+     "count": 1
+    },
+    "unlockRaw": "f Pam 7",
+    "unlock": "Reach 7 hearts with Pam.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Farmer's Lunch",
+    "displayName": "Farmer's Lunch",
+    "ingredients": [
+     {
+      "qid": "(O)195",
+      "name": "Omelet",
+      "count": 1
+     },
+     {
+      "qid": "(O)24",
+      "name": "Parsnip",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)240",
+     "name": "Farmer's Lunch",
+     "count": 1
+    },
+    "unlockRaw": "s Farming 3",
+    "unlock": "Reach level 3 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Survival Burger",
+    "displayName": "Survival Burger",
+    "ingredients": [
+     {
+      "qid": "(O)216",
+      "name": "Bread",
+      "count": 1
+     },
+     {
+      "qid": "(O)78",
+      "name": "Cave Carrot",
+      "count": 1
+     },
+     {
+      "qid": "(O)272",
+      "name": "Eggplant",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)241",
+     "name": "Survival Burger",
+     "count": 1
+    },
+    "unlockRaw": "s Foraging 8",
+    "unlock": "Reach level 8 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Dish o' The Sea",
+    "displayName": "Dish o' The Sea",
+    "ingredients": [
+     {
+      "qid": "(O)131",
+      "name": "Sardine",
+      "count": 2
+     },
+     {
+      "qid": "(O)210",
+      "name": "Hashbrowns",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)242",
+     "name": "Dish O' The Sea",
+     "count": 1
+    },
+    "unlockRaw": "s Fishing 3",
+    "unlock": "Reach level 3 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Miner's Treat",
+    "displayName": "Miner's Treat",
+    "ingredients": [
+     {
+      "qid": "(O)78",
+      "name": "Cave Carrot",
+      "count": 2
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)243",
+     "name": "Miner's Treat",
+     "count": 1
+    },
+    "unlockRaw": "s Mining 3",
+    "unlock": "Reach level 3 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Roots Platter",
+    "displayName": "Roots Platter",
+    "ingredients": [
+     {
+      "qid": "(O)78",
+      "name": "Cave Carrot",
+      "count": 1
+     },
+     {
+      "qid": "(O)412",
+      "name": "Winter Root",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)244",
+     "name": "Roots Platter",
+     "count": 1
+    },
+    "unlockRaw": "s Combat 3",
+    "unlock": "Reach level 3 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Algae Soup",
+    "displayName": "Algae Soup",
+    "ingredients": [
+     {
+      "qid": "(O)153",
+      "name": "Green Algae",
+      "count": 4
+     }
+    ],
+    "output": {
+     "qid": "(O)456",
+     "name": "Algae Soup",
+     "count": 1
+    },
+    "unlockRaw": "f Clint 3",
+    "unlock": "Reach 3 hearts with Clint.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pale Broth",
+    "displayName": "Pale Broth",
+    "ingredients": [
+     {
+      "qid": "(O)157",
+      "name": "White Algae",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)457",
+     "name": "Pale Broth",
+     "count": 1
+    },
+    "unlockRaw": "f Marnie 3",
+    "unlock": "Reach 3 hearts with Marnie.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Plum Pudding",
+    "displayName": "Plum Pudding",
+    "ingredients": [
+     {
+      "qid": "(O)406",
+      "name": "Wild Plum",
+      "count": 2
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)604",
+     "name": "Plum Pudding",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Winter 7, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Artichoke Dip",
+    "displayName": "Artichoke Dip",
+    "ingredients": [
+     {
+      "qid": "(O)274",
+      "name": "Artichoke",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)605",
+     "name": "Artichoke Dip",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Fall 28, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stir Fry",
+    "displayName": "Stir Fry",
+    "ingredients": [
+     {
+      "qid": "(O)78",
+      "name": "Cave Carrot",
+      "count": 1
+     },
+     {
+      "qid": "(O)404",
+      "name": "Common Mushroom",
+      "count": 1
+     },
+     {
+      "qid": "(O)250",
+      "name": "Kale",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)606",
+     "name": "Stir Fry",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Spring 7, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Roasted Hazelnuts",
+    "displayName": "Roasted Hazelnuts",
+    "ingredients": [
+     {
+      "qid": "(O)408",
+      "name": "Hazelnut",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(O)607",
+     "name": "Roasted Hazelnuts",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Summer 28, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Pumpkin Pie",
+    "displayName": "Pumpkin Pie",
+    "ingredients": [
+     {
+      "qid": "(O)276",
+      "name": "Pumpkin",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)608",
+     "name": "Pumpkin Pie",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Winter 21, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Radish Salad",
+    "displayName": "Radish Salad",
+    "ingredients": [
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     },
+     {
+      "qid": "(O)419",
+      "name": "Vinegar",
+      "count": 1
+     },
+     {
+      "qid": "(O)264",
+      "name": "Radish",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)609",
+     "name": "Radish Salad",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Spring 21, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fruit Salad",
+    "displayName": "Fruit Salad",
+    "ingredients": [
+     {
+      "qid": "(O)258",
+      "name": "Blueberry",
+      "count": 1
+     },
+     {
+      "qid": "(O)254",
+      "name": "Melon",
+      "count": 1
+     },
+     {
+      "qid": "(O)634",
+      "name": "Apricot",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)610",
+     "name": "Fruit Salad",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Fall 7, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Blackberry Cobbler",
+    "displayName": "Blackberry Cobbler",
+    "ingredients": [
+     {
+      "qid": "(O)410",
+      "name": "Blackberry",
+      "count": 2
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)611",
+     "name": "Blackberry Cobbler",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Fall 14, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cranberry Candy",
+    "displayName": "Cranberry Candy",
+    "ingredients": [
+     {
+      "qid": "(O)282",
+      "name": "Cranberries",
+      "count": 1
+     },
+     {
+      "qid": "(O)613",
+      "name": "Apple",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)612",
+     "name": "Cranberry Candy",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Winter 28, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bruschetta",
+    "displayName": "Bruschetta",
+    "ingredients": [
+     {
+      "qid": "(O)216",
+      "name": "Bread",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)618",
+     "name": "Bruschetta",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Winter 21, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Coleslaw",
+    "displayName": "Coleslaw",
+    "ingredients": [
+     {
+      "qid": "(O)266",
+      "name": "Red Cabbage",
+      "count": 1
+     },
+     {
+      "qid": "(O)419",
+      "name": "Vinegar",
+      "count": 1
+     },
+     {
+      "qid": "(O)306",
+      "name": "Mayonnaise",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)648",
+     "name": "Coleslaw",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Spring 14, Year 1",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fiddlehead Risotto",
+    "displayName": "Fiddlehead Risotto",
+    "ingredients": [
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     },
+     {
+      "qid": "(O)259",
+      "name": "Fiddlehead Fern",
+      "count": 1
+     },
+     {
+      "qid": "(O)248",
+      "name": "Garlic",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)649",
+     "name": "Fiddlehead Risotto",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Fall 28, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Poppyseed Muffin",
+    "displayName": "Poppyseed Muffin",
+    "ingredients": [
+     {
+      "qid": "(O)376",
+      "name": "Poppy",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)651",
+     "name": "Poppyseed Muffin",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Winter 7, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Chowder",
+    "displayName": "Chowder",
+    "ingredients": [
+     {
+      "qid": "(O)372",
+      "name": "Clam",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)727",
+     "name": "Chowder",
+     "count": 1
+    },
+    "unlockRaw": "f Willy 3",
+    "unlock": "Reach 3 hearts with Willy.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Lobster Bisque",
+    "displayName": "Lobster Bisque",
+    "ingredients": [
+     {
+      "qid": "(O)715",
+      "name": "Lobster",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)730",
+     "name": "Lobster Bisque",
+     "count": 1
+    },
+    "unlockRaw": "f Willy 9",
+    "unlock": "Winter 14, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fish Stew",
+    "displayName": "Fish Stew",
+    "ingredients": [
+     {
+      "qid": "(O)716",
+      "name": "Crayfish",
+      "count": 1
+     },
+     {
+      "qid": "(O)719",
+      "name": "Mussel",
+      "count": 1
+     },
+     {
+      "qid": "(O)722",
+      "name": "Periwinkle",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)728",
+     "name": "Fish Stew",
+     "count": 1
+    },
+    "unlockRaw": "f Willy 7",
+    "unlock": "Reach 7 hearts with Willy.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Escargot",
+    "displayName": "Escargot",
+    "ingredients": [
+     {
+      "qid": "(O)721",
+      "name": "Snail",
+      "count": 1
+     },
+     {
+      "qid": "(O)248",
+      "name": "Garlic",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)729",
+     "name": "Escargot",
+     "count": 1
+    },
+    "unlockRaw": "f Willy 5",
+    "unlock": "Reach 5 hearts with Willy.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Maple Bar",
+    "displayName": "Maple Bar",
+    "ingredients": [
+     {
+      "qid": "(O)724",
+      "name": "Maple Syrup",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)731",
+     "name": "Maple Bar",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Summer 14, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Crab Cakes",
+    "displayName": "Crab Cakes",
+    "ingredients": [
+     {
+      "qid": "(O)717",
+      "name": "Crab",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "category": -5,
+      "name": "Any Egg",
+      "count": 1
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)732",
+     "name": "Crab Cakes",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Fall 21, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Triple Shot Espresso",
+    "displayName": "Triple Shot Espresso",
+    "ingredients": [
+     {
+      "qid": "(O)395",
+      "name": "Coffee",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(O)253",
+     "name": "Triple Shot Espresso",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Stardrop Saloon for 5,000g.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Shrimp Cocktail",
+    "displayName": "Shrimp Cocktail",
+    "ingredients": [
+     {
+      "qid": "(O)720",
+      "name": "Shrimp",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     },
+     {
+      "qid": "(O)16",
+      "name": "Wild Horseradish",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)733",
+     "name": "Shrimp Cocktail",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Winter 28, Year 2",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Seafoam Pudding",
+    "displayName": "Seafoam Pudding",
+    "ingredients": [
+     {
+      "qid": "(O)267",
+      "name": "Flounder",
+      "count": 1
+     },
+     {
+      "qid": "(O)269",
+      "name": "Midnight Carp",
+      "count": 1
+     },
+     {
+      "qid": "(O)814",
+      "name": "Squid Ink",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)265",
+     "name": "Seafoam Pudding",
+     "count": 1
+    },
+    "unlockRaw": "s Fishing 9",
+    "unlock": "Reach level 9 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Ginger Ale",
+    "displayName": "Ginger Ale",
+    "ingredients": [
+     {
+      "qid": "(O)829",
+      "name": "Ginger",
+      "count": 3
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)903",
+     "name": "Ginger Ale",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Dwarf Shop in Volcano Dungeon for 1,000g.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Banana Pudding",
+    "displayName": "Banana Pudding",
+    "ingredients": [
+     {
+      "qid": "(O)91",
+      "name": "Banana",
+      "count": 1
+     },
+     {
+      "category": -6,
+      "name": "Any Milk",
+      "count": 1
+     },
+     {
+      "qid": "(O)245",
+      "name": "Sugar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)904",
+     "name": "Banana Pudding",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Island Trader for 30 Bone Fragments.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mango Sticky Rice",
+    "displayName": "Mango Sticky Rice",
+    "ingredients": [
+     {
+      "qid": "(O)834",
+      "name": "Mango",
+      "count": 1
+     },
+     {
+      "qid": "(O)88",
+      "name": "Coconut",
+      "count": 1
+     },
+     {
+      "qid": "(O)423",
+      "name": "Rice",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)905",
+     "name": "Mango Sticky Rice",
+     "count": 1
+    },
+    "unlockRaw": "f Leo 7",
+    "unlock": "Reach 7 hearts with Leo.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Poi",
+    "displayName": "Poi",
+    "ingredients": [
+     {
+      "qid": "(O)830",
+      "name": "Taro Root",
+      "count": 4
+     }
+    ],
+    "output": {
+     "qid": "(O)906",
+     "name": "Poi",
+     "count": 1
+    },
+    "unlockRaw": "f Leo 3",
+    "unlock": "Reach 3 hearts with Leo.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tropical Curry",
+    "displayName": "Tropical Curry",
+    "ingredients": [
+     {
+      "qid": "(O)88",
+      "name": "Coconut",
+      "count": 1
+     },
+     {
+      "qid": "(O)832",
+      "name": "Pineapple",
+      "count": 1
+     },
+     {
+      "qid": "(O)260",
+      "name": "Hot Pepper",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)907",
+     "name": "Tropical Curry",
+     "count": 1
+    },
+    "unlockRaw": "l 100",
+    "unlock": "Ginger Island Resort for 2,000g.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Squid Ink Ravioli",
+    "displayName": "Squid Ink Ravioli",
+    "ingredients": [
+     {
+      "qid": "(O)814",
+      "name": "Squid Ink",
+      "count": 1
+     },
+     {
+      "qid": "(O)246",
+      "name": "Wheat Flour",
+      "count": 1
+     },
+     {
+      "qid": "(O)256",
+      "name": "Tomato",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)921",
+     "name": "Squid Ink Ravioli",
+     "count": 1
+    },
+    "unlockRaw": "s Combat 9",
+    "unlock": "Reach level 9 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Moss Soup",
+    "displayName": "Moss Soup",
+    "ingredients": [
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(O)MossSoup",
+     "name": "Moss Soup",
+     "count": 1
+    },
+    "unlockRaw": "s Foraging 3",
+    "unlock": "Reach level 3 in Foraging skill.",
+    "countsForPerfection": true
+   }
+  ],
+  "crafting": [
+   {
+    "recipe": "Wood Fence",
+    "displayName": "Wood Fence",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)322",
+     "name": "Wood Fence",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stone Fence",
+    "displayName": "Stone Fence",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)323",
+     "name": "Stone Fence",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Farming 2",
+    "unlock": "Reach level 2 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Iron Fence",
+    "displayName": "Iron Fence",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)324",
+     "name": "Iron Fence",
+     "count": 10
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Farming 4",
+    "unlock": "Reach level 4 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Hardwood Fence",
+    "displayName": "Hardwood Fence",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)298",
+     "name": "Hardwood Fence",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Farming 6",
+    "unlock": "Reach level 6 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Grass Starter",
+    "displayName": "Grass Starter",
+    "ingredients": [
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)297",
+     "name": "Grass Starter",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Pierre's for 1,000g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Blue Grass Starter",
+    "displayName": "Blue Grass Starter",
+    "ingredients": [
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 25
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 10
+     },
+     {
+      "qid": "(O)MysticSyrup",
+      "name": "Mystic Syrup",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)BlueGrassStarter",
+     "name": "Blue Grass Starter",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Qi's Walnut Room for 40 Qi Gems",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Gate",
+    "displayName": "Gate",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)325",
+     "name": "Gate",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Chest",
+    "displayName": "Chest",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 50
+     }
+    ],
+    "output": {
+     "qid": "(BC)130",
+     "name": "Chest",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Big Chest",
+    "displayName": "Big Chest",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 120
+     },
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(BC)BigChest",
+     "name": "Big Chest",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop for 5000g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stone Chest",
+    "displayName": "Stone Chest",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 50
+     }
+    ],
+    "output": {
+     "qid": "(BC)232",
+     "name": "Stone Chest",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "\"Robin's Resource Rush\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Big Stone Chest",
+    "displayName": "Big Stone Chest",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 250
+     }
+    ],
+    "output": {
+     "qid": "(BC)BigStoneChest",
+     "name": "Big Stone Chest",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Dwarf for 5000g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Torch",
+    "displayName": "Torch",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 1
+     },
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)93",
+     "name": "Torch",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Scarecrow",
+    "displayName": "Scarecrow",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 50
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(BC)8",
+     "name": "Scarecrow",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 1",
+    "unlock": "Reach level 1 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Deluxe Scarecrow",
+    "displayName": "Deluxe Scarecrow",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 50
+     },
+     {
+      "qid": "(O)386",
+      "name": "Iridium Ore",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 40
+     }
+    ],
+    "output": {
+     "qid": "(BC)167",
+     "name": "Deluxe Scarecrow",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Letter after collecting all rarecrows",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bee House",
+    "displayName": "Bee House",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 40
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 8
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)724",
+      "name": "Maple Syrup",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)10",
+     "name": "Bee House",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 3",
+    "unlock": "Reach level 3 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Keg",
+    "displayName": "Keg",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 30
+     },
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)725",
+      "name": "Oak Resin",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)12",
+     "name": "Keg",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 8",
+    "unlock": "Reach level 8 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cask",
+    "displayName": "Cask",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 20
+     },
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)163",
+     "name": "Cask",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Final Farmhouse upgrade",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Dehydrator",
+    "displayName": "Dehydrator",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 30
+     },
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 2
+     },
+     {
+      "qid": "(O)82",
+      "name": "Fire Quartz",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)Dehydrator",
+     "name": "Dehydrator",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Pierre's for 5000g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Furnace",
+    "displayName": "Furnace",
+    "ingredients": [
+     {
+      "qid": "(O)378",
+      "name": "Copper Ore",
+      "count": 20
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(BC)13",
+     "name": "Furnace",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "l 2",
+    "unlock": "Reach farmer level 2.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Heavy Furnace",
+    "displayName": "Heavy Furnace",
+    "ingredients": [
+     {
+      "qid": "(BC)13",
+      "name": "Furnace",
+      "count": 2
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 3
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 50
+     }
+    ],
+    "output": {
+     "qid": "(BC)HeavyFurnace",
+     "name": "Heavy Furnace",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "l 2",
+    "unlock": "Claim Mining Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Anvil",
+    "displayName": "Anvil",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 50
+     }
+    ],
+    "output": {
+     "qid": "(BC)Anvil",
+     "name": "Anvil",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "l 2",
+    "unlock": "Claim Combat Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mini-Forge",
+    "displayName": "Mini-Forge",
+    "ingredients": [
+     {
+      "qid": "(O)852",
+      "name": "Dragon Tooth",
+      "count": 5
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 10
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 10
+     },
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)MiniForge",
+     "name": "Mini-Forge",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "l 2",
+    "unlock": "Claim Combat Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Garden Pot",
+    "displayName": "Garden Pot",
+    "ingredients": [
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 1
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 10
+     },
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)62",
+     "name": "Garden Pot",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Evelyn cutscene after completing the Greenhouse",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wood Sign",
+    "displayName": "Wood Sign",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(BC)37",
+     "name": "Wood Sign",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stone Sign",
+    "displayName": "Stone Sign",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(BC)38",
+     "name": "Stone Sign",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Dark Sign",
+    "displayName": "Dark Sign",
+    "ingredients": [
+     {
+      "qid": "(O)767",
+      "name": "Bat Wing",
+      "count": 5
+     },
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)39",
+     "name": "Dark Sign",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "f Krobus 3",
+    "unlock": "Reach 3 hearts with Krobus.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Text Sign",
+    "displayName": "Text Sign",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(BC)TextSign",
+     "name": "Text Sign",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cheese Press",
+    "displayName": "Cheese Press",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 45
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 45
+     },
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 10
+     },
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)16",
+     "name": "Cheese Press",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 6",
+    "unlock": "Reach level 6 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mayonnaise Machine",
+    "displayName": "Mayonnaise Machine",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 15
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 15
+     },
+     {
+      "qid": "(O)86",
+      "name": "Earth Crystal",
+      "count": 1
+     },
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)24",
+     "name": "Mayonnaise Machine",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 2",
+    "unlock": "Reach level 2 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Seed Maker",
+    "displayName": "Seed Maker",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 25
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 10
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)25",
+     "name": "Seed Maker",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 9",
+    "unlock": "Reach level 9 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Loom",
+    "displayName": "Loom",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 60
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 30
+     },
+     {
+      "qid": "(O)726",
+      "name": "Pine Tar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)17",
+     "name": "Loom",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 7",
+    "unlock": "Reach level 7 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Oil Maker",
+    "displayName": "Oil Maker",
+    "ingredients": [
+     {
+      "qid": "(O)766",
+      "name": "Slime",
+      "count": 50
+     },
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 20
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)19",
+     "name": "Oil Maker",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 8",
+    "unlock": "Reach level 8 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Recycling Machine",
+    "displayName": "Recycling Machine",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 25
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 25
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)20",
+     "name": "Recycling Machine",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Fishing 4",
+    "unlock": "Reach level 4 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Worm Bin",
+    "displayName": "Worm Bin",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 15
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 50
+     }
+    ],
+    "output": {
+     "qid": "(BC)154",
+     "name": "Worm Bin",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Fishing 4",
+    "unlock": "Reach level 4 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Deluxe Worm Bin",
+    "displayName": "Deluxe Worm Bin",
+    "ingredients": [
+     {
+      "qid": "(BC)154",
+      "name": "Worm Bin",
+      "count": 1
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 30
+     }
+    ],
+    "output": {
+     "qid": "(BC)DeluxeWormBin",
+     "name": "Deluxe Worm Bin",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Fishing 8",
+    "unlock": "Reach level 8 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bait Maker",
+    "displayName": "Bait Maker",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 3
+     },
+     {
+      "qid": "(O)393",
+      "name": "Coral",
+      "count": 3
+     },
+     {
+      "qid": "(O)397",
+      "name": "Sea Urchin",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)BaitMaker",
+     "name": "Bait Maker",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Fishing 6",
+    "unlock": "Reach level 6 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fish Smoker",
+    "displayName": "Fish Smoker",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 10
+     },
+     {
+      "qid": "(O)SeaJelly",
+      "name": "Sea Jelly",
+      "count": 1
+     },
+     {
+      "qid": "(O)RiverJelly",
+      "name": "River Jelly",
+      "count": 1
+     },
+     {
+      "qid": "(O)CaveJelly",
+      "name": "Cave Jelly",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)FishSmoker",
+     "name": "Fish Smoker",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Willy's Shop for 10000g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Preserves Jar",
+    "displayName": "Preserves Jar",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 50
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 40
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 8
+     }
+    ],
+    "output": {
+     "qid": "(BC)15",
+     "name": "Preserves Jar",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Farming 4",
+    "unlock": "Reach level 4 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Charcoal Kiln",
+    "displayName": "Charcoal Kiln",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 20
+     },
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(BC)114",
+     "name": "Charcoal Kiln",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Foraging 2",
+    "unlock": "Reach level 2 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tapper",
+    "displayName": "Tapper",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 40
+     },
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(BC)105",
+     "name": "Tapper",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Foraging 4",
+    "unlock": "Reach level 4 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mushroom Log",
+    "displayName": "Mushroom Log",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 10
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(BC)MushroomLog",
+     "name": "Mushroom Log",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Foraging 4",
+    "unlock": "Reach level 4 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Lightning Rod",
+    "displayName": "Lightning Rod",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 1
+     },
+     {
+      "qid": "(O)767",
+      "name": "Bat Wing",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)9",
+     "name": "Lightning Rod",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Foraging 6",
+    "unlock": "Reach level 6 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Slime Incubator",
+    "displayName": "Slime Incubator",
+    "ingredients": [
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 2
+     },
+     {
+      "qid": "(O)766",
+      "name": "Slime",
+      "count": 100
+     }
+    ],
+    "output": {
+     "qid": "(BC)156",
+     "name": "Slime Incubator",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Combat 8",
+    "unlock": "Reach level 8 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Slime Egg-Press",
+    "displayName": "Slime Egg-Press",
+    "ingredients": [
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 25
+     },
+     {
+      "qid": "(O)82",
+      "name": "Fire Quartz",
+      "count": 1
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)158",
+     "name": "Slime Egg-Press",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Combat 6",
+    "unlock": "Reach level 6 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Crystalarium",
+    "displayName": "Crystalarium",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 99
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 5
+     },
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 2
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)21",
+     "name": "Crystalarium",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Mining 9",
+    "unlock": "Reach level 9 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mini-Jukebox",
+    "displayName": "Mini-Jukebox",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 2
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)209",
+     "name": "Mini-Jukebox",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Gus (5-heart event)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Sprinkler",
+    "displayName": "Sprinkler",
+    "ingredients": [
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)599",
+     "name": "Sprinkler",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Farming 2",
+    "unlock": "Reach level 2 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Quality Sprinkler",
+    "displayName": "Quality Sprinkler",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)621",
+     "name": "Quality Sprinkler",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Farming 6",
+    "unlock": "Reach level 6 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Iridium Sprinkler",
+    "displayName": "Iridium Sprinkler",
+    "ingredients": [
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)645",
+     "name": "Iridium Sprinkler",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Farming 9",
+    "unlock": "Reach level 9 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Staircase",
+    "displayName": "Staircase",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 99
+     }
+    ],
+    "output": {
+     "qid": "(BC)71",
+     "name": "Staircase",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "Mining 2",
+    "unlock": "Reach level 2 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Flute Block",
+    "displayName": "Flute Block",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 10
+     },
+     {
+      "qid": "(O)378",
+      "name": "Copper Ore",
+      "count": 2
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(O)464",
+     "name": "Flute Block",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Robin (6-heart event)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Drum Block",
+    "displayName": "Drum Block",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 10
+     },
+     {
+      "qid": "(O)378",
+      "name": "Copper Ore",
+      "count": 2
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(O)463",
+     "name": "Drum Block",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Robin (6-heart event)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Basic Fertilizer",
+    "displayName": "Basic Fertilizer",
+    "ingredients": [
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)368",
+     "name": "Basic Fertilizer",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Farming 1",
+    "unlock": "Reach level 1 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tree Fertilizer",
+    "displayName": "Tree Fertilizer",
+    "ingredients": [
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 5
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)805",
+     "name": "Tree Fertilizer",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Foraging 7",
+    "unlock": "Reach level 7 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mystic Tree Seed",
+    "displayName": "Mystic Tree Seed",
+    "ingredients": [
+     {
+      "qid": "(O)309",
+      "name": "Acorn",
+      "count": 5
+     },
+     {
+      "qid": "(O)310",
+      "name": "Maple Seed",
+      "count": 5
+     },
+     {
+      "qid": "(O)311",
+      "name": "Pine Cone",
+      "count": 5
+     },
+     {
+      "qid": "(O)292",
+      "name": "Mahogany Seed",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)MysticTreeSeed",
+     "name": "Mystic Tree Seed",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Claim Foraging Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Quality Fertilizer",
+    "displayName": "Quality Fertilizer",
+    "ingredients": [
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 4
+     },
+     {
+      "category": -4,
+      "name": "Any Fish",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)369",
+     "name": "Quality Fertilizer",
+     "count": 2
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Farming 9",
+    "unlock": "Reach level 9 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Basic Retaining Soil",
+    "displayName": "Basic Retaining Soil",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)370",
+     "name": "Basic Retaining Soil",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Farming 4",
+    "unlock": "Reach level 4 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Quality Retaining Soil",
+    "displayName": "Quality Retaining Soil",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 3
+     },
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)371",
+     "name": "Quality Retaining Soil",
+     "count": 2
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Farming 7",
+    "unlock": "Reach level 7 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Speed-Gro",
+    "displayName": "Speed-Gro",
+    "ingredients": [
+     {
+      "qid": "(O)726",
+      "name": "Pine Tar",
+      "count": 1
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)465",
+     "name": "Speed-Gro",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Farming 3",
+    "unlock": "Reach level 3 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Deluxe Speed-Gro",
+    "displayName": "Deluxe Speed-Gro",
+    "ingredients": [
+     {
+      "qid": "(O)725",
+      "name": "Oak Resin",
+      "count": 1
+     },
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)466",
+     "name": "Deluxe Speed-Gro",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "s Farming 8",
+    "unlock": "Reach level 8 in Farming skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Hyper Speed-Gro",
+    "displayName": "Hyper Speed-Gro",
+    "ingredients": [
+     {
+      "qid": "(O)909",
+      "name": "Radioactive Ore",
+      "count": 1
+     },
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 3
+     },
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)918",
+     "name": "Hyper Speed-Gro",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Qi's Walnut Room for 30 Qi Gems",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Deluxe Fertilizer",
+    "displayName": "Deluxe Fertilizer",
+    "ingredients": [
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 40
+     }
+    ],
+    "output": {
+     "qid": "(O)919",
+     "name": "Deluxe Fertilizer",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Qi's Walnut Roomfor 20 Qi Gems",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Deluxe Retaining Soil",
+    "displayName": "Deluxe Retaining Soil",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 5
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 3
+     },
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)920",
+     "name": "Deluxe Retaining Soil",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Island Trader for  Cinder Shard (50)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cherry Bomb",
+    "displayName": "Cherry Bomb",
+    "ingredients": [
+     {
+      "qid": "(O)378",
+      "name": "Copper Ore",
+      "count": 4
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)286",
+     "name": "Cherry Bomb",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Mining 1",
+    "unlock": "Reach level 1 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bomb",
+    "displayName": "Bomb",
+    "ingredients": [
+     {
+      "qid": "(O)380",
+      "name": "Iron Ore",
+      "count": 4
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)287",
+     "name": "Bomb",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Mining 6",
+    "unlock": "Reach level 6 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mega Bomb",
+    "displayName": "Mega Bomb",
+    "ingredients": [
+     {
+      "qid": "(O)384",
+      "name": "Gold Ore",
+      "count": 4
+     },
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 1
+     },
+     {
+      "qid": "(O)769",
+      "name": "Void Essence",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)288",
+     "name": "Mega Bomb",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Mining 8",
+    "unlock": "Reach level 8 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Explosive Ammo",
+    "displayName": "Explosive Ammo",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)441",
+     "name": "Explosive Ammo",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 8",
+    "unlock": "Reach level 8 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Transmute (Fe)",
+    "displayName": "Transmute (Fe)",
+    "ingredients": [
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(O)335",
+     "name": "Iron Bar",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Mining 4",
+    "unlock": "Reach level 4 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Transmute (Au)",
+    "displayName": "Transmute (Au)",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)336",
+     "name": "Gold Bar",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Mining 7",
+    "unlock": "Reach level 7 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Ancient Seeds",
+    "displayName": "Ancient Seeds",
+    "ingredients": [
+     {
+      "qid": "(O)114",
+      "name": "Ancient Seed",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)499",
+     "name": "Ancient Seeds",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Donating Ancient Seed artifact to Museum",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wild Seeds (Sp)",
+    "displayName": "Wild Seeds (Sp)",
+    "ingredients": [
+     {
+      "qid": "(O)16",
+      "name": "Wild Horseradish",
+      "count": 1
+     },
+     {
+      "qid": "(O)18",
+      "name": "Daffodil",
+      "count": 1
+     },
+     {
+      "qid": "(O)20",
+      "name": "Leek",
+      "count": 1
+     },
+     {
+      "qid": "(O)22",
+      "name": "Dandelion",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)495",
+     "name": "Spring Seeds",
+     "count": 10
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 1",
+    "unlock": "Reach level 1 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wild Seeds (Su)",
+    "displayName": "Wild Seeds (Su)",
+    "ingredients": [
+     {
+      "qid": "(O)396",
+      "name": "Spice Berry",
+      "count": 1
+     },
+     {
+      "qid": "(O)398",
+      "name": "Grape",
+      "count": 1
+     },
+     {
+      "qid": "(O)402",
+      "name": "Sweet Pea",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)496",
+     "name": "Summer Seeds",
+     "count": 10
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 4",
+    "unlock": "Reach level 4 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wild Seeds (Fa)",
+    "displayName": "Wild Seeds (Fa)",
+    "ingredients": [
+     {
+      "qid": "(O)404",
+      "name": "Common Mushroom",
+      "count": 1
+     },
+     {
+      "qid": "(O)406",
+      "name": "Wild Plum",
+      "count": 1
+     },
+     {
+      "qid": "(O)408",
+      "name": "Hazelnut",
+      "count": 1
+     },
+     {
+      "qid": "(O)410",
+      "name": "Blackberry",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)497",
+     "name": "Fall Seeds",
+     "count": 10
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 6",
+    "unlock": "Reach level 6 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wild Seeds (Wi)",
+    "displayName": "Wild Seeds (Wi)",
+    "ingredients": [
+     {
+      "qid": "(O)412",
+      "name": "Winter Root",
+      "count": 1
+     },
+     {
+      "qid": "(O)414",
+      "name": "Crystal Fruit",
+      "count": 1
+     },
+     {
+      "qid": "(O)416",
+      "name": "Snow Yam",
+      "count": 1
+     },
+     {
+      "qid": "(O)418",
+      "name": "Crocus",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)498",
+     "name": "Winter Seeds",
+     "count": 10
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 7",
+    "unlock": "Reach level 7 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fiber Seeds",
+    "displayName": "Fiber Seeds",
+    "ingredients": [
+     {
+      "qid": "(O)770",
+      "name": "Mixed Seeds",
+      "count": 1
+     },
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 5
+     },
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)885",
+     "name": "Fiber Seeds",
+     "count": 4
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "\"Community Cleanup\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tea Sapling",
+    "displayName": "Tea Sapling",
+    "ingredients": [
+     {
+      "category": -777,
+      "name": "Any Wild Seeds",
+      "count": 2
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 5
+     },
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)251",
+     "name": "Tea Sapling",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Mail the day after Caroline's 2-heart event.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Warp Totem: Farm",
+    "displayName": "Warp Totem: Farm",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 1
+     },
+     {
+      "qid": "(O)340",
+      "name": "Honey",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(O)688",
+     "name": "Warp Totem: Farm",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 8",
+    "unlock": "Reach level 8 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Warp Totem: Mountains",
+    "displayName": "Warp Totem: Mountains",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 1
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(O)689",
+     "name": "Warp Totem: Mountains",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 7",
+    "unlock": "Reach level 7 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Warp Totem: Beach",
+    "displayName": "Warp Totem: Beach",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 1
+     },
+     {
+      "qid": "(O)393",
+      "name": "Coral",
+      "count": 2
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)690",
+     "name": "Warp Totem: Beach",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 6",
+    "unlock": "Reach level 6 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Warp Totem: Desert",
+    "displayName": "Warp Totem: Desert",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 2
+     },
+     {
+      "qid": "(O)88",
+      "name": "Coconut",
+      "count": 1
+     },
+     {
+      "qid": "(O)386",
+      "name": "Iridium Ore",
+      "count": 4
+     }
+    ],
+    "output": {
+     "qid": "(O)261",
+     "name": "Warp Totem: Desert",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Desert Trader for  Iridium Bar (10)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Warp Totem: Island",
+    "displayName": "Warp Totem: Island",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 5
+     },
+     {
+      "qid": "(O)852",
+      "name": "Dragon Tooth",
+      "count": 1
+     },
+     {
+      "qid": "(O)829",
+      "name": "Ginger",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)886",
+     "name": "Warp Totem: Island",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Volcano Dwarf for 10,000g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Rain Totem",
+    "displayName": "Rain Totem",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 1
+     },
+     {
+      "qid": "(O)432",
+      "name": "Truffle Oil",
+      "count": 1
+     },
+     {
+      "qid": "(O)726",
+      "name": "Pine Tar",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)681",
+     "name": "Rain Totem",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 9",
+    "unlock": "Reach level 9 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Treasure Totem",
+    "displayName": "Treasure Totem",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 5
+     },
+     {
+      "qid": "(O)MysticSyrup",
+      "name": "Mystic Syrup",
+      "count": 1
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)TreasureTotem",
+     "name": "Treasure Totem",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Claim Foraging Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cookout Kit",
+    "displayName": "Cookout Kit",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 15
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 10
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(O)926",
+     "name": "Cookout Kit",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 3",
+    "unlock": "Reach level 3 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tent Kit",
+    "displayName": "Tent Kit",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 10
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 25
+     },
+     {
+      "qid": "(O)428",
+      "name": "Cloth",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)TentKit",
+     "name": "Tent Kit",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 8",
+    "unlock": "Reach level 8 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Field Snack",
+    "displayName": "Field Snack",
+    "ingredients": [
+     {
+      "qid": "(O)309",
+      "name": "Acorn",
+      "count": 1
+     },
+     {
+      "qid": "(O)310",
+      "name": "Maple Seed",
+      "count": 1
+     },
+     {
+      "qid": "(O)311",
+      "name": "Pine Cone",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)403",
+     "name": "Field Snack",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Foraging 1",
+    "unlock": "Reach level 1 in Foraging skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Statue Of Blessings",
+    "displayName": "Statue Of Blessings",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 999
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 999
+     },
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 999
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 333
+     }
+    ],
+    "output": {
+     "qid": "(BC)StatueOfBlessings",
+     "name": "Statue Of Blessings",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Claim Farming Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Statue Of The Dwarf King",
+    "displayName": "Statue Of The Dwarf King",
+    "ingredients": [
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(BC)StatueOfTheDwarfKing",
+     "name": "Statue Of The Dwarf King",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Claim Mining Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Jack-O-Lantern",
+    "displayName": "Jack-O-Lantern",
+    "ingredients": [
+     {
+      "qid": "(O)276",
+      "name": "Pumpkin",
+      "count": 1
+     },
+     {
+      "qid": "(O)93",
+      "name": "Torch",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)746",
+     "name": "Jack-O-Lantern",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Spirit's Eve (2,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wood Floor",
+    "displayName": "Wood Floor",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)328",
+     "name": "Wood Floor",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 100g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Straw Floor",
+    "displayName": "Straw Floor",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)401",
+     "name": "Straw Floor",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 200g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Weathered Floor",
+    "displayName": "Weathered Floor",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)331",
+     "name": "Weathered Floor",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Dwarf for 500g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Rustic Plank Floor",
+    "displayName": "Rustic Plank Floor",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)840",
+     "name": "Rustic Plank Floor",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 200g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Crystal Floor",
+    "displayName": "Crystal Floor",
+    "ingredients": [
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)333",
+     "name": "Crystal Floor",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Krobus for 500g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stone Floor",
+    "displayName": "Stone Floor",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)329",
+     "name": "Stone Floor",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 100g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stone Walkway Floor",
+    "displayName": "Stone Walkway Floor",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)841",
+     "name": "Stone Walkway Floor",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 200g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Brick Floor",
+    "displayName": "Brick Floor",
+    "ingredients": [
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 2
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)293",
+     "name": "Brick Floor",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 500g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wood Path",
+    "displayName": "Wood Path",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)405",
+     "name": "Wood Path",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Gravel Path",
+    "displayName": "Gravel Path",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)407",
+     "name": "Gravel Path",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cobblestone Path",
+    "displayName": "Cobblestone Path",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)411",
+     "name": "Cobblestone Path",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stepping Stone Path",
+    "displayName": "Stepping Stone Path",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)415",
+     "name": "Stepping Stone Path",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 100g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Crystal Path",
+    "displayName": "Crystal Path",
+    "ingredients": [
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)409",
+     "name": "Crystal Path",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "l 0",
+    "unlock": "Carpenter's Shop for 200g",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bait",
+    "displayName": "Bait",
+    "ingredients": [
+     {
+      "qid": "(O)684",
+      "name": "Bug Meat",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)685",
+     "name": "Bait",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 2",
+    "unlock": "Reach level 2 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Deluxe Bait",
+    "displayName": "Deluxe Bait",
+    "ingredients": [
+     {
+      "qid": "(O)685",
+      "name": "Bait",
+      "count": 5
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)DeluxeBait",
+     "name": "Deluxe Bait",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 4",
+    "unlock": "Reach level 4 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wild Bait",
+    "displayName": "Wild Bait",
+    "ingredients": [
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 10
+     },
+     {
+      "qid": "(O)684",
+      "name": "Bug Meat",
+      "count": 5
+     },
+     {
+      "qid": "(O)766",
+      "name": "Slime",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)774",
+     "name": "Wild Bait",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Linus (4-heart event)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Challenge Bait",
+    "displayName": "Challenge Bait",
+    "ingredients": [
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 5
+     },
+     {
+      "qid": "(O)Moss",
+      "name": "Moss",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)ChallengeBait",
+     "name": "Challenge Bait",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Claim Fishing Mastery rewards in Mastery Cave",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Magnet",
+    "displayName": "Magnet",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)703",
+     "name": "Magnet",
+     "count": 3
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 9",
+    "unlock": "Reach level 9 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Spinner",
+    "displayName": "Spinner",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)686",
+     "name": "Spinner",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 6",
+    "unlock": "Reach level 6 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Dressed Spinner",
+    "displayName": "Dressed Spinner",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 2
+     },
+     {
+      "qid": "(O)428",
+      "name": "Cloth",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)687",
+     "name": "Dressed Spinner",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 8",
+    "unlock": "Reach level 8 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Trap Bobber",
+    "displayName": "Trap Bobber",
+    "ingredients": [
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)694",
+     "name": "Trap Bobber",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 6",
+    "unlock": "Reach level 6 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Sonar Bobber",
+    "displayName": "Sonar Bobber",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)SonarBobber",
+     "name": "Sonar Bobber",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 6",
+    "unlock": "Reach level 6 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Cork Bobber",
+    "displayName": "Cork Bobber",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 10
+     },
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 5
+     },
+     {
+      "qid": "(O)766",
+      "name": "Slime",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)695",
+     "name": "Cork Bobber",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 7",
+    "unlock": "Reach level 7 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Treasure Hunter",
+    "displayName": "Treasure Hunter",
+    "ingredients": [
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 2
+     }
+    ],
+    "output": {
+     "qid": "(O)693",
+     "name": "Treasure Hunter",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 7",
+    "unlock": "Reach level 7 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Barbed Hook",
+    "displayName": "Barbed Hook",
+    "ingredients": [
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)691",
+     "name": "Barbed Hook",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 8",
+    "unlock": "Reach level 8 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Oil Of Garlic",
+    "displayName": "Oil Of Garlic",
+    "ingredients": [
+     {
+      "qid": "(O)248",
+      "name": "Garlic",
+      "count": 10
+     },
+     {
+      "qid": "(O)247",
+      "name": "Oil",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)772",
+     "name": "Oil of Garlic",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 6",
+    "unlock": "Reach level 6 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Life Elixir",
+    "displayName": "Life Elixir",
+    "ingredients": [
+     {
+      "qid": "(O)420",
+      "name": "Red Mushroom",
+      "count": 1
+     },
+     {
+      "qid": "(O)422",
+      "name": "Purple Mushroom",
+      "count": 1
+     },
+     {
+      "qid": "(O)257",
+      "name": "Morel",
+      "count": 1
+     },
+     {
+      "qid": "(O)281",
+      "name": "Chanterelle",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)773",
+     "name": "Life Elixir",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 2",
+    "unlock": "Reach level 2 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Crab Pot",
+    "displayName": "Crab Pot",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 40
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(O)710",
+     "name": "Crab Pot",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Fishing 3",
+    "unlock": "Reach level 3 in Fishing skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Iridium Band",
+    "displayName": "Iridium Band",
+    "ingredients": [
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 5
+     },
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 50
+     },
+     {
+      "qid": "(O)769",
+      "name": "Void Essence",
+      "count": 50
+     }
+    ],
+    "output": {
+     "qid": "(O)527",
+     "name": "Iridium Band",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 9",
+    "unlock": "Reach level 9 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wedding Ring",
+    "displayName": "Wedding Ring",
+    "ingredients": [
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 5
+     },
+     {
+      "qid": "(O)74",
+      "name": "Prismatic Shard",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)801",
+     "name": "Wedding Ring",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": null,
+    "countsForPerfection": false
+   },
+   {
+    "recipe": "Ring of Yoba",
+    "displayName": "Ring of Yoba",
+    "ingredients": [
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 5
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 5
+     },
+     {
+      "qid": "(O)72",
+      "name": "Diamond",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)524",
+     "name": "Ring of Yoba",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 7",
+    "unlock": "Reach level 7 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Sturdy Ring",
+    "displayName": "Sturdy Ring",
+    "ingredients": [
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 2
+     },
+     {
+      "qid": "(O)684",
+      "name": "Bug Meat",
+      "count": 25
+     },
+     {
+      "qid": "(O)766",
+      "name": "Slime",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(O)525",
+     "name": "Sturdy Ring",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 1",
+    "unlock": "Reach level 1 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Warrior Ring",
+    "displayName": "Warrior Ring",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 10
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 25
+     },
+     {
+      "qid": "(O)84",
+      "name": "Frozen Tear",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)521",
+     "name": "Warrior Ring",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 4",
+    "unlock": "Reach level 4 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Tub o' Flowers",
+    "displayName": "Tub o' Flowers",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 15
+     },
+     {
+      "qid": "(O)427",
+      "name": "Tulip Bulb",
+      "count": 1
+     },
+     {
+      "qid": "(O)429",
+      "name": "Jazz Seeds",
+      "count": 1
+     },
+     {
+      "qid": "(O)453",
+      "name": "Poppy Seeds",
+      "count": 1
+     },
+     {
+      "qid": "(O)455",
+      "name": "Spangle Seeds",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)108",
+     "name": "Tub o' Flowers",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Flower Dance (1,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wooden Brazier",
+    "displayName": "Wooden Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 10
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)143",
+     "name": "Wooden Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop (250g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wicked Statue",
+    "displayName": "Wicked Statue",
+    "ingredients": [
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 5
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 25
+     }
+    ],
+    "output": {
+     "qid": "(BC)83",
+     "name": "Wicked Statue",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Krobus (1,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stone Brazier",
+    "displayName": "Stone Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 10
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)144",
+     "name": "Stone Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop (400g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Gold Brazier",
+    "displayName": "Gold Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)145",
+     "name": "Gold Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop(1,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Campfire",
+    "displayName": "Campfire",
+    "ingredients": [
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 10
+     },
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 10
+     },
+     {
+      "qid": "(O)771",
+      "name": "Fiber",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(BC)146",
+     "name": "Campfire",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "default",
+    "unlock": "Starter Recipe - no steps required.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Stump Brazier",
+    "displayName": "Stump Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 5
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)147",
+     "name": "Stump Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop (800g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Carved Brazier",
+    "displayName": "Carved Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 10
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)148",
+     "name": "Carved Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop(2,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Skull Brazier",
+    "displayName": "Skull Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(BC)149",
+     "name": "Skull Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop(3,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Barrel Brazier",
+    "displayName": "Barrel Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 50
+     },
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 1
+     },
+     {
+      "qid": "(O)382",
+      "name": "Coal",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)150",
+     "name": "Barrel Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop (800g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Marble Brazier",
+    "displayName": "Marble Brazier",
+    "ingredients": [
+     {
+      "qid": "(O)567",
+      "name": "Marble",
+      "count": 1
+     },
+     {
+      "qid": "(O)62",
+      "name": "Aquamarine",
+      "count": 1
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 100
+     }
+    ],
+    "output": {
+     "qid": "(BC)151",
+     "name": "Marble Brazier",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop(5,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Wood Lamp-post",
+    "displayName": "Wood Lamp-post",
+    "ingredients": [
+     {
+      "qid": "(O)388",
+      "name": "Wood",
+      "count": 50
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)152",
+     "name": "Wood Lamp-post",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop (500g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Iron Lamp-post",
+    "displayName": "Iron Lamp-post",
+    "ingredients": [
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)153",
+     "name": "Iron Lamp-post",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Carpenter's Shop(1,000g)",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Fairy Dust",
+    "displayName": "Fairy Dust",
+    "ingredients": [
+     {
+      "qid": "(O)72",
+      "name": "Diamond",
+      "count": 1
+     },
+     {
+      "qid": "(O)595",
+      "name": "Fairy Rose",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)872",
+     "name": "Fairy Dust",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "\"The Pirate's Wife\" quest",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bug Steak",
+    "displayName": "Bug Steak",
+    "ingredients": [
+     {
+      "qid": "(O)684",
+      "name": "Bug Meat",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(O)874",
+     "name": "Bug Steak",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 1",
+    "unlock": "Reach level 1 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Quality Bobber",
+    "displayName": "Quality Bobber",
+    "ingredients": [
+     {
+      "qid": "(O)334",
+      "name": "Copper Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)92",
+      "name": "Sap",
+      "count": 20
+     },
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)877",
+     "name": "Quality Bobber",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "\"Juicy Bugs Wanted!\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Monster Musk",
+    "displayName": "Monster Musk",
+    "ingredients": [
+     {
+      "qid": "(O)767",
+      "name": "Bat Wing",
+      "count": 30
+     },
+     {
+      "qid": "(O)766",
+      "name": "Slime",
+      "count": 30
+     }
+    ],
+    "output": {
+     "qid": "(O)879",
+     "name": "Monster Musk",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "\"Prismatic Jelly\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Mini-Obelisk",
+    "displayName": "Mini-Obelisk",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 30
+     },
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 20
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(BC)238",
+     "name": "Mini-Obelisk",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "\"A Curious Substance\" special order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Farm Computer",
+    "displayName": "Farm Computer",
+    "ingredients": [
+     {
+      "qid": "(O)122",
+      "name": "Dwarf Gadget",
+      "count": 1
+     },
+     {
+      "qid": "(O)787",
+      "name": "Battery Pack",
+      "count": 1
+     },
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 10
+     }
+    ],
+    "output": {
+     "qid": "(BC)239",
+     "name": "Farm Computer",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Ostrich Incubator",
+    "displayName": "Ostrich Incubator",
+    "ingredients": [
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 50
+     },
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 50
+     },
+     {
+      "qid": "(O)848",
+      "name": "Cinder Shard",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(BC)254",
+     "name": "Ostrich Incubator",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Professor Snail",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Geode Crusher",
+    "displayName": "Geode Crusher",
+    "ingredients": [
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 2
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 50
+     },
+     {
+      "qid": "(O)72",
+      "name": "Diamond",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)182",
+     "name": "Geode Crusher",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "\"Cave Patrol\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Solar Panel",
+    "displayName": "Solar Panel",
+    "ingredients": [
+     {
+      "qid": "(O)338",
+      "name": "Refined Quartz",
+      "count": 10
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 5
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(BC)231",
+     "name": "Solar Panel",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "\"Island Ingredients\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Bone Mill",
+    "displayName": "Bone Mill",
+    "ingredients": [
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 10
+     },
+     {
+      "qid": "(O)330",
+      "name": "Clay",
+      "count": 3
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 20
+     }
+    ],
+    "output": {
+     "qid": "(BC)90",
+     "name": "Bone Mill",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "\"Fragments of the past\" Special Order",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Thorns Ring",
+    "displayName": "Thorns Ring",
+    "ingredients": [
+     {
+      "qid": "(O)881",
+      "name": "Bone Fragment",
+      "count": 50
+     },
+     {
+      "qid": "(O)390",
+      "name": "Stone",
+      "count": 50
+     },
+     {
+      "qid": "(O)336",
+      "name": "Gold Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(O)839",
+     "name": "Thorns Ring",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Combat 7",
+    "unlock": "Reach level 7 in Combat skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Glowstone Ring",
+    "displayName": "Glowstone Ring",
+    "ingredients": [
+     {
+      "qid": "(O)768",
+      "name": "Solar Essence",
+      "count": 5
+     },
+     {
+      "qid": "(O)335",
+      "name": "Iron Bar",
+      "count": 5
+     }
+    ],
+    "output": {
+     "qid": "(O)888",
+     "name": "Glowstone Ring",
+     "count": 1
+    },
+    "bigCraftable": false,
+    "unlockRaw": "Mining 4",
+    "unlock": "Reach level 4 in Mining skill.",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Heavy Tapper",
+    "displayName": "Heavy Tapper",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 30
+     },
+     {
+      "qid": "(O)910",
+      "name": "Radioactive Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)264",
+     "name": "Heavy Tapper",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Qi's Secret Walnut Room for 20 Qi Gems",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Hopper",
+    "displayName": "Hopper",
+    "ingredients": [
+     {
+      "qid": "(O)709",
+      "name": "Hardwood",
+      "count": 10
+     },
+     {
+      "qid": "(O)337",
+      "name": "Iridium Bar",
+      "count": 1
+     },
+     {
+      "qid": "(O)910",
+      "name": "Radioactive Bar",
+      "count": 1
+     }
+    ],
+    "output": {
+     "qid": "(BC)275",
+     "name": "Hopper",
+     "count": 1
+    },
+    "bigCraftable": true,
+    "unlockRaw": "null",
+    "unlock": "Qi's Walnut Room for 50 Qi Gems",
+    "countsForPerfection": true
+   },
+   {
+    "recipe": "Magic Bait",
+    "displayName": "Magic Bait",
+    "ingredients": [
+     {
+      "qid": "(O)909",
+      "name": "Radioactive Ore",
+      "count": 1
+     },
+     {
+      "qid": "(O)684",
+      "name": "Bug Meat",
+      "count": 3
+     }
+    ],
+    "output": {
+     "qid": "(O)908",
+     "name": "Magic Bait",
+     "count": 5
+    },
+    "bigCraftable": false,
+    "unlockRaw": "null",
+    "unlock": "Qi's Walnut Room for 20 Qi Gems",
+    "countsForPerfection": true
+   }
+  ]
+ }
+}

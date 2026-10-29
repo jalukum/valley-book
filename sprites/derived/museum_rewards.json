@@ -1,0 +1,72 @@
+{
+ "museum20": [
+  "Reward_A_Night_On_Eco-Hill.png",
+  90,
+  84
+ ],
+ "museum25": [
+  "Reward_Jade_Hills.png",
+  141,
+  84
+ ],
+ "museum30": [
+  "Reward_Lg._Futan_Bear.png",
+  96,
+  96
+ ],
+ "museum50": [
+  "Reward_Bear_Statue.png",
+  120,
+  256
+ ],
+ "museum60": [
+  "Reward_Rusty_Key.png",
+  48,
+  48
+ ],
+ "mineral11": [
+  "Reward_Standing_Geode.png",
+  48,
+  96
+ ],
+ "mineral31": [
+  "Reward_Obsidian_Vase.png",
+  48,
+  96
+ ],
+ "mineral40": [
+  "Reward_Crystal_Chair.png",
+  48,
+  96
+ ],
+ "burnt_offering": [
+  "Reward_Burnt_Offering.png",
+  96,
+  96
+ ],
+ "arch15": [
+  "Reward_Skeleton_Statue.png",
+  48,
+  96
+ ],
+ "chicken": [
+  "Reward_Chicken_Statue_furniture.png",
+  48,
+  96
+ ],
+ "sloth_l": [
+  "Reward_Sloth_Skeleton_L.png",
+  48,
+  90
+ ],
+ "sloth_2": [
+  "Reward_Sloth_Skeleton_M.png",
+  48,
+  90
+ ],
+ "sloth_3": [
+  "Reward_Sloth_Skeleton_R.png",
+  48,
+  90
+ ]
+}

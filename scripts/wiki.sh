@@ -1,0 +1,2 @@
+# usage: wiki.sh "Page title"  -> prints wikitext
+curl -s -A "sdv-companion-research/0.1" --get "https://stardewvalleywiki.com/mediawiki/api.php" --data-urlencode "action=query" --data-urlencode "prop=revisions" --data-urlencode "rvprop=content" --data-urlencode "rvslots=main" --data-urlencode "format=json" --data-urlencode "formatversion=2" --data-urlencode "titles=$1" | python3 -c "import json,sys;d=json.load(sys.stdin);p=d['query']['pages'][0];print(p.get('revisions',[{}])[0].get('slots',{}).get('main',{}).get('content','MISSING'))"

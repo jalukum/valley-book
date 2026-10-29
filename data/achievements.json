@@ -1,0 +1,607 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": [
+   {
+    "repo": "https://github.com/communitycenter/stardew.app",
+    "commit": "7b27120442a4ee265f04fab2568c97521922f2d1"
+   },
+   {
+    "repo": "https://github.com/kronosta/stardew-data",
+    "commit": "de69cb5ce6f3708a63d53ed414b757b39b3f105e"
+   }
+  ],
+  "license": "stardew.app MIT; game strings © ConcernedApe",
+  "note": "inGame=false: Steam/console-only achievements not tracked in the in-game collection"
+ },
+ "data": [
+  {
+   "name": "Greenhorn",
+   "description": "Earn 15,000g",
+   "gameId": 0,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Greenhorn.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/1/1d/Achievement_Greenhorn.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Cowpoke",
+   "description": "Earn 50,000g",
+   "gameId": 1,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Cowpoke.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/2/24/Achievement_Cowpoke.jpg"
+   },
+   "hiddenUntilPrereq": "0"
+  },
+  {
+   "name": "Homesteader",
+   "description": "Earn 250,000g",
+   "gameId": 2,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Homesteader.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/f/fb/Achievement_Homesteader.jpg"
+   },
+   "hiddenUntilPrereq": "1"
+  },
+  {
+   "name": "Millionaire",
+   "description": "Earn 1,000,000g",
+   "gameId": 3,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Millionaire.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/9/91/Achievement_Millionaire.jpg"
+   },
+   "hiddenUntilPrereq": "2"
+  },
+  {
+   "name": "Legend",
+   "description": "Earn 10,000,000g (Secret Achievement)",
+   "gameId": 4,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Legend.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/b/bb/Achievement_Legend.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "A Complete Collection",
+   "description": "Complete the museum collection.",
+   "gameId": 5,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_A_Complete_Collection.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/c/c6/Achievement_A_Complete_Collection.jpg"
+   },
+   "hiddenUntilPrereq": "28"
+  },
+  {
+   "name": "A New Friend",
+   "description": "Reach a 5-heart friend level with someone.",
+   "gameId": 6,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_A_New_Friend.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/c/cd/Achievement_A_New_Friend.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Best Friends",
+   "description": "Reach a 10-heart friend level with someone.",
+   "gameId": 7,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Best_Friends.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/e/e8/Achievement_Best_Friends.jpg"
+   },
+   "hiddenUntilPrereq": "6"
+  },
+  {
+   "name": "The Beloved Farmer",
+   "description": "Reach a 10-heart friend level with 8 people.",
+   "gameId": 9,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_The_Beloved_Farmer.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/5/5d/Achievement_The_Beloved_Farmer.jpg"
+   },
+   "hiddenUntilPrereq": "7"
+  },
+  {
+   "name": "Cliques",
+   "description": "Reach a 5-heart friend level with 4 people.",
+   "gameId": 11,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Cliques.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/2/26/Achievement_Cliques.jpg"
+   },
+   "hiddenUntilPrereq": "6"
+  },
+  {
+   "name": "Networking",
+   "description": "Reach a 5-heart friend level with 10 people.",
+   "gameId": 12,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Networking.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/5/5e/Achievement_Networking.jpg"
+   },
+   "hiddenUntilPrereq": "11"
+  },
+  {
+   "name": "Popular",
+   "description": "Reach a 5-heart friend level with 20 people.",
+   "gameId": 13,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Popular.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/a/a4/Achievement_Popular.jpg"
+   },
+   "hiddenUntilPrereq": "12"
+  },
+  {
+   "name": "Cook",
+   "description": "Cook 10 different recipes.",
+   "gameId": 15,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Cook.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/c/c6/Achievement_Cook.jpg"
+   },
+   "hiddenUntilPrereq": "18"
+  },
+  {
+   "name": "Sous Chef",
+   "description": "Cook 25 different recipes.",
+   "gameId": 16,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Sous_Chef.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/4/44/Achievement_Sous_Chef.jpg"
+   },
+   "hiddenUntilPrereq": "15"
+  },
+  {
+   "name": "Gourmet Chef",
+   "description": "Cook every recipe.",
+   "gameId": 17,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Gourmet_Chef.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/d/dd/Achievement_Gourmet_Chef.jpg"
+   },
+   "hiddenUntilPrereq": "16"
+  },
+  {
+   "name": "Moving Up",
+   "description": "Upgrade your house.",
+   "gameId": 18,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Moving_Up.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/b/bd/Achievement_Moving_Up.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Living Large",
+   "description": "Upgrade your house to the maximum size. (2nd upgrade, not cellar)",
+   "gameId": 19,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Living_Large.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/6/65/Achievement_Living_Large.jpg"
+   },
+   "hiddenUntilPrereq": "18"
+  },
+  {
+   "name": "D.I.Y.",
+   "description": "Craft 15 different items.",
+   "gameId": 20,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_D.I.Y..jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/2/2e/Achievement_DIY.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Artisan",
+   "description": "Craft 30 different items.",
+   "gameId": 21,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Artisan.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/2/20/Achievement_Artisan.jpg"
+   },
+   "hiddenUntilPrereq": "20"
+  },
+  {
+   "name": "Craft Master",
+   "description": "Craft every item.",
+   "gameId": 22,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Craft_Master.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/6/60/Achievement_Master_Craft.jpg"
+   },
+   "hiddenUntilPrereq": "21"
+  },
+  {
+   "name": "Fisherman",
+   "description": "Catch 10 different fish.",
+   "gameId": 24,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Fisherman.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/0/00/Achievement_Fisherman.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Ol' Mariner",
+   "description": "Catch 24 different fish.",
+   "gameId": 25,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Ol'_Mariner.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/a/af/Achievement_Ol_Mariner.jpg"
+   },
+   "hiddenUntilPrereq": "24"
+  },
+  {
+   "name": "Master Angler",
+   "description": "Catch every fish.",
+   "gameId": 26,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Master_Angler.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/6/65/Achievement_Master_Angler.jpg"
+   },
+   "hiddenUntilPrereq": "25"
+  },
+  {
+   "name": "Mother Catch",
+   "description": "Catch 100 fish.",
+   "gameId": 27,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Mother_Catch.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/0/0f/Achievement_Mother_Catch.jpg"
+   },
+   "hiddenUntilPrereq": "64"
+  },
+  {
+   "name": "Treasure Trove",
+   "description": "Donate 40 different items to the museum.",
+   "gameId": 28,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Treasure_Trove.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/5/55/Achievement_Treasure_Trove.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Gofer",
+   "description": "Complete 10 'Help Wanted' requests.",
+   "gameId": 29,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Gofer.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/2/27/Achievement_Gofer.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "A Big Help",
+   "description": "Complete 40 'Help Wanted' requests.",
+   "gameId": 30,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_A_Big_Help.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/3/37/Achievement_A_Big_Help.jpg"
+   },
+   "hiddenUntilPrereq": "29"
+  },
+  {
+   "name": "Polyculture",
+   "description": "Ship 15 of each crop.",
+   "gameId": 31,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Polyculture.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/7/7f/Achievement_Polyculture.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Monoculture",
+   "description": "Ship 300 of one crop.",
+   "gameId": 32,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Monoculture.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/2/2c/Achievement_Monoculture.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Full Shipment",
+   "description": "Ship every item.",
+   "gameId": 34,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Full_Shipment.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/b/b8/Achievement_Full_Shipment.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Prairie King",
+   "description": "Beat 'Journey of the Prairie King'.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Prairie_King.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/7/79/Achievement_Prarie_King.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "The Bottom",
+   "description": "Reach the lowest level of the mines.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_The_Bottom.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/3/3b/Achievement_The_Bottom.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Local Legend",
+   "description": "Restore the Pelican Town Community Center.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Local_Legend.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/7/72/Achievement_Local_Legend.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Joja Co. Member Of The Year",
+   "description": "Purchase all Joja Community Development projects.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Joja_Co._Member_Of_The_Year.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/0/02/Achievement_Joja_Co._Member_Of_The_Year.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Mystery Of The Stardrops",
+   "description": "Find every stardrop.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Mystery_Of_The_Stardrops.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/e/e0/Achievement_Mystery_Of_The_Stardrops.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Full House",
+   "description": "Get married and have two kids.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Full_House.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/e/e4/Achievement_Full_House.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Singular Talent",
+   "description": "Reach level 10 in a skill.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Singular_Talent.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/6/6f/Achievement_Singular_Talent.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Master Of The Five Ways",
+   "description": "Reach level 10 in every skill.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Master_Of_The_Five_Ways.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/4/49/Achievement_Master_Of_The_Five_Ways.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Protector Of The Valley",
+   "description": "Complete all of the Adventure Guild Monster Slayer goals.",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Protector_Of_The_Valley.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/6/66/Achievement_Protector_Of_The_Valley.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "Fector's Challenge",
+   "description": "Beat 'Journey Of The Prairie King' without dying. (Secret Achievement)",
+   "gameId": null,
+   "inGame": false,
+   "platformOnly": true,
+   "icon": {
+    "file": "Achievement_Fector's_Challenge.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/f/f2/Achievement_Fector%27s_Challenge.jpg"
+   },
+   "hiddenUntilPrereq": null
+  },
+  {
+   "name": "A Distant Shore",
+   "description": "Reach Ginger Island.",
+   "gameId": 40,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_A_Distant_Shore.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/5/5b/Achievement_A_Distant_Shore.jpg/64px-Achievement_A_Distant_Shore.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Well-Read",
+   "description": "Read every power book.",
+   "gameId": 35,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Well-Read.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/1/1b/Achievement_Well-Read.jpg/64px-Achievement_Well-Read.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Two Thumbs Up",
+   "description": "See a movie.",
+   "gameId": 36,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Two_Thumbs_Up.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/c/ca/Achievement_Two_Thumbs_Up.jpg/64px-Achievement_Two_Thumbs_Up.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Blue Ribbon",
+   "description": "Get 1st place in the Stardew Valley Fair competition.",
+   "gameId": 37,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Blue_Ribbon.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/7/7a/Achievement_Blue_Ribbon.jpg/64px-Achievement_Blue_Ribbon.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "An Unforgettable Soup",
+   "description": "Delight the Governor.",
+   "gameId": 38,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_An_Unforgettable_Soup.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/c/c8/Achievement_An_Unforgettable_Soup.jpg/64px-Achievement_An_Unforgettable_Soup.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Good Neighbors",
+   "description": "Help your forest neighbors grow their family.",
+   "gameId": 39,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Good_Neighbors.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/0/00/Achievement_Good_Neighbors.jpg/64px-Achievement_Good_Neighbors.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Danger In The Deep",
+   "description": "Reach the bottom of the 'dangerous' mines.",
+   "gameId": 41,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Danger_In_The_Deep.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/9/99/Achievement_Danger_In_The_Deep.jpg/64px-Achievement_Danger_In_The_Deep.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Infinite Power",
+   "description": "Obtain the most powerful weapon.",
+   "gameId": 42,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Infinite_Power.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/0/0c/Achievement_Infinite_Power.jpg/64px-Achievement_Infinite_Power.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  },
+  {
+   "name": "Perfection",
+   "description": "Reach the summit.",
+   "gameId": 44,
+   "inGame": true,
+   "platformOnly": false,
+   "icon": {
+    "file": "Achievement_Perfection.jpg",
+    "url": "https://stardewvalleywiki.com/mediawiki/images/thumb/8/8b/Achievement_Perfection.jpg/64px-Achievement_Perfection.jpg"
+   },
+   "hiddenUntilPrereq": "-1"
+  }
+ ]
+}

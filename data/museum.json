@@ -1,0 +1,1605 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": [
+   {
+    "repo": "https://github.com/communitycenter/stardew.app",
+    "commit": "7b27120442a4ee265f04fab2568c97521922f2d1"
+   },
+   {
+    "repo": "https://github.com/kronosta/stardew-data",
+    "commit": "de69cb5ce6f3708a63d53ed414b757b39b3f105e"
+   }
+  ],
+  "license": [
+   "Game data/art (c) ConcernedApe; used for a non-commercial fan app",
+   "stardew.app MIT"
+  ],
+  "note": "95 donatable items (game has 95 Arch/Minerals-type objects incl. non-donatable)"
+ },
+ "data": {
+  "items": [
+   {
+    "qid": "(O)96",
+    "name": "Dwarf Scroll I",
+    "kind": "Artifact",
+    "foundIn": [
+     "Tilling in Mines/Skull Cavern (any floor) (0.16%)",
+     "Several monsters (0.5% each)"
+    ]
+   },
+   {
+    "qid": "(O)97",
+    "name": "Dwarf Scroll II",
+    "kind": "Artifact",
+    "foundIn": [
+     "Tilling in Mines (floor 1-39) (0.1%)",
+     "Ghost drop (0.5%)",
+     "Frost Bat drop (0.5%)",
+     "Dust Sprite drop (0.5%)",
+     "Blue Slime drop (0.5%)"
+    ]
+   },
+   {
+    "qid": "(O)98",
+    "name": "Dwarf Scroll III",
+    "kind": "Artifact",
+    "foundIn": [
+     "Several monsters drop (1.5% for Blue Slime, 0.5% for others)"
+    ]
+   },
+   {
+    "qid": "(O)99",
+    "name": "Dwarf Scroll IV",
+    "kind": "Artifact",
+    "foundIn": [
+     "Any Monster (other than Serpent, Skeleton, Wilderness Golem, Carbon Ghost, Iridium Bat, Iridium Crab, and Haunted Skull) (0.1%)",
+     "Tilling in Mines (floor 80+) (0.2%)"
+    ]
+   },
+   {
+    "qid": "(O)100",
+    "name": "Chipped Amphora",
+    "kind": "Artifact",
+    "foundIn": [
+     "Town (3%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)101",
+    "name": "Arrowhead",
+    "kind": "Artifact",
+    "foundIn": [
+     "Mountain (1.6%)",
+     "Forest (1.6%)",
+     "Bus Stop (1.6%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)103",
+    "name": "Ancient Doll",
+    "kind": "Artifact",
+    "foundIn": [
+     "Mountain (3%)",
+     "Forest (2.4%)",
+     "Bus Stop (2.4%)",
+     "Town (0.8%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Feast of the Winter Star",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)104",
+    "name": "Elvish Jewelry",
+    "kind": "Artifact",
+    "foundIn": [
+     "Forest (0.8%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)105",
+    "name": "Chewing Stick",
+    "kind": "Artifact",
+    "foundIn": [
+     "Mountain (1.5%)",
+     "Forest (1.5%)",
+     "Town (0.8%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Duggy drop (2%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)106",
+    "name": "Ornamental Fan",
+    "kind": "Artifact",
+    "foundIn": [
+     "Beach (1.6%)",
+     "Forest (0.7%)",
+     "Town (0.6%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)107",
+    "name": "Dinosaur Egg",
+    "kind": "Artifact",
+    "foundIn": [
+     "Mountain (0.6%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Foraged on prehistoric floors of the Skull Cavern",
+     "Pepper Rex drop (10%)"
+    ]
+   },
+   {
+    "qid": "(O)108",
+    "name": "Rare Disc",
+    "kind": "Artifact",
+    "foundIn": [
+     "Fishing Chest (0.8-0.9%)",
+     "Bats drop (except Iridium Bat) (0.1%)",
+     "Shadow Brute, Shadow Shaman, Spider drop (0.3%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)109",
+    "name": "Ancient Sword",
+    "kind": "Artifact",
+    "foundIn": [
+     "Forest (0.7%)",
+     "Mountain (0.6%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)110",
+    "name": "Rusty Spoon",
+    "kind": "Artifact",
+    "foundIn": [
+     "Town (4% + 6-11%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Tilling in Mines/Skull Cavern (any floor) (0.16%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)111",
+    "name": "Rusty Spur",
+    "kind": "Artifact",
+    "foundIn": [
+     "Farm (10%)",
+     "Tilling in Mines/Skull Cavern (any floor) (0.16%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)112",
+    "name": "Rusty Cog",
+    "kind": "Artifact",
+    "foundIn": [
+     "Mountain (4%)",
+     "Tilling in Mines/Skull Cavern (any floor) (0.16%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)113",
+    "name": "Chicken Statue",
+    "kind": "Artifact",
+    "foundIn": [
+     "Farm (9%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)114",
+    "name": "Ancient Seed",
+    "kind": "Artifact",
+    "foundIn": [
+     "Forest (0.7%)",
+     "Mountain (0.7%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Monster drop (Bug, Cave Fly, Grub, Mutant Fly, Mutant Grub: 0.5%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)115",
+    "name": "Prehistoric Tool",
+    "kind": "Artifact",
+    "foundIn": [
+     "Bus Stop (3%)",
+     "Forest (2.1%)",
+     "Mountain (2%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)116",
+    "name": "Dried Starfish",
+    "kind": "Artifact",
+    "foundIn": [
+     "Beach (8%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)117",
+    "name": "Anchor",
+    "kind": "Artifact",
+    "foundIn": [
+     "Beach (4%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)118",
+    "name": "Glass Shards",
+    "kind": "Artifact",
+    "foundIn": [
+     "Beach (7%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)119",
+    "name": "Bone Flute",
+    "kind": "Artifact",
+    "foundIn": [
+     "Forest (0.7%)",
+     "Mountain (0.7%)",
+     "Town (0.4%)",
+     "Fishing Chest (0.8-0.9%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)120",
+    "name": "Prehistoric Handaxe",
+    "kind": "Artifact",
+    "foundIn": [
+     "Bus Stop (4%)",
+     "Mountain (3%)",
+     "Forest (3%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)121",
+    "name": "Dwarvish Helm",
+    "kind": "Artifact",
+    "foundIn": [
+     "Tilling in Mines (floor 1-39) (0.1%)",
+     "Geode (3%)",
+     "Omni Geode (1%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)122",
+    "name": "Dwarf Gadget",
+    "kind": "Artifact",
+    "foundIn": [
+     "Tilling in Mines (floor 40-79) (0.1%)",
+     "Magma Geode (4%)",
+     "Omni Geode (1%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)123",
+    "name": "Ancient Drum",
+    "kind": "Artifact",
+    "foundIn": [
+     "Bus Stop (0.7%)",
+     "Forest (0.7%)",
+     "Town (0.4%)",
+     "Frozen Geode (3%)",
+     "Omni Geode (1%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)124",
+    "name": "Golden Mask",
+    "kind": "Artifact",
+    "foundIn": [
+     "Desert (3%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)125",
+    "name": "Golden Relic",
+    "kind": "Artifact",
+    "foundIn": [
+     "Desert (6%)",
+     "Artifact Trove (3.7%)"
+    ]
+   },
+   {
+    "qid": "(O)126",
+    "name": "Strange Doll",
+    "kind": "Artifact",
+    "foundIn": [
+     "Farm (0.08%)",
+     "Bus Stop (0.07%)",
+     "Town (0.07%)",
+     "Forest (0.06%)",
+     "Mountain (0.06%)",
+     "Beach (0.06%)",
+     "Tilling in Mines/Skull Cavern (any floor) (0.03%)",
+     "Fishing Chest (≈0.14%)",
+     "Secret Note #17"
+    ]
+   },
+   {
+    "qid": "(O)127",
+    "name": "Strange Doll",
+    "kind": "Artifact",
+    "foundIn": [
+     "Farm (0.08%)",
+     "Bus Stop (0.07%)",
+     "Town (0.07%)",
+     "Forest (0.06%)",
+     "Mountain (0.06%)",
+     "Beach (0.06%)",
+     "Tilling in Mines/Skull Cavern (any floor) (0.03%)",
+     "Fishing Chest (≈0.14%)",
+     "Secret Note #18"
+    ]
+   },
+   {
+    "qid": "(O)579",
+    "name": "Prehistoric Scapula",
+    "kind": "Artifact",
+    "foundIn": [
+     "Forest (3-6%)",
+     "Town (0.7%)",
+     "Skeleton drop (0.5%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)580",
+    "name": "Prehistoric Tibia",
+    "kind": "Artifact",
+    "foundIn": [
+     "Railroad (4-8%)",
+     "Forest (0.6%)",
+     "Pepper Rex drop (30%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)581",
+    "name": "Prehistoric Skull",
+    "kind": "Artifact",
+    "foundIn": [
+     "Mountain (0.6% + 3-6%)",
+     "Haunted Skull drop (1.3%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)582",
+    "name": "Skeletal Hand",
+    "kind": "Artifact",
+    "foundIn": [
+     "Backwoods (4-8%)",
+     "Beach (0.6%)",
+     "Haunted Skull drop (1.3%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)583",
+    "name": "Prehistoric Rib",
+    "kind": "Artifact",
+    "foundIn": [
+     "Town (2.2-4%)",
+     "Farm (0.8%)",
+     "Pepper Rex drop (30%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)584",
+    "name": "Prehistoric Vertebra",
+    "kind": "Artifact",
+    "foundIn": [
+     "Bus Stop (0.7% + 3-5%)",
+     "Pepper Rex drop (30%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)585",
+    "name": "Skeletal Tail",
+    "kind": "Artifact",
+    "foundIn": [
+     "Tilling in Mines/Skull Cavern (any floor)",
+     "Fishing Chest (3.1-3.4%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)586",
+    "name": "Nautilus Fossil",
+    "kind": "Artifact",
+    "foundIn": [
+     "Beach (1.8%)",
+     "Fishing Chest (3.1-3.4%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)587",
+    "name": "Amphibian Fossil",
+    "kind": "Artifact",
+    "foundIn": [
+     "Forest (0.6%)",
+     "Mountain (0.6%)",
+     "Fishing Chest (3.1-3.4%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)588",
+    "name": "Palm Fossil",
+    "kind": "Artifact",
+    "foundIn": [
+     "Desert (7%)",
+     "Forest (0.6% + 3-5%)",
+     "Beach (0.6%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)589",
+    "name": "Trilobite",
+    "kind": "Artifact",
+    "foundIn": [
+     "Beach (1.7% + 2.3-5%)",
+     "Forest (1.9%)",
+     "Mountain (1.8%)",
+     "Bone Nodes (0.8%)"
+    ]
+   },
+   {
+    "qid": "(O)80",
+    "name": "Quartz",
+    "kind": "Mineral",
+    "foundIn": [
+     "The Mines (Floors 1-120)",
+     "Garbage Can",
+     "Stone Golem (10%)",
+     "The Mines (Floors 1-120)"
+    ]
+   },
+   {
+    "qid": "(O)86",
+    "name": "Earth Crystal",
+    "kind": "Mineral",
+    "foundIn": [
+     "The Mines (Floors 1-39)",
+     "Duggy (10%)",
+     "Haunted Skull (1.3%)",
+     "Fishing Treasure Chest",
+     "Panning",
+     "Geode",
+     "Omni Geode",
+     "Garbage Can",
+     "The Mines (Floors 1-39)"
+    ]
+   },
+   {
+    "qid": "(O)84",
+    "name": "Frozen Tear",
+    "kind": "Mineral",
+    "foundIn": [
+     "The Mines (Floors 40-79)",
+     "Fishing Treasure Chest",
+     "Panning",
+     "Frozen Geode",
+     "Omni Geode",
+     "Dust Sprite (2%)",
+     "Garbage Can",
+     "The Mines (Floors 40-79)"
+    ]
+   },
+   {
+    "qid": "(O)82",
+    "name": "Fire Quartz",
+    "kind": "Mineral",
+    "foundIn": [
+     "The Mines (Floors 80-120)",
+     "Fishing Treasure Chest",
+     "Panning",
+     "Magma Geode",
+     "Omni Geode",
+     "Garbage Can",
+     "The Mines (Floors 80-120)"
+    ]
+   },
+   {
+    "qid": "(O)60",
+    "name": "Emerald",
+    "kind": "Mineral",
+    "foundIn": [
+     "Emerald Node",
+     "Gem Node",
+     "Panning",
+     "Garbage Can",
+     "Fishing Treasure Chest",
+     "Feast of the Winter Star"
+    ]
+   },
+   {
+    "qid": "(O)62",
+    "name": "Aquamarine",
+    "kind": "Mineral",
+    "foundIn": [
+     "Aquamarine Node",
+     "Gem Node",
+     "Panning",
+     "Garbage Can",
+     "Fishing Treasure Chest"
+    ]
+   },
+   {
+    "qid": "(O)64",
+    "name": "Ruby",
+    "kind": "Mineral",
+    "foundIn": [
+     "Ruby Node",
+     "Gem Node",
+     "Panning",
+     "Garbage Can",
+     "Fishing Treasure Chest",
+     "Feast of the Winter Star"
+    ]
+   },
+   {
+    "qid": "(O)66",
+    "name": "Amethyst",
+    "kind": "Mineral",
+    "foundIn": [
+     "Amethyst Node",
+     "Gem Node",
+     "Green Slimes",
+     "Panning",
+     "Garbage Can",
+     "Fishing Treasure Chest"
+    ]
+   },
+   {
+    "qid": "(O)68",
+    "name": "Topaz",
+    "kind": "Mineral",
+    "foundIn": [
+     "Topaz Node",
+     "Gem Node",
+     "Panning",
+     "Garbage Can",
+     "Fishing Treasure Chest"
+    ]
+   },
+   {
+    "qid": "(O)70",
+    "name": "Jade",
+    "kind": "Mineral",
+    "foundIn": [
+     "Jade Node",
+     "Gem Node",
+     "Blue Slimes",
+     "Garbage Can",
+     "Fishing Treasure Chest",
+     "Feast of the Winter Star"
+    ]
+   },
+   {
+    "qid": "(O)72",
+    "name": "Diamond",
+    "kind": "Mineral",
+    "foundIn": [
+     "Diamond Node",
+     "Gem Node",
+     "Panning",
+     "Garbage Can",
+     "Fishing Treasure Chest",
+     "Any monster after reaching the bottom of the mines (0.05%)"
+    ]
+   },
+   {
+    "qid": "(O)74",
+    "name": "Prismatic Shard",
+    "kind": "Mineral",
+    "foundIn": [
+     "Iridium Node (4%)",
+     "Mystic Stone (25%)",
+     "Omni Geode (0.4%)",
+     "Shadow Brute (0.05%)",
+     "Shadow Shaman (0.05%)",
+     "Mummy (0.1%)",
+     "Serpent (0.1%)",
+     "Fishing Treasure Chest",
+     "Any monster after reaching the bottom of the mines (0.05%)"
+    ]
+   },
+   {
+    "qid": "(O)562",
+    "name": "Tigerseye",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)564",
+    "name": "Opal",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)565",
+    "name": "Fire Opal",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)538",
+    "name": "Alamite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)539",
+    "name": "Bixite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode",
+     "Black Slime"
+    ]
+   },
+   {
+    "qid": "(O)540",
+    "name": "Baryte",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)541",
+    "name": "Aerinite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)542",
+    "name": "Calcite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)543",
+    "name": "Dolomite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)544",
+    "name": "Esperite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)545",
+    "name": "Fluorapatite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)546",
+    "name": "Geminite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)547",
+    "name": "Helvite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)548",
+    "name": "Jamborite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)549",
+    "name": "Jagoite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)550",
+    "name": "Kyanite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)551",
+    "name": "Lunarite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)552",
+    "name": "Malachite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)553",
+    "name": "Neptunite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode",
+     "Black Slime"
+    ]
+   },
+   {
+    "qid": "(O)554",
+    "name": "Lemon Stone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)555",
+    "name": "Nekoite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)556",
+    "name": "Orpiment",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)557",
+    "name": "Petrified Slime",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode",
+     "Slime Ball"
+    ]
+   },
+   {
+    "qid": "(O)558",
+    "name": "Thunder Egg",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)559",
+    "name": "Pyrite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)560",
+    "name": "Ocean Stone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)561",
+    "name": "Ghost Crystal",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)563",
+    "name": "Jasper",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)566",
+    "name": "Celestine",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)567",
+    "name": "Marble",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)568",
+    "name": "Sandstone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)569",
+    "name": "Granite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)570",
+    "name": "Basalt",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)571",
+    "name": "Limestone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)572",
+    "name": "Soapstone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)573",
+    "name": "Hematite",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)574",
+    "name": "Mudstone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)575",
+    "name": "Obsidian",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)576",
+    "name": "Slate",
+    "kind": "Mineral",
+    "foundIn": [
+     "Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)577",
+    "name": "Fairy Stone",
+    "kind": "Mineral",
+    "foundIn": [
+     "Frozen Geode",
+     "Omni Geode"
+    ]
+   },
+   {
+    "qid": "(O)578",
+    "name": "Star Shards",
+    "kind": "Mineral",
+    "foundIn": [
+     "Magma Geode",
+     "Omni Geode"
+    ]
+   }
+  ],
+  "rewards": [
+   {
+    "id": "dwarf",
+    "requires": [
+     {
+      "qid": "(O)96",
+      "name": "Dwarf Scroll I",
+      "count": 1
+     },
+     {
+      "qid": "(O)97",
+      "name": "Dwarf Scroll II",
+      "count": 1
+     },
+     {
+      "qid": "(O)98",
+      "name": "Dwarf Scroll III",
+      "count": 1
+     },
+     {
+      "qid": "(O)99",
+      "name": "Dwarf Scroll IV",
+      "count": 1
+     }
+    ],
+    "reward": {
+     "qid": "(O)326",
+     "name": "Dwarvish Translation Guide",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "chicken",
+    "requires": [
+     {
+      "qid": "(O)113",
+      "name": "Chicken Statue",
+      "count": 1
+     },
+     {
+      "tag": "item_type_arch",
+      "name": "Artifacts (any)",
+      "count": 5
+     }
+    ],
+    "reward": {
+     "qid": "(F)1305",
+     "name": "(F)1305",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "arch15",
+    "requires": [
+     {
+      "tag": "item_type_arch",
+      "name": "Artifacts (any)",
+      "count": 15
+     }
+    ],
+    "reward": {
+     "qid": "(F)1304",
+     "name": "(F)1304",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "arch20",
+    "requires": [
+     {
+      "tag": "item_type_arch",
+      "name": "Artifacts (any)",
+      "count": 20
+     }
+    ],
+    "reward": {
+     "qid": "(BC)139",
+     "name": "Rarecrow",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "burnt_offering",
+    "requires": [
+     {
+      "qid": "(O)108",
+      "name": "Rare Disc",
+      "count": 1
+     },
+     {
+      "qid": "(O)122",
+      "name": "Dwarf Gadget",
+      "count": 1
+     },
+     {
+      "tag": "item_type_arch",
+      "name": "Artifacts (any)",
+      "count": 11
+     }
+    ],
+    "reward": {
+     "qid": "(F)1545",
+     "name": "(F)1545",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "flute",
+    "requires": [
+     {
+      "qid": "(O)119",
+      "name": "Bone Flute",
+      "count": 1
+     },
+     {
+      "tag": "item_type_arch",
+      "name": "Artifacts (any)",
+      "count": 3
+     }
+    ],
+    "reward": {
+     "qid": "(O)464",
+     "name": "Flute Block",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "drum",
+    "requires": [
+     {
+      "qid": "(O)123",
+      "name": "Ancient Drum",
+      "count": 1
+     },
+     {
+      "tag": "item_type_arch",
+      "name": "Artifacts (any)",
+      "count": 3
+     }
+    ],
+    "reward": {
+     "qid": "(O)463",
+     "name": "Drum Block",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "ancient_seed",
+    "requires": [
+     {
+      "qid": "(O)114",
+      "name": "Ancient Seed",
+      "count": 1
+     }
+    ],
+    "reward": {
+     "qid": "(O)499",
+     "name": "Ancient Seeds",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "ancient_seed_recipe",
+    "requires": [
+     {
+      "qid": "(O)114",
+      "name": "Ancient Seed",
+      "count": 1
+     }
+    ],
+    "reward": {
+     "qid": "(O)499",
+     "name": "Ancient Seeds",
+     "count": 1,
+     "isRecipe": true
+    },
+    "actions": null
+   },
+   {
+    "id": "sloth_l",
+    "requires": [
+     {
+      "qid": "(O)579",
+      "name": "Prehistoric Scapula",
+      "count": 1
+     },
+     {
+      "qid": "(O)581",
+      "name": "Prehistoric Skull",
+      "count": 1
+     },
+     {
+      "qid": "(O)582",
+      "name": "Skeletal Hand",
+      "count": 1
+     }
+    ],
+    "reward": {
+     "qid": "(F)1301",
+     "name": "(F)1301",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "sloth_2",
+    "requires": [
+     {
+      "qid": "(O)583",
+      "name": "Prehistoric Rib",
+      "count": 1
+     },
+     {
+      "qid": "(O)584",
+      "name": "Prehistoric Vertebra",
+      "count": 1
+     }
+    ],
+    "reward": {
+     "qid": "(F)1302",
+     "name": "(F)1302",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "sloth_3",
+    "requires": [
+     {
+      "qid": "(O)580",
+      "name": "Prehistoric Tibia",
+      "count": 1
+     },
+     {
+      "qid": "(O)585",
+      "name": "Skeletal Tail",
+      "count": 1
+     }
+    ],
+    "reward": {
+     "qid": "(F)1303",
+     "name": "(F)1303",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "mineral11",
+    "requires": [
+     {
+      "tag": "item_type_minerals",
+      "name": "Minerals (any)",
+      "count": 11
+     }
+    ],
+    "reward": {
+     "qid": "(F)1298",
+     "name": "(F)1298",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "mineral21",
+    "requires": [
+     {
+      "tag": "item_type_minerals",
+      "name": "Minerals (any)",
+      "count": 21
+     }
+    ],
+    "reward": {
+     "qid": "(BC)94",
+     "name": "Singing Stone",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "mineral31",
+    "requires": [
+     {
+      "tag": "item_type_minerals",
+      "name": "Minerals (any)",
+      "count": 31
+     }
+    ],
+    "reward": {
+     "qid": "(F)1299",
+     "name": "(F)1299",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "mineral40",
+    "requires": [
+     {
+      "tag": "item_type_minerals",
+      "name": "Minerals (any)",
+      "count": 40
+     }
+    ],
+    "reward": {
+     "qid": "(F)131",
+     "name": "(F)131",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "mineral50",
+    "requires": [
+     {
+      "tag": "item_type_minerals",
+      "name": "Minerals (any)",
+      "count": 50
+     }
+    ],
+    "reward": {
+     "qid": "(BC)21",
+     "name": "Crystalarium",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum5",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 5
+     }
+    ],
+    "reward": {
+     "qid": "(O)474",
+     "name": "Cauliflower Seeds",
+     "count": 9,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum10",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 10
+     }
+    ],
+    "reward": {
+     "qid": "(O)479",
+     "name": "Melon Seeds",
+     "count": 9,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum15",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 15
+     }
+    ],
+    "reward": {
+     "qid": "(O)486",
+     "name": "Starfruit Seeds",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum20",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 20
+     }
+    ],
+    "reward": {
+     "qid": "(F)1541",
+     "name": "(F)1541",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum25",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 25
+     }
+    ],
+    "reward": {
+     "qid": "(F)1554",
+     "name": "(F)1554",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum30",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 30
+     }
+    ],
+    "reward": {
+     "qid": "(F)1669",
+     "name": "(F)1669",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum35",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 35
+     }
+    ],
+    "reward": {
+     "qid": "(O)490",
+     "name": "Pumpkin Seeds",
+     "count": 9,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum40",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 40
+     }
+    ],
+    "reward": {
+     "qid": "(BC)140",
+     "name": "Rarecrow",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum50",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 50
+     }
+    ],
+    "reward": {
+     "qid": "(F)1671",
+     "name": "(F)1671",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum60",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 60
+     }
+    ],
+    "reward": null,
+    "actions": [
+     "MarkEventSeen Host 295672"
+    ]
+   },
+   {
+    "id": "museum70",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 70
+     }
+    ],
+    "reward": {
+     "qid": "(O)253",
+     "name": "Triple Shot Espresso",
+     "count": 3,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum80",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 80
+     }
+    ],
+    "reward": {
+     "qid": "(O)688",
+     "name": "Warp Totem: Farm",
+     "count": 5,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museum90",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": 90
+     }
+    ],
+    "reward": {
+     "qid": "(O)279",
+     "name": "Magic Rock Candy",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   },
+   {
+    "id": "museumComplete",
+    "requires": [
+     {
+      "tag": "",
+      "name": "Any donations",
+      "count": -1
+     }
+    ],
+    "reward": {
+     "qid": "(O)434",
+     "name": "Stardrop",
+     "count": 1,
+     "isRecipe": false
+    },
+    "actions": null
+   }
+  ]
+ }
+}

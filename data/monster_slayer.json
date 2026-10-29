@@ -1,0 +1,170 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "source": {
+   "repo": "https://github.com/kronosta/stardew-data",
+   "commit": "de69cb5ce6f3708a63d53ed414b757b39b3f105e"
+  },
+  "license": "Game data/art (c) ConcernedApe; used for a non-commercial fan app"
+ },
+ "data": [
+  {
+   "id": "Slimes",
+   "name": "Slimes",
+   "targets": [
+    "Green Slime",
+    "Frost Jelly",
+    "Sludge",
+    "Tiger Slime"
+   ],
+   "count": 1000,
+   "reward": {
+    "qid": "(O)520",
+    "name": "Slime Charmer Ring"
+   }
+  },
+  {
+   "id": "Shadows",
+   "name": "Void Spirits",
+   "targets": [
+    "Shadow Guy",
+    "Shadow Shaman",
+    "Shadow Brute",
+    "Shadow Sniper"
+   ],
+   "count": 150,
+   "reward": {
+    "qid": "(O)523",
+    "name": "Savage Ring"
+   }
+  },
+  {
+   "id": "Bats",
+   "name": "Bats",
+   "targets": [
+    "Bat",
+    "Frost Bat",
+    "Lava Bat",
+    "Iridium Bat"
+   ],
+   "count": 200,
+   "reward": {
+    "qid": "(O)522",
+    "name": "Vampire Ring"
+   }
+  },
+  {
+   "id": "Skeletons",
+   "name": "Skeletons",
+   "targets": [
+    "Skeleton",
+    "Skeleton Mage"
+   ],
+   "count": 50,
+   "reward": {
+    "qid": "(H)8",
+    "name": "(H)8"
+   }
+  },
+  {
+   "id": "Insects",
+   "name": "Cave Insects",
+   "targets": [
+    "Grub",
+    "Fly",
+    "Bug"
+   ],
+   "count": 80,
+   "reward": {
+    "qid": "(W)13",
+    "name": "(W)13"
+   }
+  },
+  {
+   "id": "Duggy",
+   "name": "Duggies",
+   "targets": [
+    "Duggy",
+    "Magma Duggy"
+   ],
+   "count": 30,
+   "reward": {
+    "qid": "(H)27",
+    "name": "(H)27"
+   }
+  },
+  {
+   "id": "DustSpirits",
+   "name": "Dust Sprites",
+   "targets": [
+    "Dust Spirit"
+   ],
+   "count": 500,
+   "reward": {
+    "qid": "(O)526",
+    "name": "Burglar's Ring"
+   }
+  },
+  {
+   "id": "Crabs",
+   "name": "Rock Crabs",
+   "targets": [
+    "Rock Crab",
+    "Lava Crab",
+    "Iridium Crab"
+   ],
+   "count": 60,
+   "reward": {
+    "qid": "(O)810",
+    "name": "Crabshell Ring"
+   }
+  },
+  {
+   "id": "Mummies",
+   "name": "Mummies",
+   "targets": [
+    "Mummy"
+   ],
+   "count": 100,
+   "reward": {
+    "qid": "(H)60",
+    "name": "(H)60"
+   }
+  },
+  {
+   "id": "Dinos",
+   "name": "Pepper Rex",
+   "targets": [
+    "Pepper Rex"
+   ],
+   "count": 50,
+   "reward": {
+    "qid": "(H)50",
+    "name": "(H)50"
+   }
+  },
+  {
+   "id": "Serpents",
+   "name": "Serpents",
+   "targets": [
+    "Serpent",
+    "Royal Serpent"
+   ],
+   "count": 250,
+   "reward": {
+    "qid": "(O)811",
+    "name": "Napalm Ring"
+   }
+  },
+  {
+   "id": "FlameSpirits",
+   "name": "Magma Sprites",
+   "targets": [
+    "Magma Sprite",
+    "Magma Sparker"
+   ],
+   "count": 150,
+   "reward": null
+  }
+ ]
+}

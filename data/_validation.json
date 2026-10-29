@@ -1,0 +1,259 @@
+{
+ "_meta": {
+  "gameVersion": "1.6.15",
+  "passed": 24,
+  "total": 24
+ },
+ "data": [
+  {
+   "check": "Abigail loves (personal + universal)",
+   "source": "https://stardewvalleywiki.com/Abigail#Gifts",
+   "expected": [
+    "Amethyst",
+    "Banana Pudding",
+    "Blackberry Cobbler",
+    "Chocolate Cake",
+    "Golden Pumpkin",
+    "Magic Rock Candy",
+    "Monster Compendium",
+    "Pearl",
+    "Prismatic Shard",
+    "Pufferfish",
+    "Pumpkin",
+    "Rabbit's Foot",
+    "Spicy Eel",
+    "Stardrop Tea"
+   ],
+   "actual": [
+    "Amethyst",
+    "Banana Pudding",
+    "Blackberry Cobbler",
+    "Chocolate Cake",
+    "Golden Pumpkin",
+    "Magic Rock Candy",
+    "Monster Compendium",
+    "Pearl",
+    "Prismatic Shard",
+    "Pufferfish",
+    "Pumpkin",
+    "Rabbit's Foot",
+    "Spicy Eel",
+    "Stardrop Tea"
+   ],
+   "pass": true
+  },
+  {
+   "check": "Abigail birthday",
+   "source": "https://stardewvalleywiki.com/Abigail",
+   "expected": {
+    "season": "Fall",
+    "day": 13
+   },
+   "actual": {
+    "season": "Fall",
+    "day": 13
+   },
+   "pass": true
+  },
+  {
+   "check": "Sebastian birthday",
+   "source": "https://stardewvalleywiki.com/Sebastian",
+   "expected": {
+    "season": "Winter",
+    "day": 10
+   },
+   "actual": {
+    "season": "Winter",
+    "day": 10
+   },
+   "pass": true
+  },
+  {
+   "check": "Haley birthday",
+   "source": "https://stardewvalleywiki.com/Haley",
+   "expected": {
+    "season": "Spring",
+    "day": 14
+   },
+   "actual": {
+    "season": "Spring",
+    "day": 14
+   },
+   "pass": true
+  },
+  {
+   "check": "Krobus birthday",
+   "source": "https://stardewvalleywiki.com/Krobus",
+   "expected": {
+    "season": "Winter",
+    "day": 1
+   },
+   "actual": {
+    "season": "Winter",
+    "day": 1
+   },
+   "pass": true
+  },
+  {
+   "check": "Spring Crops bundle items",
+   "source": "https://stardewvalleywiki.com/Bundles#Pantry",
+   "expected": [
+    "Parsnip",
+    "Green Bean",
+    "Cauliflower",
+    "Potato"
+   ],
+   "actual": [
+    "Parsnip",
+    "Green Bean",
+    "Cauliflower",
+    "Potato"
+   ],
+   "pass": true
+  },
+  {
+   "check": "Spring Crops bundle reward",
+   "source": "https://stardewvalleywiki.com/Bundles#Pantry",
+   "expected": {
+    "name": "Speed-Gro",
+    "count": 20
+   },
+   "actual": {
+    "name": "Speed-Gro",
+    "count": 20
+   },
+   "pass": true
+  },
+  {
+   "check": "Vault 2,500g bundle",
+   "source": "https://stardewvalleywiki.com/Bundles#Vault",
+   "expected": 2500,
+   "actual": 2500,
+   "pass": true
+  },
+  {
+   "check": "Standard CC bundle count (incl. Missing Bundle)",
+   "source": "https://stardewvalleywiki.com/Bundles",
+   "expected": 31,
+   "actual": 31,
+   "pass": true
+  },
+  {
+   "check": "Joja total cost (membership + 5 developments)",
+   "source": "https://stardewvalleywiki.com/Joja_Community_Development_Form",
+   "expected": 135000,
+   "actual": 135000,
+   "pass": true
+  },
+  {
+   "check": "Willy regular (sunny, non-Fri/Sat) schedule times",
+   "source": "https://stardewvalleywiki.com/Willy#Schedule",
+   "expected": [
+    "6:10 AM",
+    "8:50 AM",
+    "9:00 AM",
+    "5:00 PM",
+    "10:00 PM"
+   ],
+   "actual": [
+    "6:10 AM",
+    "8:50 AM",
+    "9:00 AM",
+    "5:00 PM",
+    "10:00 PM"
+   ],
+   "pass": true
+  },
+  {
+   "check": "Willy works shop counter at 9:00 AM",
+   "source": "https://stardewvalleywiki.com/Willy#Schedule",
+   "expected": true,
+   "actual": true,
+   "pass": true
+  },
+  {
+   "check": "Perfection weights sum to 100%",
+   "source": "https://stardewvalleywiki.com/Perfection",
+   "expected": 100,
+   "actual": 100,
+   "pass": true
+  },
+  {
+   "check": "Shipping (Farm & Forage) total",
+   "source": "https://stardewvalleywiki.com/Collections#Items_Shipped",
+   "expected": 154,
+   "actual": 154,
+   "pass": true
+  },
+  {
+   "check": "Fish collection total",
+   "source": "https://stardewvalleywiki.com/Fish",
+   "expected": 72,
+   "actual": 72,
+   "pass": true
+  },
+  {
+   "check": "Cooking recipes",
+   "source": "https://stardewvalleywiki.com/Cooking",
+   "expected": 81,
+   "actual": 81,
+   "pass": true
+  },
+  {
+   "check": "Crafting recipes counting for perfection",
+   "source": "https://stardewvalleywiki.com/Crafting",
+   "expected": 149,
+   "actual": 149,
+   "pass": true
+  },
+  {
+   "check": "Golden Walnuts total",
+   "source": "https://stardewvalleywiki.com/Golden_Walnut",
+   "expected": 130,
+   "actual": 130,
+   "pass": true
+  },
+  {
+   "check": "Museum donatable items",
+   "source": "https://stardewvalleywiki.com/Museum",
+   "expected": 95,
+   "actual": 95,
+   "pass": true
+  },
+  {
+   "check": "NPC gift tables: wiki-listed items mismatched (per NPC page)",
+   "source": "build_npcs.py vs wiki ==Gifts== tables",
+   "expected": 0,
+   "actual": 0,
+   "pass": true
+  },
+  {
+   "check": "Item pages 'Gifts' sections vs computed tastes",
+   "source": "validate_gifts_items.py",
+   "expected": "<0.1% mismatch",
+   "actual": "9/21115",
+   "pass": true
+  },
+  {
+   "check": "Sprite coverage: portraits",
+   "source": "fetch_sprites.py",
+   "expected": 34,
+   "actual": 34,
+   "pass": true
+  },
+  {
+   "check": "Sprite coverage: bundles",
+   "source": "fetch_sprites.py",
+   "expected": 105,
+   "actual": 105,
+   "pass": true
+  },
+  {
+   "check": "Sprite coverage: rooms",
+   "source": "fetch_sprites.py",
+   "expected": 13,
+   "actual": 13,
+   "pass": true
+  }
+ ]
+}
