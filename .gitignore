@@ -5,10 +5,8 @@ app/tsconfig.tsbuildinfo
 app/public/sprites/
 app/src/generated/
 shots/
-cache/*
-!cache/src/
-cache/src/*
-!cache/src/game/
+# The raw game/wiki cache stays local; only the 6 game files the build reads are tracked (add new ones with git add -f).
+cache/
 __pycache__/
 *.pyc
 .env*
