@@ -22,6 +22,7 @@ import { GoalsHub, PerfectionScreen, WalnutsScreen, OrdersScreen, AchievementsSc
 import { ProfilesScreen, AboutScreen } from './screens/Profiles';
 
 const VillagerScreen = lazy(() => import('./screens/Villager'));
+const MapsScreen = lazy(() => import('./screens/Maps').then((m) => ({ default: m.MapsScreen })));
 const ItemScreen = lazy(() => import('./screens/Item'));
 
 type Tab = 'home' | 'today' | 'progress' | 'villagers' | 'search' | 'more';
@@ -29,7 +30,7 @@ const TAB_OF: Record<string, Tab> = {
   '': 'home', today: 'today', road: 'today',
   progress: 'progress', setup: 'progress', bundles: 'progress', quests: 'progress', events: 'progress', raccoon: 'progress',
   museum: 'progress', fish: 'progress', shipping: 'progress', cooking: 'progress', crafting: 'progress', orders: 'progress', walnuts: 'progress',
-  villagers: 'villagers', villager: 'villagers',
+  villagers: 'villagers', villager: 'villagers', maps: 'villagers',
   search: 'search', item: 'search',
   more: 'more', calendar: 'more', collections: 'more', goals: 'more', perfection: 'more', achievements: 'more', slayer: 'more', notes: 'more', powers: 'more', island: 'more', profiles: 'more', about: 'more',
 };
@@ -54,6 +55,7 @@ function Screen({ r }: { r: string[] }) {
       return <BundlesHome />;
     case 'villagers': return <VillagersScreen />;
     case 'villager': return <VillagerScreen id={b} />;
+    case 'maps': return <MapsScreen />;
     case 'calendar': return <CalendarScreen />;
     case 'collections': return <CollectionsHub />;
     case 'museum': return <MuseumScreen />;

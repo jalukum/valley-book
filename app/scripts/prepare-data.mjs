@@ -162,6 +162,9 @@ ui['tree:Fiddlehead'] = { s: pub('sprites/derived/Tree_Fiddlehead.png'), w: 155,
 ui['tree:MossyWild'] = { s: pub('sprites/derived/Tree_Mossy_Wild.png'), w: 240, h: 485 };
 ui['tree:MossyLush'] = { s: pub('sprites/derived/Tree_Mossy_Lush.png'), w: 240, h: 480 };
 ui['junimo:Strip'] = { s: pub('sprites/derived/Junimo_Strip.png'), w: 192, h: 48 };
+// v6.4 Maps: the wiki's unedited in-game world maps, File:Map.png and File:Ginger_Island_Map.png (see SOURCES.json).
+ui['map:Valley'] = { s: pub('sprites/derived/Map_Valley.png'), w: 400, h: 244 };
+ui['map:Island'] = { s: pub('sprites/derived/Map_Ginger_Island.png'), w: 400, h: 244 };
 // v6 farm types: the wiki's unedited farm map selection icons (File:<Type>_Farm_Map_Icon.png, see SOURCES.json).
 for (const [k, f, w] of [['standard', 'Standard', 54], ['riverland', 'Riverland', 57], ['forest', 'Forest', 54], ['hilltop', 'Hilltop', 54], ['wilderness', 'Wilderness', 54], ['fourcorners', 'Four_Corners', 54], ['beach', 'Beach', 54], ['meadowlands', 'Meadowlands', 54]]) ui['farm:' + k] = { s: pub(`sprites/derived/${f}_Farm_Map_Icon.png`), w, h: 60 };
 // v6.2 meadow ground (see ../sprites/derived/SOURCES.json): 4 unedited 16×16 grass tiles from File:Standard_Farm.png,

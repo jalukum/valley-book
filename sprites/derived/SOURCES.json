@@ -494,5 +494,13 @@
  "Hat_Knights_Helmet.png": {
   "from": "https://stardewvalleywiki.com/File:Knight's_Helmet.png",
   "note": "Monster Slayer reward hat sprite; unedited."
+ },
+ "Map_Valley.png": {
+  "from": "https://stardewvalleywiki.com/File:Map.png",
+  "note": "400x244 in-game world map (unedited). Used for the Stardew Valley and Calico Desert map tabs; pin spots use the game's WorldMap MapPixelArea data, img = 4/3*world-map pixel - (2,1)."
+ },
+ "Map_Ginger_Island.png": {
+  "from": "https://stardewvalleywiki.com/File:Ginger_Island_Map.png",
+  "note": "400x244 in-game Ginger Island map (unedited). Pin positions are approximate, fitted to the volcano and dock."
  }
 }

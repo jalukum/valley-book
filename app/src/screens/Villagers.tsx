@@ -1,15 +1,10 @@
 import { core, SEASONS } from '../data';
-import { useProfile, update, weatherIcon, WEATHER_LABEL } from '../lib/state';
-import { weatherChoices } from '../lib/weather';
+import { useProfile } from '../lib/state';
 import { TopBar, Panel, Sprite, Ui, Seg, Chip, Empty, useUiState } from '../components/ui';
-import { DateChip } from '../components/DateSheet';
 import { heartsTarget } from '../lib/progress';
-import { useAsync } from '../lib/useAsync';
-import { loadSchedules } from '../data';
-import { whereNow } from '../lib/where';
-import { query } from '../lib/router';
+import { query, go } from '../lib/router';
+import { useEffect } from 'react';
 import { FESTIVALS, festivalOn } from '../lib/festivals';
-import { fmtTime } from '../lib/schedule';
 import type { Npc } from '../types';
 
 const href = (n: Npc) => `#/villager/${encodeURIComponent(n.id)}`;
@@ -21,7 +16,8 @@ export const VILL_FILTERS: { v: string; label: string }[] = [
 
 export function VillagersScreen() {
   const p = useProfile();
-  const [mode, setMode] = useUiState<'grid' | 'now'>('vill:mode', query().has('now') ? 'now' : 'grid');
+  // The old "Where are they now?" view is now the Maps screen; old ?now links land there.
+  useEffect(() => { if (query().has('now')) location.replace('#/maps'); }, []);
   const [f0, setF] = useUiState<string>('vill:filter', 'all');
   const f = VILL_FILTERS.some((x) => x.v === f0) ? f0 : 'all'; // an old saved 'bday' filter falls back to All
   const season = SEASONS[p.date.season];
@@ -32,8 +28,8 @@ export function VillagersScreen() {
   return (
     <div className="screen">
       <TopBar title="Villagers" right={<a className="btn sm" href="#/calendar"><Ui k="Calendar" size={16} /> Calendar</a>} />
-      <Seg value={mode} onChange={setMode} options={[{ v: 'grid', label: 'Friends' }, { v: 'now', label: 'Where are they now?' }]} />
-      {mode === 'grid' ? <>
+      <Seg value="grid" onChange={(v) => v === 'maps' && go('#/maps')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps' }]} />
+      <>
         <div className="chips vtags" data-tour="vill-tags">
           {VILL_FILTERS.map((x) => <Chip key={x.v} on={f === x.v} onClick={() => setF(x.v)}>{x.v === 'all' ? `All ${core.npcs.length}` : x.label}</Chip>)}
         </div>
@@ -51,42 +47,9 @@ export function VillagersScreen() {
             );
           })}
         </div>
-      </> : <WhereNow />}
+      </>
     </div>
   );
-}
-
-function WhereNow() {
-  const p = useProfile();
-  const sched = useAsync(loadSchedules);
-  const fest = festivalOn(p.date.season, p.date.day);
-  const wx = weatherChoices(p.date.season, p.date.day, p.date.year);
-  if (!sched) return <div className="loading">Loading schedules…</div>;
-  const rows = core.npcs.map((n) => ({ n, w: whereNow(n.id, sched[n.id], p) })).sort((a, b) => (a.w.place || '~').localeCompare(b.w.place || '~') || a.n.name.localeCompare(b.n.name));
-  return <>
-    <Panel className="now-ctl">
-      <div className="now-bar"><DateChip /><span className="now-time"><b>{fmtTime(p.time)}</b><small>Time of day</small></span></div>
-      <input type="range" min={360} max={1560} step={10} value={p.time} onChange={(e) => { const t = Number(e.target.value); update((x) => { x.time = t; }); }} aria-label="Time of day" />
-      <div className="range-ticks"><span>6am</span><span>12pm</span><span>6pm</span><span>2am</span></div>
-      {wx.length > 1 && <div className="wx-grid">{wx.map((w) => (
-        <button key={w} className={'wx' + (p.weather === w ? ' on' : '')} onClick={() => update((x) => { x.weather = w; })} aria-pressed={p.weather === w}>
-          <Ui k={weatherIcon(w, p.date.season)} size={20} eager /><span>{WEATHER_LABEL[w]}</span>
-        </button>
-      ))}</div>}
-      <p className="hint">Weather is shared with your Day guide (rain changes fish, watering and some schedules). Time of day only moves villagers here.</p>
-    </Panel>
-    {fest && <Panel className="notice"><b>{fest.name} today</b><span>Most villagers attend: {fest.where}. Schedules below are their normal routine.</span></Panel>}
-    <p className="hint">Where everyone is at {fmtTime(p.time)}{wx.length > 1 ? ` on a ${WEATHER_LABEL[p.weather].toLowerCase()} day` : ''}.</p>
-    <div className="panel"><div className="list">
-      {rows.map(({ n, w }) => (
-        <a key={n.id} className="nav-row" href={href(n)}>
-          <span className="row-ic"><Sprite spr={n.icon} size={32} /></span>
-          <span className="row-main"><b>{n.name}{w.place ? <span className="place"> · {w.place}</span> : null}</b><small>{w.pick.block ? w.text : 'Schedule not listed for today'}</small></span>
-          <span className="chev-r" />
-        </a>
-      ))}
-    </div></div>
-  </>;
 }
 
 export function CalendarScreen() {

@@ -48,7 +48,11 @@ const y1su12 = fresh('y1su12', 'Riverland Farm', { season: 1, day: 12, year: 1 }
 const y1w5 = fresh('y1w5', 'Frosty Farm', { season: 3, day: 5, year: 1 }, 'snow', { setup: setup({ mine: 80, tools: { pickaxe: 2, axe: 1, hoe: 1, can: 1 }, rod: 'fiberglass', backpack: 24 }), perf: { stardrops: {}, obelisks: {}, goldClock: 0, skills: { Farming: 6, Mining: 6, Foraging: 5, Fishing: 5, Combat: 4 }, waivers: 0 } });
 const y1su14 = { ...y1su12, id: 'y1su14', date: { season: 1, day: 14, year: 1 } };
 const f10 = { ...mid, date: { season: 2, day: 10, year: 2 } };
+const f14 = { ...mid, id: 'f14', date: { season: 2, day: 14, year: 2 }, weather: 'sun', time: 870 };
+const s9 = { ...mid, id: 's9', date: { season: 0, day: 9, year: 2 }, weather: 'rain', time: 1210 };
 const STORES = {
+  f14: JSON.stringify({ activeId: 'f14', profiles: [f14] }),
+  s9: JSON.stringify({ activeId: 's9', profiles: [s9] }),
   y1su12sun: JSON.stringify({ activeId: 'y1su12', profiles: [{ ...y1su12, weather: 'sun' }] }),
   f10storm: JSON.stringify({ activeId: 'demo1', profiles: [{ ...f10, weather: 'storm' }, y1su12] }),
   y1su14green: JSON.stringify({ activeId: 'y1su14', profiles: [{ ...y1su14, weather: 'green' }] }),
@@ -71,6 +75,12 @@ const night = async (p) => { await p.addStyleTag({ content: '.sky{--off:-140s !i
 const dusk = async (p) => { await p.addStyleTag({ content: '.sky{--off:-106s !important}' }); await sleep(400); };
 const setFarm = (t) => async (p) => { await p.evaluate((t) => { const s = JSON.parse(localStorage.getItem('sdv:profiles')); s.profiles.find((x) => x.id === s.activeId).farmType = t; localStorage.setItem('sdv:profiles', JSON.stringify(s)); }, t); await p.reload({ waitUntil: 'networkidle0' }); };
 const SHOTS = [
+  // v6.4 Maps
+  ['maps-everyone', '#/maps', null, { store: 'f14' }],
+  ['maps-emily', '#/maps?npc=Emily', async (p) => { await sleep(900); }, { store: 's9' }],
+  ['maps-island-or-other-tab', '#/maps', async (p) => { const b = await p.$$('.map-tab'); await b[1].click(); await sleep(800); }, { store: 'f14' }],
+  ['maps-wheel', '#/maps', async (p) => { await p.click('.who-btn'); await sleep(900); }, { store: 'f14' }],
+  ['villager-see-on-map', '#/villager/Emily', null, { store: 's9' }],
   ['entry', '#/', null, { store: 'y1su12' }],
   ['entry-dusk', '#/', dusk, { store: 'y1su12' }],
   ['entry-night', '#/', night, { store: 'y1su12' }],
@@ -193,7 +203,7 @@ for (const [w, h] of [[393, 852], [375, 812]].filter(([w]) => !process.env.W || 
     await settle(page);
     if (act) { await act(page); await settle(page); }
     problems.push(...(await audit(page, `[${w}] ${name}`)));
-    const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
+    const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-/.test(name) && !/^maps-|see-on-map/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
     if (/^(today-|entry)/.test(name)) fit.push(`[${w}] ${name}: page height ${await page.evaluate(() => document.documentElement.scrollHeight)} / viewport ${h}` + (await page.evaluate(() => { const g = document.querySelector('.dtiles'), t = document.querySelector('.tabbar'); return g && t ? `, tiles end ${Math.round(g.getBoundingClientRect().bottom)} / tab bar top ${Math.round(t.getBoundingClientRect().top)}` : ''; })));
     const H = await page.evaluate(() => document.documentElement.scrollHeight);
     const path = `${OUT}${process.env.PREFIX || "v6"}-${w}-${name}.png`;
@@ -208,6 +218,7 @@ for (const [w, h] of [[393, 852], [375, 812]].filter(([w]) => !process.env.W || 
   await page.close();
 }
 
+if (!process.env.NO_OFFLINE)
 // Offline: let the service worker install, then go offline and open screens that were never visited.
 {
   const page = await browser.newPage();

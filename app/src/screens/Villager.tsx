@@ -37,6 +37,7 @@ function Villager({ n }: { n: Npc }) {
           {n.birthday && <div className="fact"><Ui k={'season:' + n.birthday.season} size={16} /><span>Birthday <b>{n.birthday.season} {n.birthday.day}</b>{bdayToday && <span className="bday-tag">Today!</span>}</span></div>}
           {n.address && <div className="fact"><span>Lives at <b>{n.address}</b>{n.location && n.location !== n.address ? `, ${n.location}` : ''}</span></div>}
           {!n.address && n.location && <div className="fact"><span>Lives in <b>{n.location}</b></span></div>}
+          <a className="btn sm see-map" href={`#/maps?npc=${encodeURIComponent(n.id)}`}><Ui k="Magnifying Glass" size={16} /> See on map</a>
           <div className="fact">{n.romanceable ? <><Ui k="Heart" size={16} /><span><b>Marriage candidate</b></span></> : <span>Not marriageable</span>}</div>
           {family.length > 0 && <div className="fact fam">{family.map(([who, rel]) => npcById[who] ? <a key={who} href={`#/villager/${encodeURIComponent(who)}`}><b>{who}</b> ({rel})</a> : <span key={who}><b>{who}</b> ({rel})</span>)}</div>}
         </div>
