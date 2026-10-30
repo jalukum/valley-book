@@ -882,7 +882,7 @@ img.pt { border-radius: 6px; }
 .map-tab { flex: 1; min-width: 0; padding: 6px 4px; min-height: 36px; border-radius: 9px; font: 700 13.5px var(--head); color: var(--ink-2);
   background: linear-gradient(var(--paper), var(--paper-2)); border: 2px solid var(--frame-d); box-shadow: 0 2px 0 var(--wood-d); white-space: nowrap; }
 .map-tab.on { background: linear-gradient(var(--acc-l), var(--paper)); color: var(--ink); border-color: var(--acc-d); box-shadow: 0 2px 0 var(--acc-d), 0 0 0 2px var(--frame-l) inset; }
-.map-bar { display: flex; gap: 8px; align-items: stretch; }
+.map-bar { display: flex; gap: 8px; align-items: stretch; position: relative; z-index: 3; } /* its dropdown sits over the map, and sheets sit over both */
 .who-btn { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 5px 10px 5px 6px; min-height: 48px; border-radius: 10px;
   background: linear-gradient(var(--paper), var(--paper-2)); border: 3px solid var(--wood); box-shadow: 0 0 0 2px var(--frame-l) inset, 0 3px 0 var(--wood-d); color: var(--ink); text-align: left; }
 .who-btn b { flex: 1; min-width: 0; font: 700 17px var(--head); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -895,14 +895,21 @@ img.pt { border-radius: 6px; }
 .day-pill > span:not(.sr) { display: flex; flex-direction: column; line-height: 1.05; }
 .day-pill b { font: 700 14px var(--head); white-space: nowrap; }
 .day-pill small { font-size: 11px; color: var(--ink-3); }
+.map-day { display: flex; flex: none; align-items: stretch; }
+.map-day .day-pill { color: var(--ink); border-radius: 10px 0 0 10px; }
+.map-day .day-pill:active, .day-next:active { transform: translateY(2px); box-shadow: none; }
+.day-next { width: 30px; display: flex; align-items: center; justify-content: center; border-radius: 0 10px 10px 0; margin-left: -2px; color: var(--ink);
+  background: var(--paper-2); border: 2px solid var(--frame-d); box-shadow: 0 2px 0 var(--wood-d); font: 700 22px var(--head); line-height: 1; padding: 0 0 3px; }
+.map-day.moved .day-pill, .map-day.moved .day-next { background: var(--acc-l); }
+.map-dayline { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin: -2px 0 0; padding: 4px 10px; border-radius: 8px;
+  background: var(--paper); border: 2px solid var(--frame-d); font-size: 13px; color: var(--ink-2); }
+.linkbtn { background: none; border: 0; padding: 4px 0; color: var(--acc-d, var(--ink)); font: 700 14px var(--head); text-decoration: underline; text-underline-offset: 3px; }
+.ds-note { margin: 0; }
 
-.map-vp { position: relative; overflow: hidden; height: clamp(300px, calc(100dvh - 450px), 560px); border-radius: 12px; touch-action: none; user-select: none; -webkit-user-select: none;
+.map-vp { position: relative; z-index: 0; overflow: hidden; height: clamp(300px, calc(100dvh - 450px), 560px); border-radius: 12px; touch-action: none; user-select: none; -webkit-user-select: none;
   border: 4px solid var(--wood); box-shadow: 0 0 0 2px var(--wood-d), 0 0 0 3px var(--frame-l) inset, 0 6px 14px rgba(0,0,0,.25); background: #3c6fbf; cursor: grab; }
 .map-layer { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
 .map-layer img { display: block; image-rendering: pixelated; image-rendering: crisp-edges; max-width: none; }
-.map-trail { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
-.map-trail polyline { fill: none; stroke: #fff; stroke-opacity: .8; stroke-width: 2.5; stroke-dasharray: 2 5; stroke-linecap: round; }
-.map-trail circle { fill: #fff; fill-opacity: .85; stroke: var(--wood-d); stroke-width: 1; }
 .pin, .fest-flag { position: absolute; left: 0; top: 0; will-change: transform; }
 .pin { width: 0; height: 0; padding: 0; border: 0; background: none; transition: transform .42s ease-in-out, opacity .3s; }
 .map-vp.anim .pin, .map-vp.anim .fest-flag, .map-vp.anim .map-layer { transition: transform .32s ease-out, opacity .3s; }
@@ -924,10 +931,6 @@ img.pt { border-radius: 6px; }
 .map-note { pointer-events: auto; display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; font: 600 12.5px var(--body); color: var(--ink);
   background: var(--paper); border: 2px solid var(--frame-d); box-shadow: 0 2px 0 var(--wood-d); }
 .map-layer img.soft { image-rendering: auto; }
-.map-label { position: absolute; left: 0; top: 0; z-index: 4; pointer-events: none; will-change: transform; }
-.map-label > span { position: absolute; left: 0; top: 0; transform: translate(-50%, 10px); white-space: nowrap; padding: 2px 7px; border-radius: 6px;
-  font: 700 12px var(--head); color: var(--ink); background: rgba(255,248,228,.92); border: 2px solid var(--wood-d); box-shadow: 0 2px 0 rgba(0,0,0,.25); }
-.map-vp.anim .map-label { transition: transform .32s ease-out; }
 .map-top { position: absolute; left: 8px; right: 56px; top: 8px; z-index: 50; display: flex; }
 .map-note.big { font-size: 14px; padding: 6px 12px 6px 6px; border-radius: 12px; line-height: 1.25; text-align: left; }
 .map-note.big img { flex: none; }
@@ -976,7 +979,7 @@ button.map-note:active { transform: translateY(2px); box-shadow: 0 0 0 var(--woo
 }
 /* the villager dropdown: unrolls from the selector button */
 .who-wrap { position: relative; flex: 1; min-width: 0; display: flex; }
-.who-wrap .who-btn { flex: 1; }
+.who-wrap .who-btn { flex: 1; position: relative; z-index: 92; } /* above the dropdown's scrim: tapping it toggles the list */
 .who-btn.open .who-chev { transform: rotate(180deg); }
 .dd-scrim { position: fixed; inset: 0; z-index: 90; }
 .who-dd { position: absolute; left: -4px; top: calc(100% + 4px); z-index: 91; width: calc(100% + 40px); min-width: 230px; max-width: calc(100vw - 16px);
@@ -988,12 +991,13 @@ button.map-note:active { transform: translateY(2px); box-shadow: 0 0 0 var(--woo
 @keyframes dd-unroll { from { transform: scaleY(.6); opacity: 0; } to { transform: none; opacity: 1; } }
 .dd-row { width: 100%; min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 4px 10px 4px 6px; border-radius: 6px; color: var(--ink); text-align: left; background: none; border: 0; }
 .dd-row + .dd-row { border-top: 1px dashed color-mix(in srgb, var(--wood) 45%, transparent); }
-.dd-row.none { border-bottom: 2px solid var(--wood); margin-bottom: 2px; }
+.dd-row.none { border-bottom: 2px solid var(--wood); margin-bottom: 2px; position: sticky; top: -4px; z-index: 1; background: var(--paper); border-radius: 6px 6px 0 0; } /* always reachable while the villagers scroll under it */
+.dd-row.none.on { background: linear-gradient(var(--acc-l), var(--acc-l)), var(--paper); }
 .dd-row .dd-ic { width: 40px; flex: none; display: flex; align-items: center; justify-content: center; }
 .dd-row .dd-ic img { image-rendering: pixelated; }
 .dd-row .dd-name { font: 700 17px var(--head); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dd-row.none .dd-name { color: var(--ink-2); font-size: 15px; }
 .dd-row.on { background: var(--acc-l); box-shadow: inset 0 0 0 2px var(--acc); }
 .dd-row:active { background: var(--paper-2); }
-.map-vp.live .pin, .map-vp.live .fest-flag, .map-vp.live .pin-head, .map-vp.live .map-label { transition: none; }
+.map-vp.live .pin, .map-vp.live .fest-flag, .map-vp.live .pin-head { transition: none; }
 .map-vp.live { cursor: grabbing; }

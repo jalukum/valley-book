@@ -20,8 +20,6 @@ export const REGIONS: Record<RegionId, Region> = {
   desert: { id: 'desert', label: 'Calico Desert', img: 'map:Desert', w: 800, h: 960, a: 1, bx: 0, by: 0, bounds: [0, 0, 800, 960], start: [400, 480] },
 };
 export const REGION_ORDER: RegionId[] = ['valley', 'island', 'desert'];
-/** Places labelled on the map itself (the desert render has no names on it). */
-export const LANDMARKS: Partial<Record<RegionId, string[]>> = { desert: ['Desert', 'SkullCavern', 'DesertTrader', 'DesertBus'] };
 
 export const toImg = (r: Region, gx: number, gy: number): [number, number] => [r.a * gx + r.bx, r.a * gy + r.by];
 
@@ -60,13 +58,13 @@ export const SPOTS: Record<string, Spot> = {
   Graveyard: O('valley', 201, 108, 'Graveyard'),
   IceCream: O('valley', 190, 82, 'Ice cream stand'),
   Beach: O('valley', 220, 146, 'The Beach'),
-  Lake: O('valley', 228, 36, 'Mountain lake'),
+  Lake: O('valley', 205, 38, 'Mountain lake'),
   Forest: O('valley', 100, 130, 'Cindersap Forest'),
   BusStop: O('valley', 130, 62, 'Bus Stop'),
   Railroad: O('valley', 162, 14, 'Railroad'),
   Farm: O('valley', 98, 74, 'The farm'),
   Treehouse: O('valley', 198, 33, "Leo's treehouse"),
-  // Calico Desert: image px on File:DesertDistances.png (door / sign tiles picked on the image).
+  // Calico Desert: image px on the wiki's full desert render (File:DesertDistances.png, overlay removed) (door / sign tiles picked on the image).
   Desert: { region: 'desert', x: 104, y: 812, label: 'The Oasis (Sandy’s shop)', indoor: true },
   SkullCavern: { region: 'desert', x: 136, y: 92, label: 'Skull Cavern', indoor: true },
   DesertTrader: { region: 'desert', x: 650, y: 372, label: 'Desert Trader', approx: true },
@@ -81,7 +79,19 @@ export const SPOTS: Record<string, Spot> = {
   IslandWest: O('island', 90, 120, 'Island West'),
 };
 
-/** Home building for each villager, keyed by core.json `address` (from the wiki infobox). */
+/** Game location name (Data/Characters.json homes, Data/WorldMap.json) -> spot. Interiors map to their building on the map,
+ *  exactly as the game's world map does (e.g. SebastianRoom shares ScienceHouse's MapPixelArea). */
+export const LOC_TO_SPOT: Record<string, string> = {
+  SeedShop: 'SeedShop', Sunroom: 'SeedShop', Blacksmith: 'Blacksmith', ScienceHouse: 'ScienceHouse', SebastianRoom: 'ScienceHouse',
+  FishShop: 'FishShop', ElliottHouse: 'ElliottHouse', HaleyHouse: 'HaleyHouse', JoshHouse: 'JoshHouse', Saloon: 'Saloon',
+  Hospital: 'Hospital', HarveyRoom: 'Hospital', AnimalShop: 'AnimalShop', SamHouse: 'SamHouse', LeahHouse: 'LeahHouse',
+  ManorHouse: 'ManorHouse', Tent: 'Tent', AdventureGuild: 'AdventureGuild', Trailer: 'Trailer', Trailer_Big: 'Trailer',
+  WizardHouse: 'WizardHouse', WizardHouseBasement: 'WizardHouse', Mine: 'Mines', Mines: 'Mines', Sewer: 'Sewer',
+  ArchaeologyHouse: 'Museum', JojaMart: 'JojaMart', CommunityCenter: 'CommunityCenter', BathHouse_Entry: 'Spa', BathHouse_Pool: 'Spa',
+  Submarine: 'Submarine', SandyHouse: 'Desert', SandyShop: 'Desert', Club: 'Desert', Desert: 'Desert', SkullCave: 'SkullCavern',
+  LeoTreeHouse: 'Treehouse', IslandHut: 'IslandHut',
+};
+/** Fallback home building keyed by core.json `address` (wiki infobox), for anyone missing from the game data. */
 export const HOME_BY_ADDRESS: Record<string, string> = {
   '24 Mountain Road': 'ScienceHouse', Tent: 'Tent', "Pierre's General Store": 'SeedShop', '1 River Road': 'JoshHouse',
   "Mayor's Manor": 'ManorHouse', Blacksmith: 'Blacksmith', Trailer: 'Trailer', '2 Willow Lane': 'HaleyHouse',
@@ -94,7 +104,9 @@ export const FIXED_NPCS = ['Wizard', 'Dwarf', 'Krobus'];
 
 /** Words in a schedule line -> spot. Matched case-insensitively; the mention that comes last in the line wins (it is usually the destination). */
 export const KEYWORDS: [RegExp, string][] = [
-  [/saloon|prairie king/i, 'Saloon'], [/general store|pierre'?s|yoba/i, 'SeedShop'], [/clinic|hospital/i, 'Hospital'],
+  [/saloon|prairie king|tend(s|ing)? the bar|behind the bar/i, 'Saloon'], [/\b(the )?lab\b|microscope/i, 'ScienceHouse'],
+  [/exam(ination)? room|waiting room/i, 'Hospital'], [/sunroom/i, 'SeedShop'], [/grandparents?'?(s|’s)?\b|dog (pen|kennel)/i, 'JoshHouse'],
+  [/treehouse/i, 'Treehouse'], [/\b(his|leo'?s|leo’s) hut\b/i, 'IslandHut'], [/general store|pierre'?s|yoba/i, 'SeedShop'], [/clinic|hospital/i, 'Hospital'],
   [/manor/i, 'ManorHouse'], [/carpenter|robin'?s|24 mountain road/i, 'ScienceHouse'], [/marnie'?s|ranch/i, 'AnimalShop'],
   [/trailer/i, 'Trailer'], [/museum|library/i, 'Museum'], [/joja/i, 'JojaMart'], [/fish shop|willy'?s/i, 'FishShop'],
   [/community cent(er|re)/i, 'CommunityCenter'], [/elliott'?s/i, 'ElliottHouse'], [/1 willow lane/i, 'SamHouse'],

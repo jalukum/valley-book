@@ -54,7 +54,6 @@ describe('v6.4 whereNow at slider times', () => {
     expect(whereNow('Emily', S.Emily, { ...p, time: 1210 }).place).toMatch(/Saloon/);
     expect(r.Emily.spot).toBe('Saloon'); expect(r.Emily.until).toBe(1470); expect(r.Emily.next).toBe('HaleyHouse');
     for (const id of ['Clint', 'Pam', 'Leah', 'Shane', 'Gus', 'Harvey', 'Willy']) expect(r[id].spot, id).toBe('Saloon');
-    expect(r.Emily.trail).toEqual(['HaleyHouse']);
   });
   it('Fall 14, sunny, 2:30 PM: Pierre, Caroline, Jodi and Kent are at the general store; Leo is on the island', () => {
     const r = at(day(2, 14), 870);

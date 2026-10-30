@@ -1,13 +1,15 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { core, npcById, SEASONS, weekday, loadSchedules } from '../data';
-import { useProfile, weatherIcon, WEATHER_LABEL } from '../lib/state';
-import { TopBar, Seg, Sprite, Ui } from '../components/ui';
+import { useProfile, weatherIcon, WEATHER_LABEL, type Profile } from '../lib/state';
+import { TopBar, Seg, Sprite, Ui, Sheet } from '../components/ui';
+import { DatePickerBody } from '../components/DateSheet';
+import { ddNext, mapDayTo, sameDate, dayAfter, type DdState, type DdEvent, type MapDay } from '../lib/mapui';
 import { useAsync } from '../lib/useAsync';
 import { query, go } from '../lib/router';
 import { fmtTime } from '../lib/schedule';
 import { festivalOn } from '../lib/festivals';
 import { locate, spotImg, SPOTS, REGIONS, coverScale } from '../lib/maps';
-import { REGION_ORDER, LANDMARKS, type RegionId } from '../lib/mapdata';
+import { REGION_ORDER, type RegionId } from '../lib/mapdata';
 import type { Npc } from '../types';
 
 const T0 = 360, T1 = 1560, STEP = 10;
@@ -21,6 +23,7 @@ type Tab = RegionId;
 const TABS: { id: Tab; label: string }[] = REGION_ORDER.map((r) => ({ id: r, label: REGIONS[r].label }));
 
 interface View { s: number; tx: number; ty: number }
+
 
 /** A small square of the real valley map: the "no one" icon in the picker. */
 function MapThumb({ size = 40 }: { size?: number }) {
@@ -39,7 +42,14 @@ export function MapsScreen() {
   const [time, setTime] = useState(() => clampT(Number.isFinite(qt) && qt > 0 ? qt : p.time));
   const [playing, setPlaying] = useState(false);
   const [tab, setTab] = useState<Tab>('valley');
-  const [wheel, setWheel] = useState(false);
+  const [dd, setDd] = useState<DdState>('closed');
+  const ddTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  // The Maps tab's own day: starts on the app's date and weather, and snaps back whenever those change.
+  const [md, setMd] = useState<MapDay>({ date: p.date, weather: p.weather });
+  const [dateOpen, setDateOpen] = useState(false);
+  useEffect(() => { setMd({ date: p.date, weather: p.weather }); }, [p.date.season, p.date.day, p.date.year, p.weather]); // eslint-disable-line react-hooks/exhaustive-deps
+  const pm = useMemo<Profile>(() => ({ ...p, date: md.date, weather: md.weather }), [p, md]);
+  const mapDiffers = !sameDate(md.date, p.date) || md.weather !== p.weather;
   const [glow, setGlow] = useState(1); // bumps to replay the pin's glow when a villager is located
   const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
   const [anim, setAnim] = useState(false);
@@ -49,9 +59,9 @@ export function MapsScreen() {
 
   const npc: Npc | null = sel ? npcById[sel] : null;
   const forced = sel && sched && forcedIdx != null ? sched[sel]?.blocks[forcedIdx] ?? null : null;
-  const me = useMemo(() => npc && sched ? locate(npc, sched[npc.id], p, time, forced) : null, [npc, sched, p, time, forced]);
+  const me = useMemo(() => npc && sched ? locate(npc, sched[npc.id], pm, time, forced) : null, [npc, sched, pm, time, forced]);
   const myRegion = me ? SPOTS[me.spot].region : null;
-  const fest = festivalOn(p.date.season, p.date.day);
+  const fest = festivalOn(md.date.season, md.date.day);
 
   const R = REGIONS[tab];
   const surf = R;
@@ -86,17 +96,25 @@ export function MapsScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab, box.w, box.h, !!me]);
 
+  // Roll the list up, then (after a pick) locate the villager. Reduced motion: no roll, straight away.
+  const ddGo = (e: DdEvent, then?: () => void) => {
+    const nx = ddNext(dd, e); setDd(nx);
+    if (nx !== 'closing' || dd === 'closing') return;
+    clearTimeout(ddTimer.current);
+    ddTimer.current = setTimeout(() => { setDd((s) => ddNext(s, 'rolled')); then?.(); }, reduced() ? 0 : 170);
+  };
+  useEffect(() => () => clearTimeout(ddTimer.current), []);
   const pick = (id: string | null) => {
-    setWheel(false); setSel(id); setForcedIdx(null); setCardOpen(true);
+    setSel(id); setForcedIdx(null); setCardOpen(true);
     history.replaceState(null, '', id ? `#/maps?npc=${encodeURIComponent(id)}` : '#/maps');
     setGlow((g) => g + 1);
     if (!id || !sched) { setPlaying(false); return; }
-    const r = SPOTS[locate(npcById[id], sched[id], p, time).spot];
+    const r = SPOTS[locate(npcById[id], sched[id], pm, time).spot];
     if (r.region !== tab) { setAnim(false); setTab(r.region); return; }
     const [ix, iy] = toXY(id);
     animTo(centerOn(ix, iy, Math.max(view.s, pickS), 0.34));
   };
-  const toXY = (id: string) => spotImg(locate(npcById[id], sched![id], p, time).spot);
+  const toXY = (id: string) => spotImg(locate(npcById[id], sched![id], pm, time).spot);
   // While the day plays (or the slider moves), keep the chosen villager in view.
   useEffect(() => {
     if (!me || myRegion !== tab || !box.w) return;
@@ -158,7 +176,6 @@ export function MapsScreen() {
 
   const onMap = !!me && myRegion === tab;
   const [px, py] = onMap ? spotImg(me!.spot) : [0, 0];
-  const trail = onMap ? [...me!.trail.filter((k) => SPOTS[k].region === tab), me!.spot].map(spotImg) : [];
   const fspot = fest && /Pelican Town/.test(fest.where) ? 'Square' : fest && /Beach/.test(fest.where) ? 'Beach' : fest && /Forest/.test(fest.where) ? 'Forest' : null;
   const where = (r: RegionId) => (r === 'island' ? 'on ' : r === 'desert' ? 'at the ' : 'in ') + REGIONS[r].label;
   const card = me && cardOpen ? me : null;
@@ -172,28 +189,34 @@ export function MapsScreen() {
       </div>
       <div className="map-bar">
           <div className="who-wrap">
-            <button className={'who-btn' + (wheel ? ' open' : '')} onClick={() => setWheel(!wheel)} aria-haspopup="listbox" aria-expanded={wheel} aria-label={npc ? `Showing ${npc.name}. Change` : 'Choose a villager to find'}>
+            <button className={'who-btn' + (dd === 'open' ? ' open' : '')} onClick={() => ddGo('button')} aria-haspopup="listbox" aria-expanded={dd === 'open'} aria-label={npc ? `Showing ${npc.name}. Change` : 'Choose a villager to find'}>
               {npc ? <Sprite spr={npc.icon} size={32} eager /> : <Ui k="Magnifying Glass" size={28} eager />}
               <b className={npc ? '' : 'none'}>{npc ? npc.name : 'Choose a villager'}</b><span className="who-chev" aria-hidden />
             </button>
-            {wheel && <PickerDropdown value={sel} onPick={pick} onClose={() => setWheel(false)} />}
+            {dd !== 'closed' && <PickerDropdown value={sel} closing={dd === 'closing'} onPick={(id) => ddGo('pick', () => pick(id))} onClose={(e) => ddGo(e)} />}
           </div>
-          <span className="day-pill" aria-label="Date and weather from your farm">
-            <Ui k={'season:' + SEASONS[p.date.season]} size={20} eager /><span><b>{SEASONS[p.date.season]} {p.date.day}</b><small>{weekday(p.date.day).slice(0, 3)}</small></span>
-            <Ui k={weatherIcon(p.weather, p.date.season)} size={22} eager /><span className="sr">{WEATHER_LABEL[p.weather]}</span>
+          <span className={'map-day' + (mapDiffers ? ' moved' : '')}>
+            <button className="day-pill" onClick={() => setDateOpen(true)} aria-label={`Map date: ${SEASONS[md.date.season]} ${md.date.day}, year ${md.date.year}, ${WEATHER_LABEL[md.weather]}. Change the map's date and weather`}>
+              <Ui k={'season:' + SEASONS[md.date.season]} size={20} eager /><span><b>{SEASONS[md.date.season]} {md.date.day}</b><small>{weekday(md.date.day).slice(0, 3)}</small></span>
+              <Ui k={weatherIcon(md.weather, md.date.season)} size={22} eager />
+            </button>
+            <button className="day-next" onClick={() => setMd((m) => mapDayTo(m, dayAfter(m.date)))} aria-label="Show the next day on the map"><span aria-hidden>›</span></button>
           </span>
         </div>
+      {mapDiffers && <div className="map-dayline"><span>Map shows {weekday(md.date.day).slice(0, 3)}, {SEASONS[md.date.season]} {md.date.day} · {WEATHER_LABEL[md.weather]}</span><button className="linkbtn" onClick={() => setMd({ date: p.date, weather: p.weather })}>Reset to app date</button></div>}
+      <Sheet open={dateOpen} onClose={() => setDateOpen(false)} title="Map date">
+        <p className="hint ds-note">Only changes this map. The rest of the app stays on {SEASONS[p.date.season]} {p.date.day}, Y{p.date.year}.</p>
+        <DatePickerBody date={md.date} weather={md.weather} onDate={(d) => setMd((m) => mapDayTo(m, d))} onWeather={(w) => setMd((m) => ({ ...m, weather: w }))}
+          onNext={() => setMd((m) => mapDayTo(m, dayAfter(m.date)))} nextLabel="Tomorrow ›" wxHint="Pick the weather to see where everyone goes on that kind of day.">
+          {mapDiffers && <div className="ds-row"><button className="linkbtn" onClick={() => setMd({ date: p.date, weather: p.weather })}>Reset to app date ({SEASONS[p.date.season]} {p.date.day}, {WEATHER_LABEL[p.weather]})</button></div>}
+        </DatePickerBody>
+      </Sheet>
 
       <div className={'map-vp' + (anim ? ' anim' : '') + (live ? ' live' : '')} ref={vp} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
         onTransitionEnd={() => setAnim(false)} aria-label={`${surf.label} map`} role="application">
         <div className="map-layer" style={{ transform: `translate3d(${view.tx}px,${view.ty}px,0) scale(${view.s})` }}>
           <img key={surf.img} src={'./' + core.ui[surf.img].s} width={surf.w} height={surf.h} alt={`${surf.label} map (game art)`} draggable={false} className={view.s < 1.5 ? 'soft' : ''} />
-          {trail.length > 1 && <svg className="map-trail" viewBox={`0 0 ${surf.w} ${surf.h}`} width={surf.w} height={surf.h} aria-hidden>
-            <polyline style={{ strokeWidth: 3 / view.s, strokeDasharray: `${2 / view.s} ${6 / view.s}` }} points={trail.map(([x, y]) => `${x},${y}`).join(' ')} />
-            {trail.slice(0, -1).map(([x, y], i) => <circle key={i} cx={x} cy={y} r={4 / view.s} style={{ strokeWidth: 1.5 / view.s }} />)}
-          </svg>}
         </div>
-        {(LANDMARKS[tab] ?? []).map((k) => { const [ix, iy] = spotImg(k); const L = SPOTS[k].label; const half = L.length * 3.4 + 8; let x = ix * view.s + view.tx; if (x > 0 && x < box.w) x = Math.min(Math.max(x, half + 4), box.w - half - 4); /* keep edge labels inside the frame */ return <span key={k} className="map-label" style={{ transform: `translate3d(${x}px,${iy * view.s + view.ty}px,0)` }}><span>{L}</span></span>; })}
         {fspot && SPOTS[fspot].region === tab && (() => { const [ix, iy] = spotImg(fspot); return <span className="fest-flag" style={{ transform: `translate3d(${ix * view.s + view.tx}px,${iy * view.s + view.ty}px,0)` }}><Ui k="weather:Festival" size={28} eager /></span>; })()}
         {onMap && <button className="pin on" style={{ transform: `translate3d(${px * view.s + view.tx}px,${py * view.s + view.ty}px,0)` }} onClick={() => setCardOpen(true)} aria-label={`${npc!.name}: ${SPOTS[me!.spot].label}`}>
           <i className="pin-dot" />
@@ -238,7 +261,6 @@ export function MapsScreen() {
             <div className="range-ticks"><span>6am</span><span>12pm</span><span>6pm</span><span>2am</span></div>
           </div>
         </div>
-        {!npc && <p className="hint">Tap <b>Choose a villager</b> to find someone. Pinch or double-tap to zoom; drag to look around.</p>}
         {npc && !card && <p className="hint">Tap {npc.name}’s face for details. Spots are approximate.</p>}
       </>
 
@@ -247,13 +269,11 @@ export function MapsScreen() {
 }
 
 /** Stardew-style dropdown that unrolls under the selector button: "No one" first, then villagers A–Z with their heads. */
-function PickerDropdown({ value, onPick, onClose }: { value: string | null; onPick: (id: string | null) => void; onClose: () => void }) {
+function PickerDropdown({ value, closing, onPick, onClose }: { value: string | null; closing: boolean; onPick: (id: string | null) => void; onClose: (e: 'outside' | 'escape') => void }) {
   const items: (Npc | null)[] = [null, ...byName];
   const ref = useRef<HTMLDivElement>(null);
   const cur = Math.max(0, items.findIndex((n) => (n?.id ?? null) === value));
-  const [closing, setClosing] = useState(false);
-  // Roll the list back up into the button, then locate the villager.
-  const choose = (id: string | null) => { if (closing) return; if (reduced()) { onPick(id); return; } setClosing(true); setTimeout(() => onPick(id), 170); };
+  const choose = (id: string | null) => { if (!closing) onPick(id); };
   // Open with the current choice in view (centred when possible).
   useLayoutEffect(() => {
     const el = ref.current; const row = el?.children[cur] as HTMLElement | undefined;
@@ -261,11 +281,12 @@ function PickerDropdown({ value, onPick, onClose }: { value: string | null; onPi
     row?.focus({ preventScroll: true });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose('escape'); };
     addEventListener('keydown', key); return () => removeEventListener('keydown', key);
   }, [onClose]);
   return <>
-    <div className="dd-scrim" onPointerDown={(e) => { e.preventDefault(); onClose(); }} aria-hidden />
+    {/* Taps outside roll the list up. The selector button sits above this scrim, so tapping it is the toggle, never "outside then reopen". */}
+    <div className="dd-scrim" onPointerDown={(e) => { e.preventDefault(); onClose('outside'); }} aria-hidden />
     <div className={'who-dd' + (closing ? ' closing' : '')} ref={ref} role="listbox" aria-label="Choose a villager">
       {items.map((n, i) => (
         <button key={n?.id ?? 'none'} role="option" aria-selected={i === cur} className={'dd-row' + (i === cur ? ' on' : '') + (n ? '' : ' none')} onClick={() => choose(n?.id ?? null)}>

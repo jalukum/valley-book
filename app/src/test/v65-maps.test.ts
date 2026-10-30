@@ -4,7 +4,7 @@ import { core, npcById } from '../data';
 import { newProfile, type Profile } from '../lib/state';
 import { whereNow } from '../lib/where';
 import { locate, spotForLine, spotImg, schedPinHref, coverScale } from '../lib/maps';
-import { SPOTS, REGIONS, REGION_ORDER, LANDMARKS } from '../lib/mapdata';
+import { SPOTS, REGIONS, REGION_ORDER } from '../lib/mapdata';
 import type { Schedule } from '../types';
 
 const S = schedules as unknown as Record<string, Schedule>;
@@ -25,7 +25,8 @@ describe('v6.5 picker: one villager or no one', () => {
   });
   it('is a dropdown under the button (no wheel, no bottom sheet, no native select)', () => {
     expect(MAPS).toContain('PickerDropdown');
-    expect(MAPS).not.toMatch(/PickerWheel|<Sheet|<select/);
+    expect(MAPS).not.toMatch(/PickerWheel|<select/);
+    expect((MAPS.match(/<Sheet /g) || []).length).toBe(1); expect(MAPS).toContain('title="Map date"'); // the only sheet is the map's date picker
     expect(CSS).toMatch(/\.who-dd \{[^}]*position: absolute;[^}]*top: calc\(100% \+ 4px\)/);
     expect(CSS).toMatch(/\.who-dd \{[^}]*max-height: 56dvh;[^}]*overflow-y: auto/);
   });
@@ -48,9 +49,8 @@ describe('v6.5 Calico Desert tab', () => {
     expect(d.img).toBe('map:Desert'); expect([m.w, m.h]).toEqual([800, 960]); expect([d.w, d.h]).toEqual([800, 960]);
     expect(PUBLIC.has(m.s)).toBe(true);
   });
-  it('labels the Oasis, Skull Cavern, the Desert Trader and the bus stop inside the image', () => {
-    expect(LANDMARKS.desert).toEqual(['Desert', 'SkullCavern', 'DesertTrader', 'DesertBus']);
-    for (const k of LANDMARKS.desert!) { const [x, y] = spotImg(k); expect(SPOTS[k].region).toBe('desert'); expect(x > 0 && x < 800 && y > 0 && y < 960, k).toBe(true); }
+  it('has the Oasis, Skull Cavern, the Desert Trader and the bus stop inside the image', () => {
+    for (const k of ['Desert', 'SkullCavern', 'DesertTrader', 'DesertBus']) { const [x, y] = spotImg(k); expect(SPOTS[k].region).toBe('desert'); expect(x > 0 && x < 800 && y > 0 && y < 960, k).toBe(true); }
     expect(SPOTS.Desert.label).toMatch(/Oasis/);
   });
   it('sends desert schedule lines to desert spots', () => {
