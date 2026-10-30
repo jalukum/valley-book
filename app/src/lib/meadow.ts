@@ -128,27 +128,50 @@ export function meadowScatter(season: number, seed = 1729): Tuft[] {
   return out;
 }
 
-/** v6.9.2 the raccoon home: the REAL Giant Stump (wiki: Giant_Stump.png, the 1.6 in-game screenshot at exactly 3×), unmodified,
- *  cut out by app/scripts/make-raccoon-home.py at 1 game px per pixel. It stands ON the meadow ground like the side trees, at their
- *  2× game-pixel scale where the screen has room (else the largest crisp scale that fits); depth comes only from being drawn behind
- *  the side trees and Junimos plus a slight tint. One sprite for every season (the wiki has no seasonal stump). A stump doesn't sway.
- *  Sizes in game px; ROOTS = the row where the roots meet the ground (the steps and door raccoons sit on the grass below it). */
+/** The raccoon home: the real Giant Stump (wiki: Giant_Stump.png, the 1.6 in-game screenshot at exactly 3×) cut out by
+ *  app/scripts/make-raccoon-home.py at 1 game px per pixel. v6.9.4: its baked-in raccoons are removed (raccoon_clean.py); the
+ *  3 kits that sat in the trunk/roots left hollows. One sprite for every season (the wiki has no seasonal stump); no sway.
+ *  Sizes in game px; roots = the row where the roots meet the ground (the steps sit on the grass below it). */
 export const RACCOON_HOME = { w: 100, h: 110, roots: 87, scale: 1.5, shadow: { w: 108, h: 14 } } as const;
-/** The lit window's glass box (x, y, w, h in game px): a kit rises up behind its bars every so often. */
+/** The lit window's glass box (x, y, w, h in game px). */
 export const WINDOW_BOX = [26, 51, 10, 13] as const;
-/** Room for homeFit = CSS px from the meadow's bottom edge (= the screen's) up to the lowest menu button; HOME_GAP stays clear. */
+/** v6.9.4 the stump's holes a kit (Raccoon_Kit_Head, 10×9 game px) can peek from. x, y = the kit's top-left at the top of its
+ *  peek; from = where it hides (offset in game px). clip = a front hole (window / hollow / door) the kit rises inside; behind = the
+ *  kit is drawn behind the stump and slides out over the rim or round a side (its hiding place is covered by bark — tested). */
+export type KitHole = { id: string; x: number; y: number; from: readonly [number, number]; clip?: readonly [number, number, number, number]; behind?: boolean; door?: boolean };
+export const KIT_HOLES: readonly KitHole[] = [
+  { id: 'window', x: 26, y: 55, from: [0, 9], clip: WINDOW_BOX },
+  { id: 'hollow', x: 66, y: 45, from: [0, 9], clip: [66, 45, 10, 9] },
+  { id: 'root-r', x: 82, y: 62, from: [0, 9], clip: [82, 62, 10, 9] },
+  { id: 'root-l', x: 5, y: 68, from: [0, 9], clip: [5, 68, 10, 9] },
+  { id: 'door', x: 44, y: 70, from: [0, 9], clip: [45, 68, 8, 11], door: true },
+  { id: 'rim-l', x: 24, y: 11, from: [0, 9], behind: true },
+  { id: 'rim-m', x: 44, y: 8, from: [0, 9], behind: true },
+  { id: 'side-l', x: 10, y: 30, from: [10, 0], behind: true },
+  { id: 'side-r', x: 74, y: 28, from: [-10, 0], behind: true },
+];
+/** Exactly KITS animated kits; each peek picks a random hole no other kit is using. */
+export const KITS = 3;
+export function pickHole(busy: readonly number[], r: number): number {
+  const free = KIT_HOLES.map((_, i) => i).filter((i) => !busy.includes(i));
+  return free[Math.min(free.length - 1, Math.floor(Math.max(0, r) * free.length))];
+}
+/** Room for homeFit = CSS px from the meadow's bottom edge up to the lowest menu button; HOME_GAP stays clear. */
 export const HOME_GAP = 4, DEEP_SINK = 24;
-export const HOME_SCALE = 1.5, HOME_BOTTOM = -22;
-/** v6.9.3: one stump size on every phone — the 1.5x look from 375x667 — with the steps and lower roots sunk HOME_BOTTOM px into the
- *  front grass (behind the tufts and Junimos), so no root ever sits on the back-meadow line. Scale snaps down to whole device pixels
- *  (dpr 3 → 4/3); if a button would still reach the chimney it sinks further, down to DEEP_SINK. */
+/** v6.9.4: the stump stands BACK on the extended (mid) grass: its bottom HOME_BACK px up, so the roots (row 82–87) land
+ *  in the mid grass band (MID_GROUND), behind the side trees' feet (30) and the Junimos. Where a button would reach the chimney
+ *  it comes forward/down — the most-back spot that fits — down to the front grass and DEEP_SINK. 1.5× on every phone
+ *  (whole device pixels: dpr 3 → 4/3). */
+export const HOME_SCALE = 1.5, HOME_BACK = 40;
+/** The mid grass band (CSS px from the meadow bottom): same 2× ground tiles as the front, between it and the far band. */
+export const MID_GROUND = { bottom: 40, top: 100 } as const;
 export function homeFit(room: number, dpr = 2) {
   const d = Math.max(1, Math.round(dpr)), sc = Math.max(1, Math.floor(HOME_SCALE * d)) / d;
-  const bottom = Math.min(HOME_BOTTOM, Math.floor(room - HOME_GAP - RACCOON_HOME.h * sc));
+  const bottom = Math.min(HOME_BACK, Math.floor(room - HOME_GAP - RACCOON_HOME.h * sc));
   return { scale: sc, bottom: Math.max(bottom, -DEEP_SINK) };
 }
-/** Peeks: a kit every 6–15 s (random), up for ~1.6 s. */
-export const PEEK_MIN_MS = 6000, PEEK_MAX_MS = 15000, PEEK_SHOW_MS = 1600;
+/** Each kit: hidden 3–9 s (random) between peeks, up for ~1.6 s; the 3 kits start staggered. */
+export const PEEK_MIN_MS = 3000, PEEK_MAX_MS = 9000, PEEK_SHOW_MS = 1600, KIT_STAGGER_MS = 1300;
 export const nextPeekDelay = (r: number) => Math.round(PEEK_MIN_MS + Math.min(Math.max(r, 0), 1) * (PEEK_MAX_MS - PEEK_MIN_MS));
 /** Grass at the stump's foot (x in game px from its left edge; drawn over the base so it sits IN the grass, not on top of it). */
 export function homeTufts(season: number) {

@@ -3,7 +3,7 @@ import { SEASONS, weekday, core, items } from '../data';
 import { Ui } from '../components/ui';
 import { Brand, FarmPill } from './Today';
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
-import { meadowTrees, groundAtlas, treeSize, groundTiles, meadowScatter, type Tuft, RACCOON_HOME, WINDOW_BOX, homeTufts, homeFit, nextPeekDelay, PEEK_SHOW_MS, clearOfDoor } from '../lib/meadow';
+import { meadowTrees, groundAtlas, treeSize, groundTiles, meadowScatter, type Tuft, RACCOON_HOME, KIT_HOLES, KITS, pickHole, KIT_STAGGER_MS, type KitHole, homeTufts, homeFit, nextPeekDelay, PEEK_SHOW_MS, clearOfDoor } from '../lib/meadow';
 
 /** Launch screen: title, farm switcher, then one Stardew menu-box per main section, standing on real farm grass. */
 export const BUBBLES: { id: string; href: string; icon: string; title: string; line: string; size?: number }[] = [
@@ -41,8 +41,8 @@ export default function Home() {
  *  grass, and a few Junimos (the wiki's real 4-frame Junimo animation, tinted like the game's coloured Junimos) hopping
  *  left → right along it. Decorative only: aria-hidden, no pointer events; Junimos hidden under reduced motion. */
 export const MEADOW_JUNIMOS = ['green', 'blue', 'pink', 'yellow'] as const;
-const BACK_TILES = groundTiles(48, 7), MAIN_TILES = groundTiles(48, 11);
-/** Layers, back → front: far grass (1×, hazed) + far tufts · main grass · trees · mid tufts · Junimos · front tufts. */
+const BACK_TILES = groundTiles(48, 7), MID_TILES = groundTiles(48, 5), MAIN_TILES = groundTiles(48, 11);
+/** Layers, back → front: far grass (1×, hazed) + far tufts · mid grass (v6.9.4, the stump stands on it) · main grass · raccoon stump · trees · mid tufts · Junimos · front tufts. */
 function Meadow({ season }: { season: number }) {
   const strip = core.ui['junimo:Strip'], tiles = core.ui[groundAtlas(season)];
   const scatter = meadowScatter(season).filter(clearOfDoor);
@@ -62,6 +62,7 @@ function Meadow({ season }: { season: number }) {
     <div className={'meadow s' + (((season % 4) + 4) % 4)} aria-hidden>
       {row(BACK_TILES, 'm-ground far')}
       {scatter.filter((t) => t.layer === 'back').map(tuft)}
+      {row(MID_TILES, 'm-ground mid')}
       {row(MAIN_TILES, 'm-ground entry-ground')}
       <RaccoonHome season={season} />
       {meadowTrees(season).map((t, i) => {
@@ -81,13 +82,16 @@ function Meadow({ season }: { season: number }) {
 
 const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** v6.9.2 the raccoons' home in the meadow's middle gap (see RACCOON_HOME, homeFit): the real Giant Stump, unmodified, on the meadow
- *  grass (behind the side trees, forage and Junimos) with a soft pixel shadow and grass at its foot. Every 6–15 s a kit rises up
- *  behind the lit window's bars. The timer only runs while the page is visible and not under reduced motion. */
+/** v6.9.4 the raccoons' home (see RACCOON_HOME, homeFit): the real Giant Stump, its baked-in raccoons removed, standing back on the
+ *  mid grass (behind the side trees, forage and Junimos) with a soft pixel shadow and grass at its foot. Exactly KITS (3) animated
+ *  kits: each, on its own staggered random timer, pops out of a random free hole (window, hollows, door, over the rim, round a
+ *  side; never two in one hole), then hides again. Timers only run while the page is visible and not under reduced motion
+ *  (then no kits at all: they only exist while peeking). */
 function RaccoonHome({ season }: { season: number }) {
   const stump = core.ui['rhome:Stump'], bars = core.ui['rhome:Bars'], shadow = core.ui['rhome:Shadow'], kit = core.ui['rac:Kit'];
-  const [peek, setPeek] = useState(0);
-  // Keep the chimney clear of the menu buttons on short screens: sink the stump (never below the side trees' line) if a button reaches it.
+  // peeks[k] = [hole index, peek number] while kit k is out, else null
+  const [peeks, setPeeks] = useState<([number, number] | null)[]>(() => Array(KITS).fill(null));
+  // Keep the chimney clear of the menu buttons: the stump comes forward/down (the most-back spot that fits) if a button reaches it.
   const ref = useRef<HTMLDivElement>(null);
   const [{ scale, bottom }, setFit] = useState(() => homeFit(240, window.devicePixelRatio || 1));
   const dpr = Math.max(1, Math.round(window.devicePixelRatio || 1));
@@ -105,33 +109,50 @@ function RaccoonHome({ season }: { season: number }) {
   }, []);
   useEffect(() => {
     if (reducedMotion()) return;
-    let timer = 0, n = 0;
-    const schedule = () => {
-      clearTimeout(timer);
+    const timers: number[] = Array(KITS).fill(0), out: ([number, number] | null)[] = Array(KITS).fill(null);
+    let n = 0;
+    const commit = () => setPeeks(out.slice());
+    const schedule = (k: number, first = false) => {
+      clearTimeout(timers[k]);
       if (document.hidden) return;
-      timer = window.setTimeout(() => {
+      const wait = first ? k * KIT_STAGGER_MS + Math.round(Math.random() * 1200) : nextPeekDelay(Math.random());
+      timers[k] = window.setTimeout(() => {
         if (document.hidden) return;
-        setPeek(++n);
-        timer = window.setTimeout(() => { setPeek(0); schedule(); }, PEEK_SHOW_MS);
-      }, nextPeekDelay(Math.random()));
+        const busy = out.flatMap((p) => (p ? [p[0]] : []));
+        out[k] = [pickHole(busy, Math.random()), ++n];
+        commit();
+        timers[k] = window.setTimeout(() => { out[k] = null; commit(); schedule(k); }, PEEK_SHOW_MS);
+      }, wait);
     };
-    const onVis = () => { if (document.hidden) { clearTimeout(timer); setPeek(0); } else schedule(); };
+    const all = (first = false) => { for (let k = 0; k < KITS; k++) schedule(k, first); };
+    const onVis = () => {
+      if (document.hidden) { timers.forEach((t) => clearTimeout(t)); out.fill(null); commit(); } else all(true);
+    };
     document.addEventListener('visibilitychange', onVis);
-    schedule();
-    return () => { clearTimeout(timer); document.removeEventListener('visibilitychange', onVis); };
+    all(true);
+    return () => { timers.forEach((t) => clearTimeout(t)); document.removeEventListener('visibilitychange', onVis); };
   }, []);
   if (!stump) return null;
-  const { w, h, roots, shadow: sh } = RACCOON_HOME, [bx, by, bw, bh] = WINDOW_BOX;
+  const { w, h, roots, shadow: sh } = RACCOON_HOME;
   const img = (s: { s: string }, cls: string) => <img className={cls} src={'./' + s.s} style={{ width: px(w), height: px(h) }} alt="" draggable={false} />;
+  const kitEl = (hole: KitHole, key: number, cx: number, cy: number) => kit && (
+    <i key={key} className="rh-kit" style={{ left: px(hole.x - cx), top: px(hole.y - cy), width: px(kit.w), height: px(kit.h), backgroundImage: `url(./${kit.s})`,
+      '--hide': `translate(${px(hole.from[0])}, ${px(hole.from[1])})` } as CSSProperties} />
+  );
+  const out = peeks.flatMap((p) => (p ? [{ hole: KIT_HOLES[p[0]], key: p[1] }] : []));
   return (
-    <div ref={ref} className={'m-rac' + (peek ? ' peek' : '')} style={{ width: px(w), height: px(h), marginLeft: px(-w / 2), bottom }} data-scale={scale}>
+    <div ref={ref} className="m-rac" style={{ width: px(w), height: px(h), marginLeft: px(-w / 2), bottom }} data-scale={scale} data-peeks={out.map((o) => o.hole.id).join(' ')}>
       {shadow && <img className="rh-shadow" src={'./' + shadow.s} style={{ width: px(sh.w), height: px(sh.h), left: px((w - sh.w) / 2), top: px(roots - sh.h / 2) }} alt="" draggable={false} />}
+      {out.filter((o) => o.hole.behind).map((o) => kitEl(o.hole, o.key, 0, 0))}
       {img(stump, 'rh-stump')}
-      {kit && (
-        <span key={peek} className="rh-peek" style={{ left: px(bx), top: px(by), width: px(bw), height: px(bh) }}>
-          <i style={{ left: px(Math.round((bw - kit.w) / 2)), top: px(bh - kit.h), width: px(kit.w), height: px(kit.h), backgroundImage: `url(./${kit.s})`, '--hide': `translateY(${px(kit.h)})` } as CSSProperties} />
-        </span>
-      )}
+      {out.filter((o) => o.hole.clip).map(({ hole, key }) => {
+        const [x, y, cw, ch] = hole.clip!;
+        return (
+          <span key={key} className={'rh-hole' + (hole.door ? ' door' : '')} style={{ left: px(x), top: px(y), width: px(cw), height: px(ch) }}>
+            {kitEl(hole, key, x, y)}
+          </span>
+        );
+      })}
       {bars && img(bars, 'rh-bars')}
       {homeTufts(season).map((t, i) => {
         const spr = core.ui[t.k];

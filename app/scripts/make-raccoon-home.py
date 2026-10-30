@@ -73,7 +73,9 @@ def cut():
   return c[ys.min():ys.max() + 1, xs.min():xs.max() + 1].copy()
 
 if __name__ == '__main__':
-  home = cut()
+  sys.path.insert(0, os.path.dirname(__file__))
+  from raccoon_clean import clean_kits
+  home, hollows, kits = clean_kits(cut())   # v6.9.4: no baked-in raccoons (see raccoon_clean.py)
   H, W = home.shape[:2]
   os.makedirs(OUT, exist_ok=True)
   Image.fromarray(home).save(os.path.join(OUT, 'Giant_Stump_Home.png'))
@@ -95,4 +97,4 @@ if __name__ == '__main__':
         if ((x + .5 - SW / 2) / rx) ** 2 + ((y + .5 - SH / 2) / ry) ** 2 <= 1:
           sh[y, x] = (40, 52, 20, min(255, int(sh[y, x, 3]) + a))
   Image.fromarray(sh).save(os.path.join(OUT, 'Giant_Stump_Shadow.png'))
-  json.dump({'home': [W, H], 'window': [int(gx0), int(gy0), int(gx1 - gx0), int(gy1 - gy0)], 'shadow': [SW, SH]}, sys.stdout); print()
+  json.dump({'hollows': hollows, 'kits': kits, 'home': [W, H], 'window': [int(gx0), int(gy0), int(gx1 - gx0), int(gy1 - gy0)], 'shadow': [SW, SH]}, sys.stdout); print()

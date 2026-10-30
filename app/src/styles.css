@@ -844,11 +844,13 @@ img.pt { border-radius: 6px; }
 /* v6.9.2 the raccoons' home: the real Giant Stump standing on the meadow ground at the trees' scale (scale + bottom set inline). */
 .m-rac { position: absolute; left: 50%; bottom: 0; pointer-events: none; filter: saturate(.94) brightness(1.03); } /* a few percent of air: just behind the side trees; crisp, no blur */
 .m-rac img { position: absolute; left: 0; top: 0; display: block; image-rendering: pixelated; pointer-events: none; }
-.rh-peek { position: absolute; overflow: hidden; }
-.rh-peek i { position: absolute; display: block; background: 0 0 / 100% 100% no-repeat; image-rendering: pixelated; transform: var(--hide); }
-.m-rac.peek .rh-peek i { animation: rh-peek 1.6s both; }
+/* v6.9.4 three animated kits: each pops out of a hole (front holes clip it; rim/side kits slide out from behind the stump) */
+.rh-hole { position: absolute; overflow: hidden; }
+.rh-hole.door::before { content: ''; position: absolute; inset: 0; background: #2a1a19; opacity: 0; animation: rh-door 1.6s both; } /* the door opens */
+.rh-kit { position: absolute; display: block; background: 0 0 / 100% 100% no-repeat; image-rendering: pixelated; transform: var(--hide); animation: rh-peek 1.6s both; }
 @keyframes rh-peek { 0% { transform: var(--hide); animation-timing-function: steps(3, end); } 25%, 80% { transform: translate(0, 0); animation-timing-function: steps(3, end); } 100% { transform: var(--hide); } }
-@media (prefers-reduced-motion: reduce) { .m-rac.peek .rh-peek i { animation: none; } }
+@keyframes rh-door { 0%, 100% { opacity: 0; } 12%, 90% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .rh-kit, .rh-hole { display: none; } }
 
 /* ---------- v6: popcorn Junimos on inner pages (behind content, no taps) ---------- */
 .popcorn { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
@@ -888,12 +890,16 @@ img.pt { border-radius: 6px; }
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5px); mask-image: linear-gradient(to bottom, transparent 0, #000 5px); }
 .meadow .m-ground i { flex: none; width: var(--tile); height: var(--tile); background-repeat: no-repeat; background-size: calc(4 * var(--tile)) var(--tile);
   image-rendering: pixelated; image-rendering: crisp-edges; }
+/* v6.9.4 mid grass: the same 2× tiles carried further back (40 → 100px) so the stump can stand back on solid ground; a touch of air */
+.meadow .m-ground.mid { bottom: 40px; height: 60px; filter: saturate(.93) brightness(1.04);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 8px); mask-image: linear-gradient(to bottom, transparent 0, #000 8px); }
+.meadow.s3 .m-ground.mid { filter: none; }
 /* far grass: same tiles at 1× (smaller), hazed lighter, fading into the sky: a soft horizon instead of a hard line */
-.meadow .m-ground.far { --tile: 16px; bottom: 36px; height: 22px; background: transparent; filter: saturate(.8) brightness(1.1);
+.meadow .m-ground.far { --tile: 16px; bottom: 92px; height: 22px; background: transparent; filter: saturate(.8) brightness(1.1);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.55) 5px, #000 11px); mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.55) 5px, #000 11px); }
 .m-tuft { position: absolute; display: block; line-height: 0; transform: translateX(-50%); transform-origin: 50% 100%; pointer-events: none; }
 .m-tuft img { display: block; image-rendering: pixelated; image-rendering: crisp-edges; }
-.m-tuft.t-back { bottom: 42px; filter: saturate(.8) brightness(1.1); opacity: .92; }
+.m-tuft.t-back { bottom: 98px; filter: saturate(.8) brightness(1.1); opacity: .92; }
 .m-tuft.t-mid { bottom: 22px; }
 .m-tuft.t-front { bottom: -3px; }
 .m-tuft.sway { animation: sway 3.25s ease-in-out infinite; } /* = ¼ of the 13 s wind wisp; delays make each gust roll left → right */
