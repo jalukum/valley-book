@@ -3,7 +3,7 @@ import SOURCES from '../../../sprites/derived/SOURCES.json';
 import { core, items } from '../data';
 import { museumRewardParts, partText } from '../lib/museum';
 import { heartsLabel } from '../lib/labels';
-import { TOUR } from '../lib/tour';
+import { TOURS } from '../lib/tour';
 
 const SRC = SOURCES as Record<string, { from: string }>;
 const PUBLIC = new Set(Object.keys(import.meta.glob('../../public/sprites/**/*.png')).map((k) => k.replace('../../public/', '')));
@@ -107,9 +107,9 @@ describe('navigation: no duplicate Goals hub', () => {
   it('goal pages fall back to their own hub, not #/goals', () => expect(all).not.toContain('back="#/goals"'));
 });
 describe('tutorial', () => {
-  it('names Progress and More in the tab steps and never mentions a Goals page', () => {
-    const txt = JSON.stringify(TOUR);
+  it('never mentions a Goals page; the Progress tour calls the trackers checklists (v7.2)', () => {
+    const txt = JSON.stringify(TOURS);
     expect(txt).not.toMatch(/\bGoals\b/);
-    expect(TOUR.find((s) => s.target === 'tab-progress')!.body).toMatch(/Checklists/);
+    expect(TOURS.progress.find((s) => s.target === 'trackers')!.body).toMatch(/Checklists/);
   });
 });

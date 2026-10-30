@@ -184,18 +184,18 @@ export function MapsScreen() {
     <div className="screen maps">
       <TopBar title="Villagers" right={<a className="btn sm" href="#/calendar"><Ui k="Calendar" size={16} /> Calendar</a>} />
       <Seg value="maps" onChange={(v) => v === 'grid' && go('#/villagers')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps' }]} />
-      <div className="map-tabs" role="tablist" aria-label="Maps">
+      <div className="map-tabs" role="tablist" aria-label="Maps" data-tour="map-tabs">
         {TABS.map((t) => <button key={t.id} role="tab" aria-selected={t.id === tab} className={'map-tab' + (t.id === tab ? ' on' : '')} onClick={() => setTab(t.id)}>{t.label}</button>)}
       </div>
       <div className="map-bar">
-          <div className="who-wrap">
+          <div className="who-wrap" data-tour="map-who">
             <button className={'who-btn' + (dd === 'open' ? ' open' : '')} onClick={() => ddGo('button')} aria-haspopup="listbox" aria-expanded={dd === 'open'} aria-label={npc ? `Showing ${npc.name}. Change` : 'Choose a villager to find'}>
               {npc ? <Sprite spr={npc.icon} size={32} eager /> : <Ui k="Magnifying Glass" size={28} eager />}
               <b className={npc ? '' : 'none'}>{npc ? npc.name : 'Choose a villager'}</b><span className="who-chev" aria-hidden />
             </button>
             {dd !== 'closed' && <PickerDropdown value={sel} closing={dd === 'closing'} onPick={(id) => ddGo('pick', () => pick(id))} onClose={(e) => ddGo(e)} />}
           </div>
-          <span className={'map-day' + (mapDiffers ? ' moved' : '')}>
+          <span className={'map-day' + (mapDiffers ? ' moved' : '')} data-tour="map-day">
             <button className="day-pill" onClick={() => setDateOpen(true)} aria-label={`Map date: ${SEASONS[md.date.season]} ${md.date.day}, year ${md.date.year}, ${WEATHER_LABEL[md.weather]}. Change the map's date and weather`}>
               <Ui k={'season:' + SEASONS[md.date.season]} size={20} eager /><span><b>{SEASONS[md.date.season]} {md.date.day}</b><small>{weekday(md.date.day).slice(0, 3)}</small></span>
               <Ui k={weatherIcon(md.weather, md.date.season)} size={22} eager />
@@ -212,7 +212,7 @@ export function MapsScreen() {
         </DatePickerBody>
       </Sheet>
 
-      <div className={'map-vp' + (anim ? ' anim' : '') + (live ? ' live' : '')} ref={vp} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
+      <div data-tour="map-vp" className={'map-vp' + (anim ? ' anim' : '') + (live ? ' live' : '')} ref={vp} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
         onTransitionEnd={() => setAnim(false)} aria-label={`${surf.label} map`} role="application">
         <div className="map-layer" style={{ transform: `translate3d(${view.tx}px,${view.ty}px,0) scale(${view.s})` }}>
           <img key={surf.img} src={'./' + core.ui[surf.img].s} width={surf.w} height={surf.h} alt={`${surf.label} map (game art)`} draggable={false} className={view.s < 1.5 ? 'soft' : ''} />
@@ -251,7 +251,7 @@ export function MapsScreen() {
       </div>
 
       <>
-        <div className="time-row">
+        <div className="time-row" data-tour="map-time">
           <button className={'play' + (playing ? ' on' : '')} onClick={() => { if (!playing && time >= T1) setTime(T0); setPlaying(!playing); }} aria-label={playing ? 'Pause the day' : 'Play the day: time moves forward and the villager walks'}>
             <span className={playing ? 'ic-pause' : 'ic-play'} aria-hidden />
           </button>

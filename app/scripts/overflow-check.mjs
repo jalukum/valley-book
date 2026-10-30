@@ -1,6 +1,8 @@
 // v7.1 headless check: no page scrolls sideways at 320x568, 375x667, 390x844 and 430x932, and the front page (#/),
 // the Day guide (#/today) and Maps fit with no vertical scroll — on a normal, a lucky and an unlucky day, with and without the Cart.
-// Usage: node scripts/overflow-check.mjs   (BASE defaults to http://127.0.0.1:8090/). Exit code 1 if anything overflows.
+// v7.2: also plays every tutorial at every size (started from More → Replay a tutorial, or by opening the tab the first time) and checks
+// each step's card sits fully on screen, nothing scrolls sideways, and the must-fit screens still don't scroll.
+// Usage: node scripts/overflow-check.mjs   (BASE defaults to http://127.0.0.1:8090/; ONLY=tours or ONLY=pages runs one half). Exit code 1 if anything overflows.
 import puppeteer from 'puppeteer-core';
 const BASE = process.env.BASE || 'http://127.0.0.1:8090/';
 const SIZES = [[320, 568], [375, 667], [390, 844], [430, 932]];
@@ -13,13 +15,13 @@ const seed = (luck, day = 9) => ({ id: 'shot', name: 'Shot', date: { season: 0, 
   stars: ['item:(O)145', 'villager:Abigail', 'bundle:Pantry/0', 'item:(O)24'], ...(luck == null ? {} : { luck: { day: 'y1-0-' + day, v: luck } }) });
 const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
 let bad = 0;
-for (const [w, h] of SIZES) {
+for (const [w, h] of process.env.ONLY === 'tours' ? [] : SIZES) {
   for (const [luck, day] of [[null, 9], [2, 9], [-2, 9], [null, 12], [2, 12], [-2, 12]]) {
     const page = await browser.newPage();
     await page.setViewport({ width: w, height: h, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
     await page.goto(BASE + '#/about', { waitUntil: 'networkidle0' });
     await page.evaluate((p) => {
-      localStorage.setItem('sdv:ui', JSON.stringify({ onboarded: true, tourSeen: true }));
+      localStorage.setItem('sdv:ui', JSON.stringify({ onboarded: true, tourSeen: true, tabTours: { progress: true, villagers: true, search: true, more: true } }));
       localStorage.setItem('sdv:profiles', JSON.stringify({ activeId: 'shot', profiles: [p] }));
       localStorage.setItem('sdv:seenVersion', '9.9');
     }, seed(luck, day));
@@ -45,6 +47,51 @@ for (const [w, h] of SIZES) {
   }
   console.log(`${w}x${h} checked`);
 }
+// ---------- v7.2 tutorials ----------
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+const START = { day: 'Day guide', progress: 'Progress', villagers: 'Villagers & Maps', search: 'Search', more: null };
+for (const [w, h] of process.env.ONLY === 'pages' ? [] : SIZES) {
+  for (const [id, label] of Object.entries(START)) {
+    const page = await browser.newPage();
+    await page.setViewport({ width: w, height: h, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+    await page.goto(BASE + '#/about', { waitUntil: 'networkidle0' });
+    await page.evaluate((p, id) => {
+      localStorage.setItem('sdv:ui', JSON.stringify({ onboarded: true, tourSeen: true, tabTours: id === 'more' ? {} : { progress: true, villagers: true, search: true, more: true } }));
+      localStorage.setItem('sdv:profiles', JSON.stringify({ activeId: 'shot', profiles: [p] }));
+      localStorage.setItem('sdv:seenVersion', '9.9');
+    }, seed(2, 12), id);
+    await page.goto(BASE + '#/more', { waitUntil: 'networkidle0' });
+    await page.reload({ waitUntil: 'networkidle0' });
+    await wait(600);
+    if (label) {
+      await page.evaluate(() => { const b = document.querySelector('.replay-btn'); b.scrollIntoView({ block: 'center' }); b.click(); });
+      await wait(300);
+      await page.evaluate((label) => [...document.querySelectorAll('.replay-dd .dd-row')].find((x) => x.textContent.includes(label)).click(), label);
+      await wait(900);
+    }
+    let n = 0;
+    for (; n < 40; n++) {
+      if (!(await page.$('.tour-pop'))) break;
+      await wait(450);
+      const m = await page.evaluate((W, H) => {
+        const pop = document.querySelector('.tour-pop').getBoundingClientRect();
+        const app = document.querySelector('.app');
+        const route = location.hash.slice(2).split(/[/?]/)[0];
+        return { title: document.querySelector('.tour-pop b').textContent, route, off: pop.top < 0 || pop.left < 0 || pop.bottom > H || pop.right > W,
+          hole: !!document.querySelector('.tour-hole'), docW: document.documentElement.scrollWidth - W, appW: app.scrollWidth - app.clientWidth, v: app.scrollHeight - app.clientHeight };
+      }, w, h);
+      const fit = ['', 'today', 'maps'].includes(m.route);
+      if (m.off || !m.hole || m.docW > 0 || m.appW > 0 || (fit && m.v > 0)) { bad++; console.log(`FAIL tour ${id} ${w}x${h} step ${n + 1} ${JSON.stringify(m)}`); }
+      const btn = await page.$('.tour-nav .btn.primary');
+      if (!btn) break;
+      await btn.click();
+      await wait(500);
+    }
+    if (n === 0) { bad++; console.log(`FAIL tour ${id} ${w}x${h} never opened`); }
+    await page.close();
+  }
+  console.log(`${w}x${h} tours checked`);
+}
 await browser.close();
-console.log(bad ? `${bad} problem(s)` : 'All pages: no sideways scroll; front page, Day guide and Maps fit.');
+console.log(bad ? `${bad} problem(s)` : 'All pages: no sideways scroll; front page, Day guide and Maps fit; every tutorial step fits on screen.');
 process.exit(bad ? 1 : 0);

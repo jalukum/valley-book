@@ -1,5 +1,5 @@
 // v7.0 app-wide notices: the parchment Undo bar after a tick, and the one-time "Valley Book just updated!" letter.
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { useUndo, applyUndo, clearUndo, getUi } from '../lib/state';
 import { APP_VERSION, SEEN_KEY, noteToShow, entryFor } from '../lib/changelog';
 import { Ui } from './ui';
@@ -36,11 +36,16 @@ const pending: string | null = (() => {
   return v;
 })();
 
+// v7.2: tab tutorials wait until the update letter is closed.
+let letterOpen = pending != null;
+const letterL = new Set<() => void>();
+export const useLetterOpen = () => useSyncExternalStore((l) => { letterL.add(l); return () => letterL.delete(l); }, () => letterOpen, () => false);
+
 export function UpdateNote() {
   const [v, setV] = useState<string | null>(pending);
   const e = v ? entryFor(v) : null;
   if (!e) return null;
-  const close = () => { writeSeen(); setV(null); };
+  const close = () => { writeSeen(); setV(null); letterOpen = false; letterL.forEach((l) => l()); };
   return (
     <div className="sheet-wrap letter-wrap" onClick={close}>
       <div className="letter" role="dialog" aria-modal="true" aria-labelledby="letter-h" onClick={(ev) => ev.stopPropagation()}>

@@ -10,7 +10,7 @@ describe('tutorial (v4)', () => {
   });
   it('then teaches every Day guide tile, in tile order', () => {
     const tiles = TOUR.filter((s) => s.target.startsWith('tile-')).map((s) => s.target.slice(5));
-    expect(tiles).toEqual(['fish', 'forage', 'crops', 'bundles', 'gifts', 'quests', 'events', 'cart', 'orders']);
+    expect(tiles).toEqual(['fish', 'forage', 'crops', 'bundles', 'gifts', 'quests', 'events', 'starred', 'cart', 'orders']);
     expect(TOUR.slice(1).every((s) => s.route === 'today')).toBe(true);
   });
   it('tiles that are not always shown fall back to the grid with a “when it appears” note', () => {

@@ -30,18 +30,18 @@ export function VillagersScreen() {
   if (f === 'gift') list = list.filter((n) => (p.gifts[n.id] ?? 0) < 2);
   return (
     <div className="screen">
-      <TopBar title="Villagers" right={<a className="btn sm" href="#/calendar"><Ui k="Calendar" size={16} /> Calendar</a>} />
-      <Seg value="grid" onChange={(v) => v === 'maps' && go('#/maps')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps' }]} />
+      <TopBar title="Villagers" right={<a className="btn sm" href="#/calendar" data-tour="vill-cal"><Ui k="Calendar" size={16} /> Calendar</a>} />
+      <div data-tour="vill-seg"><Seg value="grid" onChange={(v) => v === 'maps' && go('#/maps')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps' }]} /></div>
       <>
         <div className="chips vtags" data-tour="vill-tags">
           {VILL_FILTERS.map((x) => <Chip key={x.v} on={f === x.v} onClick={() => setF(x.v)}>{x.v === 'all' ? `All ${core.npcs.length}` : x.label}</Chip>)}
         </div>
         <div className="vgrid">
-          {list.map((n) => {
+          {list.map((n, i) => {
             const h = p.hearts[n.id] ?? 0; const g = p.gifts[n.id] ?? 0;
             const bday = n.birthday?.season === season && n.birthday.day === p.date.day;
             return (
-              <a key={n.id} className={'vcard' + (bday ? ' bday' : '') + (h >= heartsTarget(n.romanceable) ? ' maxed' : '')} href={href(n)}>
+              <a key={n.id} data-tour={i === 0 ? 'vill-card' : undefined} className={'vcard' + (bday ? ' bday' : '') + (h >= heartsTarget(n.romanceable) ? ' maxed' : '')} href={href(n)}>
                 <Sprite spr={n.portrait} size={64} alt="" />
                 <b>{n.name}</b>
                 <span className="vmeta"><Ui k="Heart" size={12} />{h}<span className="gdots" aria-label={`${g} of 2 gifts this week`}><i className={g >= 1 ? 'on' : ''} /><i className={g >= 2 ? 'on' : ''} /></span></span>

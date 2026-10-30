@@ -215,7 +215,7 @@ export default function Today() {
         {T('energy', <><Ui k="Energy" size={18} />Energy</>)}
         {T('bday', <><Ui k="Gift" size={18} />Birthday</>)}
         {T('fest', <><Ui k="weather:Festival" size={18} />Festival</>)}
-        <button className={'dt dt-luck' + (luck ? ' set' : '')} aria-haspopup="dialog" aria-label={luck ? `Luck of the day: ${luck.label}. Change` : 'Set luck of the day'} onClick={() => setLuckOpen(true)}>
+        <button data-tour="luck" className={'dt dt-luck' + (luck ? ' set' : '')} aria-haspopup="dialog" aria-label={luck ? `Luck of the day: ${luck.label}. Change` : 'Set luck of the day'} onClick={() => setLuckOpen(true)}>
           {luck ? <Ui k={'luck:' + luck.v} size={22} /> : <Ui k="skill:Luck" size={18} />}<span>Luck</span>
         </button>
       </div>

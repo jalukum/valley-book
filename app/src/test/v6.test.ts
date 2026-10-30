@@ -9,7 +9,7 @@ import { makeBurst, nextDelay, firstDelay, POP_MIN_MS, POP_MAX_MS, POP_MAX, FIRS
 import { treeSize, meadowTrees, PIXEL_SCALE } from '../lib/meadow';
 const MEADOW_TREES = meadowTrees(1); // v6.8: the Green Rain set now stands in summer only
 import { core as C6 } from '../data';
-import { TOUR as STEPS } from '../lib/tour';
+import { TOUR as STEPS, TOURS } from '../lib/tour';
 
 const SCREENS = import.meta.glob('../screens/*.tsx', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const PUBLIC = new Set(Object.keys(import.meta.glob('../../public/sprites/**/*.png')).map((k) => k.replace('../../public/', '')));
@@ -137,7 +137,7 @@ describe('v6 sprites and copy', () => {
   });
   it('tutorial says the replay button is in the More tab, and never says "Birthday calendar"', () => {
     const text = JSON.stringify(STEPS);
-    expect(text).toMatch(/Replay tutorial in the More tab/);
+    expect(JSON.stringify(TOURS.more)).toMatch(/Replay a tutorial/); // v7.2: the replay lives in More's own one-step tour
     expect(text).not.toMatch(/from Progress/);
     expect(text).not.toMatch(/birthday calendar/i);
     const scr = Object.values(SCREENS).join('\n');

@@ -123,22 +123,14 @@ describe('v6.9.1 the real Giant Stump raccoon home on the meadow', () => {
   });
 });
 
-describe('v6.9.1 tutorial ending', () => {
-  const i = TOUR.findIndex((s) => s.target === 'tabbar');
-  it('step 16 is the short “Getting around” intro (two sentences at most)', () => {
-    expect(i).toBe(15);
-    expect(TOUR[i].body.length).toBeLessThanOrEqual(90);
-    expect(TOUR[i].body.split(/[.!?](\s|$)/).filter((x) => x && x.trim()).length).toBeLessThanOrEqual(2);
+describe('v6.9.1 tutorial ending (v7.2: tab-bar steps removed)', () => {
+  it('has no tab-bar walkthrough any more', () => {
+    expect(TOUR.some((s) => s.target === 'tabbar' || s.target.startsWith('tab-'))).toBe(false);
   });
-  it('then one short step per tab, in tab-bar order', () => {
-    expect(TOUR.slice(i + 1, i + 6).map((s) => s.target)).toEqual(['tab-today', 'tab-progress', 'tab-villagers', 'tab-search', 'tab-more']);
-    for (const s of TOUR.slice(i + 1, i + 6)) expect(s.body.length).toBeLessThanOrEqual(90);
-  });
-  it('ends by spotlighting the home control that returns to #/', () => {
+  it('still ends by spotlighting the home control that returns to #/', () => {
     const last = TOUR[TOUR.length - 1];
     expect(last.target).toBe('home');
-    expect(last.body).toBe('Tap here anytime to get back to the front page.');
+    expect(last.body).toMatch(/^Tap here anytime to get back to the front page\./);
     expect(today).toMatch(/<a className="brand" href="#\/" data-tour="home"/);
-    expect(TOUR).toHaveLength(22);
   });
 });

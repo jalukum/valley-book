@@ -15,8 +15,8 @@ export default function SearchScreen() {
   return (
     <div className="screen">
       <TopBar title="Search" />
-      <div ref={ref} className="sticky-tools"><SearchBox value={q} onChange={setQ} placeholder="Items, villagers, fish, bundles, recipes" /></div>
-      {!q && <Empty>Search for anything</Empty>}
+      <div ref={ref} className="sticky-tools" data-tour="search-box"><SearchBox value={q} onChange={setQ} placeholder="Items, villagers, fish, bundles, recipes" /></div>
+      {!q && <div data-tour="search-below"><Empty>Search for anything</Empty></div>}
       {!q && <Recent />}
       {q && !hits.length && <Empty>Nothing matches “{q}”.</Empty>}
       {ORDER.map((k) => {
@@ -56,7 +56,7 @@ function Recent() {
   }).filter(Boolean) as { k: string; title: string; sub: string; href: string; ic: React.ReactNode }[];
   if (!list.length) return null;
   return (
-    <section className="panel recent">
+    <section className="panel recent" data-tour="recent">
       <div className="panel-h"><h2>Recently viewed</h2><span className="grow" /><button className="btn sm" data-sfx="close" onClick={clearRecent}>Clear</button></div>
       <div className="list">
         {list.map((r) => <a key={r.k} className="nav-row" href={r.href}><span className="row-ic">{r.ic}</span><span className="row-main"><b>{r.title}</b><small>{r.sub}</small></span><span className="chev-r" /></a>)}

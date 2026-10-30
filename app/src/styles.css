@@ -1226,3 +1226,11 @@ button.dtile { font: inherit; color: inherit; cursor: pointer; }
   .dtiles.many .dtile b { font-size: 11px; }
   .dtiles.many .dtile .badge { transform: scale(.85); transform-origin: top right; }
 }
+/* ---------- v7.2: More → Replay a tutorial dropdown (opens upward, above the tab bar) ---------- */
+.replay-wrap { display: block; }
+.replay-wrap .replay-btn { width: 100%; position: relative; z-index: 92; }
+.replay-btn .who-chev { margin-right: 6px; transition: transform .15s ease; }
+.replay-btn.open .who-chev { transform: rotate(180deg); }
+.who-dd.replay-dd { top: auto; bottom: calc(100% + 4px); left: 0; width: 100%; min-width: 0; max-width: 100%; transform-origin: 50% 100%; }
+.replay-dd .dd-txt { display: flex; flex-direction: column; min-width: 0; }
+.replay-dd .dd-txt small { color: var(--ink-2); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

@@ -55,8 +55,8 @@ describe('v6.8.3 "Run first-time setup again" is gone', () => {
   it('first-launch onboarding still runs for new users, and the tutorial replay stays under More', () => {
     expect(APP).toMatch(/\{!ui\.onboarded && <Onboarding \/>\}/);
     expect(ONB).toMatch(/setUi\(\{ onboarded: true, tourOpen: !getUi\(\)\.tourSeen \}\)/);
-    expect(MORE).toMatch(/<b>Replay tutorial<\/b>/);
-    expect(MORE).toMatch(/setUi\(\{ tourOpen: true \}\)/);
+    expect(MORE).toMatch(/<b>Replay a tutorial<\/b>/); // v7.2 dropdown
+    expect(MORE).toMatch(/startTour\(t\.id\)/);
     expect(MORE).toMatch(/href="#\/setup"/); // "Where are you in the game?" questions stay editable
   });
 });

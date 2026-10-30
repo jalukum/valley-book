@@ -1,7 +1,10 @@
-import { useSyncExternalStore, type ReactNode } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { sfxEnabled, setSfxEnabled, onSfxChange, playSfx } from '../lib/sfx';
 import { core, npcById } from '../data';
-import { useProfile, isDone, setUi } from '../lib/state';
+import { useProfile, isDone } from '../lib/state';
+import { REPLAY, type TourId } from '../lib/tour';
+import { startTour } from '../components/Tour';
+import { ddNext, type DdState, type DdEvent } from '../lib/mapui';
 import { ccProgress, jojaProgress, doneCount, walnutsFound, walnutTotal } from '../lib/progress';
 import { access, questDone, roadmap } from '../lib/guide';
 import { TopBar, Ui, ItemIcon, Bar, Sprite } from '../components/ui';
@@ -58,8 +61,10 @@ export function ProgressHub() {
         <span className="row-main"><b>Road to Perfection</b><small>{road.current ? `Phase ${road.current.n} of 7 · ${road.current.name}` : 'Perfection reached!'}</small></span>
         <span className="chev-r" />
       </a>
-      <p className="hint">Checklists — tick things as you play. Today’s guide skips anything you’ve ticked.</p>
-      <HubRows rows={rows} />
+      <div data-tour="trackers">
+        <p className="hint">Checklists — tick things as you play. Today’s guide skips anything you’ve ticked.</p>
+        <HubRows rows={rows} />
+      </div>
     </div>
   );
 }
@@ -85,7 +90,7 @@ export function MoreHub() {
       <section className="panel">
         <div className="list">
           <SoundToggle />
-          <button className="nav-row" onClick={() => { location.hash = '#/'; setTimeout(() => setUi({ tourOpen: true }), 50); }}><span className="row-ic"><Ui k="Quest" size={28} /></span><span className="row-main"><b>Replay tutorial</b><small>A quick tour of the Day guide and its tiles</small></span><span className="chev-r" /></button>
+          <ReplayPicker />
         </div>
       </section>
     </div>
@@ -101,5 +106,49 @@ export function SoundToggle() {
       <span className="row-main"><b>Sound effects</b><small>Soft taps and chimes when you press things</small></span>
       <span className={'pswitch' + (on ? ' on' : '')} aria-hidden><i /></span>
     </button>
+  );
+}
+
+const REPLAY_IC: Record<TourId, ReactNode> = {
+  day: <Ui k="Junimo" size={28} />, progress: <Ui k="Junimo Bundle" size={28} />, villagers: <Ui k="Heart" size={24} />, search: <Ui k="Magnifying Glass" size={28} />, more: <Ui k="Backpack" size={28} />,
+};
+const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** v7.2 More → Replay a tutorial: a parchment dropdown (same roll-up list as the Maps villager picker) of the four tutorials.
+ *  Picking one goes to that page and plays it. */
+export function ReplayPicker() {
+  const [dd, setDd] = useState<DdState>('closed');
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const ddGo = (e: DdEvent, then?: () => void) => {
+    const nx = ddNext(dd, e); setDd(nx);
+    if (nx !== 'closing' || dd === 'closing') return;
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => { setDd((s) => ddNext(s, 'rolled')); then?.(); }, reducedMotion() ? 0 : 170);
+  };
+  useEffect(() => () => clearTimeout(timer.current), []);
+  useEffect(() => {
+    if (dd !== 'open') return;
+    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') ddGo('escape'); };
+    addEventListener('keydown', key); return () => removeEventListener('keydown', key);
+  });
+  return (
+    <div className="who-wrap replay-wrap" data-tour="replay">
+      <button className={'nav-row replay-btn' + (dd === 'open' ? ' open' : '')} onClick={() => ddGo('button')} aria-haspopup="listbox" aria-expanded={dd === 'open'}>
+        <span className="row-ic"><Ui k="Quest" size={28} /></span>
+        <span className="row-main"><b>Replay a tutorial</b><small>Pick one to watch it again</small></span>
+        <span className="who-chev" aria-hidden />
+      </button>
+      {dd !== 'closed' && <>
+        <div className="dd-scrim" onPointerDown={(e) => { e.preventDefault(); ddGo('outside'); }} aria-hidden />
+        <div className={'who-dd replay-dd' + (dd === 'closing' ? ' closing' : '')} role="listbox" aria-label="Choose a tutorial to replay">
+          {REPLAY.map((t) => (
+            <button key={t.id} role="option" aria-selected={false} className="dd-row" onClick={() => dd === 'open' && ddGo('pick', () => startTour(t.id))}>
+              <span className="dd-ic">{REPLAY_IC[t.id]}</span>
+              <span className="dd-txt"><span className="dd-name">{t.label}</span><small>{t.sub}</small></span>
+            </button>
+          ))}
+        </div>
+      </>}
+    </div>
   );
 }

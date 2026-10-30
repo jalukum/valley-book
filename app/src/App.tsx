@@ -12,9 +12,11 @@ import { QuestsScreen, EventsScreen, RaccoonScreen } from './screens/Quests';
 import { RoadScreen } from './screens/Road';
 import { Onboarding } from './components/Onboarding';
 import { Tour } from './components/Tour';
+import { autoTour, openTour } from './lib/tour';
+import { setUi } from './lib/state';
 import { Sky } from './components/Sky';
 import { Popcorn } from './components/Popcorn';
-import { UndoBar, UpdateNote } from './components/Notices';
+import { UndoBar, UpdateNote, useLetterOpen } from './components/Notices';
 import SearchScreen from './screens/Search';
 import { BundlesHome, RoomScreen, NeededScreen, JojaScreen } from './screens/Bundles';
 import { VillagersScreen, CalendarScreen } from './screens/Villagers';
@@ -89,6 +91,13 @@ export default function App() {
   useEffect(() => { try { const o = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> }; o?.lock?.('portrait')?.catch(() => {}); } catch { /* not supported */ } }, []);
   const ui = useUi();
   const tab = TAB_OF[r[0] ?? ''] ?? 'today';
+  const letter = useLetterOpen();
+  // v7.2: each tab's own short tutorial plays the first time that tab is opened on this device (after the update letter, if any).
+  useEffect(() => {
+    const t = autoTour(r[0] ?? '', ui, letter);
+    if (t) setUi({ tourOpen: t, tabTours: { ...ui.tabTours, [t]: true } });
+  }, [r[0], ui.onboarded, ui.tourOpen, letter]); // eslint-disable-line react-hooks/exhaustive-deps
+  const tourId = ui.onboarded ? openTour(ui.tourOpen) : null;
   // v6.8.1: wood theme-color behind the iOS status bar while a wooden top bar is on screen; sky otherwise.
   useEffect(() => {
     const meta = document.querySelector('meta[name="theme-color"]');
@@ -111,7 +120,7 @@ export default function App() {
       <div className="rotate-lock" role="status">
         <div className="rl-card"><Ui k="Junimo" size={64} eager /><b>Turn your phone upright to keep playing</b><small>Valley Book is made for portrait.</small></div>
       </div>
-      <main className="main" key={r.join('/')}>
+      <main className="main" key={'page:' + r.join('/')}>
         <Suspense fallback={<div className="loading">Loading…</div>}>
           <Screen r={r} />
         </Suspense>
@@ -128,7 +137,7 @@ export default function App() {
       <UndoBar />
       {ui.onboarded && !ui.tourOpen && <UpdateNote />}
       {!ui.onboarded && <Onboarding />}
-      {ui.onboarded && ui.tourOpen && <Tour route={r[0] ?? ''} />}
+      {tourId && <Tour key={'tour:' + tourId} id={tourId} route={r[0] ?? ''} />}
     </div>
   );
 }

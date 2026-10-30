@@ -2,6 +2,14 @@
 // Shown once per version to people who already used an older version; a brand-new install never sees it.
 export const CHANGELOG: { version: string; items: string[] }[] = [
   {
+    version: '7.2',
+    items: [
+      'Tutorials now pop up the first time you visit each tab, and you can replay any of them from More.',
+      'The Day guide tour is shorter and simpler, and now shows the Starred button and luck of the day.',
+      'New Villagers & Maps tour: the calendar, villager pages, and how to find anyone on the map.',
+    ],
+  },
+  {
     version: '7.1',
     items: [
       'Stars: tap the star on any item, fish, villager or bundle. Find them all with the Starred button next to Heart scenes.',

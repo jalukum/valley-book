@@ -1,3 +1,4 @@
+import type { TourId } from './tour';
 // Per-farm progress, persisted to localStorage. Tiny external store + React hook.
 import { useSyncExternalStore } from 'react';
 import { weatherChoices, defaultWeather } from './weather';
@@ -234,7 +235,8 @@ export function setCount(col: string, id: string, n: number) {
 
 // ---------- app-level UI flags (not per farm) ----------
 const UI_KEY = 'sdv:ui';
-export interface UiFlags { onboarded: boolean; tourSeen: boolean; tourOpen?: boolean }
+/** tourOpen: which tutorial is on screen (true = the Day guide). tabTours: tab tours already played on this device (v7.2). */
+export interface UiFlags { onboarded: boolean; tourSeen: boolean; tourOpen?: boolean | TourId; tabTours?: Partial<Record<TourId, boolean>> }
 let ui: UiFlags = (() => { try { return { onboarded: false, tourSeen: false, ...JSON.parse(localStorage.getItem(UI_KEY) || '{}') }; } catch { return { onboarded: false, tourSeen: false }; } })();
 const uiL = new Set<() => void>();
 export const getUi = () => ui;
