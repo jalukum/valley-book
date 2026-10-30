@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { core } from '../data';
 import { TOUR } from '../lib/tour';
-import { RACCOON_HOME, WINDOW_BOX, homeTufts, nextPeekDelay, PEEK_MIN_MS, PEEK_MAX_MS, PEEK_SHOW_MS, PIXEL_SCALE, homeFit, ROOTS_AT, FOOT_SINK, DEEP_SINK, meadowScatter, clearOfDoor } from '../lib/meadow';
+import { RACCOON_HOME, WINDOW_BOX, homeTufts, nextPeekDelay, PEEK_MIN_MS, PEEK_MAX_MS, PEEK_SHOW_MS, homeFit, HOME_SCALE, HOME_BOTTOM, DEEP_SINK, meadowScatter, clearOfDoor } from '../lib/meadow';
 const raw = (g: Record<string, unknown>) => Object.values(g)[0] as string;
 const css = raw(import.meta.glob('../styles.css', { query: '?raw', import: 'default', eager: true }));
 const home = raw(import.meta.glob('../screens/Home.tsx', { query: '?raw', import: 'default', eager: true }));
@@ -17,19 +17,15 @@ describe('v6.9.1 the real Giant Stump raccoon home on the meadow', () => {
     expect(css).not.toMatch(/crown-sway/);                   // a stump doesn't sway
     expect(JSON.stringify(sources['Giant_Stump_Home.png'])).toMatch(/UNMODIFIED/);
   });
-  it('v6.9.2 stands ON the ground at the trees’ 2x scale where there is room, behind the trees, forage and Junimos', () => {
-    expect(RACCOON_HOME.scale).toBe(PIXEL_SCALE);
-    expect(ROOTS_AT - 30).toBeGreaterThan(0); expect(ROOTS_AT - 30).toBeLessThanOrEqual(4); // roots just above the side trees' trunk line
-    const tall = homeFit(400, 2);
-    expect(tall).toEqual({ scale: 2, bottom: -FOOT_SINK });
-    expect(tall.bottom + (RACCOON_HOME.h - RACCOON_HOME.roots) * 2 - 30).toBeLessThanOrEqual(8);
-    expect(homeFit(400, 3).scale).toBe(2);
-    expect(homeFit(217, 2)).toEqual({ scale: 2, bottom: -FOOT_SINK });           // 390x844
-    expect(homeFit(305, 3).scale).toBe(2);                                         // 430x932
-    const short = homeFit(148, 2);                                                 // 375x667: sink lower, never float or reach a button
-    expect(short.scale).toBe(1.5);
+  it('v6.9.3 one 1.5x stump on every phone, foot sunk in the front grass, behind the trees, forage and Junimos', () => {
+    for (const room of [148, 160, 217, 305, 400]) expect(homeFit(room, 2), `${room}`).toEqual({ scale: HOME_SCALE, bottom: HOME_BOTTOM }); // 375x667 … 430x932
+    expect(HOME_SCALE).toBe(1.5);
+    expect(homeFit(305, 3).scale).toBeCloseTo(4 / 3);                              // whole device px at dpr 3
+    // the highest root tip (row 82) still sits inside the 44px front ground band, under the back-meadow line
+    expect(HOME_BOTTOM + (RACCOON_HOME.h - 82) * HOME_SCALE).toBeLessThan(44 - 20);
+    expect(HOME_BOTTOM).toBeGreaterThanOrEqual(-DEEP_SINK);
+    const short = homeFit(120, 2);                                                 // very short: sink further, never reach a button
     expect(short.bottom).toBeGreaterThanOrEqual(-DEEP_SINK);
-    expect(short.bottom + RACCOON_HOME.h * short.scale + 4).toBeLessThanOrEqual(148);
     for (const room of [120, 148, 160, 200, 217, 260, 305]) for (const dpr of [1, 2, 3]) {
       const f = homeFit(room, dpr);
       expect(Number.isInteger(Math.round(f.scale * dpr * 1e6) / 1e6), `${room}@${dpr}`).toBe(true); // whole device px per game px

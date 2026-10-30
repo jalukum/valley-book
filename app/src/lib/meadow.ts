@@ -133,23 +133,19 @@ export function meadowScatter(season: number, seed = 1729): Tuft[] {
  *  2× game-pixel scale where the screen has room (else the largest crisp scale that fits); depth comes only from being drawn behind
  *  the side trees and Junimos plus a slight tint. One sprite for every season (the wiki has no seasonal stump). A stump doesn't sway.
  *  Sizes in game px; ROOTS = the row where the roots meet the ground (the steps and door raccoons sit on the grass below it). */
-export const RACCOON_HOME = { w: 100, h: 110, roots: 87, scale: PIXEL_SCALE, shadow: { w: 108, h: 14 } } as const;
+export const RACCOON_HOME = { w: 100, h: 110, roots: 87, scale: 1.5, shadow: { w: 108, h: 14 } } as const;
 /** The lit window's glass box (x, y, w, h in game px): a kit rises up behind its bars every so often. */
 export const WINDOW_BOX = [26, 51, 10, 13] as const;
-/** Fit on the meadow, given the room (CSS px) from the meadow's bottom edge (= the screen's) up to the lowest menu button:
- *  roots at ROOTS_AT (3 px above the side trees' trunks at 30), the sprite's foot (steps) at most FOOT_SINK px under the screen edge
- *  behind the front grass; if a button would still reach the chimney the stump sinks lower (down to DEEP_SINK, partly behind the
- *  Junimos and foreground grass) rather than float. Scale = the largest k/dpr ≤ 2 (whole device pixels per game pixel) that fits. */
-export const HOME_GAP = 4, ROOTS_AT = 33, FOOT_SINK = 8, DEEP_SINK = 24;
+/** Room for homeFit = CSS px from the meadow's bottom edge (= the screen's) up to the lowest menu button; HOME_GAP stays clear. */
+export const HOME_GAP = 4, DEEP_SINK = 24;
+export const HOME_SCALE = 1.5, HOME_BOTTOM = -22;
+/** v6.9.3: one stump size on every phone — the 1.5x look from 375x667 — with the steps and lower roots sunk HOME_BOTTOM px into the
+ *  front grass (behind the tufts and Junimos), so no root ever sits on the back-meadow line. Scale snaps down to whole device pixels
+ *  (dpr 3 → 4/3); if a button would still reach the chimney it sinks further, down to DEEP_SINK. */
 export function homeFit(room: number, dpr = 2) {
-  const { h, roots } = RACCOON_HOME, below = h - roots, d = Math.max(1, Math.round(dpr));
-  for (let k = PIXEL_SCALE * d; k >= d; k--) {
-    const sc = k / d;
-    let bottom = Math.max(-FOOT_SINK, ROOTS_AT - below * sc);
-    bottom = Math.min(bottom, Math.floor(room - HOME_GAP - h * sc));
-    if (bottom >= -DEEP_SINK || k === d) return { scale: sc, bottom: Math.max(bottom, -DEEP_SINK) };
-  }
-  return { scale: 1, bottom: 0 };
+  const d = Math.max(1, Math.round(dpr)), sc = Math.max(1, Math.floor(HOME_SCALE * d)) / d;
+  const bottom = Math.min(HOME_BOTTOM, Math.floor(room - HOME_GAP - RACCOON_HOME.h * sc));
+  return { scale: sc, bottom: Math.max(bottom, -DEEP_SINK) };
 }
 /** Peeks: a kit every 6–15 s (random), up for ~1.6 s. */
 export const PEEK_MIN_MS = 6000, PEEK_MAX_MS = 15000, PEEK_SHOW_MS = 1600;
