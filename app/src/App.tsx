@@ -104,7 +104,7 @@ export default function App() {
     { id: 'more', href: '#/more', label: 'More', icon: <Ui k="Backpack" size={28} eager /> },
   ];
   return (
-    <div className={'app' + (tab === 'home' ? ' no-tabs' : '')}>
+    <div className={'app' + (tab === 'home' ? ' no-tabs' : '') + (r[0] === 'maps' ? ' fit' : '')}>
       <Sky full={tab === 'home'} season={p.date.season} />
       {tab !== 'home' && <Popcorn />}
       <div className="rotate-lock" role="status">

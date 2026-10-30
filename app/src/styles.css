@@ -1024,8 +1024,19 @@ button.map-note:active { transform: translateY(2px); box-shadow: 0 0 0 var(--woo
 .mc-act { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex: none; align-self: stretch; justify-content: space-between; }
 .mc-act .btn { white-space: nowrap; }
 .mc-x { order: -1; width: 28px; height: 28px; border-radius: 8px; font: 700 18px/1 var(--head); color: var(--ink-2); background: var(--paper-2); border: 2px solid var(--frame-d); }
-.maps > .hint { background: var(--paper); border: 2px solid var(--frame-d); border-radius: 10px; padding: 6px 10px; margin: 0; }
+.maps > .hint { flex: none; background: var(--paper); border: 2px solid var(--frame-d); border-radius: 10px; padding: 6px 10px; margin: 0; }
 .see-map { align-self: flex-start; margin: 2px 0; }
+/* v6.8.4 Maps fits the screen: while Maps is open (.app.fit) the page itself never scrolls. The main area is exactly the space between
+   the safe-area/banner and the tab bar (its padding already holds --sat, --tabh and --sab), the Maps screen is a flex column, and the map frame
+   takes whatever height is left (flex: 1, min-height 0), so the tabs, selector row and time-slider card always stay fully on screen. */
+.app.fit { overflow: hidden; }
+.app.fit .main { height: 100%; display: flex; flex-direction: column; }
+.app.fit .main > .maps { flex: 1 1 auto; min-height: 0; }
+.app.fit .maps > * { flex: none; }
+.app.fit .maps > .map-vp { flex: 1 1 auto; min-height: 0; height: auto; }
+.app.fit .who-dd { max-height: min(56dvh, calc(100dvh - var(--sat) - var(--sab) - var(--tabh) - 232px)); } /* ends above the tab bar */
+@media (max-height: 700px) { .app.fit .maps { gap: 6px; } }
+@media (max-height: 600px) { .app.fit .time-top small, .app.fit .maps > .hint { display: none; } .app.fit .time-row { padding-top: 3px; } }
 
 /* Portrait lock: phones in landscape get a full-screen note (desktop browsers and tablets are unaffected). */
 .rotate-lock { display: none; }

@@ -15,7 +15,7 @@ export default function SearchScreen() {
     <div className="screen">
       <TopBar title="Search" />
       <div ref={ref} className="sticky-tools"><SearchBox value={q} onChange={setQ} placeholder="Items, villagers, fish, bundles, recipes" /></div>
-      {!q && <Empty>Try “diamond”, “Abigail”, “catfish”, “quality crops” or “salad”.</Empty>}
+      {!q && <Empty>Search for anything</Empty>}
       {q && !hits.length && <Empty>Nothing matches “{q}”.</Empty>}
       {ORDER.map((k) => {
         const list = hits.filter((h) => h.kind === k);
