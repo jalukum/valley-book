@@ -1,3 +1,4 @@
+import { Lk } from './components/Link';
 import { lazy, Suspense, useEffect } from 'react';
 import { useRoute } from './lib/router';
 import { Ui } from './components/ui';
@@ -128,14 +129,14 @@ export default function App() {
       {tab !== 'home' && <nav className="tabbar" aria-label="Sections" data-tour="tabbar">
         <span className="tab-hl" aria-hidden style={{ transform: `translateX(${tabs.findIndex((t) => t.id === tab) * 100}%)` }} />
         {tabs.map((t) => (
-          <a key={t.id} href={t.href} data-tour={'tab-' + t.id} className={'tab' + (tab === t.id ? ' on' : '')} aria-current={tab === t.id ? 'page' : undefined}>
+          <Lk key={t.id} href={t.href} data-tour={'tab-' + t.id} className={'tab' + (tab === t.id ? ' on' : '')} aria-current={tab === t.id ? 'page' : undefined}>
             <span className="tab-ic">{t.icon}</span><span className="tab-l">{t.label}</span>
-          </a>
+          </Lk>
         ))}
       </nav>}
       <DateSheetHost />
       <UndoBar />
-      {ui.onboarded && !ui.tourOpen && <UpdateNote />}
+      {ui.onboarded && <UpdateNote blocked={!!ui.tourOpen} />}
       {!ui.onboarded && <Onboarding />}
       {tourId && <Tour key={'tour:' + tourId} id={tourId} route={r[0] ?? ''} />}
     </div>

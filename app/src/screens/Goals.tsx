@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useEffect, useState, type ReactNode } from 'react';
 import { core, items, npcById } from '../data';
 import { useProfile, update, toggle, isDone, count, setCount } from '../lib/state';
@@ -43,7 +44,7 @@ export function PerfectionScreen() {
               <span className="row-main"><span className="row-t">{r.name}</span><span className="row-s">{r.have}/{r.total} · worth {r.weight}%</span><Bar value={r.have} max={r.total} /></span>
               <span className="row-r pts">{r.points.toFixed(r.points % 1 ? 1 : 0)}%</span>
             </>;
-            return r.route ? <a key={r.id} className="row perf-row" href={r.route}>{body}<span className="chev-r" /></a> : <div key={r.id} className="row perf-row">{body}</div>;
+            return r.route ? <Lk key={r.id} className="row perf-row" href={r.route}>{body}<span className="chev-r" /></Lk> : <div key={r.id} className="row perf-row">{body}</div>;
           })}
         </div>
       </Panel>
@@ -244,7 +245,7 @@ export function NotesScreen() {
                       {n.img ? <button className="note-img" onClick={() => setBig(n)} aria-label={`Enlarge ${k} #${n.id}`}><img src={'./' + n.img.s} width={144} height={144} alt={`${k} #${n.id} (picture)`} loading="lazy" draggable={false} /><small>Tap to enlarge</small></button> : n.text ? <p className="pre">{n.text}</p> : null}
                       {n.solutions.map((x, i) => <div key={i} className="note-sol"><b>{x.title === 'Solution' ? 'Solution' : x.title}</b><p className="pre">{x.text}</p></div>)}
                       {n.solutions.length > 0 && <small className="note-src">From the Stardew Valley Wiki</small>}
-                      {n.reveals.length > 0 && <div className="reveals">{n.reveals.map(([npc, q], i) => <a key={i} className="ing" href={`#/item/${encodeURIComponent(q)}`}><Sprite spr={npcById[npc]?.icon} size={16} /><ItemIcon qid={q} size={16} /><span>{items[q]?.n}</span></a>)}</div>}
+                      {n.reveals.length > 0 && <div className="reveals">{n.reveals.map(([npc, q], i) => <Lk key={i} className="ing" href={`#/item/${encodeURIComponent(q)}`}><Sprite spr={npcById[npc]?.icon} size={16} /><ItemIcon qid={q} size={16} /><span>{items[q]?.n}</span></Lk>)}</div>}
                     </details>
                   </div>
                 );

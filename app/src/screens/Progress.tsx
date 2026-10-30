@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { sfxEnabled, setSfxEnabled, onSfxChange, playSfx } from '../lib/sfx';
 import { core, npcById } from '../data';
@@ -13,12 +14,12 @@ export interface HubRow { href: string; icon: ReactNode; name: string; sub: stri
 export const HubRows = ({ rows }: { rows: HubRow[] }) => (
   <>
     {rows.map((r) => (
-      <a key={r.href + r.name} className="panel hub-row" href={r.href}>
+      <Lk key={r.href + r.name} className="panel hub-row" href={r.href}>
         <span className="row-ic">{r.icon}</span>
         <span className="row-main"><b>{r.name}</b><small>{r.sub}</small></span>
         <span className="hub-n">{r.v ?? (r.total != null ? `${r.have}/${r.total}` : <span className="chev-r" />)}</span>
         {r.total != null && <Bar value={r.have || 0} max={r.total} />}
-      </a>
+      </Lk>
     ))}
   </>
 );
@@ -51,16 +52,16 @@ export function ProgressHub() {
   return (
     <div className="screen">
       <TopBar title="Progress" sub={p.name} />
-      <a className="panel setup-card" href="#/setup" data-tour="setup">
+      <Lk className="panel setup-card" href="#/setup" data-tour="setup">
         <Ui k="Backpack" size={40} />
         <span className="row-main"><b>Where are you in the game?</b><small>Mines {a.mine}, backpack {p.setup.backpack}, {p.cc.route === 'joja' ? 'Joja route' : 'Community Center route'}{a.bus ? ', bus running' : ''}{a.island ? ', island open' : ''}</small></span>
         <span className="chev-r" />
-      </a>
-      <a className="panel setup-card" href="#/road">
+      </Lk>
+      <Lk className="panel setup-card" href="#/road">
         <Ui k="Gold Clock" size={40} />
         <span className="row-main"><b>Road to Perfection</b><small>{road.current ? `Phase ${road.current.n} of 7 · ${road.current.name}` : 'Perfection reached!'}</small></span>
         <span className="chev-r" />
-      </a>
+      </Lk>
       <div data-tour="trackers">
         <p className="hint">Checklists — tick things as you play. Today’s guide skips anything you’ve ticked.</p>
         <HubRows rows={rows} />

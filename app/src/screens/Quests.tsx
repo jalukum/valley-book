@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useState } from 'react';
 import { heartsLabel } from '../lib/labels';
 import { core, npcById, items } from '../data';
@@ -87,7 +88,7 @@ export function RaccoonScreen() {
       <Panel title="How it starts" icon={<Ui k="Raccoon" size={24} />}>
         <p className="hint">{r.unlock}</p>
         <p className="hint">{r.gap}</p>
-        <p className="hint">Status: {s.raccoon === 0 ? 'the tree hasn’t fallen yet' : s.raccoon === 1 ? 'the stump fell — repair it with 100 Hardwood' : `stump repaired · ${s.raccoonDone}/${r.stages.length} requests done`}. <a className="link" href="#/setup">Change ›</a></p>
+        <p className="hint">Status: {s.raccoon === 0 ? 'the tree hasn’t fallen yet' : s.raccoon === 1 ? 'the stump fell — repair it with 100 Hardwood' : `stump repaired · ${s.raccoonDone}/${r.stages.length} requests done`}. <Lk className="link" href="#/setup">Change ›</Lk></p>
       </Panel>
       <Panel title="Requests" icon={<Ui k="Raccoon" size={24} />}>
         <div className="list">

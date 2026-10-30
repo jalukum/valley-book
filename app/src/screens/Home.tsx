@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useProfile } from '../lib/state';
 import { SEASONS, weekday, core, items } from '../data';
 import { Ui } from '../components/ui';
@@ -22,14 +23,14 @@ export default function Home() {
       <header className="entry-h">
         <Brand home />
         <FarmPill />
-        <a className="entry-date" href="#/today"><Ui k={'season:' + s} size={20} eager /><span>{weekday(p.date.day)} {p.date.day} {s} · Year {p.date.year}</span></a>
+        <Lk className="entry-date" href="#/today"><Ui k={'season:' + s} size={20} eager /><span>{weekday(p.date.day)} {p.date.day} {s} · Year {p.date.year}</span></Lk>
       </header>
       <nav className="bubbles" aria-label="Where to go">
         {BUBBLES.map((b, i) => (
-          <a key={b.id} href={b.href} className={'bubble b' + i} data-tour={'bubble-' + b.id}>
+          <Lk key={b.id} href={b.href} className={'bubble b' + i} data-tour={'bubble-' + b.id}>
             <span className="bub-ic"><Ui k={b.icon} size={b.size ?? 44} eager /></span>
             <span className="bub-t"><b>{b.title}</b><small>{b.line}</small></span>
-          </a>
+          </Lk>
         ))}
       </nav>
       <Meadow season={p.date.season} />

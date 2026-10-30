@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useState, useEffect } from 'react';
 import { npcById, items, SEASONS, loadGifts, loadSchedules } from '../data';
 import { useProfile, update, addRecent } from '../lib/state';
@@ -42,7 +43,7 @@ function Villager({ n }: { n: Npc }) {
           {n.birthday && <div className="fact"><Ui k={'season:' + n.birthday.season} size={16} /><span>Birthday <b>{n.birthday.season} {n.birthday.day}</b>{bdayToday && <span className="bday-tag">Today!</span>}</span></div>}
           {n.address && <div className="fact"><span>Lives at <b>{n.address}</b>{n.location && n.location !== n.address ? `, ${n.location}` : ''}</span></div>}
           {!n.address && n.location && <div className="fact"><span>Lives in <b>{n.location}</b></span></div>}
-          <a className="btn sm see-map" href={`#/maps?npc=${encodeURIComponent(n.id)}`}><Ui k="Magnifying Glass" size={16} /> See on map</a>
+          <Lk className="btn sm see-map" href={`#/maps?npc=${encodeURIComponent(n.id)}`}><Ui k="Magnifying Glass" size={16} /> See on map</Lk>
           <div className="fact">{n.romanceable ? <><Ui k="Heart" size={16} /><span><b>Marriage candidate</b></span></> : <span>Not marriageable</span>}</div>
         </div>
       </Panel>
@@ -53,7 +54,7 @@ function Villager({ n }: { n: Npc }) {
             {rels.map((r) => {
               const o = npcById[r.who];
               const body = <>{o?.icon && <Sprite spr={o.icon} size={32} alt="" />}<span className="rel-t"><b>{o?.name ?? r.who}</b><small>{r.rel}</small></span></>;
-              return o ? <a key={r.who} className={'rel k-' + r.kind} href={`#/villager/${encodeURIComponent(r.who)}`}>{body}</a> : <span key={r.who} className={'rel k-' + r.kind}>{body}</span>;
+              return o ? <Lk key={r.who} className={'rel k-' + r.kind} href={`#/villager/${encodeURIComponent(r.who)}`}>{body}</Lk> : <span key={r.who} className={'rel k-' + r.kind}>{body}</span>;
             })}
           </div>
         </Panel>
@@ -121,7 +122,7 @@ function TierBlock({ t }: { t: TierGroup }) {
   );
 }
 function GiftTile({ qid, universal }: { qid: string; universal?: boolean }) {
-  return <a className={'gift' + (universal ? ' u' : '')} href={`#/item/${encodeURIComponent(qid)}`}><ItemIcon qid={qid} size={32} /><span>{nameOf(qid)}</span></a>;
+  return <Lk className={'gift' + (universal ? ' u' : '')} href={`#/item/${encodeURIComponent(qid)}`}><ItemIcon qid={qid} size={32} /><span>{nameOf(qid)}</span></Lk>;
 }
 
 function Timeline({ b, idx, npc, bi }: { b: SchedBlock; idx: number; npc: Npc; bi: number }) {
@@ -131,7 +132,7 @@ function Timeline({ b, idx, npc, bi }: { b: SchedBlock; idx: number; npc: Npc; b
         <li key={i} className={i === idx ? 'now' : i < idx ? 'past' : ''}>
           <span className="t">{t != null ? fmtTime(t) : e[0]}</span>
           <span className="d">{e[1]}{e[2].length > 0 && <span className="locs">{e[2].map((l) => <span key={l} className="loc">{l}</span>)}</span>}</span>
-          {t != null && <a className="sched-pin" href={schedPinHref(npc.id, t, bi)} aria-label={`Show ${npc.name} on the map at ${fmtTime(t)}`}><i aria-hidden /></a>}
+          {t != null && <Lk className="sched-pin" href={schedPinHref(npc.id, t, bi)} aria-label={`Show ${npc.name} on the map at ${fmtTime(t)}`}><i aria-hidden /></Lk>}
         </li>
       ); })}
     </ol>

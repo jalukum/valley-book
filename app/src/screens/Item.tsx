@@ -1,9 +1,10 @@
+import { Lk } from '../components/Link';
 import { core, items, npcById, fishByQid, loadGifts } from '../data';
 import { useEffect } from 'react';
 import { useProfile, toggle, isDone, addRecent } from '../lib/state';
 import { StarButton } from '../components/Stars';
 import { starKey } from '../lib/stars';
-import { TopBar, Panel, Sprite, ItemIcon, Ui, Empty, gold } from '../components/ui';
+import { TopBar, Panel, Sprite, ItemIcon, Ui, Empty, ChipGrid, gold } from '../components/ui';
 import { useAsync } from '../lib/useAsync';
 import { whoLikes, TIER_LABEL } from '../lib/gifts';
 import { fishSeasons, fishTimeText, fishWeather, fishPlaces, fishExtras, seasonsText } from '../lib/fish';
@@ -49,7 +50,7 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
         </div>
         {it.d && <p className="item-d">{it.d}</p>}
       </Panel>
-      {toggles.length > 0 && <div className="chips">{toggles.map((t) => { const on = isDone(p, t.col, t.id); return <button key={t.col + t.id} className={'chip check-chip' + (on ? ' on' : '')} onClick={() => toggle(t.col, t.id)} aria-pressed={on}><span className="box" aria-hidden />{t.label}</button>; })}</div>}
+      {toggles.length > 0 && <ChipGrid max={2}>{toggles.map((t) => { const on = isDone(p, t.col, t.id); return <button key={t.col + t.id} className={'chip check-chip' + (on ? ' on' : '')} onClick={() => toggle(t.col, t.id)} aria-pressed={on}><span className="box" aria-hidden />{t.label}</button>; })}</ChipGrid>}
 
       {fish && (
         <Panel title="Fishing" icon={<ItemIcon qid="(O)145" size={24} />}>
@@ -78,10 +79,10 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
         <Panel title="Bundles" icon={<Ui k="Junimo Bundle" size={24} />}>
           <div className="list">
             {bundles.map((b) => (
-              <a key={b.name + b.room} className="nav-row" href={`#/bundles/room/${b.ri}?b=${encodeURIComponent(b.name)}${b.remix ? '&remix' : ''}`}>
+              <Lk key={b.name + b.room} className="nav-row" href={`#/bundles/room/${b.ri}?b=${encodeURIComponent(b.name)}${b.remix ? '&remix' : ''}`}>
                 <span className="row-ic"><Sprite spr={b.icon} size={32} /></span>
                 <span className="row-main"><b>{b.name}{/Bundle$/.test(b.name) ? '' : ' Bundle'}</b><small>{b.room}{b.remix ? ' · Remixed' : ''} · ×{b.count}{b.quality !== 'normal' ? ` · ${b.quality} quality` : ''}</small></span><span className="chev-r" />
-              </a>
+              </Lk>
             ))}
           </div>
         </Panel>
@@ -90,7 +91,7 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
       {uses.length > 0 && (
         <Panel title="Used in recipes" right={<span className="count">{uses.length}</span>}>
           <div className="gift-grid">
-            {uses.map(({ r }) => r.out && items[r.out] ? <a key={r.id} className="gift" href={href(r.out)}><ItemIcon qid={r.out} /><span>{r.name}</span></a> : null)}
+            {uses.map(({ r }) => r.out && items[r.out] ? <Lk key={r.id} className="gift" href={href(r.out)}><ItemIcon qid={r.out} /><span>{r.name}</span></Lk> : null)}
           </div>
         </Panel>
       )}
@@ -106,7 +107,7 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
               {allU && <p className="hint">Universal: almost everyone.</p>}
               <div className="who">
                 {list.sort((a, b) => a.npc.localeCompare(b.npc)).map((x) => (
-                  <a key={x.npc} className={'who-n' + (x.universal ? ' u' : '')} href={`#/villager/${encodeURIComponent(x.npc)}`} title={x.npc}><Sprite spr={npcById[x.npc].icon} size={32} /><span>{x.npc}</span></a>
+                  <Lk key={x.npc} className={'who-n' + (x.universal ? ' u' : '')} href={`#/villager/${encodeURIComponent(x.npc)}`} title={x.npc}><Sprite spr={npcById[x.npc].icon} size={32} /><span>{x.npc}</span></Lk>
                 ))}
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useMemo, useState, type ReactNode } from 'react';
 import { core, loadGifts, npcById, items } from '../data';
 import { useProfile, useStore, isDone, WEATHER_LABEL, weatherIcon, type Weather } from '../lib/state';
@@ -33,11 +34,11 @@ export function RoadLine({ gd }: { gd: DayGuide }) {
   const text = r.current ? `Phase ${r.current.n} of 7 · ${r.current.name}` : 'Perfection reached — well done!';
   const next = r.next ? `Next: ${r.next.label}${r.next.total ? ` (${r.next.have}/${r.next.total})` : ''}` : '';
   return (
-    <a className="road-line" href="#/road" data-tour="road">
+    <Lk className="road-line" href="#/road" data-tour="road">
       <Ui k="Gold Clock" size={20} eager />
       <span className="rl-t"><b>{text}</b>{next && <small>{next}</small>}</span>
       <span className="chev-r" />
-    </a>
+    </Lk>
   );
 }
 
@@ -64,17 +65,17 @@ export function FarmPill() {
   const store = useStore();
   const n = store.profiles.length;
   return (
-    <a className="farm-pill" href="#/profiles" data-tour="farm" aria-label={`Farm: ${p.name} (${farmInfo(p.farmType).name} Farm). Tap to switch or add a save`}>
+    <Lk className="farm-pill" href="#/profiles" data-tour="farm" aria-label={`Farm: ${p.name} (${farmInfo(p.farmType).name} Farm). Tap to switch or add a save`}>
       <span className="fp-ic" title={farmInfo(p.farmType).name + ' Farm'}><Ui key={p.id + p.farmType} k={farmIconKey(p.farmType)} size={28} eager /></span>
       <span className="fp-t"><small>{n > 1 ? `Farm · 1 of ${n}` : 'Your farm'}</small><b>{p.name}</b></span>
       <span className="fp-sw">Switch</span>
-    </a>
+    </Lk>
   );
 }
 
 export function Brand({ home }: { home?: boolean }) {
   const inner = <><Ui k="Junimo" size={30} eager /><h1>Valley Book</h1></>;
-  return home ? <div className="brand">{inner}</div> : <a className="brand" href="#/" data-tour="home" aria-label="Valley Book — back to the start screen">{inner}<span className="home-ic">Home</span></a>;
+  return home ? <div className="brand">{inner}</div> : <Lk className="brand" href="#/" data-tour="home" aria-label="Valley Book — back to the start screen">{inner}<span className="home-ic">Home</span></Lk>;
 }
 
 type Tile = { k: string; title: string; n: number | string; icon: ReactNode; href: string; onClick?: () => void };
@@ -110,10 +111,10 @@ export function TileGrid({ gd }: { gd: DayGuide }) {
           <b>{t.title}</b>
         </button>
       ) : (
-        <a key={t.k} className={"dtile dtile-" + t.k + (t.n === 0 ? " zero" : "")} href={t.href} data-tour={'tile-' + t.k}>
+        <Lk key={t.k} className={"dtile dtile-" + t.k + (t.n === 0 ? " zero" : "")} href={t.href} data-tour={'tile-' + t.k}>
           <span className="dtile-ic">{t.icon}<span className="badge">{t.n}</span></span>
           <b>{t.title}</b>
-        </a>
+        </Lk>
       ))}
       <StarredSheet open={starOpen} onClose={() => setStarOpen(false)} />
     </div>
@@ -163,7 +164,7 @@ function CartList({ here, rareSeed, joja }: { here: boolean; rareSeed: boolean; 
           </div>
         </>}
       {rareSeed && <p className="hint">In spring and summer it always sells a Rare Seed too.</p>}
-      <p className="hint">Stock list: <a className="link" href="https://stardewvalleywiki.com/Traveling_Cart" target="_blank" rel="noreferrer">Stardew Valley Wiki · Traveling Cart</a>. It only sells normal quality, so silver and gold-quality bundle slots are left out.</p>
+      <p className="hint">Stock list: <Lk className="link" href="https://stardewvalleywiki.com/Traveling_Cart" target="_blank" rel="noreferrer">Stardew Valley Wiki · Traveling Cart</Lk>. It only sells normal quality, so silver and gold-quality bundle slots are left out.</p>
     </>
   );
 }
@@ -202,7 +203,7 @@ export default function Today() {
   const [luckOpen, setLuckOpen] = useState(false);
   const luck = luckLevel(luckToday(p));
   const T = (id: string, label: ReactNode) => (
-    <button key={id} role="tab" aria-selected={activeTab === id} className={'dt' + (activeTab === id ? ' on' : '')} onClick={() => setTab(activeTab === id ? 'plan' : id)}>{label}</button>
+    <button key={id} data-tour="xtabs" role="tab" aria-selected={activeTab === id} className={'dt' + (activeTab === id ? ' on' : '')} onClick={() => setTab(activeTab === id ? 'plan' : id)}>{label}</button>
   );
   return (
     <div className="screen today-s">
@@ -211,7 +212,7 @@ export default function Today() {
         <div className="home-row"><span data-tour="date"><DateChip /></span><RoadLine gd={gd} /></div>
       </header>
 
-      <div className="day-tabs four" role="tablist" aria-label="Day guide extras" data-tour="xtabs">
+      <div className="day-tabs four" role="tablist" aria-label="Day guide extras">
         {T('energy', <><Ui k="Energy" size={18} />Energy</>)}
         {T('bday', <><Ui k="Gift" size={18} />Birthday</>)}
         {T('fest', <><Ui k="weather:Festival" size={18} />Festival</>)}
@@ -240,7 +241,7 @@ export default function Today() {
           {it.festival
             ? <div className="list"><div className="row static"><span className="row-main"><b>Today: {it.festival.name}</b><small>{it.festival.where}. Shops in town may be closed; most of the day is the festival.</small></span></div></div>
             : <div className="list"><div className="row static"><span className="row-main"><b>{it.nextFestival.name}</b><small>{it.nextFestival.season} {it.nextFestival.day} · {it.nextFestival.where}</small></span></div></div>}
-          <p className="hint"><a className="link" href="#/calendar">See the full calendar ›</a></p>
+          <p className="hint"><Lk className="link" href="#/calendar">See the full calendar ›</Lk></p>
         </Section>
       )}
       {activeTab !== 'plan' && <button className="link more-btn" onClick={() => setTab('plan')}>‹ Back to today’s plan</button>}
@@ -282,11 +283,11 @@ function BirthdayList({ gd }: { gd: DayGuide }) {
     <Section title="Birthdays this week" icon={<Ui k="Gift" size={24} />} sub="Birthday gifts count 8×. These are gifts you can actually get today or have had before.">
       <More list={it.birthdays} n={7} empty="No birthdays in the next week."
         render={(b) => (
-          <a key={b.npc} className="row" href={`#/villager/${encodeURIComponent(b.npc)}`}>
+          <Lk key={b.npc} className="row" href={`#/villager/${encodeURIComponent(b.npc)}`}>
             <span className="row-ic"><GIcon icon={{ npc: b.npc }} size={40} /></span>
             <span className="row-main"><b>{b.name} · {b.inDays === 0 ? 'today!' : b.inDays === 1 ? 'tomorrow' : `in ${b.inDays} days`}</b>
               <small>{b.inDays === 0 ? noon(b.npc) : ''}{b.gifts.length ? b.gifts.slice(0, 4).map((g) => `${items[g.qid]?.n} (${g.tier === 'love' ? 'loves' : 'likes'}, ${g.how})`).join(' · ') : gifts ? 'Nothing they love is gettable today — tap for their full list.' : 'Loading gift tastes…'}</small></span>
-          </a>
+          </Lk>
         )} />
     </Section>
   );
@@ -310,11 +311,11 @@ export function TodayDetail({ kind }: { kind: string }) {
         <Section title="Best price first" icon={<ItemIcon qid="(O)145" size={24} />} right={<span className="count">{gd.fish.length}</span>} sub={a.rod ? 'Every fish you can reach today, with where and when it bites.' : undefined}>
           <More list={gd.fish} n={40} empty={a.rod ? 'No fish you can reach today.' : 'You get your first fishing rod from Willy on Spring 2 — visit the beach!'}
             render={(f) => (
-              <a key={f.f.qid} className="row" href={`#/item/${encodeURIComponent(f.f.qid)}`}>
+              <Lk key={f.f.qid} className="row" href={`#/item/${encodeURIComponent(f.f.qid)}`}>
                 <span className="row-ic"><ItemIcon qid={f.f.qid} /></span>
                 <span className="row-main"><b>{f.f.name}{f.rainOnly && <span className="tag">Rain only</span>}</b><small>{f.where} · {f.when}</small></span>
                 <span className="cost">{gold(items[f.f.qid]?.p ?? 0)}</span>
-              </a>
+              </Lk>
             )} />
         </Section>
       ); break;
@@ -323,11 +324,11 @@ export function TodayDetail({ kind }: { kind: string }) {
         <Section title="Forage you can find" icon={<ItemIcon qid="(O)16" size={24} />} right={<span className="count">{gd.forage.length}</span>}>
           <More list={gd.forage} n={40} empty="Nothing to forage in the places you can reach today."
             render={(f) => (
-              <a key={f.qid} className="row" href={`#/item/${encodeURIComponent(f.qid)}`}>
+              <Lk key={f.qid} className="row" href={`#/item/${encodeURIComponent(f.qid)}`}>
                 <span className="row-ic"><ItemIcon qid={f.qid} /></span>
                 <span className="row-main"><b>{f.name}</b><small>{f.note || f.where.join(', ')}</small></span>
                 <span className="cost">{gold(f.price)}</span>
-              </a>
+              </Lk>
             )} />
         </Section>
       ); break;
@@ -337,11 +338,11 @@ export function TodayDetail({ kind }: { kind: string }) {
           <Section title="Worth planting today" icon={<ItemIcon qid="(O)472" size={24} />} sub={goodCrops.length ? 'Only crops that are ready before the season ends. Profit per plant per day.' : undefined}>
             <More list={goodCrops} n={40} empty={p.date.day >= 25 ? 'Too late to plant anything that will finish this season — plan for next season instead.' : 'No seed shop with profitable seeds is open today.'}
               render={(c) => (
-                <a key={c.c.item} className="row" href={`#/item/${encodeURIComponent(c.c.item)}`}>
+                <Lk key={c.c.item} className="row" href={`#/item/${encodeURIComponent(c.c.item)}`}>
                   <span className="row-ic"><ItemIcon qid={c.c.seed || c.c.item} /></span>
                   <span className="row-main"><b>{c.c.name}</b><small>{c.shop}, {gold(c.seedPrice)} · ready Day {c.readyDay}{c.harvests > 1 ? ` · ${c.harvests} harvests` : ''}{c.artisan ? ` · ${c.artisan.kind}: ${c.artisan.perDay}g/day` : ''}</small></span>
                   <span className="cost">{c.perDay}g/d</span>
-                </a>
+                </Lk>
               )} />
           </Section>
           <p className="assume">Profits assume base-quality crops sold raw{kegs ? `; ${[a.jars && 'jars', a.kegs && 'kegs'].filter(Boolean).join(' and ')} shown since you have them` : '; no artisan goods until you unlock jars or kegs'}.</p>
@@ -349,13 +350,13 @@ export function TodayDetail({ kind }: { kind: string }) {
       ); break;
     case 'bundles':
       body = (
-        <Section title="Missing items you can get today" icon={<Ui k="Junimo Bundle" size={24} />} right={<a className="link" href="#/bundles/needed">All ›</a>}>
+        <Section title="Missing items you can get today" icon={<Ui k="Junimo Bundle" size={24} />} right={<Lk className="link" href="#/bundles/needed">All ›</Lk>}>
           <More list={gd.bundles} n={40} empty="No missing bundle items are gettable today — nice work!"
             render={(b) => (
-              <a key={b.bundleId + b.index} className="row" href={`#/item/${encodeURIComponent(b.qid)}`}>
+              <Lk key={b.bundleId + b.index} className="row" href={`#/item/${encodeURIComponent(b.qid)}`}>
                 <span className="row-ic"><ItemIcon qid={b.qid} /></span>
                 <span className="row-main"><b>{b.count > 1 ? `${b.count}× ` : ''}{b.name}{b.quality && <span className={'qual q-' + b.quality.toLowerCase()}>{b.quality}</span>}</b><small>{b.bundle} · {b.how}</small></span>
-              </a>
+              </Lk>
             )} />
         </Section>
       ); break;
@@ -363,14 +364,14 @@ export function TodayDetail({ kind }: { kind: string }) {
       body = (
         <>
           {gd.birthdays.filter((b) => b.inDays === 0).map((b) => (
-            <a key={b.npc} className="panel bday" href={`#/villager/${encodeURIComponent(b.npc)}`}>
+            <Lk key={b.npc} className="panel bday" href={`#/villager/${encodeURIComponent(b.npc)}`}>
               <Sprite spr={npcById[b.npc]?.portrait} size={56} alt={b.name} />
               <span><b>{b.name}’s birthday!</b><small>{b.gifts.length ? 'Good gifts you can get: ' + b.gifts.slice(0, 3).map((g) => items[g.qid]?.n).join(', ') : 'Gifts are worth 8× today. Tap for loved gifts.'}</small></span>
               <Ui k="Gift" size={32} />
-            </a>
+            </Lk>
           ))}
           <BirthdayList gd={gd} />
-          <p className="hint"><a className="link" href="#/calendar">Calendar ›</a></p>
+          <p className="hint"><Lk className="link" href="#/calendar">Calendar ›</Lk></p>
         </>
       ); break;
     case 'cart':

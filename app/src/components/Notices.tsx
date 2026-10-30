@@ -1,7 +1,7 @@
 // v7.0 app-wide notices: the parchment Undo bar after a tick, and the one-time "Valley Book just updated!" letter.
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { useUndo, applyUndo, clearUndo, getUi } from '../lib/state';
-import { APP_VERSION, SEEN_KEY, noteToShow, entryFor } from '../lib/changelog';
+import { APP_VERSION, SEEN_KEY, letterAtLaunch, entryFor } from '../lib/changelog';
 import { Ui } from './ui';
 
 export const UNDO_MS = 5000;
@@ -27,12 +27,14 @@ export function UndoBar() {
 const readSeen = () => { try { return localStorage.getItem(SEEN_KEY); } catch { return null; } };
 const writeSeen = () => { try { localStorage.setItem(SEEN_KEY, APP_VERSION); } catch { /* private mode */ } };
 
-/** Decided once at startup, before onboarding can write anything, so a brand-new install never gets the letter. */
-const pending: string | null = (() => {
-  let existing = false;
-  try { existing = getUi().onboarded || !!localStorage.getItem('sdv:profiles'); } catch { /* */ }
-  const v = noteToShow(readSeen(), existing);
-  if (!v) writeSeen();
+/** v7.2.1: decided once at startup, before onboarding or a tutorial can change anything. A brand-new install, or an open
+ *  that starts with a tour, just marks this version as seen. Whatever happens, the version is marked seen right away,
+ *  so the letter shows at most once per version and never comes back after a tour ends. */
+let pending: string | null = (() => {
+  let existing = false, ui: { onboarded: boolean; tourOpen?: unknown } = { onboarded: false };
+  try { ui = getUi(); existing = ui.onboarded || !!localStorage.getItem('sdv:profiles'); } catch { /* */ }
+  const v = letterAtLaunch(readSeen(), existing, ui.onboarded, !!ui.tourOpen);
+  writeSeen();
   return v;
 })();
 
@@ -40,12 +42,16 @@ const pending: string | null = (() => {
 let letterOpen = pending != null;
 const letterL = new Set<() => void>();
 export const useLetterOpen = () => useSyncExternalStore((l) => { letterL.add(l); return () => letterL.delete(l); }, () => letterOpen, () => false);
+/** Throw the letter away for good (closed, or a tour got on screen first). */
+function drop() { pending = null; if (letterOpen) { letterOpen = false; letterL.forEach((l) => l()); } }
 
-export function UpdateNote() {
+/** `blocked`: a tutorial is on screen. The letter never stacks on a tour; if one opens first, the letter is dropped. */
+export function UpdateNote({ blocked = false }: { blocked?: boolean }) {
   const [v, setV] = useState<string | null>(pending);
-  const e = v ? entryFor(v) : null;
+  useEffect(() => { if (blocked && pending) { drop(); setV(null); } }, [blocked]);
+  const e = v && !blocked ? entryFor(v) : null;
   if (!e) return null;
-  const close = () => { writeSeen(); setV(null); letterOpen = false; letterL.forEach((l) => l()); };
+  const close = () => { drop(); setV(null); };
   return (
     <div className="sheet-wrap letter-wrap" onClick={close}>
       <div className="letter" role="dialog" aria-modal="true" aria-labelledby="letter-h" onClick={(ev) => ev.stopPropagation()}>

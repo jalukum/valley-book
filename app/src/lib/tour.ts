@@ -1,9 +1,10 @@
 /** Tutorial steps (kept apart from the component so tests can read them). */
 /** route: the screen the step lives on ('' = start screen). tap: the user must tap the highlighted thing (or the button) to go on.
+ *  target: every element with that data-tour name is wrapped (v7.2.1), so a step can light up part of a row. pad: spotlight margin.
  *  alt/altBody: if the target isn't on screen today (Cart, Orders, Recently viewed), point at `alt` and say when it shows up.
  *  v7.2: every step is one or two short lines. The Day guide tour plays on first launch; each other tab has its own short tour
  *  that plays the first time that tab is opened, and any of them can be replayed from More. */
-export interface TStep { route: string; target: string; title: string; body: string; tap?: string; alt?: string; altBody?: string }
+export interface TStep { route: string; target: string; title: string; body: string; tap?: string; alt?: string; altBody?: string; pad?: number }
 export type TourId = 'day' | 'progress' | 'villagers' | 'search' | 'more';
 
 const DAY: TStep[] = [
@@ -11,7 +12,7 @@ const DAY: TStep[] = [
   { route: 'today', target: 'date', title: 'Set your day', body: 'Tap here to match the season, day, year and weather in your game.' },
   { route: 'today', target: 'plan', title: 'Today’s plan', body: 'The big job is your best move today. Tick it when it’s done and the next job moves up.' },
   { route: 'today', target: 'plan-more', title: 'More jobs', body: 'Tap to unfold the rest of today’s jobs, best first.', alt: 'plan', altBody: 'When there’s more to do, a “More jobs” list folds out here.' },
-  { route: 'today', target: 'xtabs', title: 'Energy, Birthday, Festival', body: 'Ideas for spare energy, gifts for this week’s birthdays, and the next festival.' },
+  { route: 'today', target: 'xtabs', pad: 3, title: 'Energy, Birthday, Festival', body: 'Ideas for spare energy, gifts for this week’s birthdays, and the next festival.' },
   { route: 'today', target: 'luck', title: 'Luck of the day', body: 'Pick what the TV fortune teller said. Lucky days move the Mines up your plan.' },
   { route: 'today', target: 'tile-fish', title: 'Fish', body: 'Fish you can catch today, with where and when. Tap “Biting now” inside for this hour.' },
   { route: 'today', target: 'tile-forage', title: 'Forage', body: 'Wild things to pick up this season, and where to find them.' },
@@ -37,7 +38,7 @@ const PROGRESS: TStep[] = [
 const VILLAGERS: TStep[] = [
   { route: 'villagers', target: 'vill-cal', title: 'Calendar', body: 'Birthdays and festivals for every season. Tap a day to see what’s on.' },
   { route: 'villagers', target: 'vill-card', title: 'Villagers', body: 'Tap anyone for their loved gifts, hearts, heart scenes and more.' },
-  { route: 'villagers', target: 'vill-seg', title: 'Maps', body: 'Maps shows where everyone is. Tap Maps to try it.', tap: 'maps' },
+  { route: 'villagers', target: 'vill-maps', pad: 3, title: 'Maps', body: 'Maps shows where everyone is. Tap Maps to try it.', tap: 'maps' },
   { route: 'maps', target: 'map-who', title: 'Choose a villager', body: 'Tap here and pick someone. Their face shows where they are.' },
   { route: 'maps', target: 'map-day', title: 'Date and weather', body: 'Tap to change the map’s day and weather. › jumps to the next day.' },
   { route: 'maps', target: 'map-time', title: 'Time of day', body: 'Drag the slider to change the time, or press play to watch them walk.' },
@@ -47,8 +48,7 @@ const VILLAGERS: TStep[] = [
 
 const SEARCH: TStep[] = [
   { route: 'search', target: 'search-box', title: 'Search anything', body: 'Type any item, fish, villager, bundle or recipe.' },
-  { route: 'search', target: 'recent', title: 'Recently viewed', body: 'Things you’ve opened show up here, so you can jump back fast.', alt: 'search-below',
-    altBody: 'Things you open will show up here, under Recently viewed.' },
+  { route: 'search', target: 'recent', title: 'Recently viewed', body: 'Things you’ve opened show up here, so you can jump back fast.' },
 ];
 
 const MORE: TStep[] = [

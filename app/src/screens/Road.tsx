@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { core } from '../data';
 import { useProfile } from '../lib/state';
 import { roadmap } from '../lib/guide';
@@ -25,11 +26,11 @@ export function RoadScreen() {
             {(cur || !ph.done) && (
               <div className="list">
                 {ph.steps.map((s) => (
-                  <a key={s.label} className={'row' + (s.done ? ' done' : '')} href={s.href || '#/road'}>
+                  <Lk key={s.label} className={'row' + (s.done ? ' done' : '')} href={s.href || '#/road'}>
                     <span className="box" aria-hidden />
                     <span className="row-main"><span className="row-t">{s.label}</span>{s.total != null && !s.done && <Bar value={s.have || 0} max={s.total} />}</span>
                     {s.total != null && <span className="cnt">{s.have}/{s.total}</span>}
-                  </a>
+                  </Lk>
                 ))}
               </div>
             )}

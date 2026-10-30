@@ -1,4 +1,6 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { balancedRows, gridSpans } from '../lib/chipgrid';
+import { Lk } from './Link';
+import { Children, useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import type { Spr } from '../types';
 import { goBack } from '../lib/router';
 import { items, core } from '../data';
@@ -23,7 +25,7 @@ export const Ui = ({ k, size = 24, eager }: { k: string; size?: number; eager?: 
 export function TopBar({ title, back, right, sub }: { title: ReactNode; back?: string; right?: ReactNode; sub?: ReactNode }) {
   return (
     <header className="topbar">
-      {back ? <a className="back" href={back} aria-label="Back" onClick={(e) => { e.preventDefault(); goBack(back); }}><span className="chev" /></a> : <span className="back-spacer" />}
+      {back ? <Lk className="back" href={back} aria-label="Back" onClick={(e) => { e.preventDefault(); goBack(back); }}><span className="chev" /></Lk> : <span className="back-spacer" />}
       <div className="tb-title"><h1>{title}</h1>{sub && <div className="tb-sub">{sub}</div>}</div>
       <div className="tb-right">{right}</div>
     </header>
@@ -49,11 +51,11 @@ export function Bar({ value, max = 100, label, tone }: { value: number; max?: nu
   );
 }
 
-export function Seg<T extends string>({ value, options, onChange, small }: { value: T; options: { v: T; label: ReactNode }[]; onChange: (v: T) => void; small?: boolean }) {
+export function Seg<T extends string>({ value, options, onChange, small }: { value: T; options: { v: T; label: ReactNode; tour?: string }[]; onChange: (v: T) => void; small?: boolean }) {
   return (
     <div className={'seg' + (small ? ' seg-sm' : '')} role="tablist">
       {options.map((o) => (
-        <button key={o.v} role="tab" aria-selected={o.v === value} className={o.v === value ? 'on' : ''} onClick={() => onChange(o.v)}>{o.label}</button>
+        <button key={o.v} data-tour={o.tour} role="tab" aria-selected={o.v === value} className={o.v === value ? 'on' : ''} onClick={() => onChange(o.v)}>{o.label}</button>
       ))}
     </div>
   );
@@ -101,6 +103,19 @@ export function Sheet({ open, onClose, title, children, closeLabel = 'Done' }: {
 
 export function Chip({ on, onClick, children }: { on?: boolean; onClick?: () => void; children: ReactNode }) {
   return <button className={'chip' + (on ? ' on' : '')} onClick={onClick} aria-pressed={on === undefined ? undefined : on}>{children}</button>;
+}
+
+/** v7.2.1 even chip grids (see lib/chipgrid). `narrow` is the layout under 360px wide. Default: balanced rows of at most `max`. */
+export { balancedRows, gridSpans };
+export function ChipGrid({ rows, narrow, max = 3, narrowMax = max, children, className = '', tour }: { rows?: number[]; narrow?: number[]; max?: number; narrowMax?: number; children: ReactNode; className?: string; tour?: string }) {
+  const kids = Children.toArray(children).filter(Boolean);
+  const fit = (r: number[] | undefined, m: number) => (r && r.reduce((a, b) => a + b, 0) === kids.length ? r : balancedRows(kids.length, m));
+  const w = gridSpans(fit(rows, max)), nw = gridSpans(fit(narrow ?? rows, narrowMax));
+  return (
+    <div className={'chips cgrid ' + className} data-tour={tour} style={{ '--c': w.cols, '--cn': nw.cols } as CSSProperties}>
+      {kids.map((k, i) => <div key={i} className="cgc" style={{ '--s': w.spans[i], '--sn': nw.spans[i] } as CSSProperties}>{k}</div>)}
+    </div>
+  );
 }
 
 export function MissingToggle({ value, onChange }: { value: boolean; onChange: (v: boolean) => void }) {

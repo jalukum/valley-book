@@ -1,3 +1,4 @@
+import { Lk } from './Link';
 import { useProfile } from '../lib/state';
 import { isStarred, toggleStar, starredGroups } from '../lib/stars';
 import { Sheet, Sprite, ItemIcon, Ui, Empty } from './ui';
@@ -24,11 +25,11 @@ export function StarredSheet({ open, onClose }: { open: boolean; onClose: () => 
           <h3 className="st-gh">{g.group}<span className="count">{g.list.length}</span></h3>
           <div className="list">
             {g.list.map((e) => (
-              <a key={e.key} className="row" href={e.href} onClick={onClose}>
+              <Lk key={e.key} className="row" href={e.href} onClick={onClose}>
                 <span className="row-ic">{e.qid ? <ItemIcon qid={e.qid} size={32} /> : <Sprite spr={e.spr} size={32} />}</span>
                 <span className="row-main"><b>{e.name}</b><small>{e.sub}</small></span>
                 <span className="chev-r" />
-              </a>
+              </Lk>
             ))}
           </div>
         </section>

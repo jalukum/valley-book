@@ -1,8 +1,9 @@
+import { Lk } from '../components/Link';
 import { museumRewardParts, partText } from '../lib/museum';
 import { useMemo, useState, type ReactNode } from 'react';
 import { core, items, SEASONS } from '../data';
 import { useProfile, toggle, isDone, update, WEATHER_LABEL, weatherIcon, type Profile } from '../lib/state';
-import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Chip, Seg, MissingToggle, SearchBox, Empty, Sheet, useUiState, pct, gold } from '../components/ui';
+import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Chip, ChipGrid, Seg, MissingToggle, SearchBox, Empty, Sheet, useUiState, pct, gold } from '../components/ui';
 import { DateChip, openDateSheet } from '../components/DateSheet';
 import { fishBiting, type BiteRow } from '../lib/guide';
 import { fmtTime } from '../lib/schedule';
@@ -38,12 +39,12 @@ export function CollectionsHub() {
     <div className="screen">
       <TopBar title="Collections" back="#/more" />
       {rows.map((r) => (
-        <a key={r.href} className="panel hub-row" href={r.href}>
+        <Lk key={r.href} className="panel hub-row" href={r.href}>
           <span className="row-ic">{r.icon}</span>
           <span className="row-main"><b>{r.name}</b><small>{r.sub}</small></span>
           <span className="hub-n">{r.have}/{r.total}</span>
           <Bar value={r.have} max={r.total} />
-        </a>
+        </Lk>
       ))}
     </div>
   );
@@ -117,7 +118,7 @@ function ColRow({ col, id, qid, name, sub, right, dim }: { col: string; id: stri
         <span className="row-main"><span className="row-t">{name}</span>{sub && <span className="row-s">{sub}</span>}</span>
         {right && <span className="row-r">{right}</span>}
       </button>
-      {qid && items[qid] && <a className="row-go" href={itemHref(qid)} aria-label="Details"><span className="chev-r" /></a>}
+      {qid && items[qid] && <Lk className="row-go" href={itemHref(qid)} aria-label="Details"><span className="chev-r" /></Lk>}
     </div>
   );
 }
@@ -135,9 +136,9 @@ function TimeSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
         <input type="range" min={360} max={1560} step={10} value={p.time} onChange={(e) => set(Number(e.target.value))} aria-label="Time of day" />
         <div className="range-ticks"><span>6am</span><span>12pm</span><span>6pm</span><span>2am</span></div>
       </div>
-      <div className="chips" style={{ marginTop: 10 }}>
+      <ChipGrid rows={[4]} className="mt10">
         {QUICK_TIMES.map(([t, l]) => <Chip key={t} on={p.time === t} onClick={() => set(t)}>{l}</Chip>)}
-      </div>
+      </ChipGrid>
       <button className="btn wide" onClick={() => { onClose(); openDateSheet(); }}><Ui k="Calendar" size={18} /> Change date or weather</button>
     </Sheet>
   );
@@ -209,17 +210,17 @@ export function FishScreen() {
       <TopBar title="Fish" back="#/collections" right={<DateChip compact />} />
       <Head have={have} total={coll.length} icon={<ItemIcon qid="(O)128" size={48} />} label="caught" />
       <div className="tools"><SearchBox value={q} onChange={setQ} placeholder="Search fish or location" /></div>
-      <div className="chips">
+      <ChipGrid rows={[3, 2]} className="fish-toggles">
         <Chip on={bite} onClick={() => setBite(!bite)}><Ui k="Gold Clock" size={16} />Biting now</Chip>
         {!bite && <Chip on={now} onClick={() => setNow(!now)}>In season</Chip>}
         <MissingToggle value={missing} onChange={setMissing} />
         {!bite && <Chip on={method === 'rod'} onClick={() => setMethod(method === 'rod' ? 'all' : 'rod')}>Rod</Chip>}
         {!bite && <Chip on={method === 'pot'} onClick={() => setMethod(method === 'pot' ? 'all' : 'pot')}>Crab pot</Chip>}
-      </div>
-      {!bite && <div className="chips">
+      </ChipGrid>
+      {!bite && <ChipGrid rows={[1, 4]} className="season-grid">
         <Chip on={sf === 'all'} onClick={() => setSf('all')}>All seasons</Chip>
         {SEASONS.map((s) => <Chip key={s} on={sf === s} onClick={() => setSf(s)}><Ui k={'season:' + s} size={16} />{s}</Chip>)}
-      </div>}
+      </ChipGrid>}
       {biting ? <BiteNow list={biting.now} later={biting.later} t={biting.t} p={p} filt={biteFilt} /> : <>
         {now && <p className="hint">Fish you can catch in {season}, any time or weather. Turn on Biting now to use the farm’s clock and weather.</p>}
         <Panel title="Fish collection" right={<span className="count">{list.length}</span>}>

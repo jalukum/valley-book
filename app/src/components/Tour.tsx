@@ -12,6 +12,14 @@ export function startTour(id: TourId) {
   setTimeout(() => setUi({ tourOpen: id === 'day' ? true : id }), 50);
 }
 
+/** The box around every element of a step's target. */
+export function unionRect(els: Element[]): DOMRect {
+  const rs = els.map((e) => e.getBoundingClientRect());
+  const l = Math.min(...rs.map((r) => r.left)), t = Math.min(...rs.map((r) => r.top));
+  const r = Math.max(...rs.map((x) => x.right)), b = Math.max(...rs.map((x) => x.bottom));
+  return new DOMRect(l, t, r - l, b - t);
+}
+
 export function Tour({ id, route }: { id: TourId; route: string }) {
   const steps = TOURS[id];
   const [i, setI] = useState(() => startIndex(steps, route));
@@ -30,12 +38,14 @@ export function Tour({ id, route }: { id: TourId; route: string }) {
   useLayoutEffect(() => {
     if (!here) { setRect(null); return; }
     let el: HTMLElement | null = null;
+    // v7.2.1: a target can be several elements (Energy, Birthday and Festival, but not Luck): the spotlight wraps just those.
+    const all = (t: string) => [...document.querySelectorAll<HTMLElement>(`[data-tour~="${t}"]`)].filter((e) => e.getClientRects().length);
     const find = () => {
-      const main = document.querySelector<HTMLElement>(`[data-tour="${step.target}"]`);
-      setMissing(!main && !!step.alt);
-      return main ?? (step.alt ? document.querySelector<HTMLElement>(`[data-tour="${step.alt}"]`) : null);
+      const main = all(step.target);
+      setMissing(!main.length && !!step.alt);
+      return main.length ? main : step.alt ? all(step.alt) : [];
     };
-    const upd = () => { el = find(); setRect(el ? el.getBoundingClientRect() : null); };
+    const upd = () => { const els = find(); el = els[0] ?? null; setRect(els.length ? unionRect(els) : null); };
     upd();
     if (el) {
       const e = el as HTMLElement;
@@ -57,7 +67,7 @@ export function Tour({ id, route }: { id: TourId; route: string }) {
   useEffect(() => { const k = (e: KeyboardEvent) => { if (e.key === 'Escape') close(); }; addEventListener('keydown', k); return () => removeEventListener('keydown', k); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   if (!here) return null; // the user wandered off: wait until they're back on that screen
   const vh = window.innerHeight;
-  const pad = 6;
+  const pad = step.pad ?? 6;
   const r = rect && { top: Math.max(4, rect.top - pad), left: Math.max(4, rect.left - pad), w: Math.min(window.innerWidth - 8, rect.width + pad * 2), h: Math.min(rect.height + pad * 2, vh * 0.55) };
   // v7.2: put the card on whichever side it fits; if neither does (a tall target on a small phone), keep it fully on screen.
   const roomBelow = r ? vh - (r.top + r.h) - 18 : 0, roomAbove = r ? r.top - 18 : 0;

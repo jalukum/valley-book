@@ -131,6 +131,6 @@ describe('v6.9.1 tutorial ending (v7.2: tab-bar steps removed)', () => {
     const last = TOUR[TOUR.length - 1];
     expect(last.target).toBe('home');
     expect(last.body).toMatch(/^Tap here anytime to get back to the front page\./);
-    expect(today).toMatch(/<a className="brand" href="#\/" data-tour="home"/);
+    expect(today).toMatch(/<(a|Lk) className="brand" href="#\/" data-tour="home"/);
   });
 });

@@ -1,3 +1,4 @@
+import { Lk } from './Link';
 import type { ReactNode } from 'react';
 import { ItemIcon, Ui, Sprite } from './ui';
 import { npcById } from '../data';
@@ -29,7 +30,7 @@ export function TaskRow({ t, big }: { t: Task; big?: boolean }) {
   );
   return (
     <div className={'task' + (done ? ' done' : '') + (big ? ' big' : '')}>
-      {t.href ? <a className="row-btn" href={t.href}>{body}</a> : <div className="row-btn static">{body}</div>}
+      {t.href ? <Lk className="row-btn" href={t.href}>{body}</Lk> : <div className="row-btn static">{body}</div>}
       {t.tick && <button className="tick" onClick={() => toggle(t.tick!.col, t.tick!.id)} aria-pressed={done} aria-label={done ? 'Mark not done' : 'Mark done'}><span className="box" /></button>}
     </div>
   );

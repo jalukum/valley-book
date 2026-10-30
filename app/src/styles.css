@@ -1234,3 +1234,39 @@ button.dtile { font: inherit; color: inherit; cursor: pointer; }
 .who-dd.replay-dd { top: auto; bottom: calc(100% + 4px); left: 0; width: 100%; min-width: 0; max-width: 100%; transform-origin: 50% 100%; }
 .replay-dd .dd-txt { display: flex; flex-direction: column; min-width: 0; }
 .replay-dd .dd-txt small { color: var(--ink-2); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- v7.2.1 no long-press menus on iPhone ----------
+   Holding a tile, link or picture no longer brings up the iOS link preview / "Save to Photos" callout or starts a text
+   selection. Text boxes stay selectable and editable; the save-folder paths stay copyable. */
+html, body, .app, .app * { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+img { -webkit-user-drag: none; user-drag: none; -webkit-touch-callout: none; }
+input, textarea, [contenteditable="true"], .app input, .app textarea { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
+.app .path { -webkit-user-select: all; user-select: all; }
+a[role="link"] { cursor: pointer; }
+/* v7.2.1 Recently viewed is always shown; before anything is opened it's a small placeholder */
+.panel.recent.empty { padding-bottom: 10px; }
+.recent-empty { display: flex; align-items: center; gap: 8px; margin: 2px 0 0; color: var(--ink-3); }
+.recent-empty .spr { opacity: .8; }
+/* v7.2.1 even chip grids: each row of filter chips is split into equal tiles that fill the width (see ChipGrid) */
+.chips.cgrid { display: grid; grid-template-columns: repeat(var(--c), minmax(0, 1fr)); gap: 6px; flex-wrap: initial; overflow: visible; }
+.chips.cgrid > .cgc { grid-column: span var(--s); display: flex; min-width: 0; }
+.chips.cgrid .chip { flex: 1; width: 100%; min-width: 0; max-width: none; min-height: 40px; border-radius: 12px; justify-content: center; text-align: center;
+  white-space: normal; line-height: 1.15; font-size: 13px; padding: 4px 6px; gap: 5px; overflow-wrap: normal; word-break: normal; hyphens: none; }
+.chips.cgrid .chip .spr { flex: none; }
+@media (max-width: 359px) {
+  .chips.cgrid { grid-template-columns: repeat(var(--cn), minmax(0, 1fr)); }
+  .chips.cgrid > .cgc { grid-column: span var(--sn); }
+  .chips.cgrid .chip { font-size: 12.5px; padding: 4px 4px; gap: 4px; }
+}
+.chips.cgrid.mt10 { margin-top: 10px; }
+/* v7.2.1 — secret-note reveals as an even two-column grid instead of a ragged row */
+.reveals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.reveals .ing { display: flex; align-items: center; gap: 4px; min-height: 30px; padding: 4px 6px; }
+.reveals .ing span { min-width: 0; overflow-wrap: anywhere; line-height: 1.15; }
+/* Narrow phones: season tiles stack the icon over the name so "Summer" never clips */
+@media (max-width: 380px) {
+  .chips.cgrid.season-grid .chip:has(.spr, img) { flex-direction: column; gap: 2px; padding: 4px 2px; min-height: 46px; line-height: 1.1; }
+}
+@media (max-width: 359px) {
+  .reveals .ing { font-size: 11.5px; gap: 2px; padding: 4px 3px; }
+}

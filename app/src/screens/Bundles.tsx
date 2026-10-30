@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useEffect, useMemo } from 'react';
 import { core, items, SEASONS } from '../data';
 import { useProfile, update, WEATHER_LABEL, type Profile } from '../lib/state';
@@ -5,7 +6,7 @@ import { bundleFinish, type BundleFinish } from '../lib/guide';
 import { flipBundleItem, activeBundles, ccProgress, checkedCount, bundleDone, jojaProgress, remixChoice, type ActiveBundle } from '../lib/progress';
 import { itemSeasons } from '../lib/seasons';
 import { query } from '../lib/router';
-import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Seg, Chip, Check, Empty, gold, useUiState } from '../components/ui';
+import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Seg, Chip, ChipGrid, Check, Empty, gold, useUiState } from '../components/ui';
 import { StarButton } from '../components/Stars';
 import { starKey } from '../lib/stars';
 import type { BItem, Reward } from '../types';
@@ -40,7 +41,7 @@ export function BundleItemRow({ it, on, onToggle, dim }: { it: BItem; on: boolea
           {(it.source || seasons) && <span className="row-s">{seasons && <span className="seas">{seasons.join(' · ')}</span>}{it.source}</span>}
         </span>
       </button>
-      {it.qid && items[it.qid] && <a className="row-go" href={`#/item/${encodeURIComponent(it.qid)}`} aria-label={`${name} details`}><span className="chev-r" /></a>}
+      {it.qid && items[it.qid] && <Lk className="row-go" href={`#/item/${encodeURIComponent(it.qid)}`} aria-label={`${name} details`}><span className="chev-r" /></Lk>}
     </div>
   );
 }
@@ -85,24 +86,24 @@ export function BundlesHome() {
           <div className="ds-row"><span className="lbl">Bundles</span><Seg small value={p.cc.mode} onChange={(v) => update((x) => { x.cc.mode = v; })} options={[{ v: 'standard', label: 'Standard' }, { v: 'remix', label: 'Remixed' }]} /></div>
           {p.cc.mode === 'remix' && <p className="hint">Pick which remixed bundles your game rolled inside each room.</p>}
         </Panel>
-        <a className="panel nav-row big" href="#/bundles/needed"><span className="row-ic"><Ui k="Junimo" size={32} /></span><span className="row-main"><b>Shopping list</b><small>{needed} item{needed === 1 ? '' : 's'} still needed · filter by season</small></span><span className="chev-r" /></a>
-        <div className="chips">
+        <Lk className="panel nav-row big" href="#/bundles/needed"><span className="row-ic"><Ui k="Junimo" size={32} /></span><span className="row-main"><b>Shopping list</b><small>{needed} item{needed === 1 ? '' : 's'} still needed · filter by season</small></span><span className="chev-r" /></Lk>
+        <ChipGrid rows={[3]}>
           <Chip on={bf === 'all'} onClick={() => setBf('all')}>All rooms</Chip>
           <Chip on={bf === 'today'} onClick={() => setBf('today')}><Ui k="Junimo" size={16} />Finish today</Chip>
           <Chip on={bf === 'short'} onClick={() => setBf('short')}>One item short</Chip>
-        </div>
+        </ChipGrid>
         {bf !== 'all' ? <BundleFilter which={bf} /> : <div className="rooms">
           {core.rooms.map((r, i) => {
             const bs = list.filter((b) => b.room === r.name);
             const d = bs.filter((b) => bundleDone(p, b)).length;
             const complete = d === bs.length;
             return (
-              <a key={r.name} className={'panel room' + (complete ? ' complete' : '')} href={`#/bundles/room/${i}`}>
+              <Lk key={r.name} className={'panel room' + (complete ? ' complete' : '')} href={`#/bundles/room/${i}`}>
                 <div className="room-dots">{bs.map((b) => <Sprite key={b.id} spr={b.colorIcon} size={16} className={bundleDone(p, b) ? '' : 'ghost'} />)}</div>
                 <div className="room-b"><h2>{r.name}</h2><small>{r.reward}</small></div>
                 <span className={'pill' + (complete ? ' ok' : '')}>{d}/{bs.length}</span>
                 <Bar value={d} max={bs.length} />
-              </a>
+              </Lk>
             );
           })}
         </div>}
@@ -120,7 +121,7 @@ function BundleFilter({ which }: { which: 'today' | 'short' }) {
   const card = (e: BundleFinish) => {
     const total = e.today.length + (which === 'short' ? 1 : 0);
     return (
-      <a key={e.b.id} className="bt-card" href={`#/bundles/room/${roomIdx(e.b.room)}?b=${encodeURIComponent(e.b.name)}`}>
+      <Lk key={e.b.id} className="bt-card" href={`#/bundles/room/${roomIdx(e.b.room)}?b=${encodeURIComponent(e.b.name)}`}>
         <div className="bt-h"><Sprite spr={e.b.icon} size={36} /><span className="grow"><b>{e.b.name}</b>
           <small>{e.b.room} · {which === 'today' ? `${e.need} still needed` : `${e.today.length} of ${total} today`}</small></span>
           <span className={'pill' + (which === 'today' ? ' ok' : '')}>{which === 'today' ? 'Today' : `${e.today.length}/${e.need}`}</span></div>
@@ -130,7 +131,7 @@ function BundleFilter({ which }: { which: 'today' | 'short' }) {
             ? e.missing.slice(0, 1).map((m) => <div key={m.index} className="bt-it miss">{m.qid ? <ItemIcon qid={m.qid} size={28} /> : <Ui k="Junimo" size={28} />}<span><b>{m.name}</b><small>{m.why}</small></span></div>)
             : <div className="bt-it miss"><Ui k="Junimo" size={28} /><span><b>One more item</b><small>Any of: {e.missing.slice(0, 4).map((m) => m.name).join(', ')}{e.missing.length > 4 ? '…' : ''} (not gettable today)</small></span></div>)}
         </div>
-      </a>
+      </Lk>
     );
   };
   return (
@@ -154,7 +155,7 @@ function RemixPicker({ room }: { room: string }) {
     return (
       <Panel title="Your remixed bundles" icon={<Ui k="Junimo Bundle" size={24} />}>
         <p className="hint">Your game picked {r.count} of these {opts.length}. Tap to choose ({choice.length}/{r.count}).</p>
-        <div className="chips">
+        <ChipGrid max={3} narrowMax={2}>
           {opts.map((o, i) => (
             <Chip key={o.name} on={choice.includes(i)} onClick={() => update((x) => {
               let c = remixChoice(core, x, room);
@@ -163,7 +164,7 @@ function RemixPicker({ room }: { room: string }) {
               x.cc.remix[room] = c;
             })}><Sprite spr={o.colorIcon} size={16} />{o.name}</Chip>
           ))}
-        </div>
+        </ChipGrid>
       </Panel>
     );
   }
@@ -173,11 +174,11 @@ function RemixPicker({ room }: { room: string }) {
     <Panel title="Your remixed bundles" icon={<Ui k="Junimo Bundle" size={24} />}>
       <p className="hint">These slots are rolled at random. Pick the one in your game.</p>
       {multi.map(({ s, si }) => (
-        <div key={si} className="chips slot">
+        <ChipGrid key={si} max={3} narrowMax={2} className="slot">
           {s.options.map((o, oi) => (
             <Chip key={o.name} on={choice[si] === oi} onClick={() => update((x) => { const c = remixChoice(core, x, room); c[si] = oi; x.cc.remix[room] = c; })}><Sprite spr={o.colorIcon} size={16} />{o.name}</Chip>
           ))}
-        </div>
+        </ChipGrid>
       ))}
     </Panel>
   );
@@ -241,11 +242,11 @@ export function NeededScreen() {
   return (
     <div className="screen">
       <TopBar title="Shopping list" back="#/bundles" sub={`${all.length} items left in unfinished bundles`} />
-      <div className="chips">
+      <ChipGrid rows={[2, 3]} className="season-grid">
         <Chip on={f === 'now'} onClick={() => setF('now')}>Now ({cur})</Chip>
         {SEASONS.filter((s) => s !== cur).map((s) => <Chip key={s} on={f === s} onClick={() => setF(s)}><Ui k={'season:' + s} size={16} />{s}</Chip>)}
         <Chip on={f === 'all'} onClick={() => setF('all')}>All</Chip>
-      </div>
+      </ChipGrid>
       {p.cc.route === 'joja' && <p className="hint">You’re on the Joja route; only the Missing Bundle still applies.</p>}
       {!list.length && <Empty>Nothing left to collect{season !== 'all' ? ` for ${season}` : ''}.</Empty>}
       {seasonal.length > 0 && <Panel title={season === 'all' ? 'Seasonal' : `Get in ${season}`} icon={season !== 'all' ? <Ui k={'season:' + season} size={24} /> : undefined} right={<span className="count">{seasonal.length}</span>}><p className="hint">Tap to mark as donated.</p><div className="list">{seasonal.map(row)}</div></Panel>}
@@ -270,7 +271,7 @@ function JojaBody() {
         {rows.map((r) => <Check key={r.key} on={!!p.cc.joja[r.key]} onClick={() => update((x) => { x.cc.joja[r.key] = !x.cc.joja[r.key]; })} sub={r.sub} right={gold(r.cost)}>{r.name}</Check>)}
       </div>
     </Panel>
-    {missing >= 0 && <a className="panel nav-row big" href={`#/bundles/room/${missing}`}><span className="row-ic"><Ui k="Junimo Bundle" size={32} /></span><span className="row-main"><b>The Missing Bundle</b><small>Abandoned Joja Mart, after the Joja route is done</small></span><span className="chev-r" /></a>}
+    {missing >= 0 && <Lk className="panel nav-row big" href={`#/bundles/room/${missing}`}><span className="row-ic"><Ui k="Junimo Bundle" size={32} /></span><span className="row-main"><b>The Missing Bundle</b><small>Abandoned Joja Mart, after the Joja route is done</small></span><span className="chev-r" /></Lk>}
   </>;
 }
 export function JojaScreen() {

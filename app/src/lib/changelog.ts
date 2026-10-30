@@ -2,6 +2,17 @@
 // Shown once per version to people who already used an older version; a brand-new install never sees it.
 export const CHANGELOG: { version: string; items: string[] }[] = [
   {
+    version: '7.2.1',
+    items: [
+      'The Fish filters are now neat, even buttons that fill the row, and so are the other filter buttons around the app.',
+      'Tutorials now light up exactly what they talk about, like just Energy, Birthday and Festival, or just the Maps tab.',
+      'Recently viewed in Search always has its spot now, even before you’ve opened anything.',
+      'This update note only shows the first time you open the app after an update, never after a tutorial.',
+      'Pressing and holding no longer pops up the iPhone menu or link preview.',
+      'Graphical bug fixes.',
+    ],
+  },
+  {
     version: '7.2',
     items: [
       'Tutorials now pop up the first time you visit each tab, and you can replay any of them from More.',
@@ -44,5 +55,12 @@ export function newer(a: string, b: string) {
 export function noteToShow(seen: string | null, existingUser: boolean): string | null {
   if (seen == null) return existingUser ? APP_VERSION : null;
   return newer(APP_VERSION, seen) ? APP_VERSION : null;
+}
+/** v7.2.1: decided once, when the app opens. The letter only shows on the first open after an update, and only if
+ *  nothing else is on screen then (onboarding or a tutorial). Otherwise this version is just marked as seen, so the
+ *  letter can never turn up later, after a tour ends or is skipped. */
+export function letterAtLaunch(seen: string | null, existingUser: boolean, onboarded: boolean, tourOpen: boolean): string | null {
+  const v = noteToShow(seen, existingUser);
+  return v && onboarded && !tourOpen ? v : null;
 }
 export const entryFor = (v: string) => CHANGELOG.find((c) => c.version === v) || null;

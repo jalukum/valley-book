@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { core, npcById, SEASONS, weekday, loadSchedules } from '../data';
 import { useProfile, weatherIcon, WEATHER_LABEL, type Profile } from '../lib/state';
@@ -182,7 +183,7 @@ export function MapsScreen() {
 
   return (
     <div className="screen maps">
-      <TopBar title="Villagers" right={<a className="btn sm" href="#/calendar"><Ui k="Calendar" size={16} /> Calendar</a>} />
+      <TopBar title="Villagers" right={<Lk className="btn sm" href="#/calendar"><Ui k="Calendar" size={16} /> Calendar</Lk>} />
       <Seg value="maps" onChange={(v) => v === 'grid' && go('#/villagers')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps' }]} />
       <div className="map-tabs" role="tablist" aria-label="Maps" data-tour="map-tabs">
         {TABS.map((t) => <button key={t.id} role="tab" aria-selected={t.id === tab} className={'map-tab' + (t.id === tab ? ' on' : '')} onClick={() => setTab(t.id)}>{t.label}</button>)}
@@ -244,7 +245,7 @@ export function MapsScreen() {
           </div>
           <div className="mc-act">
             <button className="mc-x" onClick={() => setCardOpen(false)} aria-label="Hide card">×</button>
-            <a className="btn sm" href={vhref(card.npc.id)}>Villager info</a>
+            <Lk className="btn sm" href={vhref(card.npc.id)}>Villager info</Lk>
           </div>
         </div>}
         {!sched && <div className="map-loading">Loading schedules…</div>}

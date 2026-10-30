@@ -19,7 +19,7 @@ describe('v7.2 tutorials', () => {
     for (const steps of Object.values(TOURS)) for (const s of steps) {
       for (const t of [s.target, s.alt].filter(Boolean) as string[]) {
         if (t.startsWith('tile-') || t === 'bubble-today') continue; // built from keys
-        expect(SRC, t).toMatch(new RegExp(`data-tour=(\\{[^}]*)?["']${t}["']`));
+        expect(SRC, t).toMatch(new RegExp(`(data-tour=(\\{[^}]*)?|tour: )["']${t}["']`));
       }
     }
   });
@@ -35,14 +35,14 @@ describe('v7.2 tutorials', () => {
   });
   it('Villagers explains the calendar and villager pages, then walks through Maps', () => {
     const v = TOURS.villagers;
-    expect(v.slice(0, 3).map((s) => s.target)).toEqual(['vill-cal', 'vill-card', 'vill-seg']);
+    expect(v.slice(0, 3).map((s) => s.target)).toEqual(['vill-cal', 'vill-card', 'vill-maps']);
     expect(v[2].tap).toBe('maps');
     expect(v.slice(3).every((s) => s.route === 'maps')).toBe(true);
     expect(v.map((s) => s.target)).toEqual(expect.arrayContaining(['map-who', 'map-day', 'map-time', 'map-tabs', 'map-vp']));
   });
-  it('Search: search anything, then recently viewed (with a fallback before anything is viewed)', () => {
+  it('Search: search anything, then recently viewed (the section is always there, so no fallback is needed)', () => {
     expect(TOURS.search.map((s) => s.target)).toEqual(['search-box', 'recent']);
-    expect(TOURS.search[1].alt).toBe('search-below');
+    expect(TOURS.search[1].alt).toBeUndefined();
   });
   it('More is one step on the replay setting', () => {
     expect(TOURS.more).toHaveLength(1);
@@ -95,7 +95,7 @@ describe('v7.2 tutorials', () => {
     expect(T).toMatch(/Math\.max\(8, Math\.min\(vh - popH - 8/);
   });
   it('7.2 changelog entry', () => {
-    expect(CHANGELOG[0].version).toBe('7.2');
-    expect(CHANGELOG[0].items[0]).toMatch(/first time you visit each tab.*replay any of them from More/);
+    const c = CHANGELOG.find((x) => x.version === '7.2')!;
+    expect(c.items[0]).toMatch(/first time you visit each tab.*replay any of them from More/);
   });
 });

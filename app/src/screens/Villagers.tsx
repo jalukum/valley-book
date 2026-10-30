@@ -1,3 +1,4 @@
+import { Lk } from '../components/Link';
 import { core, SEASONS } from '../data';
 import { useProfile } from '../lib/state';
 import { TopBar, Panel, Sprite, Ui, Seg, Chip, Empty, Sheet, useUiState } from '../components/ui';
@@ -30,8 +31,8 @@ export function VillagersScreen() {
   if (f === 'gift') list = list.filter((n) => (p.gifts[n.id] ?? 0) < 2);
   return (
     <div className="screen">
-      <TopBar title="Villagers" right={<a className="btn sm" href="#/calendar" data-tour="vill-cal"><Ui k="Calendar" size={16} /> Calendar</a>} />
-      <div data-tour="vill-seg"><Seg value="grid" onChange={(v) => v === 'maps' && go('#/maps')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps' }]} /></div>
+      <TopBar title="Villagers" right={<Lk className="btn sm" href="#/calendar" data-tour="vill-cal"><Ui k="Calendar" size={16} /> Calendar</Lk>} />
+      <Seg value="grid" onChange={(v) => v === 'maps' && go('#/maps')} options={[{ v: 'grid', label: 'Friends' }, { v: 'maps', label: 'Maps', tour: 'vill-maps' }]} />
       <>
         <div className="chips vtags" data-tour="vill-tags">
           {VILL_FILTERS.map((x) => <Chip key={x.v} on={f === x.v} onClick={() => setF(x.v)}>{x.v === 'all' ? `All ${core.npcs.length}` : x.label}</Chip>)}
@@ -41,12 +42,12 @@ export function VillagersScreen() {
             const h = p.hearts[n.id] ?? 0; const g = p.gifts[n.id] ?? 0;
             const bday = n.birthday?.season === season && n.birthday.day === p.date.day;
             return (
-              <a key={n.id} data-tour={i === 0 ? 'vill-card' : undefined} className={'vcard' + (bday ? ' bday' : '') + (h >= heartsTarget(n.romanceable) ? ' maxed' : '')} href={href(n)}>
+              <Lk key={n.id} data-tour={i === 0 ? 'vill-card' : undefined} className={'vcard' + (bday ? ' bday' : '') + (h >= heartsTarget(n.romanceable) ? ' maxed' : '')} href={href(n)}>
                 <Sprite spr={n.portrait} size={64} alt="" />
                 <b>{n.name}</b>
                 <span className="vmeta"><Ui k="Heart" size={12} />{h}<span className="gdots" aria-label={`${g} of 2 gifts this week`}><i className={g >= 1 ? 'on' : ''} /><i className={g >= 2 ? 'on' : ''} /></span></span>
                 {bday && <span className="bday-tag">Birthday</span>}
-              </a>
+              </Lk>
             );
           })}
         </div>
@@ -83,7 +84,7 @@ export function CalendarScreen() {
             <div key={d} role="button" tabIndex={0} data-sfx="tap" aria-label={`${season} ${d}`} onClick={() => setOpen(d)} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setOpen(d)}
               className={'cal-d' + (today ? ' today' : '') + (f ? ' fest' : '') + (marks.length ? ' has-m' : '')}>
               <span className="cal-n">{d}</span>
-              {ns.map((n) => <a key={n.id} href={href(n)} onClick={(e) => e.stopPropagation()} aria-label={`${n.name}’s birthday`}><Sprite spr={n.icon} size={32} /></a>)}
+              {ns.map((n) => <Lk key={n.id} href={href(n)} onClick={(e) => e.stopPropagation()} aria-label={`${n.name}’s birthday`}><Sprite spr={n.icon} size={32} /></Lk>)}
               {f && !ns.length && <span className="cal-f">{f.name.replace(/^(The |Dance of the )/, '').split(' ')[0]}</span>}
               {!!marks.length && <span className="cal-m" aria-hidden>{marks.map((m) => <img key={m.kind} className={'cm cm-' + m.kind} src={'./' + (core.ui[m.icon]?.s || '')} alt="" draggable={false} />)}</span>}
             </div>
@@ -99,7 +100,7 @@ export function CalendarScreen() {
         {!events.length && <Empty>No events.</Empty>}
         <div className="list">
           {events.map((e, i) => e.n ? (
-            <a key={i} className="nav-row" href={href(e.n)}><span className="row-ic"><Sprite spr={e.n.icon} size={32} /></span><span className="row-main"><b>{e.n.name}’s birthday</b><small>{season} {e.day}</small></span><span className="chev-r" /></a>
+            <Lk key={i} className="nav-row" href={href(e.n)}><span className="row-ic"><Sprite spr={e.n.icon} size={32} /></span><span className="row-main"><b>{e.n.name}’s birthday</b><small>{season} {e.day}</small></span><span className="chev-r" /></Lk>
           ) : (
             <div key={i} className="nav-row"><span className="row-ic"><Ui k="Calendar" size={32} /></span><span className="row-main"><b>{e.fest!.name}</b><small>{season} {e.fest!.days.join(', ')} · {e.fest!.where}</small></span></div>
           ))}
@@ -123,7 +124,7 @@ function DaySheet({ season, day, onClose, ctx }: { season: number; day: number |
     <Sheet open onClose={onClose} title={<>{weekday(day)}, {name} {day}<small className="ds-sub"> · Year {p.date.year}</small></>}>
       <div className="list day-list">
         {f && <div className="nav-row"><span className="row-ic"><Ui k="weather:Festival" size={28} /></span><span className="row-main"><b>{f.name}</b><small>{f.where}</small></span></div>}
-        {ns.map((n) => <a key={n.id} className="nav-row" href={href(n)} onClick={onClose}><span className="row-ic"><Sprite spr={n.icon} size={32} /></span><span className="row-main"><b>{n.name}’s birthday</b><small>Birthday gifts count 8× the friendship</small></span><span className="chev-r" /></a>)}
+        {ns.map((n) => <Lk key={n.id} className="nav-row" href={href(n)} onClick={onClose}><span className="row-ic"><Sprite spr={n.icon} size={32} /></span><span className="row-main"><b>{n.name}’s birthday</b><small>Birthday gifts count 8× the friendship</small></span><span className="chev-r" /></Lk>)}
         {shops.filter((e) => e.kind !== 'market' || !f).map((e, i) => <div key={i} className="nav-row"><span className="row-ic"><Ui k={e.icon} size={30} /></span><span className="row-main"><b>{e.title}</b><small>{e.detail}</small></span></div>)}
         {green && <p className="hint">Green Rain today, so the Queen of Sauce has no recipe.</p>}
         {!f && !ns.length && !shops.length && <Empty>Nothing special on this day.</Empty>}

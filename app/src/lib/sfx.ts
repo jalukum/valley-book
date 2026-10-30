@@ -33,7 +33,7 @@ export function sfxFor(t: Tapped): Sound | null {
   return 'button-tap';
 }
 
-const TAPPABLE = 'button, a[href], [role="button"], [role="tab"], [role="switch"], [role="radio"], input, select, textarea, label, [data-sfx]';
+const TAPPABLE = 'button, a[href], [role="link"], [role="button"], [role="tab"], [role="switch"], [role="radio"], input, select, textarea, label, [data-sfx]';
 export function describe(el: Element): Tapped {
   const own = el.closest('[data-sfx]');
   const i = el as HTMLInputElement;
