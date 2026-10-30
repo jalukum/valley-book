@@ -584,7 +584,13 @@ img.pt { border-radius: 6px; }
 
 /* ---------- v3: launch screen ---------- */
 .app.no-tabs .main { padding-bottom: calc(var(--sab) + 12px); }
-.entry { position: relative; min-height: calc(100dvh - var(--sat) - 16px); gap: 14px; }
+.entry { position: relative; gap: 14px; }
+/* v6.8.2 front page fits the screen exactly, no scroll: the old min-height (100dvh − top inset) plus .main's bottom padding
+   (home-indicator inset + 12px) overflowed by env(safe-area-inset-bottom). Now the app shell doesn't scroll on this page and
+   .main is exactly the screen tall (border-box, insets inside), with the entry screen flexing to fill it. */
+.app.no-tabs { overflow: hidden; }
+.app.no-tabs .main { height: 100%; display: flex; flex-direction: column; }
+.app.no-tabs .main > .entry { flex: 1 1 auto; min-height: 0; }
 .entry-h { display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 14px; text-align: center; }
 .entry-h .brand { flex-direction: column; gap: 4px; }
 .entry-h .brand img { width: 56px !important; height: 56px !important; }
