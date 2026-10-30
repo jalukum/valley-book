@@ -566,5 +566,45 @@
  "Giant_Stump_Shadow.png": {
   "from": "app-made",
   "note": "Not game art: a 108x14 stepped pixel ellipse in translucent dark green (three hard-edged rings, no blur) made by app/scripts/make-raccoon-home.py, to ground the stump on the meadow."
+ },
+ "Traveling_Cart_Icon.png": {
+  "from": "https://stardewvalleywiki.com/File:Traveling_Cart.png",
+  "crop": [
+   120,
+   0,
+   500,
+   276
+  ],
+  "note": "v7.0 calendar mark: the cart (pig cropped off), no other edits."
+ },
+ "Queen_of_Sauce_Icon.png": {
+  "from": "https://stardewvalleywiki.com/File:Queen_of_Sauce.png",
+  "crop": [
+   40,
+   0,
+   128,
+   88
+  ],
+  "note": "v7.0 calendar mark for new Queen of Sauce recipe Sundays: the Queen cropped from the TV screen, no other edits."
+ },
+ "TV_Icon.png": {
+  "from": "https://stardewvalleywiki.com/File:Budget_TV.png",
+  "crop": [
+   0,
+   6,
+   93,
+   96
+  ],
+  "note": "v7.0 calendar mark for Wednesday reruns: the Budget TV without its stand, no other edits."
+ },
+ "Special_Orders_Board_Icon.png": {
+  "from": "https://stardewvalleywiki.com/File:Special_order_board.png",
+  "crop": [
+   134,
+   62,
+   320,
+   180
+  ],
+  "note": "v7.0 calendar mark for the Monday Special Orders refresh: the board cropped from the wiki screenshot, no other edits."
  }
 }

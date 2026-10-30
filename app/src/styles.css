@@ -1093,3 +1093,49 @@ button.map-note:active { transform: translateY(2px); box-shadow: 0 0 0 var(--woo
 .dd-row:active { background: var(--paper-2); }
 .map-vp.live .pin, .map-vp.live .fest-flag, .map-vp.live .pin-head { transition: none; }
 .map-vp.live { cursor: grabbing; }
+
+/* ---------- v7.0 calendar shop days ---------- */
+.cal-d { cursor: pointer; }
+.cal-d.has-m { padding-bottom: 13px; }
+.cal-m { position: absolute; left: 0; right: 0; bottom: 2px; display: flex; justify-content: center; align-items: flex-end; gap: 1px; pointer-events: none; }
+img.cm { height: 11px; width: auto; image-rendering: pixelated; flex: none; }
+img.cm-cart { height: 11px; }
+img.cm-orders { height: 10px; }
+.cal-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; justify-content: center; align-items: center; margin: -4px 10px 12px; padding: 7px 10px; background: var(--paper); border: 2px solid var(--frame-d); border-radius: 10px; font: 600 12px var(--body); color: var(--ink-2); }
+.cal-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.cal-legend img.cm { height: 14px; }
+.cal-legend small { flex-basis: 100%; text-align: center; color: var(--ink-3); font-size: 11.5px; }
+.ds-sub { font: 600 13px var(--body); color: var(--ink-3); }
+.day-list .nav-row .row-ic img { image-rendering: pixelated; }
+
+/* ---------- v7.0 undo bar ---------- */
+.undo-bar { position: fixed; z-index: 45; left: 50%; bottom: calc(var(--tabh) + var(--sab) + 10px); width: min(92vw, 420px); transform: translateX(-50%);
+  display: flex; align-items: center; gap: 10px; padding: 8px 8px 10px 12px; overflow: hidden;
+  background: var(--paper); border: 3px solid var(--frame-d); border-radius: 12px; box-shadow: 0 0 0 2px var(--frame-l) inset, 0 4px 0 rgba(60,36,10,.35);
+  animation: ub-in .22s ease-out; }
+.app.no-tabs .undo-bar { bottom: calc(var(--sab) + 14px); }
+.undo-bar .ub-t { flex: 1; font: 600 15px var(--head); color: var(--ink); }
+.undo-bar .ub-b { flex: none; }
+.ub-timer { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--acc); transform-origin: left; animation: ub-time linear forwards; }
+@keyframes ub-in { from { transform: translate(-50%, 24px); opacity: 0; } }
+@keyframes ub-time { to { transform: scaleX(0); } }
+
+/* ---------- v7.0 recently viewed ---------- */
+.panel.recent .panel-h h2 { font-size: 17px; }
+
+/* ---------- v7.0 "just updated" letter (mailbox-letter parchment) ---------- */
+.letter-wrap { align-items: center; padding: 18px; z-index: 60; }
+.letter { position: relative; width: min(100%, 380px); max-height: 86dvh; overflow-y: auto; padding: 18px 20px 16px;
+  background: repeating-linear-gradient(0deg, transparent 0 25px, rgba(138,90,43,.13) 25px 26px), linear-gradient(#fffaf0, #f7e7bd);
+  border: 3px solid var(--frame-d); border-radius: 6px; box-shadow: 0 0 0 3px var(--frame-l) inset, 0 0 0 6px var(--frame) inset, 0 8px 0 rgba(40,24,6,.35);
+  color: var(--ink); font: 15px/1.6 var(--body); animation: letter-in .28s ease-out; }
+.letter-top { display: flex; align-items: center; gap: 10px; margin: 4px 0 8px; }
+.letter-top h2 { font: 400 22px/1.1 var(--head); color: var(--wood-d); }
+.letter p { margin: 4px 2px; }
+.letter-hi { font-family: var(--head); font-size: 17px; color: var(--ink-2); }
+.letter ul { margin: 6px 0 6px 2px; padding-left: 18px; }
+.letter li { margin: 4px 0; }
+.letter li::marker { color: var(--acc); }
+.letter-sign { text-align: right; font-family: var(--head); color: var(--ink-2); }
+.letter-b { display: block; margin: 10px auto 2px; min-width: 120px; }
+@keyframes letter-in { from { transform: translateY(18px) scale(.96); opacity: 0; } }

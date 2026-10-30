@@ -43,10 +43,12 @@ export interface Profile {
   spouse: string | null;
   perf: { stardrops: Record<string, number>; obelisks: Record<string, number>; goldClock: number; skills: Record<string, number>; waivers: number };
   setup: Setup;
+  recent: string[]; // v7.0 recently viewed, newest first: 'item:<qid>' | 'villager:<id>'
 }
 export interface Store { activeId: string; profiles: Profile[] }
 
 const KEY = 'sdv:profiles';
+export const RECENT_MAX = 10;
 const uid = () => Math.random().toString(36).slice(2, 10);
 export function newProfile(name = 'My Farm', farmType: FarmType = 'standard'): Profile {
   return {
@@ -56,7 +58,7 @@ export function newProfile(name = 'My Farm', farmType: FarmType = 'standard'): P
     cc: { mode: 'standard', route: 'cc', checked: {}, remix: {}, joja: {} },
     done: {}, hearts: {}, gifts: {}, giftWeek: weekKey({ season: 0, day: 1, year: 1 }), spouse: null,
     perf: { stardrops: {}, obelisks: {}, goldClock: 0, skills: {}, waivers: 0 },
-    setup: newSetup(),
+    setup: newSetup(), recent: [],
   };
 }
 export const newSetup = (): Setup => ({ mine: 0, skullDepth: 0, tools: { pickaxe: 0, axe: 0, hoe: 0, can: 0 }, rod: 'auto', house: 0, backpack: 12,
@@ -77,6 +79,7 @@ export function normalizeProfile(p: any): Profile {
     perf: { ...base.perf, ...(p.perf || {}), stardrops: { ...(p.perf?.stardrops || {}) }, obelisks: { ...(p.perf?.obelisks || {}) }, skills: { ...(p.perf?.skills || {}) } },
     setup: { ...base.setup, ...(p.setup || {}), tools: { ...base.setup.tools, ...(p.setup?.tools || {}) }, keys: { ...(p.setup?.keys || {}) } },
   };
+  out.recent = Array.isArray(p.recent) ? p.recent.filter((x: unknown) => typeof x === 'string').slice(0, RECENT_MAX) : [];
   if (!isFarmType(out.farmType)) out.farmType = 'standard'; // older saves had no farm type: default Standard, user can change it
   if (!['sun', 'rain', 'storm', 'wind', 'snow', 'green'].includes(out.weather)) out.weather = 'sun';
   out.setup.mine = clamp(Math.round(out.setup.mine), 0, 120);
@@ -121,8 +124,61 @@ export function update(fn: (p: Profile) => void) {
   const cur = active();
   const draft: Profile = structuredClone(cur);
   fn(draft);
+  noteUndo(cur, draft);
   store = { ...store, profiles: store.profiles.map((p) => (p.id === cur.id ? draft : p)) };
   emit();
+}
+
+// ---------- v7.0 undo after a tick ----------
+// Any update that only changes progress (ticks, hearts, gifts, bundles, perfection, setup keys) offers a few seconds of Undo,
+// which puts those fields back exactly as they were. Date / weather / time / recently-viewed changes never offer it.
+export const UNDO_FIELDS = ['done', 'hearts', 'gifts', 'cc', 'perf', 'setup', 'flags', 'spouse'] as const;
+type UndoField = (typeof UNDO_FIELDS)[number];
+export interface UndoEntry { id: number; profileId: string; before: Pick<Profile, UndoField>; label: string; at: number }
+let undo: UndoEntry | null = null;
+let undoSeq = 0;
+const undoL = new Set<() => void>();
+const undoEmit = () => undoL.forEach((l) => l());
+export const getUndo = () => undo;
+export function useUndo() { return useSyncExternalStore((l) => { undoL.add(l); return () => undoL.delete(l); }, getUndo, getUndo); }
+export function clearUndo() { if (undo) { undo = null; undoEmit(); } }
+const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+/** What changed, in plain words, for the Undo bar. */
+export function undoLabel(a: Profile, b: Profile): string | null {
+  const keys = (Object.keys({ ...a, ...b }) as (keyof Profile)[]).filter((k) => !same(a[k], b[k]));
+  if (!keys.length || keys.some((k) => !(UNDO_FIELDS as readonly string[]).includes(k))) return null;
+  const k = keys[0] as UndoField;
+  const grew = (x: unknown, y: unknown) => JSON.stringify(y).length >= JSON.stringify(x).length;
+  if (k === 'done') return grew(a.done, b.done) ? 'Ticked off' : 'Unticked';
+  if (k === 'cc') return grew(a.cc, b.cc) ? 'Bundle updated' : 'Bundle item unticked';
+  if (k === 'hearts') return 'Hearts changed';
+  if (k === 'gifts') return grew(a.gifts, b.gifts) ? 'Gift logged' : 'Gift removed';
+  if (k === 'perf') return 'Perfection updated';
+  if (k === 'spouse') return 'Spouse changed';
+  return 'Setup changed';
+}
+let undoing = false;
+function noteUndo(cur: Profile, next: Profile) {
+  if (undoing) return;
+  const label = undoLabel(cur, next);
+  if (!label) return;
+  const before = {} as Pick<Profile, UndoField>;
+  for (const f of UNDO_FIELDS) (before as any)[f] = structuredClone(cur[f]);
+  undo = { id: ++undoSeq, profileId: cur.id, before, label, at: Date.now() };
+  undoEmit();
+}
+/** Put the last tick back exactly as it was. */
+export function applyUndo() {
+  const u = undo;
+  if (!u) return false;
+  undo = null;
+  const p = store.profiles.find((x) => x.id === u.profileId);
+  if (p) {
+    undoing = true;
+    try { store = { ...store, profiles: store.profiles.map((x) => (x.id === u.profileId ? { ...x, ...structuredClone(u.before) } : x)) }; emit(); } finally { undoing = false; }
+  }
+  undoEmit();
+  return !!p;
 }
 export function setStore(s: Store) { store = s; emit(); }
 export function switchProfile(id: string) { store = { ...store, activeId: id }; emit(); }
@@ -151,6 +207,14 @@ export function importProfiles(list: Profile[]) {
   store = { activeId: fresh[0].id, profiles: [...store.profiles, ...fresh] };
   emit();
 }
+
+// ---------- v7.0 recently viewed (per farm) ----------
+export function addRecent(key: string) {
+  const cur = active();
+  if (cur.recent?.[0] === key) return;
+  update((p) => { p.recent = [key, ...(p.recent || []).filter((k) => k !== key)].slice(0, RECENT_MAX); });
+}
+export function clearRecent() { update((p) => { p.recent = []; }); }
 
 // ---------- small helpers ----------
 export const isDone = (p: Profile, col: string, id: string) => (p.done[col]?.[id] ?? 0) > 0;

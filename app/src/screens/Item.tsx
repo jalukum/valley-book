@@ -1,5 +1,6 @@
 import { core, items, npcById, fishByQid, loadGifts } from '../data';
-import { useProfile, toggle, isDone } from '../lib/state';
+import { useEffect } from 'react';
+import { useProfile, toggle, isDone, addRecent } from '../lib/state';
 import { TopBar, Panel, Sprite, ItemIcon, Ui, Empty, gold } from '../components/ui';
 import { useAsync } from '../lib/useAsync';
 import { whoLikes, TIER_LABEL } from '../lib/gifts';
@@ -15,6 +16,7 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
   const it = items[qid];
   const p = useProfile();
   const gifts = useAsync(loadGifts);
+  useEffect(() => { if (it) addRecent('item:' + qid); }, [qid]);
   if (!it) return <div className="screen"><TopBar title="Item" back="#/search" /><Empty>Item not found.</Empty></div>;
   const fish = fishByQid[qid];
   const mus = core.museum.items.find((m) => m.qid === qid);

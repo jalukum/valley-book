@@ -14,6 +14,7 @@ import { Onboarding } from './components/Onboarding';
 import { Tour } from './components/Tour';
 import { Sky } from './components/Sky';
 import { Popcorn } from './components/Popcorn';
+import { UndoBar, UpdateNote } from './components/Notices';
 import SearchScreen from './screens/Search';
 import { BundlesHome, RoomScreen, NeededScreen, JojaScreen } from './screens/Bundles';
 import { VillagersScreen, CalendarScreen } from './screens/Villagers';
@@ -124,6 +125,8 @@ export default function App() {
         ))}
       </nav>}
       <DateSheetHost />
+      <UndoBar />
+      {ui.onboarded && !ui.tourOpen && <UpdateNote />}
       {!ui.onboarded && <Onboarding />}
       {ui.onboarded && ui.tourOpen && <Tour route={r[0] ?? ''} />}
     </div>

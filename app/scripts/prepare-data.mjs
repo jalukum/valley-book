@@ -186,6 +186,11 @@ ui['tree:Pine:3'] = { s: pub('sprites/derived/Tree_Pine_Winter.png'), w: 96, h: 
 ui['ground:Tiles:3'] = { s: pub('sprites/derived/Ground_Tiles_Winter.png'), w: 64, h: 16 };
 ui['air:leaf'] = { s: pub('sprites/derived/Particle_Leaf.png'), w: 32, h: 8 };
 ui['air:petal'] = { s: pub('sprites/derived/Particle_Petal.png'), w: 28, h: 7 };
+// v7.0 calendar shop-day marks (see ../sprites/derived/SOURCES.json): crops of wiki images, no other edits.
+ui['cal:Cart'] = { s: pub('sprites/derived/Traveling_Cart_Icon.png'), w: 380, h: 276 };
+ui['cal:Queen'] = { s: pub('sprites/derived/Queen_of_Sauce_Icon.png'), w: 88, h: 88 };
+ui['cal:TV'] = { s: pub('sprites/derived/TV_Icon.png'), w: 93, h: 90 };
+ui['cal:Board'] = { s: pub('sprites/derived/Special_Orders_Board_Icon.png'), w: 186, h: 118 };
 // v6.9.1 the raccoon home (see ../sprites/derived/SOURCES.json and scripts/make-raccoon-home.py): the wiki's real Giant Stump,
 // unmodified, sampled back to 1 game px; window bars from the same sprite; a kit head from the same screenshot; an app-made shadow.
 ui['rhome:Stump'] = { s: pub('sprites/derived/Giant_Stump_Home.png'), w: 100, h: 110 };

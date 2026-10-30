@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { npcById, items, SEASONS, loadGifts, loadSchedules } from '../data';
-import { useProfile, update } from '../lib/state';
+import { useProfile, update, addRecent } from '../lib/state';
 import { TopBar, Panel, Sprite, Ui, ItemIcon, Chip, Empty, Stepper } from '../components/ui';
 import { DateChip } from '../components/DateSheet';
 import { useAsync } from '../lib/useAsync';
@@ -23,6 +23,7 @@ export default function VillagerScreen({ id }: { id?: string }) {
 
 function Villager({ n }: { n: Npc }) {
   const p = useProfile();
+  useEffect(() => { addRecent('villager:' + n.id); }, [n.id]);
   const h = p.hearts[n.id] ?? 0;
   const married = p.spouse === n.id;
   const max = married ? 14 : 10;
