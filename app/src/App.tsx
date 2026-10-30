@@ -84,6 +84,8 @@ export default function App() {
   const p = useProfile();
   const season = SEASONS[p.date.season].toLowerCase();
   useEffect(() => { document.documentElement.dataset.season = season; }, [season]);
+  // Portrait lock where the browser allows it (installed Android PWAs); iOS ignores it, so the CSS overlay covers phones.
+  useEffect(() => { try { const o = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> }; o?.lock?.('portrait')?.catch(() => {}); } catch { /* not supported */ } }, []);
   const ui = useUi();
   const tab = TAB_OF[r[0] ?? ''] ?? 'today';
   const tabs: { id: Tab; href: string; label: string; icon: React.ReactElement }[] = [
@@ -97,6 +99,9 @@ export default function App() {
     <div className={'app' + (tab === 'home' ? ' no-tabs' : '')}>
       <Sky full={tab === 'home'} season={p.date.season} />
       {tab !== 'home' && <Popcorn />}
+      <div className="rotate-lock" role="status">
+        <div className="rl-card"><Ui k="Junimo" size={64} eager /><b>Turn your phone upright to keep playing</b><small>Valley Book is made for portrait.</small></div>
+      </div>
       <main className="main" key={r.join('/')}>
         <Suspense fallback={<div className="loading">Loading…</div>}>
           <Screen r={r} />

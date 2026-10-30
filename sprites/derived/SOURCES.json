@@ -497,10 +497,14 @@
  },
  "Map_Valley.png": {
   "from": "https://stardewvalleywiki.com/File:Map.png",
-  "note": "400x244 in-game world map (unedited). Used for the Stardew Valley and Calico Desert map tabs; pin spots use the game's WorldMap MapPixelArea data, img = 4/3*world-map pixel - (2,1)."
+  "note": "400x244 in-game world map (unedited). Used for the Stardew Valley map tab; pin spots use the game's WorldMap MapPixelArea data, img = 4/3*world-map pixel - (2,1)."
  },
  "Map_Ginger_Island.png": {
   "from": "https://stardewvalleywiki.com/File:Ginger_Island_Map.png",
   "note": "400x244 in-game Ginger Island map (unedited). Pin positions are approximate, fitted to the volcano and dock."
+ },
+ "Map_Desert.png": {
+  "from": "https://stardewvalleywiki.com/File:DesertDistances.png",
+  "note": "800x960 full render of the Calico Desert location (unedited; the wiki's fishing-distance version, so it carries a faint tile grid and a tinted pond). Used for the Calico Desert map tab. Pin and label spots are tile positions picked on this image; the Desert Trader stall is newer than this render, so its label marks where it stands (checked against File:DesertForageLocations.png)."
  }
 }

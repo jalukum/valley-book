@@ -1,8 +1,8 @@
 // Turns a villager's schedule line (from whereNow / pickBlock) into a spot on one of the map tabs.
-import type { Npc, Schedule } from '../types';
+import type { Npc, Schedule, SchedBlock } from '../types';
 import type { Profile } from './state';
 import { whereNow } from './where';
-import { parseTime } from './schedule';
+import { parseTime, currentEntry } from './schedule';
 import { SPOTS, REGIONS, HOME_BY_ADDRESS, FIXED_NPCS, KEYWORDS, toImg, type Spot } from './mapdata';
 
 export { SPOTS, REGIONS, toImg };
@@ -39,9 +39,11 @@ export interface Placed {
   kind: 'sched' | 'before' | 'none' | 'fixed';
 }
 
-export function locate(n: Npc, s: Schedule | undefined, p: Profile, time: number): Placed {
+/** Where a villager is at `time`. `forced` shows one particular schedule (e.g. a line tapped on the villager page) instead of today's. */
+export function locate(n: Npc, s: Schedule | undefined, p: Profile, time: number, forced?: SchedBlock | null): Placed {
   const home = homeSpot(n, p);
-  const w = whereNow(n.id, s, { ...p, time });
+  let w = whereNow(n.id, s, { ...p, time });
+  if (forced) { const idx = currentEntry(forced, time); w = { pick: { block: forced, alt: null, married: false }, idx, text: idx >= 0 ? forced.e[idx][1] : '', place: null }; }
   const b = w.pick.block;
   if (!b) {
     const fixed = FIXED_NPCS.includes(n.id);
@@ -66,3 +68,9 @@ export function locate(n: Npc, s: Schedule | undefined, p: Profile, time: number
 }
 
 export const spotOf = (k: string): Spot => SPOTS[k];
+
+/** Link from a schedule line on a villager page to the map: that villager, that time, that schedule. */
+export const schedPinHref = (id: string, time: number, block: number) => `#/maps?npc=${encodeURIComponent(id)}&t=${time}&b=${block}`;
+
+/** Smallest zoom: the map covers the whole frame (fills its height on a phone), so zooming out never leaves an empty strip. */
+export const coverScale = (boxW: number, boxH: number, w: number, h: number) => Math.max(boxW / w, boxH / h);

@@ -81,6 +81,15 @@ const SHOTS = [
   ['maps-island-or-other-tab', '#/maps', async (p) => { const b = await p.$$('.map-tab'); await b[1].click(); await sleep(800); }, { store: 'f14' }],
   ['maps-wheel', '#/maps', async (p) => { await p.click('.who-btn'); await sleep(900); }, { store: 'f14' }],
   ['villager-see-on-map', '#/villager/Emily', null, { store: 's9' }],
+  // v6.5
+  ['maps-none', '#/maps', async () => { await sleep(900); }, { store: 'f14' }],
+  ['maps-picked', '#/maps?npc=Emily', async () => { await sleep(1200); }, { store: 's9' }],
+  ['maps-zoomed-out', '#/maps?npc=Emily', async (p) => { await sleep(900); for (let i = 0; i < 8; i++) { const d = await p.$eval('.map-zoom .btn:last-child', (b) => b.disabled); if (d) break; await p.click('.map-zoom .btn:last-child'); await sleep(450); } }, { store: 's9' }],
+  ['maps-dropdown', '#/maps?npc=Emily', async (p) => { await sleep(900); await p.click('.who-btn'); await sleep(600); }, { store: 's9' }],
+  ['maps-desert', '#/maps', async (p) => { const b = await p.$$('.map-tab'); await b[2].click(); await sleep(900); }, { store: 'f14' }],
+  ['maps-desert-autoswitch', '#/maps', async (p) => { await sleep(600); await p.click('.who-btn'); await sleep(500); const rows = await p.$$('.dd-row'); for (const r of rows) { if ((await r.evaluate((e) => e.textContent)).trim() === 'Sandy') { await r.click(); break; } } await sleep(1300); }, { store: 'f14' }],
+  ['maps-from-schedule-pin', '#/villager/Emily', async (p) => { await sleep(600); const pins = await p.$$('.timeline .sched-pin'); await pins[Math.min(2, pins.length - 1)].click(); await sleep(1500); }, { store: 's9' }],
+  ['villager-schedule-pins', '#/villager/Emily', async (p) => { await sleep(600); await p.evaluate(() => { const t = document.querySelector('.timeline'); window.scrollTo(0, t.getBoundingClientRect().top + scrollY - 170); }); await sleep(500); }, { store: 's9' }],
   ['entry', '#/', null, { store: 'y1su12' }],
   ['entry-dusk', '#/', dusk, { store: 'y1su12' }],
   ['entry-night', '#/', night, { store: 'y1su12' }],
@@ -203,7 +212,7 @@ for (const [w, h] of [[393, 852], [375, 812]].filter(([w]) => !process.env.W || 
     await settle(page);
     if (act) { await act(page); await settle(page); }
     problems.push(...(await audit(page, `[${w}] ${name}`)));
-    const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-/.test(name) && !/^maps-|see-on-map/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
+    const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villager-schedule-pins', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-/.test(name) && !/^maps-|see-on-map/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
     if (/^(today-|entry)/.test(name)) fit.push(`[${w}] ${name}: page height ${await page.evaluate(() => document.documentElement.scrollHeight)} / viewport ${h}` + (await page.evaluate(() => { const g = document.querySelector('.dtiles'), t = document.querySelector('.tabbar'); return g && t ? `, tiles end ${Math.round(g.getBoundingClientRect().bottom)} / tab bar top ${Math.round(t.getBoundingClientRect().top)}` : ''; })));
     const H = await page.evaluate(() => document.documentElement.scrollHeight);
     const path = `${OUT}${process.env.PREFIX || "v6"}-${w}-${name}.png`;

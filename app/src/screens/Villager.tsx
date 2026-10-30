@@ -7,6 +7,7 @@ import { useAsync } from '../lib/useAsync';
 import { groupTastes, TIER_LABEL, type TierGroup } from '../lib/gifts';
 import { whereNow } from '../lib/where';
 import { fmtTime, parseTime } from '../lib/schedule';
+import { schedPinHref } from '../lib/maps';
 import { festivalOn } from '../lib/festivals';
 import { heartsTarget } from '../lib/progress';
 import type { SchedBlock, Npc } from '../types';
@@ -108,15 +109,16 @@ function GiftTile({ qid, universal }: { qid: string; universal?: boolean }) {
   return <a className={'gift' + (universal ? ' u' : '')} href={`#/item/${encodeURIComponent(qid)}`}><ItemIcon qid={qid} size={32} /><span>{nameOf(qid)}</span></a>;
 }
 
-function Timeline({ b, idx }: { b: SchedBlock; idx: number }) {
+function Timeline({ b, idx, npc, bi }: { b: SchedBlock; idx: number; npc: Npc; bi: number }) {
   return (
     <ol className="timeline">
-      {b.e.map((e, i) => (
+      {b.e.map((e, i) => { const t = parseTime(e[0]); return (
         <li key={i} className={i === idx ? 'now' : i < idx ? 'past' : ''}>
-          <span className="t">{parseTime(e[0]) != null ? fmtTime(parseTime(e[0])!) : e[0]}</span>
+          <span className="t">{t != null ? fmtTime(t) : e[0]}</span>
           <span className="d">{e[1]}{e[2].length > 0 && <span className="locs">{e[2].map((l) => <span key={l} className="loc">{l}</span>)}</span>}</span>
+          {t != null && <a className="sched-pin" href={schedPinHref(npc.id, t, bi)} aria-label={`Show ${npc.name} on the map at ${fmtTime(t)}`}><i aria-hidden /></a>}
         </li>
-      ))}
+      ); })}
     </ol>
   );
 }
@@ -141,8 +143,8 @@ function ScheduleView({ n }: { n: Npc }) {
           <div><b>{w.place || (w.idx < 0 ? 'At home' : n.location || '')}</b><small>{w.text}</small></div>
         </div>
         <h3 className="sh3">Today: {w.pick.block.cond}{w.pick.married ? ' (married)' : ''}</h3>
-        <Timeline b={w.pick.block} idx={w.idx} />
-        {w.pick.alt && <details className="alt"><summary>Or, on some days: {w.pick.alt.cond}</summary><Timeline b={w.pick.alt} idx={-2} /></details>}
+        <Timeline b={w.pick.block} idx={w.idx} npc={n} bi={s.blocks.indexOf(w.pick.block)} />
+        {w.pick.alt && <details className="alt"><summary>Or, on some days: {w.pick.alt.cond}</summary><Timeline b={w.pick.alt} idx={-2} npc={n} bi={s.blocks.indexOf(w.pick.alt)} /></details>}
       </> : <p className="hint">{p.spouse === n.id ? `${n.name} lives on your farm. Married villagers mostly stay at the farmhouse and visit town on set days.` : 'No listed schedule matches today.'}</p>}
       <button className="btn wide" onClick={() => setShowAll(!showAll)}>{showAll ? 'Hide full schedule' : `Full schedule (${s.blocks.length} variations)`}</button>
       {showAll && <div className="all-sched">
@@ -150,7 +152,7 @@ function ScheduleView({ n }: { n: Npc }) {
         {groups.map((gr) => (
           <div key={gr.sub}>
             <h3 className="sh3 sub">{gr.sub}</h3>
-            {gr.blocks.map((b, i) => <details key={i} open={b === w.pick.block}><summary>{b.cond}{b === w.pick.block ? ' · today' : ''}</summary><Timeline b={b} idx={b === w.pick.block ? w.idx : -2} /></details>)}
+            {gr.blocks.map((b, i) => <details key={i} open={b === w.pick.block}><summary>{b.cond}{b === w.pick.block ? ' · today' : ''}</summary><Timeline b={b} idx={b === w.pick.block ? w.idx : -2} npc={n} bi={s.blocks.indexOf(b)} /></details>)}
           </div>
         ))}
       </div>}

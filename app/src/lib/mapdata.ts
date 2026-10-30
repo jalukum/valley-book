@@ -8,19 +8,20 @@ export interface Region {
   id: RegionId; label: string; img: string; w: number; h: number;
   /** Game world-map pixel -> image pixel: img = a·g + b (per axis). */
   a: number; bx: number; by: number;
-  /** Visible window (image px) the view may pan inside, and where it starts. */
+  /** Area (image px) the view may pan inside, and where it starts. */
   bounds: [number, number, number, number]; start: [number, number];
-  /** Image px across that fill the screen width when fully zoomed out. */
-  minSpan: number;
 }
 // Valley: Data/WorldMap.json "Valley" BaseTexture LooseSprites\map (300×180) drawn 4/3× on the wiki's 400×244 File:Map.png with a 2/1 px frame offset.
 // Ginger Island: same 4/3 scale; offset fitted on the volcano caldera and the dock (WorldMap "GingerIsland" areas). Approximate.
 export const REGIONS: Record<RegionId, Region> = {
-  valley: { id: 'valley', label: 'Stardew Valley', img: 'map:Valley', w: 400, h: 244, a: 4 / 3, bx: -2, by: -1, bounds: [40, 6, 330, 238], start: [232, 118], minSpan: 150 },
-  island: { id: 'island', label: 'Ginger Island', img: 'map:Island', w: 400, h: 244, a: 4 / 3, bx: -33, by: -9, bounds: [50, 20, 320, 200], start: [190, 110], minSpan: 150 },
-  desert: { id: 'desert', label: 'Calico Desert', img: 'map:Valley', w: 400, h: 244, a: 4 / 3, bx: -2, by: -1, bounds: [4, 4, 100, 60], start: [48, 30], minSpan: 70 },
+  valley: { id: 'valley', label: 'Stardew Valley', img: 'map:Valley', w: 400, h: 244, a: 4 / 3, bx: -2, by: -1, bounds: [0, 0, 400, 244], start: [232, 118] },
+  island: { id: 'island', label: 'Ginger Island', img: 'map:Island', w: 400, h: 244, a: 4 / 3, bx: -33, by: -9, bounds: [0, 0, 400, 244], start: [190, 110] },
+  // Calico Desert: the wiki's full 800×960 render of the location (1 px per game pixel, 16 px tiles). Spots are image px.
+  desert: { id: 'desert', label: 'Calico Desert', img: 'map:Desert', w: 800, h: 960, a: 1, bx: 0, by: 0, bounds: [0, 0, 800, 960], start: [400, 480] },
 };
 export const REGION_ORDER: RegionId[] = ['valley', 'island', 'desert'];
+/** Places labelled on the map itself (the desert render has no names on it). */
+export const LANDMARKS: Partial<Record<RegionId, string[]>> = { desert: ['Desert', 'SkullCavern', 'DesertTrader', 'DesertBus'] };
 
 export const toImg = (r: Region, gx: number, gy: number): [number, number] => [r.a * gx + r.bx, r.a * gy + r.by];
 
@@ -65,8 +66,12 @@ export const SPOTS: Record<string, Spot> = {
   Railroad: O('valley', 162, 14, 'Railroad'),
   Farm: O('valley', 98, 74, 'The farm'),
   Treehouse: O('valley', 198, 33, "Leo's treehouse"),
-  // Calico Desert (WorldMap "Desert" position covers the Oasis, Skull Cavern and festival)
-  Desert: { region: 'desert', x: 36.5, y: 20.5, label: 'The Oasis, Calico Desert', indoor: true },
+  // Calico Desert: image px on File:DesertDistances.png (door / sign tiles picked on the image).
+  Desert: { region: 'desert', x: 104, y: 812, label: 'The Oasis (Sandy’s shop)', indoor: true },
+  SkullCavern: { region: 'desert', x: 136, y: 92, label: 'Skull Cavern', indoor: true },
+  DesertTrader: { region: 'desert', x: 650, y: 372, label: 'Desert Trader', approx: true },
+  DesertBus: { region: 'desert', x: 424, y: 372, label: 'Bus stop', approx: true },
+  DesertFest: { region: 'desert', x: 400, y: 640, label: 'Desert Festival grounds', approx: true },
   // Ginger Island (Data/WorldMap.json "GingerIsland" region)
   IslandHut: B('island', 190, 67, 13, 12, "Leo's hut"),
   Shrine: B('island', 210, 70, 5, 5, 'Gem Bird Shrine'),
@@ -99,7 +104,7 @@ export const KEYWORDS: [RegExp, string][] = [
   [/graveyard|cemetery|grave\b/i, 'Graveyard'], [/ice cream/i, 'IceCream'], [/town square|\bsquare\b/i, 'Square'],
   [/bus stop|\bbus\b/i, 'BusStop'], [/railroad|train/i, 'Railroad'], [/night market|submarine/i, 'Submarine'],
   [/\bbeach\b|tide ?pools?|squidfest/i, 'Beach'], [/\blake\b|\bmountain\b/i, 'Lake'], [/cindersap|\bforest\b|secret woods|trout derby/i, 'Forest'],
-  [/\bfarm(house)?\b/i, 'Farm'], [/desert|oasis|calico|skull cavern/i, 'Desert'],
+  [/\bfarm(house)?\b/i, 'Farm'], [/desert|oasis|calico/i, 'Desert'], [/skull cavern/i, 'SkullCavern'], [/desert trader/i, 'DesertTrader'], [/desert festival/i, 'DesertFest'],
   [/island north|island trader|volcano/i, 'IslandNorth'], [/island south(?!east)|resort|ginger island/i, 'IslandSouth'],
   [/island east|jungle/i, 'IslandEast'], [/gem bird shrine/i, 'Shrine'], [/island west/i, 'IslandWest'], [/pelican town|\btown\b/i, 'Square'],
 ];
