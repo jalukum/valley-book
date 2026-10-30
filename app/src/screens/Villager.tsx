@@ -10,6 +10,7 @@ import { fmtTime, parseTime } from '../lib/schedule';
 import { schedPinHref } from '../lib/maps';
 import { festivalOn } from '../lib/festivals';
 import { heartsTarget } from '../lib/progress';
+import { relationsOf } from '../lib/relations';
 import type { SchedBlock, Npc } from '../types';
 
 const nameOf = (q: string) => items[q]?.n;
@@ -28,7 +29,7 @@ function Villager({ n }: { n: Npc }) {
   const g = p.gifts[n.id] ?? 0;
   const season = SEASONS[p.date.season];
   const bdayToday = n.birthday?.season === season && n.birthday.day === p.date.day;
-  const family = n.family && typeof n.family === 'object' && !Array.isArray(n.family) ? Object.entries(n.family as Record<string, string>) : [];
+  const rels = relationsOf(n.id);
   return (
     <div className="screen">
       <TopBar title={n.name} back="#/villagers" />
@@ -40,9 +41,20 @@ function Villager({ n }: { n: Npc }) {
           {!n.address && n.location && <div className="fact"><span>Lives in <b>{n.location}</b></span></div>}
           <a className="btn sm see-map" href={`#/maps?npc=${encodeURIComponent(n.id)}`}><Ui k="Magnifying Glass" size={16} /> See on map</a>
           <div className="fact">{n.romanceable ? <><Ui k="Heart" size={16} /><span><b>Marriage candidate</b></span></> : <span>Not marriageable</span>}</div>
-          {family.length > 0 && <div className="fact fam">{family.map(([who, rel]) => npcById[who] ? <a key={who} href={`#/villager/${encodeURIComponent(who)}`}><b>{who}</b> ({rel})</a> : <span key={who}><b>{who}</b> ({rel})</span>)}</div>}
         </div>
       </Panel>
+
+      {rels.length > 0 && (
+        <Panel title="Family & friends" className="rels-p">
+          <div className="rels">
+            {rels.map((r) => {
+              const o = npcById[r.who];
+              const body = <>{o?.icon && <Sprite spr={o.icon} size={32} alt="" />}<span className="rel-t"><b>{o?.name ?? r.who}</b><small>{r.rel}</small></span></>;
+              return o ? <a key={r.who} className={'rel k-' + r.kind} href={`#/villager/${encodeURIComponent(r.who)}`}>{body}</a> : <span key={r.who} className={'rel k-' + r.kind}>{body}</span>;
+            })}
+          </div>
+        </Panel>
+      )}
 
       <Panel title="Friendship" icon={<Ui k="Heart" size={24} />} right={<Stepper value={h} max={max} onChange={(v) => update((x) => { x.hearts[n.id] = v; })} label="Hearts" />}>
         <div className={'hearts' + (max > 10 ? ' h14' : '')} role="group" aria-label="Hearts">

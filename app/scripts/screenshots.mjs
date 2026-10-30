@@ -156,6 +156,7 @@ const SHOTS = [
   ['quests', '#/quests', null, { store: 'y1su12' }], ['events', '#/events', null, { store: 'y1su12' }], ['raccoon', '#/raccoon'], ['more', '#/more'],
   ['search', '#/search', async (p) => { await p.type('.search input', 'melon'); await sleep(250); }],
   ['bundles', '#/bundles'], ['room-pantry', '#/bundles/room/1'], ['room-remix', '#/bundles/room/0', async (p) => { await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('sdv:profiles')); s.profiles[0].cc.mode = 'remix'; localStorage.setItem('sdv:profiles', JSON.stringify(s)); }); await p.reload({ waitUntil: 'networkidle0' }); }], ['shopping-list', '#/bundles/needed'], ['joja', '#/bundles/joja'],
+  ['villager-lewis', '#/villager/Lewis'], ['villager-jas', '#/villager/Jas'], ['banner-villagers', '#/villagers'], ['banner-progress', '#/progress'], ['banner-more', '#/more'], ['banner-lewis-fall', '#/villager/Lewis', null, { store: 'f14' }],
   ['villagers', '#/villagers'], ['where-now', '#/villagers?now', null, { store: 'y1su12' }], ['villager-abigail', '#/villager/Abigail'], ['villager-schedule', '#/villager/Abigail', async (p) => { await p.evaluate(() => document.querySelector('.timeline')?.closest('.panel')?.scrollIntoView()); }],
   ['calendar', '#/calendar'], ['item-pufferfish', '#/item/(O)128'], ['item-melon', '#/item/(O)254'],
   ['collections', '#/collections'], ['museum', '#/museum'], ['fish', '#/fish'], ['fish-season', '#/fish?season'], ['shipping', '#/shipping'], ['cooking', '#/cooking'], ['crafting', '#/crafting'],
@@ -217,7 +218,7 @@ for (const [w, h] of [[393, 852], [375, 812]].filter(([w]) => !process.env.W || 
     await settle(page);
     if (act) { await act(page); await settle(page); }
     problems.push(...(await audit(page, `[${w}] ${name}`)));
-    const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villager-schedule-pins', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-/.test(name) && !/^maps-|see-on-map/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
+    const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villager-schedule-pins', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-|^banner-/.test(name) && !/^maps-|see-on-map/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
     if (/^(today-|entry)/.test(name)) fit.push(`[${w}] ${name}: page height ${await page.evaluate(() => document.documentElement.scrollHeight)} / viewport ${h}` + (await page.evaluate(() => { const g = document.querySelector('.dtiles'), t = document.querySelector('.tabbar'); return g && t ? `, tiles end ${Math.round(g.getBoundingClientRect().bottom)} / tab bar top ${Math.round(t.getBoundingClientRect().top)}` : ''; })));
     const H = await page.evaluate(() => document.documentElement.scrollHeight);
     const path = `${OUT}${process.env.PREFIX || "v6"}-${w}-${name}.png`;
