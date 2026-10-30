@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SaveGame xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <player>
+    <name>Shot</name>
+    <isEmoting>false</isEmoting>
+    <farmName>Shot</farmName>
+    <favoriteThing>Junimos &amp; fish</favoriteThing>
+    <items>
+      <Item xsi:type="Axe"><name>Axe</name><itemId>Axe</itemId><upgradeLevel>1</upgradeLevel><BaseName>Axe</BaseName></Item>
+      <Item xsi:type="Hoe"><name>Hoe</name><itemId>Hoe</itemId><upgradeLevel>0</upgradeLevel></Item>
+      <Item xsi:type="WateringCan"><name>Watering Can</name><itemId>WateringCan</itemId><upgradeLevel>0</upgradeLevel><waterLeft>40</waterLeft></Item>
+      <Item xsi:type="Pickaxe"><name>Copper Pickaxe</name><itemId>CopperPickaxe</itemId><upgradeLevel>1</upgradeLevel></Item>
+      <Item xsi:type="MeleeWeapon"><name>Rusty Sword</name><itemId>0</itemId></Item>
+      <Item xsi:type="FishingRod"><name>Bamboo Pole</name><itemId>BambooPole</itemId><upgradeLevel>0</upgradeLevel></Item>
+      <Item xsi:type="Object"><name>Parsnip Seeds</name><itemId>472</itemId><stack>15</stack></Item>
+      <Item xsi:nil="true" />
+      <Item xsi:nil="true" />
+    </items>
+    <maxItems>12</maxItems>
+    <farmingLevel>2</farmingLevel>
+    <miningLevel>3</miningLevel>
+    <combatLevel>1</combatLevel>
+    <foragingLevel>2</foragingLevel>
+    <fishingLevel>4</fishingLevel>
+    <luckLevel>0</luckLevel>
+    <deepestMineLevel>27</deepestMineLevel>
+    <houseUpgradeLevel>0</houseUpgradeLevel>
+    <hasRustyKey>false</hasRustyKey>
+    <hasSkullKey>false</hasSkullKey>
+    <spouse />
+    <mailReceived>
+      <string>Robin</string><string>spring_2_1</string><string>ccDoorUnlock</string><string>wizardJunimoNote</string><string>canReadJunimoText</string><string>guildQuest</string><string>beenToWoods</string>
+    </mailReceived>
+    <craftingRecipes>
+      <item><key><string>Chest</string></key><value><int>1</int></value></item>
+      <item><key><string>Wood Fence</string></key><value><int>2</int></value></item>
+      <item><key><string>Torch</string></key><value><int>3</int></value></item>
+      <item><key><string>Scarecrow</string></key><value><int>1</int></value></item>
+      <item><key><string>Basic Fertilizer</string></key><value><int>2</int></value></item>
+      <item><key><string>Wood Path</string></key><value><int>3</int></value></item>
+      <item><key><string>Gate</string></key><value><int>1</int></value></item>
+      <item><key><string>Campfire</string></key><value><int>2</int></value></item>
+      <item><key><string>Cobblestone Path</string></key><value><int>3</int></value></item>
+      <item><key><string>Stone Fence</string></key><value><int>1</int></value></item>
+      <item><key><string>Basic Retaining Soil</string></key><value><int>2</int></value></item>
+      <item><key><string>Speed-Gro</string></key><value><int>0</int></value></item>
+      <item><key><string>Bait</string></key><value><int>0</int></value></item>
+    </craftingRecipes>
+    <cookingRecipes><item><key><string>Fried Egg</string></key><value><int>0</int></value></item><item><key><string>Omelet</string></key><value><int>0</int></value></item><item><key><string>Salad</string></key><value><int>0</int></value></item></cookingRecipes>
+    <recipesCooked><item><key><string>194</string></key><value><int>2</int></value></item><item><key><string>196</string></key><value><int>1</int></value></item><item><key><string>(O)210</string></key><value><int>1</int></value></item></recipesCooked>
+    <fishCaught>
+      <item><key><string>(O)145</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)132</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)142</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)702</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)131</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)129</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)147</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)137</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+      <item><key><string>(O)143</string></key><value><ArrayOfInt><int>2</int><int>14</int><int>0</int></ArrayOfInt></value></item>
+    </fishCaught>
+    <basicShipped>
+      <item><key><string>16</string></key><value><int>3</int></value></item>
+      <item><key><string>18</string></key><value><int>3</int></value></item>
+      <item><key><string>20</string></key><value><int>3</int></value></item>
+      <item><key><string>22</string></key><value><int>3</int></value></item>
+      <item><key><string>24</string></key><value><int>3</int></value></item>
+      <item><key><string>188</string></key><value><int>3</int></value></item>
+      <item><key><string>190</string></key><value><int>3</int></value></item>
+      <item><key><string>192</string></key><value><int>3</int></value></item>
+      <item><key><string>72</string></key><value><int>3</int></value></item>
+      <item><key><string>78</string></key><value><int>3</int></value></item>
+      <item><key><string>88</string></key><value><int>3</int></value></item>
+      <item><key><string>90</string></key><value><int>3</int></value></item>
+      <item><key><string>92</string></key><value><int>3</int></value></item>
+      <item><key><string>330</string></key><value><int>3</int></value></item>
+      <item><key><string>334</string></key><value><int>3</int></value></item>
+      <item><key><string>388</string></key><value><int>3</int></value></item>
+      <item><key><string>390</string></key><value><int>3</int></value></item>
+      <item><key><string>395</string></key><value><int>3</int></value></item>
+      <item><key><string>404</string></key><value><int>3</int></value></item>
+      <item><key><string>406</string></key><value><int>3</int></value></item>
+      <item><key><string>420</string></key><value><int>3</int></value></item>
+    </basicShipped>
+    <friendshipData>
+      <item><key><string>Abigail</string></key><value><Friendship><Points>1000</Points><GiftsThisWeek>1</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Lewis</string></key><value><Friendship><Points>520</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Pierre</string></key><value><Friendship><Points>300</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Robin</string></key><value><Friendship><Points>260</Points><GiftsThisWeek>1</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Linus</string></key><value><Friendship><Points>0</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Marlon</string></key><value><Friendship><Points>100</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Willy</string></key><value><Friendship><Points>780</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Emily</string></key><value><Friendship><Points>250</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Haley</string></key><value><Friendship><Points>40</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Caroline</string></key><value><Friendship><Points>300</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Jodi</string></key><value><Friendship><Points>250</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Vincent</string></key><value><Friendship><Points>0</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Sam</string></key><value><Friendship><Points>500</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Clint</string></key><value><Friendship><Points>250</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Gus</string></key><value><Friendship><Points>260</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Pam</string></key><value><Friendship><Points>0</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Penny</string></key><value><Friendship><Points>300</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Marnie</string></key><value><Friendship><Points>250</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+      <item><key><string>Demetrius</string></key><value><Friendship><Points>100</Points><GiftsThisWeek>0</GiftsThisWeek><GiftsToday>0</GiftsToday><TalkedToToday>false</TalkedToToday><ProposalRejected>false</ProposalRejected><Status>Friendly</Status></Friendship></value></item>
+    </friendshipData>
+  </player>
+  <locations>
+    <GameLocation xsi:type="Farm"><name>Farm</name><isOutdoors>true</isOutdoors></GameLocation>
+    <GameLocation xsi:type="FarmHouse"><name>FarmHouse</name></GameLocation>
+    <GameLocation xsi:type="CommunityCenter"><name>CommunityCenter</name>
+      <bundles><item><key><int>13</int></key><value><ArrayOfBoolean><boolean>true</boolean><boolean>true</boolean><boolean>true</boolean><boolean>true</boolean></ArrayOfBoolean></value></item><item><key><int>14</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>15</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>16</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>17</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>19</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>0</int></key><value><ArrayOfBoolean><boolean>true</boolean><boolean>false</boolean><boolean>false</boolean><boolean>true</boolean></ArrayOfBoolean></value></item><item><key><int>1</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>2</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>3</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>4</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>5</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>6</int></key><value><ArrayOfBoolean><boolean>true</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>7</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>true</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>8</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>9</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>10</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>11</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>20</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>21</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>22</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>31</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>32</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>33</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>34</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>35</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>23</int></key><value><ArrayOfBoolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>24</int></key><value><ArrayOfBoolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>25</int></key><value><ArrayOfBoolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>26</int></key><value><ArrayOfBoolean><boolean>false</boolean></ArrayOfBoolean></value></item><item><key><int>36</int></key><value><ArrayOfBoolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></ArrayOfBoolean></value></item></bundles>
+      <bundleRewards><item><key><int>13</int></key><value><boolean>true</boolean></value></item><item><key><int>14</int></key><value><boolean>false</boolean></value></item><item><key><int>15</int></key><value><boolean>false</boolean></value></item><item><key><int>16</int></key><value><boolean>false</boolean></value></item><item><key><int>17</int></key><value><boolean>false</boolean></value></item><item><key><int>19</int></key><value><boolean>false</boolean></value></item><item><key><int>0</int></key><value><boolean>false</boolean></value></item><item><key><int>1</int></key><value><boolean>false</boolean></value></item><item><key><int>2</int></key><value><boolean>false</boolean></value></item><item><key><int>3</int></key><value><boolean>false</boolean></value></item><item><key><int>4</int></key><value><boolean>false</boolean></value></item><item><key><int>5</int></key><value><boolean>false</boolean></value></item><item><key><int>6</int></key><value><boolean>false</boolean></value></item><item><key><int>7</int></key><value><boolean>false</boolean></value></item><item><key><int>8</int></key><value><boolean>false</boolean></value></item><item><key><int>9</int></key><value><boolean>false</boolean></value></item><item><key><int>10</int></key><value><boolean>false</boolean></value></item><item><key><int>11</int></key><value><boolean>false</boolean></value></item><item><key><int>20</int></key><value><boolean>false</boolean></value></item><item><key><int>21</int></key><value><boolean>false</boolean></value></item><item><key><int>22</int></key><value><boolean>false</boolean></value></item><item><key><int>31</int></key><value><boolean>false</boolean></value></item><item><key><int>32</int></key><value><boolean>false</boolean></value></item><item><key><int>33</int></key><value><boolean>false</boolean></value></item><item><key><int>34</int></key><value><boolean>false</boolean></value></item><item><key><int>35</int></key><value><boolean>false</boolean></value></item><item><key><int>23</int></key><value><boolean>false</boolean></value></item><item><key><int>24</int></key><value><boolean>false</boolean></value></item><item><key><int>25</int></key><value><boolean>false</boolean></value></item><item><key><int>26</int></key><value><boolean>false</boolean></value></item><item><key><int>36</int></key><value><boolean>false</boolean></value></item></bundleRewards>
+      <areasComplete><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean><boolean>false</boolean></areasComplete>
+    </GameLocation>
+    <GameLocation xsi:type="LibraryMuseum"><name>ArchaeologyHouse</name>
+      <museumPieces>
+        <item><key><Vector2><X>26</X><Y>5</Y></Vector2></key><value><string>96</string></value></item>
+        <item><key><Vector2><X>27</X><Y>5</Y></Vector2></key><value><string>(O)80</string></value></item>
+        <item><key><Vector2><X>28</X><Y>5</Y></Vector2></key><value><string>86</string></value></item>
+        <item><key><Vector2><X>29</X><Y>5</Y></Vector2></key><value><string>110</string></value></item>
+      </museumPieces>
+    </GameLocation>
+  </locations>
+  <currentSeason>spring</currentSeason>
+  <samBandName>The Alfalfas</samBandName>
+  <dayOfMonth>12</dayOfMonth>
+  <year>1</year>
+  <whichFarm>0</whichFarm>
+  <dailyLuck>0.081</dailyLuck>
+  <isRaining>false</isRaining>
+  <isDebrisWeather>false</isDebrisWeather>
+  <isLightning>false</isLightning>
+  <isSnowing>false</isSnowing>
+  <goldenWalnutsFound>0</goldenWalnutsFound>
+  <bundleData>
+    <item><key><string>Crafts Room/13</string></key><value><string>Spring Foraging/O 495 30/16 1 0 18 1 0 20 1 0 22 1 0/0///Spring Foraging</string></value></item>
+    <item><key><string>Crafts Room/14</string></key><value><string>Summer Foraging/O 495 30/396 1 0 398 1 0 402 1 0/0///Summer Foraging</string></value></item>
+    <item><key><string>Crafts Room/15</string></key><value><string>Fall Foraging/O 495 30/404 1 0 406 1 0 408 1 0 410 1 0/0///Fall Foraging</string></value></item>
+    <item><key><string>Crafts Room/16</string></key><value><string>Winter Foraging/O 495 30/412 1 0 414 1 0 416 1 0 418 1 0/0///Winter Foraging</string></value></item>
+    <item><key><string>Crafts Room/17</string></key><value><string>Construction/O 495 30/388 99 0 388 99 0 390 99 0 709 10 0/0///Construction</string></value></item>
+    <item><key><string>Crafts Room/19</string></key><value><string>Exotic Foraging/O 495 30/88 1 0 90 1 0 78 1 0 420 1 0 422 1 0 724 1 0 725 1 0 726 1 0 257 1 0/0/5//Exotic Foraging</string></value></item>
+    <item><key><string>Pantry/0</string></key><value><string>Spring Crops/O 495 30/24 1 0 188 1 0 190 1 0 192 1 0/0///Spring Crops</string></value></item>
+    <item><key><string>Pantry/1</string></key><value><string>Summer Crops/O 495 30/256 1 0 260 1 0 258 1 0 254 1 0/0///Summer Crops</string></value></item>
+    <item><key><string>Pantry/2</string></key><value><string>Fall Crops/O 495 30/270 1 0 272 1 0 276 1 0 280 1 0/0///Fall Crops</string></value></item>
+    <item><key><string>Pantry/3</string></key><value><string>Quality Crops/O 495 30/24 5 2 254 5 2 276 5 2 270 5 2/0/3//Quality Crops</string></value></item>
+    <item><key><string>Pantry/4</string></key><value><string>Animal/O 495 30/186 1 0 182 1 0 174 1 0 438 1 0 440 1 0 442 1 0/0/5//Animal</string></value></item>
+    <item><key><string>Pantry/5</string></key><value><string>Artisan/O 495 30/432 1 0 428 1 0 426 1 0 424 1 0 340 1 0 344 1 0 613 1 0 634 1 0 635 1 0 636 1 0 637 1 0 638 1 0/0/6//Artisan</string></value></item>
+    <item><key><string>Fish Tank/6</string></key><value><string>River Fish/O 495 30/145 1 0 143 1 0 706 1 0 699 1 0/0///River Fish</string></value></item>
+    <item><key><string>Fish Tank/7</string></key><value><string>Lake Fish/O 495 30/136 1 0 142 1 0 700 1 0 698 1 0/0///Lake Fish</string></value></item>
+    <item><key><string>Fish Tank/8</string></key><value><string>Ocean Fish/O 495 30/131 1 0 130 1 0 150 1 0 701 1 0/0///Ocean Fish</string></value></item>
+    <item><key><string>Fish Tank/9</string></key><value><string>Night Fishing/O 495 30/140 1 0 132 1 0 148 1 0/0///Night Fishing</string></value></item>
+    <item><key><string>Fish Tank/10</string></key><value><string>Specialty Fish/O 495 30/128 1 0 156 1 0 164 1 0 734 1 0/0///Specialty Fish</string></value></item>
+    <item><key><string>Fish Tank/11</string></key><value><string>Crab Pot/O 495 30/715 1 0 716 1 0 717 1 0 718 1 0 719 1 0 720 1 0 721 1 0 722 1 0 723 1 0 372 1 0/0/5//Crab Pot</string></value></item>
+    <item><key><string>Boiler Room/20</string></key><value><string>Blacksmith's/O 495 30/334 1 0 335 1 0 336 1 0/0///Blacksmith's</string></value></item>
+    <item><key><string>Boiler Room/21</string></key><value><string>Geologist's/O 495 30/80 1 0 86 1 0 84 1 0 82 1 0/0///Geologist's</string></value></item>
+    <item><key><string>Boiler Room/22</string></key><value><string>Adventurer's/O 495 30/766 99 0 767 10 0 768 1 0 769 1 0/0/2//Adventurer's</string></value></item>
+    <item><key><string>Bulletin Board/31</string></key><value><string>Chef's/O 495 30/724 1 0 259 1 0 430 1 0 376 1 0 228 1 0 194 1 0/0///Chef's</string></value></item>
+    <item><key><string>Bulletin Board/32</string></key><value><string>Field Research/O 495 30/422 1 0 392 1 0 702 1 0 536 1 0/0///Field Research</string></value></item>
+    <item><key><string>Bulletin Board/33</string></key><value><string>Enchanter's/O 495 30/725 1 0 348 1 0 446 1 0 637 1 0/0///Enchanter's</string></value></item>
+    <item><key><string>Bulletin Board/34</string></key><value><string>Dye/O 495 30/420 1 0 397 1 0 421 1 0 444 1 0 62 1 0 266 1 0/0///Dye</string></value></item>
+    <item><key><string>Bulletin Board/35</string></key><value><string>Fodder/O 495 30/262 10 0 178 10 0 613 3 0/0///Fodder</string></value></item>
+    <item><key><string>Vault/23</string></key><value><string>2,500g/O 495 30/-1 2500 2500/0///2,500g</string></value></item>
+    <item><key><string>Vault/24</string></key><value><string>5,000g/O 495 30/-1 5000 5000/0///5,000g</string></value></item>
+    <item><key><string>Vault/25</string></key><value><string>10,000g/O 495 30/-1 10000 10000/0///10,000g</string></value></item>
+    <item><key><string>Vault/26</string></key><value><string>25,000g/O 495 30/-1 25000 25000/0///25,000g</string></value></item>
+    <item><key><string>Abandoned Joja Mart/36</string></key><value><string>The Missing/O 495 30/348 1 1 807 1 0 74 1 0 454 5 2 795 1 2 445 1 0/0/5//The Missing</string></value></item>
+  </bundleData>
+  <gameVersion>1.6.15</gameVersion>
+</SaveGame>

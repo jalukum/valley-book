@@ -1,11 +1,13 @@
 import { museumRewardParts, partText } from '../lib/museum';
-import { useMemo, type ReactNode } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import { core, items, SEASONS } from '../data';
-import { useProfile, toggle, isDone, type Profile } from '../lib/state';
-import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Chip, Seg, MissingToggle, SearchBox, Empty, useUiState, pct, gold } from '../components/ui';
-import { DateChip } from '../components/DateSheet';
+import { useProfile, toggle, isDone, update, WEATHER_LABEL, weatherIcon, type Profile } from '../lib/state';
+import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Chip, Seg, MissingToggle, SearchBox, Empty, Sheet, useUiState, pct, gold } from '../components/ui';
+import { DateChip, openDateSheet } from '../components/DateSheet';
+import { fishBiting, type BiteRow } from '../lib/guide';
+import { fmtTime } from '../lib/schedule';
 import { doneCount } from '../lib/progress';
-import { fishSeasons, fishWeather, fishTimeText } from '../lib/fish';
+import { fishSeasons, fishWeather, fishTimeText, fishPlaces, fishExtras, seasonsText, fmtHHMM } from '../lib/fish';
 import { query } from '../lib/router';
 import type { Recipe, Fish } from '../types';
 
@@ -121,52 +123,111 @@ function ColRow({ col, id, qid, name, sub, right, dim }: { col: string; id: stri
 }
 
 // ---------------- fish ----------------
+const QUICK_TIMES: [number, string][] = [[360, '6am'], [720, 'Noon'], [1080, '6pm'], [1440, 'Midnight']];
+/** In-app time sheet for "Biting now": sets the farm's clock (same clock as the Day guide and Maps). */
+function TimeSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const p = useProfile();
+  const set = (t: number) => update((x) => { x.time = Math.min(1560, Math.max(360, Math.round(t / 10) * 10)); });
+  return (
+    <Sheet open={open} onClose={onClose} title="Time of day">
+      <div className="time-slide">
+        <div className="time-top"><b>{fmtTime(p.time)}</b><small>Drag to change the farm’s clock</small></div>
+        <input type="range" min={360} max={1560} step={10} value={p.time} onChange={(e) => set(Number(e.target.value))} aria-label="Time of day" />
+        <div className="range-ticks"><span>6am</span><span>12pm</span><span>6pm</span><span>2am</span></div>
+      </div>
+      <div className="chips" style={{ marginTop: 10 }}>
+        {QUICK_TIMES.map(([t, l]) => <Chip key={t} on={p.time === t} onClick={() => set(t)}>{l}</Chip>)}
+      </div>
+      <button className="btn wide" onClick={() => { onClose(); openDateSheet(); }}><Ui k="Calendar" size={18} /> Change date or weather</button>
+    </Sheet>
+  );
+}
+
+function BiteNow({ list, later, t, p, filt }: { list: BiteRow[]; later: BiteRow[]; t: number; p: Profile; filt: (f: Fish) => boolean }) {
+  const [sheet, setSheet] = useState(false);
+  const now = list.filter((r) => filt(r.f)), next = later.filter((r) => filt(r.f));
+  const wxK = weatherIcon(p.weather, p.date.season);
+  const row = (r: BiteRow, isLater: boolean) => {
+    const soon = !isLater && r.until !== 2600 && r.until - t <= 100;
+    const wx = r.rainOnly ? ' · rainy days only' : r.sunOnly ? ' · sunny days only' : '';
+    const when = isLater ? <>Starts {fmtHHMM(r.start)}, until {fmtHHMM(r.until)}</>
+      : r.until === 2600 && r.start <= 600 ? <>Any time</>
+      : <><span className={soon ? 'ends' : ''}>Until {fmtHHMM(r.until)}</span>{r.again && <> · back {r.again}</>}</>;
+    return <ColRow key={r.f.qid} col="fish" id={r.f.qid} qid={r.f.qid} name={<>{r.f.name}{soon && <span className="tag gold-t">Ends soon</span>}{r.f.legendary && <span className="tag gold-t">Legendary</span>}</>}
+      sub={<>{r.where}<br /><span className="fish-meta">{when}{wx}</span></>} />;
+  };
+  return <>
+    <section className="panel notice now-line">
+      <Ui k={wxK} size={26} />
+      <span className="grow"><b>{fmtTime(p.time).replace(' AM', ' am').replace(' PM', ' pm')} · {WEATHER_LABEL[p.weather]}</b><br /><small>{SEASONS[p.date.season]} {p.date.day}, Year {p.date.year} · farm clock</small></span>
+      <button className="btn sm" onClick={() => setSheet(true)}>Change</button>
+    </section>
+    <TimeSheet open={sheet} onClose={() => setSheet(false)} />
+    <Panel title="Biting right now" right={<span className="count">{now.length}</span>}>
+      <p className="hint">Sorted by which stop biting first. Only places this farm can reach.</p>
+      {!now.length && <Empty>Nothing bites right now with these filters. Try another time.</Empty>}
+      <div className="list">{now.map((r) => row(r, false))}</div>
+    </Panel>
+    {next.length > 0 && <Panel title="Later today" right={<span className="count">{next.length}</span>}><div className="list">{next.map((r) => row(r, true))}</div></Panel>}
+  </>;
+}
+
 export function FishScreen() {
   const p = useProfile();
   const season = SEASONS[p.date.season];
   const [missing, setMissing] = useUiState('fish:missing', false);
   const [now, setNow] = useUiState('fish:now', query().has('season'));
+  const [bite, setBite] = useUiState('fish:bite', query().has('bite'));
   const [sf, setSf] = useUiState<string>('fish:season', 'all');
   const [method, setMethod] = useUiState<string>('fish:method', 'all');
   const [q, setQ] = useUiState('fish:q', '');
   const coll = core.fish.filter((f) => f.collection);
   const have = doneCount(p, 'fish', coll.map((f) => f.qid));
+  const places = (f: Fish) => fishPlaces(f);
+  const textOk = (f: Fish) => !q || norm(f.name).includes(norm(q)) || places(f).some((l) => norm(l).includes(norm(q)));
   const filt = (f: Fish) =>
     (!missing || !isDone(p, 'fish', f.qid)) &&
     (!now || fishSeasons(f).includes(season)) &&
     (sf === 'all' || fishSeasons(f).includes(sf)) &&
     (method === 'all' || (method === 'rod' ? f.method !== 'crab pot' : f.method === 'crab pot')) &&
-    (!q || norm(f.name).includes(norm(q)) || (f.summary.locations || []).some((l) => norm(l).includes(norm(q))));
+    textOk(f);
+  const biteFilt = (f: Fish) => (!missing || !isDone(p, 'fish', f.qid)) && textOk(f);
+  const biting = useMemo(() => (bite ? fishBiting(core, p) : null), [bite, p]);
   const list = coll.filter(filt).sort((a, b) => a.name.localeCompare(b.name));
   const extra = core.fish.filter((f) => !f.collection).filter(filt);
   const row = (f: Fish) => {
     const wx = fishWeather(f);
     const seasons = fishSeasons(f);
+    const also = fishExtras(f);
     return <ColRow key={f.qid} col="fish" id={f.qid} qid={f.qid} name={<>{f.name}{f.legendary && <span className="tag gold-t">Legendary</span>}</>}
-      sub={<>{(f.summary.locations || []).join(', ') || (f.method === 'crab pot' ? `Crab pot · ${f.water === 'ocean' ? 'ocean' : 'freshwater'}` : '')}<br />
-        <span className="fish-meta">{seasons.length === 4 ? 'All seasons' : seasons.join(' · ')} · {f.method === 'crab pot' ? 'Any time' : fishTimeText(f)}{wx !== 'both' && <> · <Ui k={wx === 'sunny' ? 'weather:Sun' : 'weather:Rain2'} size={16} /> {wx === 'sunny' ? 'Sun' : 'Rain'}</>}</span></>} />;
+      sub={<>{places(f).join(', ') || (f.method === 'crab pot' ? `Crab pot · ${f.water === 'ocean' ? 'ocean' : 'freshwater'}` : '')}<br />
+        <span className="fish-meta">{seasonsText(seasons)} · {f.method === 'crab pot' ? 'Any time' : fishTimeText(f)}{wx !== 'both' && <> · <Ui k={wx === 'sunny' ? 'weather:Sun' : 'weather:Rain2'} size={16} /> {wx === 'sunny' ? 'Sun' : 'Rain'}</>}</span>
+        {also.length > 0 && <><br /><span className="fish-meta">Also: {also.join(' · ')}</span></>}</>} />;
   };
   return (
     <div className="screen">
       <TopBar title="Fish" back="#/collections" right={<DateChip compact />} />
       <Head have={have} total={coll.length} icon={<ItemIcon qid="(O)128" size={48} />} label="caught" />
       <div className="tools"><SearchBox value={q} onChange={setQ} placeholder="Search fish or location" /></div>
-      <div className="chips scroll-x">
-        <Chip on={now} onClick={() => setNow(!now)}>In season</Chip>
+      <div className="chips">
+        <Chip on={bite} onClick={() => setBite(!bite)}><Ui k="Gold Clock" size={16} />Biting now</Chip>
+        {!bite && <Chip on={now} onClick={() => setNow(!now)}>In season</Chip>}
         <MissingToggle value={missing} onChange={setMissing} />
-        <Chip on={method === 'rod'} onClick={() => setMethod(method === 'rod' ? 'all' : 'rod')}>Rod</Chip>
-        <Chip on={method === 'pot'} onClick={() => setMethod(method === 'pot' ? 'all' : 'pot')}>Crab pot</Chip>
+        {!bite && <Chip on={method === 'rod'} onClick={() => setMethod(method === 'rod' ? 'all' : 'rod')}>Rod</Chip>}
+        {!bite && <Chip on={method === 'pot'} onClick={() => setMethod(method === 'pot' ? 'all' : 'pot')}>Crab pot</Chip>}
       </div>
-      <div className="chips scroll-x">
+      {!bite && <div className="chips">
         <Chip on={sf === 'all'} onClick={() => setSf('all')}>All seasons</Chip>
         {SEASONS.map((s) => <Chip key={s} on={sf === s} onClick={() => setSf(s)}><Ui k={'season:' + s} size={16} />{s}</Chip>)}
-      </div>
-      {now && <p className="hint">Fish you can catch in {season}, any time or weather. The Day guide’s Fish tile shows what bites today.</p>}
-      <Panel title="Fish collection" right={<span className="count">{list.length}</span>}>
-        {!list.length && <Empty>No fish match these filters.</Empty>}
-        <div className="list">{list.map(row)}</div>
-      </Panel>
-      {extra.length > 0 && <Panel title="Legendary Fish Family" right={<span className="count">{extra.length}</span>}><p className="hint">Qi’s Extended Family quest. Not part of the collection or perfection.</p><div className="list">{extra.map(row)}</div></Panel>}
+      </div>}
+      {biting ? <BiteNow list={biting.now} later={biting.later} t={biting.t} p={p} filt={biteFilt} /> : <>
+        {now && <p className="hint">Fish you can catch in {season}, any time or weather. Turn on Biting now to use the farm’s clock and weather.</p>}
+        <Panel title="Fish collection" right={<span className="count">{list.length}</span>}>
+          {!list.length && <Empty>No fish match these filters.</Empty>}
+          <div className="list">{list.map(row)}</div>
+        </Panel>
+        {extra.length > 0 && <Panel title="Legendary Fish Family" right={<span className="count">{extra.length}</span>}><p className="hint">Qi’s Extended Family quest. Not part of the collection or perfection.</p><div className="list">{extra.map(row)}</div></Panel>}
+      </>}
     </div>
   );
 }

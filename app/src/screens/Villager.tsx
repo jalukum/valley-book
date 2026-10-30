@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { npcById, items, SEASONS, loadGifts, loadSchedules } from '../data';
 import { useProfile, update, addRecent } from '../lib/state';
+import { StarButton } from '../components/Stars';
+import { starKey } from '../lib/stars';
 import { TopBar, Panel, Sprite, Ui, ItemIcon, Chip, Empty, Stepper } from '../components/ui';
 import { DateChip } from '../components/DateSheet';
 import { useAsync } from '../lib/useAsync';
@@ -33,7 +35,7 @@ function Villager({ n }: { n: Npc }) {
   const rels = relationsOf(n.id);
   return (
     <div className="screen">
-      <TopBar title={n.name} back="#/villagers" />
+      <TopBar title={n.name} back="#/villagers" right={<StarButton k={starKey.villager(n.id)} name={n.name} />} />
       <Panel className="npc-hero">
         <Sprite spr={n.portrait} size={128} eager alt={n.name} />
         <div className="npc-facts">

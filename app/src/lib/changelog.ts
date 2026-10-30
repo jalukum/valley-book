@@ -2,6 +2,18 @@
 // Shown once per version to people who already used an older version; a brand-new install never sees it.
 export const CHANGELOG: { version: string; items: string[] }[] = [
   {
+    version: '7.1',
+    items: [
+      'Stars: tap the star on any item, fish, villager or bundle. Find them all with the Starred button next to Heart scenes.',
+      'Biting now on the Fish page: see what bites at this hour and weather, which fish stop first, and what starts later today.',
+      'Fish seasons, times, weather and spots now match the wiki.',
+      'Bundle filters: see which bundles you can finish today, or are just one item short.',
+      'Luck of the day: tell Valley Book what the Fortune Teller said and the Day guide plans around it.',
+      'Import your game save: fill in a farm from your real save file. It never leaves your phone.',
+      'Rows of tags now wrap, so nothing slides off the side of the screen.',
+    ],
+  },
+  {
     version: '7.0',
     items: [
       'Shop days on the Calendar: the Traveling Cart, Night Market, Queen of Sauce recipes and new special orders. Tap a day to see what’s on.',

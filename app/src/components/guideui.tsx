@@ -10,7 +10,7 @@ export function GIcon({ icon, size = 32 }: { icon: Icon; size?: number }) {
   if (icon.ui) return <Ui k={icon.ui} size={size} />;
   return null;
 }
-const LABEL_CLASS: Record<Label, string> = { Quest: 'lb-quest', Bundle: 'lb-bundle', Money: 'lb-money', Friendship: 'lb-friend' };
+const LABEL_CLASS: Record<Label, string> = { Quest: 'lb-quest', Bundle: 'lb-bundle', Money: 'lb-money', Friendship: 'lb-friend', Luck: 'lb-luck' };
 export const LabelTag = ({ label }: { label: Label }) => <span className={'lb ' + LABEL_CLASS[label]}>{label}</span>;
 
 /** One line of the daily guide. Tick box marks it done in the saved checklist. */

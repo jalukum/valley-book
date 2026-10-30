@@ -17,7 +17,8 @@ export function ItemIcon({ qid, size = 32, eager }: { qid: string | null | undef
   if (!it) return null;
   return <Sprite spr={it} size={size} alt={it.n} eager={eager} />;
 }
-export const Ui = ({ k, size = 24, eager }: { k: string; size?: number; eager?: boolean }) => <Sprite spr={core.ui[k]} size={size} alt="" eager={eager} />;
+export const uiSpr = (k: string): Spr | undefined => core.ui[k];
+export const Ui = ({ k, size = 24, eager }: { k: string; size?: number; eager?: boolean }) => <Sprite spr={uiSpr(k)} size={size} alt="" eager={eager} />;
 
 export function TopBar({ title, back, right, sub }: { title: ReactNode; back?: string; right?: ReactNode; sub?: ReactNode }) {
   return (

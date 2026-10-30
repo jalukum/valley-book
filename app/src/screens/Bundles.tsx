@@ -1,10 +1,13 @@
 import { useEffect, useMemo } from 'react';
 import { core, items, SEASONS } from '../data';
-import { useProfile, update, type Profile } from '../lib/state';
+import { useProfile, update, WEATHER_LABEL, type Profile } from '../lib/state';
+import { bundleFinish, type BundleFinish } from '../lib/guide';
 import { flipBundleItem, activeBundles, ccProgress, checkedCount, bundleDone, jojaProgress, remixChoice, type ActiveBundle } from '../lib/progress';
 import { itemSeasons } from '../lib/seasons';
 import { query } from '../lib/router';
 import { TopBar, Panel, Sprite, ItemIcon, Ui, Bar, Seg, Chip, Check, Empty, gold, useUiState } from '../components/ui';
+import { StarButton } from '../components/Stars';
+import { starKey } from '../lib/stars';
 import type { BItem, Reward } from '../types';
 
 export const bundleTitle = (n: string) => (/^[\d,]+g$/.test(n) || /Bundle$/.test(n) ? n : n + ' Bundle');
@@ -55,6 +58,7 @@ export function BundleCard({ b, p }: { b: ActiveBundle; p: Profile }) {
           <RewardLine r={b.reward} />
         </div>
         <span className={'pill' + (done ? ' ok' : '')}>{Math.min(c, b.required)}/{b.required}</span>
+        <StarButton k={starKey.bundle(b.id)} name={bundleTitle(b.name)} />
       </div>
       {b.required < b.items.length && <p className="hint">Any {b.required} of these {b.items.length}</p>}
       <div className="list">
@@ -69,6 +73,7 @@ export function BundlesHome() {
   const cc = ccProgress(core, p);
   const list = activeBundles(core, p);
   const needed = neededItems(p).length;
+  const [bf, setBf] = useUiState<'all' | 'today' | 'short'>('bundles:filter', 'all');
   return (
     <div className="screen">
       <TopBar title="Community Center" back="#/progress" />
@@ -81,7 +86,12 @@ export function BundlesHome() {
           {p.cc.mode === 'remix' && <p className="hint">Pick which remixed bundles your game rolled inside each room.</p>}
         </Panel>
         <a className="panel nav-row big" href="#/bundles/needed"><span className="row-ic"><Ui k="Junimo" size={32} /></span><span className="row-main"><b>Shopping list</b><small>{needed} item{needed === 1 ? '' : 's'} still needed · filter by season</small></span><span className="chev-r" /></a>
-        <div className="rooms">
+        <div className="chips">
+          <Chip on={bf === 'all'} onClick={() => setBf('all')}>All rooms</Chip>
+          <Chip on={bf === 'today'} onClick={() => setBf('today')}><Ui k="Junimo" size={16} />Finish today</Chip>
+          <Chip on={bf === 'short'} onClick={() => setBf('short')}>One item short</Chip>
+        </div>
+        {bf !== 'all' ? <BundleFilter which={bf} /> : <div className="rooms">
           {core.rooms.map((r, i) => {
             const bs = list.filter((b) => b.room === r.name);
             const d = bs.filter((b) => bundleDone(p, b)).length;
@@ -95,9 +105,42 @@ export function BundlesHome() {
               </a>
             );
           })}
-        </div>
+        </div>}
       </>}
     </div>
+  );
+}
+
+const SEASON_WX = (p: Profile) => `${SEASONS[p.date.season]} ${p.date.day}, ${WEATHER_LABEL[p.weather].toLowerCase()}`;
+function BundleFilter({ which }: { which: 'today' | 'short' }) {
+  const p = useProfile();
+  const { finish, short } = useMemo(() => bundleFinish(core, p), [p]);
+  const list = which === 'today' ? finish : short;
+  const roomIdx = (room: string) => Math.max(0, core.rooms.findIndex((r) => r.name === room));
+  const card = (e: BundleFinish) => {
+    const total = e.today.length + (which === 'short' ? 1 : 0);
+    return (
+      <a key={e.b.id} className="bt-card" href={`#/bundles/room/${roomIdx(e.b.room)}?b=${encodeURIComponent(e.b.name)}`}>
+        <div className="bt-h"><Sprite spr={e.b.icon} size={36} /><span className="grow"><b>{e.b.name}</b>
+          <small>{e.b.room} · {which === 'today' ? `${e.need} still needed` : `${e.today.length} of ${total} today`}</small></span>
+          <span className={'pill' + (which === 'today' ? ' ok' : '')}>{which === 'today' ? 'Today' : `${e.today.length}/${e.need}`}</span></div>
+        <div className="bt-items">
+          {e.today.map((r) => <div key={r.index} className="bt-it"><ItemIcon qid={r.qid} size={28} /><span><b>{r.name}{r.count > 1 ? ` ×${r.count}` : ''}{r.quality && r.quality !== 'normal' ? ` (${r.quality})` : ''}</b><small>{r.how}</small></span></div>)}
+          {which === 'short' && (e.missing.length === 1 || e.today.length + e.missing.length === e.need
+            ? e.missing.slice(0, 1).map((m) => <div key={m.index} className="bt-it miss">{m.qid ? <ItemIcon qid={m.qid} size={28} /> : <Ui k="Junimo" size={28} />}<span><b>{m.name}</b><small>{m.why}</small></span></div>)
+            : <div className="bt-it miss"><Ui k="Junimo" size={28} /><span><b>One more item</b><small>Any of: {e.missing.slice(0, 4).map((m) => m.name).join(', ')}{e.missing.length > 4 ? '…' : ''} (not gettable today)</small></span></div>)}
+        </div>
+      </a>
+    );
+  };
+  return (
+    <Panel title={which === 'today' ? 'Finish today' : 'One item short'} right={<span className="count">{list.length}</span>}>
+      <p className="hint">{which === 'today'
+        ? `Bundles where every item you still need can be in your hands by tonight (${SEASON_WX(p)}). Crops that still have to grow don't count.`
+        : `Bundles you could get all but one item for today (${SEASON_WX(p)}).`}</p>
+      {!list.length && <Empty>{which === 'today' ? 'No bundle can be finished today. Try One item short.' : 'No bundle is one item short today.'}</Empty>}
+      {list.map(card)}
+    </Panel>
   );
 }
 
@@ -198,7 +241,7 @@ export function NeededScreen() {
   return (
     <div className="screen">
       <TopBar title="Shopping list" back="#/bundles" sub={`${all.length} items left in unfinished bundles`} />
-      <div className="chips scroll-x">
+      <div className="chips">
         <Chip on={f === 'now'} onClick={() => setF('now')}>Now ({cur})</Chip>
         {SEASONS.filter((s) => s !== cur).map((s) => <Chip key={s} on={f === s} onClick={() => setF(s)}><Ui k={'season:' + s} size={16} />{s}</Chip>)}
         <Chip on={f === 'all'} onClick={() => setF('all')}>All</Chip>

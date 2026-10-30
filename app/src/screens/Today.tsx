@@ -12,6 +12,9 @@ import { Ui, ItemIcon, Sprite, Sheet, gold, TopBar } from '../components/ui';
 import { DateChip } from '../components/DateSheet';
 import { TaskRow, Section, GIcon } from '../components/guideui';
 import { BundleItemRow, toggleItem, bundleTitle } from './Bundles';
+import { StarredSheet } from '../components/Stars';
+import { starCount } from '../lib/stars';
+import { LUCK, luckToday, luckLevel, setLuck } from '../lib/luck';
 
 function More<T>({ list, n, render, empty }: { list: T[]; n: number; render: (x: T, i: number) => ReactNode; empty: ReactNode }) {
   const [all, setAll] = useState(false);
@@ -74,8 +77,8 @@ export function Brand({ home }: { home?: boolean }) {
   return home ? <div className="brand">{inner}</div> : <a className="brand" href="#/" data-tour="home" aria-label="Valley Book — back to the start screen">{inner}<span className="home-ic">Home</span></a>;
 }
 
-type Tile = { k: string; title: string; n: number | string; icon: ReactNode; href: string };
-function tilesFor(gd: DayGuide): Tile[] {
+type Tile = { k: string; title: string; n: number | string; icon: ReactNode; href: string; onClick?: () => void };
+function tilesFor(gd: DayGuide, stars?: { n: number; open: () => void }): Tile[] {
   const a = gd.a;
   const q = '';
   const good = gd.crops.filter((c) => c.profit > 0);
@@ -90,19 +93,29 @@ function tilesFor(gd: DayGuide): Tile[] {
     { k: 'quests', title: 'Quests', n: gd.quests.length, icon: <Ui k="Quest" size={32} />, href: '#/quests' },
     { k: 'events', title: 'Heart scenes', n: gd.events.length, icon: <Ui k="Heart" size={28} />, href: '#/events' },
   ];
+  if (stars) t.push({ k: 'starred', title: 'Starred', n: stars.n, icon: <Ui k="Star" size={28} />, href: '#/today', onClick: stars.open });
   if (gd.cart) t.push({ k: 'cart', title: 'Cart', n: gd.cart.count, icon: <Ui k="Traveling Cart" size={32} />, href: '#/today/cart' + q });
   if (a.ordersBoard) t.push({ k: 'orders', title: 'Orders', n: gd.orders.length, icon: <ItemIcon qid="(O)PrizeTicket" size={32} />, href: '#/orders' });
   return t;
 }
 export function TileGrid({ gd }: { gd: DayGuide }) {
+  const p = useProfile();
+  const [starOpen, setStarOpen] = useState(false);
+  const tiles = tilesFor(gd, { n: starCount(p), open: () => setStarOpen(true) });
   return (
-    <div className="dtiles" data-tour="tiles">
-      {tilesFor(gd).map((t) => (
+    <div className={'dtiles' + (tiles.length > 8 ? ' many' : '')} data-tour="tiles">
+      {tiles.map((t) => t.onClick ? (
+        <button key={t.k} className={'dtile dtile-' + t.k + (t.n === 0 ? ' zero' : '')} onClick={t.onClick} data-tour={'tile-' + t.k} aria-label={`Starred: ${t.n}`}>
+          <span className="dtile-ic">{t.icon}<span className="badge">{t.n}</span></span>
+          <b>{t.title}</b>
+        </button>
+      ) : (
         <a key={t.k} className={"dtile dtile-" + t.k + (t.n === 0 ? " zero" : "")} href={t.href} data-tour={'tile-' + t.k}>
           <span className="dtile-ic">{t.icon}<span className="badge">{t.n}</span></span>
           <b>{t.title}</b>
         </a>
       ))}
+      <StarredSheet open={starOpen} onClose={() => setStarOpen(false)} />
     </div>
   );
 }
@@ -161,9 +174,12 @@ function PlanCard({ gd }: { gd: DayGuide }) {
   const p = useProfile();
   const [open, setOpen] = useState(false);
   const { best, more } = planSlots(gd.tasks, (t) => !!t.tick && isDone(p, t.tick.col, t.tick.id));
+  const luck = luckLevel(luckToday(p));
+  const unlucky = !!luck && luck.v < 0 && gd.a.minesOpen;
   return (
     <section className="plan-card" data-tour="plan">
-      <div className="pc-h"><Ui k="Junimo" size={22} eager /><h2>Today’s plan</h2><span className="grow" /><small>Best move first</small></div>
+      <div className="pc-h"><Ui k="Junimo" size={22} eager /><h2>Today’s plan</h2><span className="grow" /><small className={unlucky ? 'pc-lk' : undefined}>{luck ? `Luck: ${luck.short}` : 'Best move first'}</small>{unlucky && <small className="pc-lk-s">Unlucky: Mines later</small>}</div>
+      {unlucky && <p className="notice-in luck-n"><Ui k={'luck:' + luck!.v} size={30} /><span><b>Unlucky day.</b> Mines jobs moved down.</span></p>}
       {best ? <div className="pc-best" key={best.id}><TaskRow t={best} big /></div>
         : <div className="empty">You’re all caught up for today. Water crops, chat with villagers, and head to bed!</div>}
       {more.length > 0 && <>
@@ -183,6 +199,8 @@ export default function Today() {
   const [tab, setTab] = useState<string>(() => query().get('t') || 'plan');
   const it = useMemo(() => ifThen(core, gd), [gd]);
   const activeTab = ['plan', 'energy', 'bday', 'fest'].includes(tab) ? tab : 'plan';
+  const [luckOpen, setLuckOpen] = useState(false);
+  const luck = luckLevel(luckToday(p));
   const T = (id: string, label: ReactNode) => (
     <button key={id} role="tab" aria-selected={activeTab === id} className={'dt' + (activeTab === id ? ' on' : '')} onClick={() => setTab(activeTab === id ? 'plan' : id)}>{label}</button>
   );
@@ -193,11 +211,15 @@ export default function Today() {
         <div className="home-row"><span data-tour="date"><DateChip /></span><RoadLine gd={gd} /></div>
       </header>
 
-      <div className="day-tabs three" role="tablist" aria-label="Day guide extras" data-tour="xtabs">
+      <div className="day-tabs four" role="tablist" aria-label="Day guide extras" data-tour="xtabs">
         {T('energy', <><Ui k="Energy" size={18} />Energy</>)}
         {T('bday', <><Ui k="Gift" size={18} />Birthday</>)}
         {T('fest', <><Ui k="weather:Festival" size={18} />Festival</>)}
+        <button className={'dt dt-luck' + (luck ? ' set' : '')} aria-haspopup="dialog" aria-label={luck ? `Luck of the day: ${luck.label}. Change` : 'Set luck of the day'} onClick={() => setLuckOpen(true)}>
+          {luck ? <Ui k={'luck:' + luck.v} size={22} /> : <Ui k="skill:Luck" size={18} />}<span>Luck</span>
+        </button>
       </div>
+      <LuckSheet open={luckOpen} onClose={() => setLuckOpen(false)} />
 
       {activeTab === 'plan' && (
         <>
@@ -223,6 +245,30 @@ export default function Today() {
       )}
       {activeTab !== 'plan' && <button className="link more-btn" onClick={() => setTab('plan')}>‹ Back to today’s plan</button>}
     </div>
+  );
+}
+
+/** Luck of the day: pick what the Fortune Teller show said this morning. The Day guide reacts (Mines up or down). */
+function LuckSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const p = useProfile();
+  const cur = luckToday(p);
+  return (
+    <Sheet open={open} onClose={onClose} title="Luck of the day">
+      <div className="tv-frame"><Ui k="Fortune Teller" size={120} /></div>
+      <p className="hint">What did the Fortune Teller say on TV this morning ({SEASON_NAMES[p.date.season]} {p.date.day})? The Day guide moves Mines jobs up on lucky days and down on unlucky ones.</p>
+      <div className="list">
+        {LUCK.map((l) => (
+          <div key={l.v} className={'row farm luck-row' + (cur === l.v ? ' active' : '')}>
+            <button className="row-btn" aria-pressed={cur === l.v} onClick={() => setLuck(cur === l.v ? null : l.v)}>
+              <span className={'radio' + (cur === l.v ? ' on' : '')} aria-hidden />
+              <Ui k={'luck:' + l.v} size={42} />
+              <span className="row-main"><span className="row-t">{l.label}</span><span className="row-s luck-q">“{l.quote}”</span></span>
+            </button>
+          </div>
+        ))}
+      </div>
+      <p className="cfoot">Luck is set when the day starts, and watching the show doesn’t change it. Good luck also helps fishing treasure, double harvests and geodes. It resets when you move to a new day.</p>
+    </Sheet>
   );
 }
 

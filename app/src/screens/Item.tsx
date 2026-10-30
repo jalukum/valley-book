@@ -1,10 +1,12 @@
 import { core, items, npcById, fishByQid, loadGifts } from '../data';
 import { useEffect } from 'react';
 import { useProfile, toggle, isDone, addRecent } from '../lib/state';
+import { StarButton } from '../components/Stars';
+import { starKey } from '../lib/stars';
 import { TopBar, Panel, Sprite, ItemIcon, Ui, Empty, gold } from '../components/ui';
 import { useAsync } from '../lib/useAsync';
 import { whoLikes, TIER_LABEL } from '../lib/gifts';
-import { fishSeasons, fishTimeText, fishWeather } from '../lib/fish';
+import { fishSeasons, fishTimeText, fishWeather, fishPlaces, fishExtras, seasonsText } from '../lib/fish';
 import { itemSeasons } from '../lib/seasons';
 import { Ingredients } from './Collections';
 import type { Tier } from '../types';
@@ -36,7 +38,7 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
   makes.forEach((m) => toggles.push({ col: m.k, id: m.r.id, label: m.k === 'cooking' ? 'Cooked' : 'Crafted' }));
   return (
     <div className="screen">
-      <TopBar title={it.n} back="#/search" />
+      <TopBar title={it.n} back="#/search" right={<StarButton k={starKey.item(qid)} name={it.n} />} />
       <Panel className="item-hero">
         <Sprite spr={it} size={96} eager alt={it.n} />
         <div>
@@ -52,10 +54,11 @@ export default function ItemScreen({ qid: raw }: { qid?: string }) {
       {fish && (
         <Panel title="Fishing" icon={<ItemIcon qid="(O)145" size={24} />}>
           <dl className="dl">
-            <dt>Where</dt><dd>{(fish.summary.locations || []).join(', ') || (fish.method === 'crab pot' ? `Crab pot (${fish.water || 'any water'})` : '—')}</dd>
+            <dt>Where</dt><dd>{fish.method === 'crab pot' ? `Crab pot (${fish.water || 'any water'})` : fishPlaces(fish).join(' · ') || '—'}</dd>
             <dt>When</dt><dd>{fish.method === 'crab pot' ? 'Any time' : fishTimeText(fish)}</dd>
-            <dt>Seasons</dt><dd>{fishSeasons(fish).length === 4 ? 'All seasons' : fishSeasons(fish).join(', ')}</dd>
+            <dt>Seasons</dt><dd>{seasonsText(fishSeasons(fish))}</dd>
             <dt>Weather</dt><dd>{fishWeather(fish) === 'both' ? 'Any' : fishWeather(fish) === 'sunny' ? 'Sun' : 'Rain'}</dd>
+            {fishExtras(fish).length > 0 && <><dt>Also</dt><dd>{fishExtras(fish).join('. ')}</dd></>}
             {fish.difficulty != null && <><dt>Difficulty</dt><dd>{fish.difficulty}{fish.behavior ? ` (${fish.behavior})` : ''}</dd></>}
             {fish.level > 0 && <><dt>Fishing level</dt><dd>{fish.level}+</dd></>}
           </dl>

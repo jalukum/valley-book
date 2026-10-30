@@ -44,6 +44,8 @@ export interface Profile {
   perf: { stardrops: Record<string, number>; obelisks: Record<string, number>; goldClock: number; skills: Record<string, number>; waivers: number };
   setup: Setup;
   recent: string[]; // v7.0 recently viewed, newest first: 'item:<qid>' | 'villager:<id>'
+  stars: string[]; // v7.1 starred, newest first: 'item:<qid>' | 'villager:<id>' | 'bundle:<id>'
+  luck: { day: string; v: number } | null; // v7.1 the TV fortune for one in-game day (dateKey), -2 very displeased .. 2 very happy
 }
 export interface Store { activeId: string; profiles: Profile[] }
 
@@ -58,7 +60,7 @@ export function newProfile(name = 'My Farm', farmType: FarmType = 'standard'): P
     cc: { mode: 'standard', route: 'cc', checked: {}, remix: {}, joja: {} },
     done: {}, hearts: {}, gifts: {}, giftWeek: weekKey({ season: 0, day: 1, year: 1 }), spouse: null,
     perf: { stardrops: {}, obelisks: {}, goldClock: 0, skills: {}, waivers: 0 },
-    setup: newSetup(), recent: [],
+    setup: newSetup(), recent: [], stars: [], luck: null,
   };
 }
 export const newSetup = (): Setup => ({ mine: 0, skullDepth: 0, tools: { pickaxe: 0, axe: 0, hoe: 0, can: 0 }, rod: 'auto', house: 0, backpack: 12,
@@ -79,6 +81,8 @@ export function normalizeProfile(p: any): Profile {
     perf: { ...base.perf, ...(p.perf || {}), stardrops: { ...(p.perf?.stardrops || {}) }, obelisks: { ...(p.perf?.obelisks || {}) }, skills: { ...(p.perf?.skills || {}) } },
     setup: { ...base.setup, ...(p.setup || {}), tools: { ...base.setup.tools, ...(p.setup?.tools || {}) }, keys: { ...(p.setup?.keys || {}) } },
   };
+  out.stars = Array.isArray(p.stars) ? [...new Set<string>(p.stars.filter((x: unknown) => typeof x === 'string' && /^(item|villager|bundle):./.test(x as string)))] : [];
+  out.luck = p.luck && typeof p.luck.day === 'string' && Number.isFinite(p.luck.v) ? { day: p.luck.day, v: clamp(Math.round(p.luck.v), -2, 2) } : null;
   out.recent = Array.isArray(p.recent) ? p.recent.filter((x: unknown) => typeof x === 'string').slice(0, RECENT_MAX) : [];
   if (!isFarmType(out.farmType)) out.farmType = 'standard'; // older saves had no farm type: default Standard, user can change it
   if (!['sun', 'rain', 'storm', 'wind', 'snow', 'green'].includes(out.weather)) out.weather = 'sun';
@@ -201,6 +205,8 @@ export function parseImport(text: string): Profile[] {
   if (!list || !list.length) throw new Error('No farm profiles found in that data.');
   return list.map(normalizeProfile);
 }
+/** v7.1 save import: swap one farm for an updated copy (same id), keeping it active. */
+export function replaceProfile(p: Profile) { store = { activeId: p.id, profiles: store.profiles.map((x) => (x.id === p.id ? p : x)) }; emit(); }
 export function importProfiles(list: Profile[]) {
   const ids = new Set(store.profiles.map((p) => p.id));
   const fresh = list.map((p) => (ids.has(p.id) ? { ...p, id: uid() } : p));

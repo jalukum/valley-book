@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useStore, switchProfile, deleteProfile, exportProfiles, parseImport, importProfiles } from '../lib/state';
 import { TopBar, Panel, Ui, Chip, Sheet } from '../components/ui';
 import { Onboarding } from '../components/Onboarding';
+import { SaveImport } from '../components/SaveImport';
 import { farmInfo, farmIconKey } from '../lib/farms';
 import { core, SEASONS } from '../data';
 import { ccProgress, perfection } from '../lib/progress';
@@ -52,6 +53,7 @@ export function ProfilesScreen() {
         </div>
         <button className="btn wide" onClick={() => setAdding(true)}>+ Add a farm</button>
       </Panel>
+      <SaveImport />
       <Panel title="Backup & move" icon={<Ui k="Gift" size={24} />}>
         <p className="hint">Progress is saved on this device only. Export to keep a backup or move it to another phone.</p>
         <div className="chips">

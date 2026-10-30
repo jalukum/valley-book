@@ -2,16 +2,19 @@
 // Pure functions of (core, profile[, gifts]) so they can be unit-tested (guide.test.ts).
 import type { Core, Fish, GCrop, GEvent, GQuest, GiftData, ShopOffer, BItem } from '../types';
 import { isRaining, type Profile, type Weather } from './state';
+import { luckToday, luckLevel } from './luck';
 import { type ActiveBundle, activeBundles, bundleDone, ccProgress, jojaProgress, worldFlags, walnutsFound, walnutTotal, perfection, doneCount, heartsTarget, farmerLevel, CC_ROOMS, JOJA_KEYS } from './progress';
-import { fishSeasons, fishWeather } from './fish';
+import { fishSpotsNow, timesText, toHHMM, fmtHHMM } from './fish';
+import type { Gate, Spot } from './fishwiki';
 import { festivalOn, FESTIVALS } from './festivals';
 import { items } from '../data';
+import { itemSeasons } from './seasons';
 import { type FarmType, farmFish, farmForage, farmInfo } from './farms';
 
 export const SEASON_KEYS = ['spring', 'summer', 'fall', 'winter'];
 export const SEASON_NAMES = ['Spring', 'Summer', 'Fall', 'Winter'];
 export const DOW = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-export type Label = 'Quest' | 'Bundle' | 'Money' | 'Friendship';
+export type Label = 'Quest' | 'Bundle' | 'Money' | 'Friendship' | 'Luck';
 export interface Icon { qid?: string | null; ui?: string; npc?: string }
 export interface Task { id: string; label: Label; title: string; why: string; where?: string; when?: string; score: number; icon: Icon; href?: string; tick?: { col: string; id: string } }
 
@@ -77,68 +80,68 @@ export function access(core: Core, p: Profile): Access {
 
 // ---------- fish ----------
 export interface FishRow { f: Fish; where: string; when: string; rainOnly: boolean }
-const MINE_FLOOR: Record<string, number> = { Ghostfish: 20, Stonefish: 20, 'Ice Pip': 60, 'Lava Eel': 100 };
-function fishReachable(f: Fish, a: Access): string | null {
-  const off = fishReachableOff(f, a);
-  if (!farmFish(f, a.farmType) || f.family || (f.level && a.fishing < f.level)) return off;
-  return ['Your farm', off].filter(Boolean).join(', '); // the farm's own water (wiki: Farm Maps)
-}
-function fishReachableOff(f: Fish, a: Access): string | null {
-  if (f.family) return null; // the legendary family only appears during Qi's "Extended Family" order
-  if (f.legendary && a.fishing < f.level) return null;
-  if (!f.legendary && f.level && a.fishing < f.level) return null;
-  const sub = (f.summary.locations || []).length > 0 && (f.summary.locations || []).every((l) => /Submarine/.test(l));
-  if (sub) return a.nightMarket ? 'Night Market submarine' : null;
-  if (MINE_FLOOR[f.name]) {
-    if (a.mine >= MINE_FLOOR[f.name]) return `The Mines, floor ${MINE_FLOOR[f.name]}`;
-    if (f.name === 'Lava Eel' && a.island) return 'Volcano Caldera';
-    return null;
+export const gateFor = (a: Access) => (g: Gate): boolean => {
+  switch (g) {
+    case 'woods': return a.woods; case 'sewer': return a.sewer; case 'bugLair': return a.bugLair; case 'swamp': return a.swamp;
+    case 'desert': return a.bus; case 'island': return a.island; case 'nightMarket': return a.nightMarket;
+    case 'mine20': return a.mine >= 20; case 'mine60': return a.mine >= 60; case 'mine100': return a.mine >= 100;
+    default: return false; // 'qi' — the legendary family only appears during Qi's "Extended Family" order
   }
-  if (f.name === 'Goby') return 'Cindersap Forest waterfalls';
-  const ok = (l: string) => {
-    if (l === 'Temp' || l === 'fishingGame' || l.startsWith('Farm_') || l === 'Submarine') return false;
-    if (l === 'Desert') return a.bus;
-    if (l === 'Woods') return a.woods;
-    if (l === 'Sewer') return a.sewer;
-    if (l === 'BugLand') return a.bugLair;
-    if (l === 'WitchSwamp') return a.swamp;
-    if (l === 'UndergroundMine') return a.mine >= 20;
-    if (l.startsWith('Island') || l === 'Caldera') return a.island;
-    return true;
-  };
-  const locs = f.locs || [];
-  if (!locs.some(ok)) return null;
-  const names = (f.summary.locations || f.spawns).filter((n) => {
-    if (/Ginger|Pirate|Caldera|Island/i.test(n)) return a.island;
-    if (/Desert/.test(n)) return a.bus;
-    if (/Secret Woods/.test(n)) return a.woods;
-    if (/Sewer/.test(n)) return a.sewer;
-    if (/Bug Lair/.test(n)) return a.bugLair;
-    if (/Swamp/.test(n)) return a.swamp;
-    if (/Submarine/.test(n)) return a.nightMarket;
-    if (/Farm/.test(n)) return false;
-    return true;
-  });
-  return names.join(', ') || (f.summary.locations || [])[0] || '';
-}
-const timeText = (f: Fish) => {
-  if (!f.times?.length) return 'any time';
-  const fm = (t: number) => { const h = Math.floor(t / 100) % 24; return `${((h + 11) % 12) + 1}${h < 12 ? 'am' : 'pm'}`; };
-  return f.times.map(([x, y]) => (x === 600 && y === 2600 ? 'any time' : `${fm(x)}–${fm(y)}`)).join(', ');
 };
+/** Spots (wiki) biting today, ignoring the clock — time of day never changes the plan. */
+const spotsToday = (f: Fish, a: Access, can: (g: Gate) => boolean) => fishSpotsNow(f, a.seasonName, null, a.weather, { day: a.day, can });
+function fishReachable(f: Fish, a: Access): { where: string; spots: Spot[] } | null {
+  if (f.family) return null;
+  if (f.level && a.fishing < f.level) return null;
+  const spots = spotsToday(f, a, gateFor(a));
+  const names = [...new Set(spots.map((x) => x.at))];
+  // the farm's own water (wiki: Farm Maps) follows the same seasons as the valley spot it copies
+  // (Forest Farm ponds hold Woodskip, whose valley spot is the gated Secret Woods.)
+  const farmSpots = farmFish(f, a.farmType) ? spotsToday(f, a, () => true) : [];
+  const farm = farmSpots.some((x) => !x.gate) || (a.farmType === 'forest' && !!f.locs?.includes('Farm_Forest') && farmSpots.length > 0);
+  if (farm) names.unshift('Your farm');
+  if (!names.length) return null;
+  return { where: names.join(', '), spots: farm && !spots.length ? farmSpots : spots };
+}
+/** v7.1 "Biting right now" on the Fish page: rod fish biting at the farm's clock (p.time), sorted by which stop first,
+ *  plus the ones that start later today. Uses the wiki seasons/times/weather and only places this farm can reach. */
+export interface BiteRow { f: Fish; where: string; until: number; start: number; again: string; rainOnly: boolean; sunOnly: boolean }
+export function fishBiting(core: Core, p: Profile, a = access(core, p)): { now: BiteRow[]; later: BiteRow[]; t: number } {
+  const t = toHHMM(p.time);
+  const can = gateFor(a);
+  const now: BiteRow[] = [], later: BiteRow[] = [];
+  for (const f of core.fish) {
+    if (f.method !== 'rod' || f.family) continue;
+    const spots = spotsToday(f, a, can);
+    if (!spots.length) continue;
+    const wins = spots.flatMap((x) => (x.times || [[600, 2600]]).map(([s0, e]) => ({ s0, e, at: x.at })));
+    const cur = wins.filter((w) => t >= w.s0 && t < w.e);
+    const base = { f, rainOnly: spots.every((x) => x.weather === 'rainy'), sunOnly: spots.every((x) => x.weather === 'sunny') };
+    if (cur.length) {
+      const until = Math.max(...cur.map((w) => w.e));
+      const next = wins.filter((w) => w.s0 >= until);
+      const again = [...new Set(next.map((w) => `${fmtHHMM(w.s0)}–${fmtHHMM(w.e)}`))].join(', ');
+      now.push({ ...base, where: [...new Set(cur.map((w) => w.at))].join(', '), until, start: Math.min(...cur.map((w) => w.s0)), again });
+    } else {
+      const next = wins.filter((w) => w.s0 > t).sort((x, y) => x.s0 - y.s0);
+      if (!next.length) continue;
+      later.push({ ...base, where: [...new Set(next.map((w) => w.at))].join(', '), until: next[0].e, start: next[0].s0, again: '' });
+    }
+  }
+  now.sort((x, y) => x.until - y.until || x.f.name.localeCompare(y.f.name));
+  later.sort((x, y) => x.start - y.start || x.f.name.localeCompare(y.f.name));
+  return { now, later, t };
+}
 export function fishToday(core: Core, p: Profile, a = access(core, p)): FishRow[] {
   if (!a.rod) return [];
   const out: FishRow[] = [];
   for (const f of core.fish) {
     if (f.method !== 'rod' || items[f.qid]?.cat !== -4) continue;
-    if (!fishSeasons(f).includes(a.seasonName)) continue;
-    const w = fishWeather(f);
-    if (w === 'sunny' && a.rain) continue;
-    if (w === 'rainy' && !a.rain) continue;
     if (f.legendary && isDoneIn(p, 'fish', f.qid)) continue; // legendaries can only be caught once
-    const where = fishReachable(f, a);
-    if (where === null) continue;
-    out.push({ f, where, when: timeText(f), rainOnly: w === 'rainy' }); // time of day never changes the plan
+    const r = fishReachable(f, a);
+    if (!r) continue;
+    const when = [...new Set(r.spots.map((x) => (x.gate === 'nightMarket' ? '5pm–2am' : timesText(x.times))))].join(' / ').replace(/Any time/g, 'any time');
+    out.push({ f, where: r.where, when, rainOnly: r.spots.every((x) => x.weather === 'rainy') });
   }
   return out.sort((x, y) => y.f.price - x.f.price);
 }
@@ -253,6 +256,34 @@ export function bundlesToday(core: Core, p: Profile, a = access(core, p), fish =
     });
   }
   return out;
+}
+
+/** v7.1 bundle filters. "Finish today": every item still needed can be in your hands by tonight (crops that still
+ *  have to grow don't count). "One item short": all but one. Missing items say why (season or not reachable today). */
+export interface BundleFinish { b: ActiveBundle; need: number; today: BundleRow[]; missing: { index: number; name: string; qid: string | null; why: string }[] }
+export function bundleFinish(core: Core, p: Profile, rows = bundlesToday(core, p)): { finish: BundleFinish[]; short: BundleFinish[] } {
+  const finish: BundleFinish[] = [], short: BundleFinish[] = [];
+  const a = access(core, p);
+  if (a.ccRoute === 'joja') return { finish, short };
+  for (const b of activeBundles(core, p)) {
+    if (bundleDone(p, b)) continue;
+    if (!b.items.some((it) => it.qid)) continue; // money bundles (Vault)
+    if (b.room === 'The Missing' || b.room.includes('Joja')) { if (!a.ccDone) continue; }
+    const checked = new Set(p.cc.checked[b.id] || []);
+    const need = b.required - [...checked].filter((i) => i >= 0 && i < b.items.length).length;
+    if (need <= 0) continue;
+    const today = rows.filter((r) => r.bundleId === b.id && !r.how.startsWith('Plant today'));
+    const got = new Set(today.map((r) => r.index));
+    const missing = b.items.map((it, index) => ({ it, index })).filter(({ index }) => !checked.has(index) && !got.has(index)).map(({ it, index }) => {
+      const s = itemSeasons(it.qid);
+      const why = s && !s.includes(a.seasonName) ? `Not today: ${s.length === 1 ? s[0] : s.slice(0, -1).join(', ') + ' and ' + s[s.length - 1]} only` : 'Not gettable today';
+      return { index, name: it.name, qid: it.qid ?? null, why };
+    });
+    const e: BundleFinish = { b, need, today: today.slice(0, need), missing };
+    if (today.length >= need) finish.push(e);
+    else if (today.length === need - 1) short.push(e);
+  }
+  return { finish, short };
 }
 
 /** Forest Farm: 8 renewable Large Stumps; Four Corners: one. Large Stumps need a copper axe or better. */
@@ -528,11 +559,16 @@ export function dayGuide(core: Core, p: Profile, gifts?: Record<string, GiftData
   if (a.weather === 'green') T.push({ id: 'green-moss', label: 'Money', title: 'Gather Moss and clear the giant weeds', why: core.guide.facts.greenRain.text, where: 'Trees all over the valley', score: 190, icon: { qid: '(O)Moss' } });
 
   // milestones
-  if (a.minesOpen && a.mine < 120) T.push({ id: 'mines', label: 'Quest', title: `Go deeper in the Mines (next stop floor ${Math.floor(a.mine / 5) * 5 + 5})`, why: a.mine < 40 ? 'Ore for tool upgrades and the Crafts Room. Floor 40 opens the next quest.' : 'Floor 120 gives the Skull Key.', where: 'The Mines', score: 150 + (a.rain ? 50 : 0) + boost(1) + boost(3), icon: { ui: 'Pickaxe' } });
+  const luck = luckToday(p);
+  const lucky = luck != null && luck > 0, unlucky = luck != null && luck < 0;
+  const mineLuck = lucky ? (luck === 2 ? 260 : 170) : unlucky ? (luck === -2 ? -140 : -80) : 0;
+  if (lucky && a.minesOpen) T.push({ id: 'luck-mines', label: 'Luck', title: a.skull ? 'Lucky day: dive the Skull Cavern' : 'Lucky day: dig deep in the Mines', why: `The spirits are ${luckLevel(luck)!.short}. Good luck means more ladders, geodes and gem nodes, so push for new floors.`, where: a.skull ? 'Calico Desert' : 'The Mines', score: 230 + mineLuck, icon: { ui: 'Pickaxe' } });
+  else if (lucky && a.rod) T.push({ id: 'luck-fish', label: 'Luck', title: 'Lucky day: go fishing for treasure', why: `The spirits are ${luckLevel(luck)!.short}. Luck raises the odds of treasure chests while fishing.`, where: fish[0]?.where, score: 210 + mineLuck / 2, icon: { ui: 'skill:Fishing' } });
+  if (a.minesOpen && a.mine < 120 && !lucky) T.push({ id: 'mines', label: 'Quest', title: `Go deeper in the Mines (next stop floor ${Math.floor(a.mine / 5) * 5 + 5})`, why: a.mine < 40 ? 'Ore for tool upgrades and the Crafts Room. Floor 40 opens the next quest.' : 'Floor 120 gives the Skull Key.', where: 'The Mines', score: 150 + (a.rain ? 50 : 0) + boost(1) + boost(3) + mineLuck, icon: { ui: 'Pickaxe' } });
   if (p.setup.backpack < 24 && a.daysPlayed >= 3) T.push({ id: 'backpack', label: 'Money', title: 'Buy the Large Pack at Pierre’s (2,000g)', why: '12 more inventory slots — the biggest early quality-of-life upgrade.', where: "Pierre's", score: 155 + boost(1), icon: { ui: 'Backpack' } });
   if (a.ccRestored && !a.island) T.push({ id: 'boat', label: 'Quest', title: 'Repair Willy’s boat to Ginger Island', why: core.guide.facts.island.text, where: 'Willy’s Fish Shop (back room)', score: 190 + boost(4), icon: { ui: 'Golden Walnut' } });
   if (a.island && walnutsFound(core, p) < walnutTotal(core)) T.push({ id: 'walnuts', label: 'Quest', title: 'Hunt Golden Walnuts on Ginger Island', why: `${walnutsFound(core, p)}/${walnutTotal(core)} found — they unlock island upgrades${a.qi ? '' : ' and Qi’s Walnut Room at 100'}.`, where: 'Ginger Island', score: 160 + boost(4), icon: { ui: 'Golden Walnut' }, href: '#/walnuts' });
-  if (a.skull) T.push({ id: 'skull', label: 'Money', title: 'Dive the Skull Cavern', why: 'Iridium ore and treasure — go early in the day with food and bombs.', where: 'Calico Desert', score: 130 + boost(3), icon: { ui: 'Skull Key' } });
+  if (a.skull && !(lucky && a.minesOpen)) T.push({ id: 'skull', label: 'Money', title: 'Dive the Skull Cavern', why: 'Iridium ore and treasure — go early in the day with food and bombs.', where: 'Calico Desert', score: 130 + boost(3) + (lucky ? 0 : mineLuck), icon: { ui: 'Skull Key' } });
   if (!a.woods && a.mine >= 40) T.push({ id: 'steelaxe', label: 'Quest', title: 'Upgrade to a Steel Axe', why: 'It opens the Secret Woods (hardwood, Woodskip fish). ' + core.guide.facts.tools.text, where: 'Clint’s Blacksmith', score: 120, icon: { ui: 'Steel Axe' } });
   // raccoons
   if (a.greenhouse && a.raccoon === 0) T.push({ id: 'raccoon-wait', label: 'Quest', title: 'Watch for the wind storm', why: core.guide.raccoon.unlock, score: 60, icon: { ui: 'Raccoon' } });

@@ -197,6 +197,11 @@ ui['rhome:Stump'] = { s: pub('sprites/derived/Giant_Stump_Home.png'), w: 100, h:
 ui['rhome:Bars'] = { s: pub('sprites/derived/Giant_Stump_Window_Bars.png'), w: 100, h: 110 };
 ui['rhome:Shadow'] = { s: pub('sprites/derived/Giant_Stump_Shadow.png'), w: 108, h: 14 };
 ui['rac:Kit'] = { s: pub('sprites/derived/Raccoon_Kit_Head.png'), w: 10, h: 9 };
+// v7.1 stars, luck of the day and save import (see ../sprites/derived/SOURCES.json): wiki images, first GIF frame only.
+ui['Star'] = { s: pub('sprites/derived/Star_Gold_Quality.png'), w: 24, h: 24 };
+ui['Fortune Teller'] = { s: pub('sprites/derived/Fortune_Teller_Icon.png'), w: 168, h: 112 };
+ui['Mail'] = { s: pub('sprites/derived/Mail_Icon.png'), w: 48, h: 48 };
+for (const [v, n] of [[2, 'LuckStar'], [1, 'LuckPyramid'], [0, 'LuckSwirlingLights'], [-1, 'LuckBat'], [-2, 'LuckSkull']]) ui['luck:' + v] = { s: pub(`sprites/derived/TV_${n}.png`), w: 84, h: 56 };
 ui['sky:Sun'] = { s: pub('sprites/derived/Sun.png'), w: 16, h: 16 }; // File:Sunny.png with its flat cyan backdrop keyed out
 const nameToQid = new Map(Object.entries(items).map(([q, v]) => [v.n.toLowerCase(), q]));
 const powerIcons = JSON.parse(await readFile(path.join(ROOT, 'sprites/derived/powers.json'), 'utf8'));
