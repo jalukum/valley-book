@@ -4,6 +4,9 @@ import '@fontsource/pixelify-sans/latin-500.css';
 import '@fontsource/pixelify-sans/latin-700.css';
 import './styles.css';
 import App from './App';
+import { lockPageZoom } from './lib/nozoom';
+
+lockPageZoom(document);
 
 createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
 

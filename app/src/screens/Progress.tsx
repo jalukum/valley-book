@@ -84,7 +84,6 @@ export function MoreHub() {
       <section className="panel">
         <div className="list">
           <button className="nav-row" onClick={() => { location.hash = '#/'; setTimeout(() => setUi({ tourOpen: true }), 50); }}><span className="row-ic"><Ui k="Quest" size={28} /></span><span className="row-main"><b>Replay tutorial</b><small>A quick tour of the Day guide and its tiles</small></span><span className="chev-r" /></button>
-          <button className="nav-row" onClick={() => setUi({ onboarded: false })}><span className="row-ic"><Ui k="Calendar" size={28} /></span><span className="row-main"><b>Run first-time setup again</b><small>Name, date, weather and progress questions</small></span><span className="chev-r" /></button>
         </div>
       </section>
     </div>

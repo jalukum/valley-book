@@ -110,7 +110,6 @@ export default function App() {
       <div className="rotate-lock" role="status">
         <div className="rl-card"><Ui k="Junimo" size={64} eager /><b>Turn your phone upright to keep playing</b><small>Valley Book is made for portrait.</small></div>
       </div>
-      <div className="sat-cap" aria-hidden />
       <main className="main" key={r.join('/')}>
         <Suspense fallback={<div className="loading">Loading…</div>}>
           <Screen r={r} />

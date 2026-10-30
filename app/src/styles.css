@@ -60,11 +60,12 @@ html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
    the scroll content (fixed, opaque, no blur/fade), and html/body + theme-color are wood too, so iOS has nothing grey or
    translucent to tint the status-bar area with. The front page (no top bar) keeps its sky. */
 html:has(.topbar), html:has(.topbar) body { background-color: #a5703a; }
-.app:not(:has(.topbar)) .sat-cap { display: none; } /* Today's plan page and the front page have no wooden bar: sky stays */
-.sat-cap { position: fixed; top: 0; left: 0; right: 0; height: var(--sat); z-index: 21; pointer-events: none;
-  background-color: #b47d43; background-image: linear-gradient(180deg, rgba(255,225,170,.28) 0 2px, transparent 2px); }
+/* v6.8.3: no separate flat strip any more: the wooden top bar itself runs up through the status-bar inset as one textured board. */
 body.noscroll .app { overflow: hidden; }
 .sheet-b { overscroll-behavior: contain; }
+/* v6.8.3 no page zoom: pans only (no pinch, no double-tap zoom) on the whole app. The Maps viewport's own touch-action:none
+   (effective touch-action is the intersection with ancestors) keeps its in-map pinch/pan, driven by pointer events. */
+html, body, .app { touch-action: pan-x pan-y; }
 .main { max-width: 720px; margin: 0 auto; padding: calc(var(--sat) + 4px) 12px calc(var(--tabh) + var(--sab) + 20px); overflow-x: clip; }
 .screen { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .loading, .empty { padding: 24px; text-align: center; color: var(--ink-3); }
@@ -97,7 +98,7 @@ body.noscroll .app { overflow: hidden; }
     linear-gradient(180deg, rgba(255,225,170,.28) 0 2px, transparent 2px), /* top highlight */
     repeating-linear-gradient(180deg, transparent 0 9px, rgba(92,58,23,.16) 9px 10px, transparent 10px 15px, rgba(255,226,176,.10) 15px 16px, transparent 16px 23px), /* grain */
     repeating-linear-gradient(90deg, transparent 0 37px, rgba(92,58,23,.10) 37px 39px, transparent 39px 83px, rgba(255,226,176,.08) 83px 84px, transparent 84px 131px), /* knots and streaks */
-    linear-gradient(180deg, #b47d43, #9c6533 55%, #8e5a2b);
+    linear-gradient(0deg, #8e5a2b 0, #9c6533 24px, #b47d43 52px); /* shading measured from the bottom edge, so the status-bar part is the same textured plank, not a fade */
   border-bottom: 3px solid var(--wood-d);
   box-shadow: 0 -3px 0 rgba(58,35,13,.35) inset, 0 3px 0 #3a230d, 0 5px 0 rgba(58,35,13,.18), 0 8px 12px rgba(0,0,0,.16);
   margin-top: calc(-4px - var(--sat));
@@ -439,7 +440,7 @@ details > summary { cursor: pointer; font-weight: 600; font-size: 13.5px; color:
 .farm-act { display: flex; gap: 4px; flex: none; }
 .row.farm { flex-wrap: wrap; }
 .row.farm.active .row-t { color: var(--acc-d); }
-.ta { width: 100%; margin-top: 8px; font: 13px/1.4 ui-monospace, Menlo, monospace; padding: 8px; border-radius: 8px; border: 2px solid var(--frame-d); background: var(--cream); color: var(--ink); resize: vertical; }
+.ta { width: 100%; margin-top: 8px; font: 16px/1.4 ui-monospace, Menlo, monospace; padding: 8px; border-radius: 8px; border: 2px solid var(--frame-d); background: var(--cream); color: var(--ink); resize: vertical; }
 .about { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .about h2 { font-size: 24px; }
 .about p { margin: 0; }
@@ -485,7 +486,7 @@ img.pt { border-radius: 6px; }
 .set-line + .set-line { border-top: 1.5px dashed var(--paper-3); }
 .set-line .row-main { flex: 1 1 140px; }
 .set-ctl { display: flex; align-items: center; gap: 8px; flex: none; margin-left: auto; max-width: 100%; flex-wrap: wrap; justify-content: flex-end; }
-.sel { font: 600 14px var(--body); color: var(--ink); background: var(--paper-2); border: 2px solid var(--frame-d); border-radius: 9px; padding: 6px 8px; min-height: 38px; max-width: 100%; }
+.sel { font: 600 16px var(--body); color: var(--ink); background: var(--paper-2); border: 2px solid var(--frame-d); border-radius: 9px; padding: 6px 8px; min-height: 38px; max-width: 100%; }
 .range { width: 100%; accent-color: var(--acc); margin: 4px 0 0; }
 .setup-card { display: flex; align-items: center; gap: 12px; }
 .setup-card b { font: 700 16px var(--head); }
@@ -744,6 +745,22 @@ img.pt { border-radius: 6px; }
   image-rendering: pixelated; image-rendering: crisp-edges; box-shadow: 0 -2px 0 rgba(47,90,30,.6); }
 @media (prefers-reduced-motion: reduce) { .bubble.b2, .bubble.b4 { transform: none; } .bubble { animation: none; } }
 @media (max-height: 700px) { .bubble, .bubble:not(.b0) { min-height: 92px; } .bub-t small { display: none; } .bubble.b0 .bub-t small { display: block; } }
+/* v6.8.3 very short screens (iPhone 5/SE1 568pt, small Androids in landscape-ish windows): shrink the front page gracefully
+   so the five buttons and a strip of meadow still fit with no clipping: smaller logo, tighter header, compact buttons. */
+@media (max-height: 600px) {
+  .entry { gap: 6px; }
+  .entry-h { gap: 5px; padding-top: 2px; }
+  .entry-h .brand { gap: 0; }
+  .entry-h .brand img { width: 36px !important; height: 36px !important; }
+  .entry-h .brand h1 { font-size: 28px; }
+  .entry-h .farm-pill { padding: 5px 6px 5px 10px; }
+  .entry-h .fp-t b { font-size: 17px; }
+  .bubbles { gap: 10px 12px; padding: 4px 6px 36px; }
+  .bubble, .bubble:not(.b0) { min-height: 78px; padding: 7px 6px 6px; gap: 3px; }
+  .bubble.b0 { padding: 7px 12px; }
+  .bubble.b0 .bub-t small { display: none; }
+  .bubble.b0 .bub-ic img { width: 40px !important; height: 40px !important; }
+}
 
 /* ---------- Day guide: exactly three even tabs, tiny weather chip, 2-line tile titles ---------- */
 .day-tabs.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; flex-wrap: nowrap; }

@@ -109,8 +109,8 @@ const SHOTS = [
     await p.evaluate(() => { location.hash = '#/villager/Emily'; }); await sleep(700); await p.evaluate(() => history.back()); await sleep(900);
     const b = await p.evaluate(() => ({ restored: document.querySelector('.app').scrollTop, top: Math.round(document.querySelector('.topbar')?.getBoundingClientRect().top ?? -1), tabbar: Math.round(document.querySelector('.tabbar').getBoundingClientRect().bottom) }));
     fit.push(`scroll check: ${JSON.stringify({ ...a, ...b })}`); }, { store: 'f14' }],
-  ['banner-safearea', '#/villagers', async (p) => { await p.addStyleTag({ content: ':root, html { --sat: 47px !important; }' }); await sleep(400);
-    const r = await p.evaluate(() => { const c = document.querySelector('.sat-cap'), cs = c && getComputedStyle(c); return { cap: c?.getBoundingClientRect().height, bg: cs?.backgroundColor, theme: document.querySelector('meta[name="theme-color"]').content, html: getComputedStyle(document.documentElement).backgroundColor }; }); fit.push(`safe-area cap: ${JSON.stringify(r)}`); }, { store: 'f14' }],
+  ['banner-safearea', '#/villagers', async (p) => { await p.addStyleTag({ content: `:root, html { --sat: ${process.env.SAT || 47}px !important; }` }); await sleep(400);
+    const r = await p.evaluate(() => { const t = document.querySelector('.topbar'), cs = getComputedStyle(t), rc = t.getBoundingClientRect(); return { capEl: !!document.querySelector('.sat-cap'), boardTop: rc.top, boardH: rc.height, padTop: cs.paddingTop, layers: cs.backgroundImage.split(/gradient\(/).length - 1, bg: cs.backgroundColor, theme: document.querySelector('meta[name="theme-color"]').content, html: getComputedStyle(document.documentElement).backgroundColor }; }); fit.push(`safe-area board: ${JSON.stringify(r)}`); }, { store: 'f14' }],
   ['banner-safearea-today', '#/today', async (p) => { await p.addStyleTag({ content: ':root, html { --sat: 47px !important; }' }); await sleep(400); }, { store: 'f14' }],
   ['today-fall', '#/today', null, { store: 'f10' }],
   ['today-winter', '#/today', null, { store: 'y1w5' }],
