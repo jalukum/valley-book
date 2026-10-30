@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { getUi, setUi } from '../lib/state';
-import { go } from '../lib/router';
+import { go, scroller } from '../lib/router';
+import { viewH } from '../lib/viewport';
 import { TOUR, TOURS, startIndex, type TourId } from '../lib/tour';
 
 export { TOUR };
@@ -37,7 +38,6 @@ export function Tour({ id, route }: { id: TourId; route: string }) {
   const here = route === step.route;
   useLayoutEffect(() => {
     if (!here) { setRect(null); return; }
-    let el: HTMLElement | null = null;
     // v7.2.1: a target can be several elements (Energy, Birthday and Festival, but not Luck): the spotlight wraps just those.
     const all = (t: string) => [...document.querySelectorAll<HTMLElement>(`[data-tour~="${t}"]`)].filter((e) => e.getClientRects().length);
     const find = () => {
@@ -45,30 +45,45 @@ export function Tour({ id, route }: { id: TourId; route: string }) {
       setMissing(!main.length && !!step.alt);
       return main.length ? main : step.alt ? all(step.alt) : [];
     };
-    const upd = () => { const els = find(); el = els[0] ?? null; setRect(els.length ? unionRect(els) : null); };
+    const upd = () => { const els = find(); setRect(els.length ? unionRect(els) : null); };
     upd();
-    if (el) {
-      const e = el as HTMLElement;
-      e.scrollIntoView({ block: 'center', behavior: 'instant' as ScrollBehavior });
-      // A tall target (the Progress trackers list) starts just under the sticky top bar instead of hiding behind it.
-      if (e.getBoundingClientRect().height > window.innerHeight * 0.55) {
-        e.scrollIntoView({ block: 'start', behavior: 'instant' as ScrollBehavior });
-        const bar = document.querySelector('.topbar')?.getBoundingClientRect().bottom ?? 0;
-        const gap = bar + 10 - e.getBoundingClientRect().top;
-        if (gap > 0) document.querySelector('.app')?.scrollBy(0, -gap);
-      }
-    }
-    upd();
-    const t = setTimeout(upd, 80);
-    const t2 = setTimeout(upd, 400); // lazy screens (Maps) settle a moment later
+    // v7.2.3: bring the target into view — centred between the top bar and the tab bar — with a smooth scroll (a jump with
+    // reduced motion). It runs after the router's own scroll-to-top for a new tab (queued in the same frame, earlier), and is checked
+    // again as lazy screens settle; it only scrolls when the target isn't already fully visible, so it never fights the user.
+    let first = true;
+    const reveal = () => {
+      const els = find(); const sc = scroller();
+      if (!els.length || !sc) return;
+      const box = unionRect(els);
+      if (els.every((e) => e.closest('.tabbar, .topbar'))) return; // targets in the tab bar or the sticky top bar are always on screen
+      const lo = (document.querySelector('.topbar')?.getBoundingClientRect().bottom ?? 0) + 10;
+      const tb = document.querySelector('.tabbar')?.getBoundingClientRect().top;
+      const hi = (tb ?? viewH()) - 10;
+      const tall = box.height > Math.min(hi - lo, viewH() * 0.55);
+      const ph = (popRef.current?.offsetHeight ?? 150) + 22; // the card needs this much room above or below the target
+      const inView = box.top >= lo - 1 && box.bottom <= hi + 1 && (box.top >= ph || viewH() - box.bottom >= ph);
+      if (inView && !(first && tall)) { first = false; return; }
+      // A tall target (the Progress trackers list) starts just under the top bar; anything else sits in the middle.
+      const d = tall ? box.top - lo : box.top + box.height / 2 - (lo + hi) / 2;
+      const top = Math.max(0, Math.min(sc.scrollHeight - sc.clientHeight, sc.scrollTop + d));
+      first = false;
+      if (Math.abs(top - sc.scrollTop) < 2) return;
+      const still = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      sc.scrollTo({ top, behavior: still ? 'auto' : 'smooth' });
+    };
+    let raf = requestAnimationFrame(() => { raf = requestAnimationFrame(reveal); });
+    const t = setTimeout(() => { upd(); reveal(); }, 120);
+    const t2 = setTimeout(() => { upd(); reveal(); }, 450); // lazy screens (Maps) settle a moment later
     window.addEventListener('resize', upd); window.addEventListener('scroll', upd, true);
-    return () => { clearTimeout(t); clearTimeout(t2); window.removeEventListener('resize', upd); window.removeEventListener('scroll', upd, true); };
+    return () => { cancelAnimationFrame(raf); clearTimeout(t); clearTimeout(t2); window.removeEventListener('resize', upd); window.removeEventListener('scroll', upd, true); };
   }, [step.target, step.alt, here]);
   useEffect(() => { const k = (e: KeyboardEvent) => { if (e.key === 'Escape') close(); }; addEventListener('keydown', k); return () => removeEventListener('keydown', k); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   if (!here) return null; // the user wandered off: wait until they're back on that screen
-  const vh = window.innerHeight;
+  const vh = viewH();
   const pad = step.pad ?? 6;
   const r = rect && { top: Math.max(4, rect.top - pad), left: Math.max(4, rect.left - pad), w: Math.min(window.innerWidth - 8, rect.width + pad * 2), h: Math.min(rect.height + pad * 2, vh * 0.55) };
+  // v7.2.3: a tall target (the trackers list on a small phone) is trimmed so the card fits below it instead of covering its end.
+  if (r && r.h > vh * 0.4) r.h = Math.max(120, Math.min(r.h, vh - r.top - popH - 26));
   // v7.2: put the card on whichever side it fits; if neither does (a tall target on a small phone), keep it fully on screen.
   const roomBelow = r ? vh - (r.top + r.h) - 18 : 0, roomAbove = r ? r.top - 18 : 0;
   const below = !r || (r.top + r.h < vh * 0.58 ? popH <= roomBelow || roomBelow >= roomAbove : popH > roomAbove && roomBelow > roomAbove);

@@ -46,15 +46,16 @@ describe('v7.0 recently viewed', () => {
 
 describe('v7.0 update note', () => {
   it('never on first install, once per newer version', () => {
-    expect(APP_VERSION).toBe('7.2.2');
+    expect(APP_VERSION).toBe('7.2.3');
     expect(CHANGELOG.find((c) => c.version === '7.0')!.items.some((x) => /Graphical bug fixes/.test(x))).toBe(true);
     expect(CHANGELOG.find((c) => c.version === '7.1')!.items.some((x) => /Stars/.test(x) && /Heart scenes/.test(x))).toBe(true);
     expect(noteToShow(null, false)).toBeNull(); // brand-new install
-    expect(noteToShow(null, true)).toBe('7.2.2'); // had Valley Book before
-    expect(noteToShow('7.0', true)).toBe('7.2.2');
-    expect(noteToShow('7.2', true)).toBe('7.2.2');
-    expect(noteToShow('7.2.1', true)).toBe('7.2.2');
-    expect(noteToShow('7.2.2', true)).toBeNull(); // already seen
+    expect(noteToShow(null, true)).toBe('7.2.3'); // had Valley Book before
+    expect(noteToShow('7.0', true)).toBe('7.2.3');
+    expect(noteToShow('7.2', true)).toBe('7.2.3');
+    expect(noteToShow('7.2.1', true)).toBe('7.2.3');
+    expect(noteToShow('7.2.2', true)).toBe('7.2.3');
+    expect(noteToShow('7.2.3', true)).toBeNull(); // already seen
     expect(newer('7.0.1', '7.0')).toBe(true); expect(newer('7.0', '7.0.0')).toBe(false);
   });
 });

@@ -2,6 +2,13 @@
 // Shown once per version to people who already used an older version; a brand-new install never sees it.
 export const CHANGELOG: { version: string; items: string[] }[] = [
   {
+    version: '7.2.3',
+    items: [
+      'Tutorials now scroll the page to show what they’re pointing at, like the Replay a tutorial button in More.',
+      'Graphical bug fixes: no more light-blue strip at the bottom of the screen in the home-screen app, after opening it or turning your phone.',
+    ],
+  },
+  {
     version: '7.2.2',
     items: [
       'Tabs and pictures load faster: the app now gets the other tabs ready in the background.',

@@ -49,20 +49,27 @@ for (const [w, h] of process.env.ONLY === 'tours' ? [] : SIZES) {
 }
 // ---------- v7.2 tutorials ----------
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-const START = { day: 'Day guide', progress: 'Progress', villagers: 'Villagers & Maps', search: 'Search', more: null };
+const START = { day: 'Day guide', progress: 'Progress', villagers: 'Villagers & Maps', search: 'Search', more: null, 'more-tab': null };
 for (const [w, h] of process.env.ONLY === 'pages' ? [] : SIZES) {
   for (const [id, label] of Object.entries(START)) {
     const page = await browser.newPage();
     await page.setViewport({ width: w, height: h, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
     await page.goto(BASE + '#/about', { waitUntil: 'networkidle0' });
     await page.evaluate((p, id) => {
-      localStorage.setItem('sdv:ui', JSON.stringify({ onboarded: true, tourSeen: true, tabTours: id === 'more' ? {} : { progress: true, villagers: true, search: true, more: true } }));
+      localStorage.setItem('sdv:ui', JSON.stringify({ onboarded: true, tourSeen: true, tabTours: id.startsWith('more') ? {} : { progress: true, villagers: true, search: true, more: true } }));
       localStorage.setItem('sdv:profiles', JSON.stringify({ activeId: 'shot', profiles: [p] }));
       localStorage.setItem('sdv:seenVersion', '9.9');
     }, seed(2, 12), id);
-    await page.goto(BASE + '#/more', { waitUntil: 'networkidle0' });
-    await page.reload({ waitUntil: 'networkidle0' });
-    await wait(600);
+    if (id === 'more-tab') { // v7.2.3: the More tour as it really starts — tapping the More tab for the first time
+      await page.goto(BASE + '#/today', { waitUntil: 'networkidle0' });
+      await page.reload({ waitUntil: 'networkidle0' });
+      await wait(400);
+      await page.evaluate(() => [...document.querySelectorAll('.tabbar a, .tabbar button')].find((x) => x.textContent.includes('More')).click());
+    } else {
+      await page.goto(BASE + '#/more', { waitUntil: 'networkidle0' });
+      await page.reload({ waitUntil: 'networkidle0' });
+    }
+    await wait(900);
     if (label) {
       await page.evaluate(() => { const b = document.querySelector('.replay-btn'); b.scrollIntoView({ block: 'center' }); b.click(); });
       await wait(300);
@@ -72,16 +79,22 @@ for (const [w, h] of process.env.ONLY === 'pages' ? [] : SIZES) {
     let n = 0;
     for (; n < 40; n++) {
       if (!(await page.$('.tour-pop'))) break;
-      await wait(450);
+      await wait(900); // v7.2.3: let the smooth scroll that brings the target into view finish
       const m = await page.evaluate((W, H) => {
         const pop = document.querySelector('.tour-pop').getBoundingClientRect();
+        // v7.2.3: the lit-up target must be on screen: not above the top bar, not under the tab bar, not under the card.
+        const hl = document.querySelector('.tour-hole')?.getBoundingClientRect();
+        const tb = document.querySelector('.tabbar')?.getBoundingClientRect(), top = document.querySelector('.topbar')?.getBoundingClientRect().bottom ?? 0;
+        const inBar = hl && ((tb && hl.top >= tb.top - 12) || hl.bottom <= top + 7); // the target is a tab itself, or in the sticky top bar
+        const hidden = hl ? ((!inBar && hl.top < top - 7) || hl.bottom > H + 1 || (!inBar && tb && hl.bottom > tb.top + 7) || hl.left < -1 || hl.right > W + 1) : false;
+        const covered = hl ? pop.top < hl.bottom - 1 && pop.bottom > hl.top + 1 : false;
         const app = document.querySelector('.app');
         const route = location.hash.slice(2).split(/[/?]/)[0];
         return { title: document.querySelector('.tour-pop b').textContent, route, off: pop.top < 0 || pop.left < 0 || pop.bottom > H || pop.right > W,
-          hole: !!document.querySelector('.tour-hole'), docW: document.documentElement.scrollWidth - W, appW: app.scrollWidth - app.clientWidth, v: app.scrollHeight - app.clientHeight };
+          hole: !!document.querySelector('.tour-hole'), hidden, covered, docW: document.documentElement.scrollWidth - W, appW: app.scrollWidth - app.clientWidth, v: app.scrollHeight - app.clientHeight };
       }, w, h);
       const fit = ['', 'today', 'maps'].includes(m.route);
-      if (m.off || !m.hole || m.docW > 0 || m.appW > 0 || (fit && m.v > 0)) { bad++; console.log(`FAIL tour ${id} ${w}x${h} step ${n + 1} ${JSON.stringify(m)}`); }
+      if (m.off || !m.hole || m.hidden || m.covered || m.docW > 0 || m.appW > 0 || (fit && m.v > 0)) { bad++; console.log(`FAIL tour ${id} ${w}x${h} step ${n + 1} ${JSON.stringify(m)}`); }
       const btn = await page.$('.tour-nav .btn.primary');
       if (!btn) break;
       await btn.click();

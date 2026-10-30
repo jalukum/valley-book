@@ -9,12 +9,14 @@ import { installSfx } from './lib/sfx';
 import { installNoLongPress } from './lib/nopress';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { reloadOnce } from './lib/lazyload';
+import { watchViewport } from './lib/viewport';
 
 lockPageZoom(document);
 installSfx(document);
 installNoLongPress(document);
 
 // v7.2.2: a file Vite preloads for a screen went missing (usually a newer version was just installed): reload once.
+watchViewport(); // v7.2.3: no stray strip at the bottom of the iOS home-screen app
 window.addEventListener('vite:preloadError', (e) => { if (reloadOnce()) e.preventDefault(); });
 
 createRoot(document.getElementById('root')!).render(<StrictMode><ErrorBoundary full><App /></ErrorBoundary></StrictMode>);

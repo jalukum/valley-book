@@ -1284,3 +1284,18 @@ a[role="link"] { cursor: pointer; }
 .oops-card b { font-family: var(--head); font-size: 18px; }
 .oops-card small { color: var(--ink-2, var(--ink)); font-size: 13px; }
 .oops-btn { margin-top: 6px; min-height: 44px; padding: 8px 20px; font-family: var(--head); font-weight: 700; }
+
+/* ---------- v7.2.3: never a strip of background at the bottom of the screen ---------- */
+/* iOS home-screen app: the layout viewport is sometimes a status bar shorter than the screen (fresh launch, or after landscape and
+   back). lib/viewport.ts measures the missing height into --vb-gap (0 elsewhere) and everything that fills the screen reaches down
+   through it: the app shell (front-page meadow included), the tab bar, the sky and every full-screen overlay. */
+.app, .sky, .popcorn, .tour, .onb, .sheet-wrap, .dd-scrim, .oops.full, .rotate-lock { bottom: calc(-1 * var(--vb-gap, 0px)); }
+.tabbar { bottom: calc(-1 * var(--vb-gap, 0px)); }
+.undo-bar { bottom: calc(var(--tabh) + var(--sab) + 10px - var(--vb-gap, 0px)); }
+/* Fallback if any gap is ever left: the page behind the app matches the bottom-most surface instead of plain sky —
+   the tab bar's cream on tab pages, grass (or winter snow) under the front-page meadow. The top half keeps the colour iOS
+   tints the status bar with (sky, or wood under the wooden top bar). */
+html { background-color: var(--bar); background-image: linear-gradient(var(--sky-1), var(--sky-1)); background-repeat: no-repeat; background-size: 100% 50%; }
+html:has(.topbar) { background-color: var(--bar); background-image: linear-gradient(#a5703a, #a5703a); }
+html:has(.meadow) { background-color: #6aa744; }
+html:has(.meadow.s3) { background-color: #c6f3ff; }
