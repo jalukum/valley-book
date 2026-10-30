@@ -16,12 +16,12 @@ const wiki = (k: string) => {
 };
 
 describe('v6.3 seasons: trees, ground and air follow the selected season', () => {
-  it('each season has its own real tree panels; Fiddlehead only in spring/summer', () => {
+  it('each season has its own real tree panels; Fiddlehead only in summer (v6.8)', () => {
     const keys = [0, 1, 2, 3].map((s) => meadowTrees(s).map((t) => t.k));
     expect(new Set(keys.map((k) => k.join())).size).toBe(4);
-    expect(keys[0]).toEqual(['tree:MossyWild', 'tree:Fiddlehead', 'tree:Fiddlehead', 'tree:MossyLush']);
+    expect(keys[0]).toEqual(['tree:Maple:0', 'tree:Oak:0', 'tree:Pine:0', 'tree:Oak:0']);
     expect(keys[1]).toContain('tree:Fiddlehead:1');
-    for (const s of [2, 3]) expect(keys[s].some((k) => k.startsWith('tree:Fiddlehead')), 'season ' + s).toBe(false);
+    for (const s of [0, 2, 3]) expect(keys[s].some((k) => k.startsWith('tree:Fiddlehead')), 'season ' + s).toBe(false);
     expect(keys[2]).toEqual(expect.arrayContaining(['tree:MossyWild:2', 'tree:Maple:2', 'tree:Oak:2', 'tree:MossyLush:2']));
     expect(keys[3]).toEqual(['tree:MossyWild:3', 'tree:Pine:3', 'tree:Pine:3', 'tree:MossyLush:3']);
     for (const k of keys.flat()) wiki(k);

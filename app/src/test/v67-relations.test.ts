@@ -59,5 +59,5 @@ describe('v6.7 wooden top banner', () => {
   it('the farm selector keeps its green', () => {
     expect(CSS).toMatch(/\.farm-pill \{ background: linear-gradient\(#3f8f34, #2a6c24\); \}/);
   });
-  it('service worker cache is v67', () => { expect(SW).toContain("valleybook-v67-"); });
+  it('service worker cache is v67 or newer', () => { expect(Number(SW.match(/valleybook-v(\d+)-/)?.[1])).toBeGreaterThanOrEqual(67); });
 });

@@ -3,12 +3,33 @@
 export const WIKI_TREE_SCALE = 5, PIXEL_SCALE = 2;
 export const treeSize = (s: { w: number; h: number }, wikiScale = WIKI_TREE_SCALE) => ({ w: (s.w / wikiScale) * PIXEL_SCALE, h: (s.h / wikiScale) * PIXEL_SCALE });
 export interface MeadowTree { k: string; left?: string; right?: string; scale: number }
-/** v6.3: the trees follow the season. Spring = each tree's first panel; summer/fall/winter = that tree's own seasonal panel
- *  (Green Rain trees go bare in fall/winter like in game). Fiddlehead Stalks only grow in spring/summer here, so fall shows a
- *  red Maple + an Oak (fall panels) and winter two snowy Pines. Maple/Oak/Pine wiki images are the sprite at 2× → scale 2. */
+/** v6.8: each tree only stands in the seasons it really grows in the game (Stardew Valley Wiki):
+ *  - Green Rain Trees (the two mossy wild trees = types 1/2, the Fiddlehead Stalk = type 3) first appear with the Green Rain,
+ *    which only falls in summer (wiki: Weather#Green Rain, Green_Rain_Trees). Type 3 drops Fiddlehead Fern, a summer forage.
+ *  - In fall, Oaks and Maples outside town may turn into Green Rain Trees types 1/2 and stay that way until the next spring
+ *    (wiki: Green_Rain_Trees), so the mossy pair stays through fall (leafy) and winter (bare; moss can't grow in winter, wiki: Moss).
+ *    The Fiddlehead Stalk never does that, so it is summer-only.
+ *  - Spring therefore shows plain common trees in their spring panels: Oak, Maple and Pine (wiki: Trees).
+ *  Common-tree wiki images are the sprite at 2× (scale 2); Green Rain Tree images are 5× (scale 5). */
+export const TREE_SEASONS: Record<string, { seasons: number[]; src: string }> = {
+  MossyWild: { seasons: [1, 2, 3], src: 'https://stardewvalleywiki.com/Green_Rain_Trees' },
+  MossyLush: { seasons: [1, 2, 3], src: 'https://stardewvalleywiki.com/Green_Rain_Trees' },
+  Fiddlehead: { seasons: [1], src: 'https://stardewvalleywiki.com/Green_Rain_Trees' },
+  Oak: { seasons: [0, 2], src: 'https://stardewvalleywiki.com/Oak_Tree' },
+  Maple: { seasons: [0, 2], src: 'https://stardewvalleywiki.com/Maple_Tree' },
+  Pine: { seasons: [0, 3], src: 'https://stardewvalleywiki.com/Pine_Tree' },
+};
+export const treeKind = (k: string) => k.split(':')[1];
 export function meadowTrees(season: number): MeadowTree[] {
-  const s = ((season % 4) + 4) % 4, sfx = s ? ':' + s : '';
-  const mid: [string, number][] = s === 2 ? [['tree:Maple:2', 2], ['tree:Oak:2', 2]] : s === 3 ? [['tree:Pine:3', 2], ['tree:Pine:3', 2]] : [['tree:Fiddlehead' + sfx, 5], ['tree:Fiddlehead' + sfx, 5]];
+  const s = ((season % 4) + 4) % 4;
+  if (s === 0) return [
+    { k: 'tree:Maple:0', left: '-14px', scale: 2 },
+    { k: 'tree:Oak:0', left: '40px', scale: 2 },
+    { k: 'tree:Pine:0', right: '44px', scale: 2 },
+    { k: 'tree:Oak:0', right: '-12px', scale: 2 },
+  ];
+  const sfx = ':' + s;
+  const mid: [string, number][] = s === 2 ? [['tree:Maple:2', 2], ['tree:Oak:2', 2]] : s === 3 ? [['tree:Pine:3', 2], ['tree:Pine:3', 2]] : [['tree:Fiddlehead:1', 5], ['tree:Fiddlehead:1', 5]];
   return [
     { k: 'tree:MossyWild' + sfx, left: '-38px', scale: WIKI_TREE_SCALE },
     { k: mid[0][0], left: s >= 2 ? '30px' : '44px', scale: mid[0][1] },
@@ -79,7 +100,7 @@ export function meadowKinds(season: number) {
   const s = (((season % 4) + 4) % 4) as Season;
   const weeds = s === 3 ? [] : s === 2 ? ['weed:7', 'weed:8', 'weed:1'] : ['weed:2', 'weed:3', 'weed:4', 'weed:5', 'weed:6'];
   const tuft = s === 2 ? 'tuft:fall' : s === 3 ? 'tuft:winter' : 'tuft:spring';
-  const forage = [['(O)18', '(O)22', '(O)16'], ['(O)402', '(O)396'], ['(O)404', '(O)408'], ['(O)418', '(O)283']][s];
+  const forage = [['(O)18', '(O)22', '(O)16', '(O)20', '(O)399'], ['(O)402', '(O)396', '(O)398', '(O)259'], ['(O)404', '(O)408'], ['(O)418', '(O)283']][s];
   return { weeds, tuft, forage };
 }
 /** Sprite box at the meadow's 2× pixel scale: weeds are 2× already (32 px), Fiber is 3× on the wiki, items are 48 px (3×). */

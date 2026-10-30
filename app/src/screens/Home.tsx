@@ -36,7 +36,7 @@ export default function Home() {
   );
 }
 
-/** Front-page meadow: small Green Rain trees (Fiddlehead Stalk + the two mossy wild trees, real wiki sprites) standing on the
+/** Front-page meadow: real wiki tree sprites for the season (spring Oak/Maple/Pine; summer Green Rain trees; see meadowTrees) on the
  *  grass, and a few Junimos (the wiki's real 4-frame Junimo animation, tinted like the game's coloured Junimos) hopping
  *  left → right along it. Decorative only: aria-hidden, no pointer events; Junimos hidden under reduced motion. */
 export const MEADOW_JUNIMOS = ['green', 'blue', 'pink', 'yellow'] as const;

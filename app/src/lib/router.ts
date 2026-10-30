@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { navInit, navStep, backPlan, type NavState } from './nav';
 const parse = () => (location.hash.replace(/^#\/?/, '') || '').split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
 const saved = new Map<string, number>();
+/** v6.8: the page scrolls inside .app (html/body never scroll, so iOS can't rubber-band the whole page). */
+export const scroller = (): HTMLElement | null => (typeof document !== 'undefined' ? document.querySelector<HTMLElement>('.app') : null);
 let lastHash = location.hash;
 let freshNav = false;
 // ---- in-app history (see lib/nav.ts) ----
@@ -29,12 +31,12 @@ export function useRoute(): string[] {
   const [r, setR] = useState(parse);
   useEffect(() => {
     const on = () => {
-      saved.set(lastHash, window.scrollY);
+      saved.set(lastHash, scroller()?.scrollTop ?? window.scrollY);
       lastHash = location.hash;
       setR(parse());
       const y = freshNav ? 0 : saved.get(location.hash) ?? 0;
       freshNav = false;
-      requestAnimationFrame(() => window.scrollTo(0, y));
+      requestAnimationFrame(() => { const sc = scroller(); if (sc) sc.scrollTop = y; else window.scrollTo(0, y); });
     };
     window.addEventListener('hashchange', on);
     return () => window.removeEventListener('hashchange', on);

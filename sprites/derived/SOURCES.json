@@ -507,5 +507,35 @@
   "from": "https://stardewvalleywiki.com/File:DesertDistances.png",
   "also": "https://stardewvalleywiki.com/File:DesertForageLocations.png",
   "note": "800x960 full render of the Calico Desert location. The wiki's fishing-distance render with its overlay removed pixel-exactly: the dashed tile grid is a 50% darkening on every 16th pixel row/column, so those pixels were restored to their neighbours' colours (x2), and the green fishing tint on the oasis pond was replaced with the untinted pond pixels from the wiki's forage-locations render of the same map. No pixels were drawn or invented. The Desert Trader stall is newer than this render, so its pin marks where it stands (checked against File:DesertForageLocations.png)."
+ },
+ "Tree_Oak_Spring.png": {
+  "from": "https://stardewvalleywiki.com/File:Oak_Stage_5.png",
+  "crop": [
+   0,
+   0,
+   96,
+   184
+  ],
+  "note": "Spring panel (1 of 4) of the grown Oak Tree, pixels unedited (wiki image is the game sprite at 2x). Common tree: the spring meadow uses common trees because Green Rain Trees only appear from the summer Green Rain on (wiki: Green_Rain_Trees)."
+ },
+ "Tree_Maple_Spring.png": {
+  "from": "https://stardewvalleywiki.com/File:Maple_Stage_5.png",
+  "crop": [
+   0,
+   6,
+   94,
+   186
+  ],
+  "note": "Spring panel (1 of 4) of the grown Maple Tree, pixels unedited (wiki image is the game sprite at 2x). Common tree: the spring meadow uses common trees because Green Rain Trees only appear from the summer Green Rain on (wiki: Green_Rain_Trees)."
+ },
+ "Tree_Pine_Spring.png": {
+  "from": "https://stardewvalleywiki.com/File:Pine_Stage_5.png",
+  "crop": [
+   0,
+   2,
+   96,
+   182
+  ],
+  "note": "Spring panel (1 of 4) of the grown Pine Tree, pixels unedited (wiki image is the game sprite at 2x). Common tree: the spring meadow uses common trees because Green Rain Trees only appear from the summer Green Rain on (wiki: Green_Rain_Trees)."
  }
 }

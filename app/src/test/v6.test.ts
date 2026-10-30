@@ -6,7 +6,8 @@ import { cartBundles, cartToday, access } from '../lib/guide';
 import { activeBundles, flipBundleItem, checkedCount, bundleDone } from '../lib/progress';
 import { navInit, navStep, backPlan, prevScreen, normHash } from '../lib/nav';
 import { makeBurst, nextDelay, firstDelay, POP_MIN_MS, POP_MAX_MS, POP_MAX, FIRST_MIN_MS, FIRST_MAX_MS, POP_PX } from '../components/Popcorn';
-import { treeSize, MEADOW_TREES, PIXEL_SCALE } from '../lib/meadow';
+import { treeSize, meadowTrees, PIXEL_SCALE } from '../lib/meadow';
+const MEADOW_TREES = meadowTrees(1); // v6.8: the Green Rain set now stands in summer only
 import { core as C6 } from '../data';
 import { TOUR as STEPS } from '../lib/tour';
 

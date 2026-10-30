@@ -181,6 +181,7 @@ for (const [k, f, w, h] of [['MossyWild', 'Tree_Mossy_Wild', 240, 485], ['MossyL
 ui['tree:Fiddlehead:1'] = { s: pub('sprites/derived/Tree_Fiddlehead_Summer.png'), w: 155, h: 475 };
 ui['tree:Maple:2'] = { s: pub('sprites/derived/Tree_Maple_Fall.png'), w: 94, h: 182 };
 ui['tree:Oak:2'] = { s: pub('sprites/derived/Tree_Oak_Fall.png'), w: 96, h: 184 };
+for (const [n, w, h] of [['Oak', 96, 184], ['Maple', 94, 180], ['Pine', 96, 180]]) ui[`tree:${n}:0`] = { s: pub(`sprites/derived/Tree_${n}_Spring.png`), w, h };
 ui['tree:Pine:3'] = { s: pub('sprites/derived/Tree_Pine_Winter.png'), w: 96, h: 182 };
 ui['ground:Tiles:3'] = { s: pub('sprites/derived/Ground_Tiles_Winter.png'), w: 64, h: 16 };
 ui['air:leaf'] = { s: pub('sprites/derived/Particle_Leaf.png'), w: 32, h: 8 };

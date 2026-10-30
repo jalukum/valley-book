@@ -51,6 +51,12 @@ small { font-size: 12.5px; }
 
 /* ---------- app shell ---------- */
 .app { min-height: 100dvh; }
+/* v6.8 no rubber-band: html/body never scroll; the app shell is a fixed full-screen scroller whose overscroll is switched off,
+   so iOS (installed app and Safari) can't bounce past the real top or bottom of the UI. Sticky top bar + fixed tab bar unchanged. */
+html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+.app { position: fixed; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; }
+body.noscroll .app { overflow: hidden; }
+.sheet-b { overscroll-behavior: contain; }
 .main { max-width: 720px; margin: 0 auto; padding: calc(var(--sat) + 4px) 12px calc(var(--tabh) + var(--sab) + 20px); overflow-x: clip; }
 .screen { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .loading, .empty { padding: 24px; text-align: center; color: var(--ink-3); }

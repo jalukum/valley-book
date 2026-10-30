@@ -94,7 +94,7 @@ const SHOTS = [
   ['maps-tomorrow', '#/maps?npc=Sebastian', async (p) => { await sleep(700); await p.click('.day-next'); await sleep(700); }, { store: 'f14' }],
   ['maps-sebastian-night', '#/maps?npc=Sebastian&t=1380', async (p) => { await sleep(1300); fit.push(`sebastian 11pm: ${await p.evaluate(() => document.querySelector('.mc-place')?.textContent)}`); }, { store: 'f14' }],
   ['maps-from-schedule-pin', '#/villager/Emily', async (p) => { await sleep(600); const pins = await p.$$('.timeline .sched-pin'); await pins[Math.min(2, pins.length - 1)].click(); await sleep(1500); }, { store: 's9' }],
-  ['villager-schedule-pins', '#/villager/Emily', async (p) => { await sleep(600); await p.evaluate(() => { const t = document.querySelector('.timeline'); window.scrollTo(0, t.getBoundingClientRect().top + scrollY - 170); }); await sleep(500); }, { store: 's9' }],
+  ['villager-schedule-pins', '#/villager/Emily', async (p) => { await sleep(600); await p.evaluate(() => { const t = document.querySelector('.timeline'); const sc = document.querySelector('.app'); sc.scrollTo(0, t.getBoundingClientRect().top + sc.scrollTop - 170); }); await sleep(500); }, { store: 's9' }],
   ['entry', '#/', null, { store: 'y1su12' }],
   ['entry-dusk', '#/', dusk, { store: 'y1su12' }],
   ['entry-night', '#/', night, { store: 'y1su12' }],
@@ -104,6 +104,11 @@ const SHOTS = [
   ['entry-summer', '#/', null, { store: 'y1su12sun' }],
   ['entry-fall', '#/', null, { store: 'f10' }],
   ['entry-winter-reduced-motion', '#/', null, { store: 'y1w5', reduce: true }],
+  ['back-scroll-check', '#/villagers', async (p) => { await sleep(500);
+    const a = await p.evaluate(() => { const sc = document.querySelector('.app'); sc.scrollTop = 700; window.scrollTo(0, 500); return { app: sc.scrollTop, win: window.scrollY, docH: document.documentElement.scrollHeight, vh: innerHeight, appCS: getComputedStyle(sc).overscrollBehaviorY, body: getComputedStyle(document.body).overflowY }; });
+    await p.evaluate(() => { location.hash = '#/villager/Emily'; }); await sleep(700); await p.evaluate(() => history.back()); await sleep(900);
+    const b = await p.evaluate(() => ({ restored: document.querySelector('.app').scrollTop, top: Math.round(document.querySelector('.topbar')?.getBoundingClientRect().top ?? -1), tabbar: Math.round(document.querySelector('.tabbar').getBoundingClientRect().bottom) }));
+    fit.push(`scroll check: ${JSON.stringify({ ...a, ...b })}`); }, { store: 'f14' }],
   ['today-fall', '#/today', null, { store: 'f10' }],
   ['today-winter', '#/today', null, { store: 'y1w5' }],
   ['tour-welcome', '#/', null, { store: 'y1su12', ui: TOUR, tour: true }],
@@ -219,8 +224,8 @@ for (const [w, h] of [[393, 852], [375, 812]].filter(([w]) => !process.env.W || 
     if (act) { await act(page); await settle(page); }
     problems.push(...(await audit(page, `[${w}] ${name}`)));
     const full = !['date-sheet', 'notes-image-big', 'digits', 'villager-schedule', 'villager-schedule-pins', 'villagers-popcorn', 'progress-popcorn', 'search-popcorn'].includes(name) && !/^back-|^banner-/.test(name) && !/^maps-|see-on-map/.test(name) && (/-expanded$/.test(name) || !/^(what|onboarding|tour|entry|today-|tile-)/.test(name));
-    if (/^(today-|entry)/.test(name)) fit.push(`[${w}] ${name}: page height ${await page.evaluate(() => document.documentElement.scrollHeight)} / viewport ${h}` + (await page.evaluate(() => { const g = document.querySelector('.dtiles'), t = document.querySelector('.tabbar'); return g && t ? `, tiles end ${Math.round(g.getBoundingClientRect().bottom)} / tab bar top ${Math.round(t.getBoundingClientRect().top)}` : ''; })));
-    const H = await page.evaluate(() => document.documentElement.scrollHeight);
+    if (/^(today-|entry)/.test(name)) fit.push(`[${w}] ${name}: page height ${await page.evaluate(() => (document.querySelector('.app')?.scrollHeight ?? document.documentElement.scrollHeight))} / viewport ${h}` + (await page.evaluate(() => { const g = document.querySelector('.dtiles'), t = document.querySelector('.tabbar'); return g && t ? `, tiles end ${Math.round(g.getBoundingClientRect().bottom)} / tab bar top ${Math.round(t.getBoundingClientRect().top)}` : ''; })));
+    const H = await page.evaluate(() => (document.querySelector('.app')?.scrollHeight ?? document.documentElement.scrollHeight));
     const path = `${OUT}${process.env.PREFIX || "v6"}-${w}-${name}.png`;
     if (full && H > h) {
       // Grow the viewport so the fixed tab bar sits at the bottom of the long capture.
