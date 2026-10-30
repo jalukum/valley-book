@@ -1286,16 +1286,22 @@ a[role="link"] { cursor: pointer; }
 .oops-btn { margin-top: 6px; min-height: 44px; padding: 8px 20px; font-family: var(--head); font-weight: 700; }
 
 /* ---------- v7.2.3: never a strip of background at the bottom of the screen ---------- */
-/* iOS home-screen app: the layout viewport is sometimes a status bar shorter than the screen (fresh launch, or after landscape and
-   back). lib/viewport.ts measures the missing height into --vb-gap (0 elsewhere) and everything that fills the screen reaches down
-   through it: the app shell (front-page meadow included), the tab bar, the sky and every full-screen overlay. */
-.app, .sky, .popcorn, .tour, .onb, .sheet-wrap, .dd-scrim, .oops.full, .rotate-lock { bottom: calc(-1 * var(--vb-gap, 0px)); }
-.tabbar { bottom: calc(-1 * var(--vb-gap, 0px)); }
-.undo-bar { bottom: calc(var(--tabh) + var(--sab) + 10px - var(--vb-gap, 0px)); }
-/* Fallback if any gap is ever left: the page behind the app matches the bottom-most surface instead of plain sky —
-   the tab bar's cream on tab pages, grass (or winter snow) under the front-page meadow. The top half keeps the colour iOS
-   tints the status bar with (sky, or wood under the wooden top bar). */
-html { background-color: var(--bar); background-image: linear-gradient(var(--sky-1), var(--sky-1)); background-repeat: no-repeat; background-size: 100% 50%; }
-html:has(.topbar) { background-color: var(--bar); background-image: linear-gradient(#a5703a, #a5703a); }
-html:has(.meadow) { background-color: #6aa744; }
-html:has(.meadow.s3) { background-color: #c6f3ff; }
+/* v7.2.4 iOS home-screen app strip, the real fix (see lib/viewport.ts). In standalone (html.vb-sa) every full-screen layer gets an explicit
+   height — the screen's, or 100lvh if larger — instead of inheriting a fixed containing block iOS sometimes makes a status bar short.
+   The tab bar and undo bar are pinned from that height: bottom: calc(100% - H) puts a fixed box's bottom edge at H for any containing block.
+   Browsers (no .vb-sa) keep plain inset: 0. */
+html.vb-sa { --vb-full: max(100lvh, var(--vb-h, 0px)); }
+html.vb-sa .app, html.vb-sa .sky, html.vb-sa .popcorn, html.vb-sa .tour, html.vb-sa .onb, html.vb-sa .sheet-wrap, html.vb-sa .dd-scrim,
+html.vb-sa .oops.full, html.vb-sa .rotate-lock, html.vb-sa #boot { top: 0; bottom: auto; height: var(--vb-full); }
+html.vb-sa .tabbar { top: auto; bottom: calc(100% - var(--vb-full)); }
+html.vb-sa .undo-bar { bottom: calc(100% - var(--vb-full) + var(--tabh) + var(--sab) + 10px); }
+html.vb-sa .app.no-tabs .undo-bar { bottom: calc(100% - var(--vb-full) + var(--sab) + 14px); }
+/* Belt and braces: if any strip still shows, it is the bottom surface — tab-bar cream on tab pages, and on the front page the meadow's own
+   grass tiles (snow in winter) repeating up from the bottom of the screen, never sky blue or a flat colour. */
+/* The canvas colour itself stays what the top of the screen shows (sky, or wood under a top bar): iOS shows it behind the translucent
+   status bar, so a green or cream background-color tinted the clock area in v7.2.3. The bottom surfaces are bottom-anchored layers only. */
+html { background-color: var(--sky-1); background-image: linear-gradient(var(--bar), var(--bar)); background-repeat: no-repeat; background-position: left bottom; background-size: 100% 96px; }
+html:has(.topbar) { background-color: #a5703a; }
+html:has(.meadow) { background-color: var(--sky-1); image-rendering: pixelated;
+  background-image: var(--meadow-tile, linear-gradient(#6aa744, #6aa744)), var(--meadow-tile, none), var(--meadow-tile, none);
+  background-repeat: repeat-x; background-size: 128px 32px; background-position: left 0 bottom 0, left 0 bottom 32px, left 0 bottom 64px; }

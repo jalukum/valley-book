@@ -18,8 +18,8 @@ const settle = <T,>(p: Promise<T>) => Promise.race([p, new Promise((r) => setTim
 
 describe('v7.2.2 version + letter', () => {
   it('is 7.2.2 with a plain-words note', () => {
-    expect(APP_VERSION).toBe('7.2.3');
-    expect(noteToShow('7.2.1', true)).toBe('7.2.3');
+    expect(APP_VERSION).toBe('7.2.4');
+    expect(noteToShow('7.2.1', true)).toBe('7.2.4');
     const t = CHANGELOG.find((c) => c.version === '7.2.2')!.items.join(' ');
     expect(t).toMatch(/Tabs and pictures load faster/);
     expect(t).toMatch(/blank/); expect(t).toMatch(/Tap to reload/);

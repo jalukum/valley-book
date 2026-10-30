@@ -56,6 +56,13 @@ function Meadow({ season }: { season: number }) {
       </span>
     );
   };
+  // v7.2.4 the html background under the meadow is these same grass tiles, so a strip below it (iOS short-screen bug) is still grass
+  useEffect(() => {
+    if (!tiles) return;
+    const root = document.documentElement;
+    root.style.setProperty('--meadow-tile', `url(./${tiles.s})`);
+    return () => { root.style.removeProperty('--meadow-tile'); };
+  }, [tiles]);
   const row = (ts: number[], cls: string) => tiles && (
     <div className={cls}>{ts.map((t, i) => <i key={i} style={{ backgroundImage: `url(./${tiles.s})`, backgroundPositionX: `calc(${-t} * var(--tile))` }} />)}</div>
   );

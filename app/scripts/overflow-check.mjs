@@ -5,7 +5,7 @@
 // Usage: node scripts/overflow-check.mjs   (BASE defaults to http://127.0.0.1:8090/; ONLY=tours or ONLY=pages runs one half). Exit code 1 if anything overflows.
 import puppeteer from 'puppeteer-core';
 const BASE = process.env.BASE || 'http://127.0.0.1:8090/';
-const SIZES = [[320, 568], [375, 667], [390, 844], [430, 932]];
+const SIZES = [[320, 568], [375, 667], [390, 844], [430, 932]].filter(([w]) => !process.env.W || process.env.W.split(',').includes(String(w)));
 const ROUTES = ['', 'today', 'today/fish', 'today/forage', 'today/crops', 'today/bundles', 'today/gifts', 'today/cart', 'progress', 'more', 'setup',
   'quests', 'events', 'raccoon', 'road', 'search', 'bundles', 'bundles?filter=today', 'bundles/room/0', 'bundles/room/5', 'bundles/needed', 'bundles/joja',
   'villagers', 'villager/Abigail', 'maps', 'calendar', 'collections', 'museum', 'fish', 'fish?bite', 'shipping', 'cooking', 'crafting', 'goals',

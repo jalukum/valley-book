@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { APP_VERSION, CHANGELOG } from '../lib/changelog';
-import { viewportGap } from '../lib/viewport';
+import { fullHeight } from '../lib/viewport';
 import { TOURS } from '../lib/tour';
 
 const raw = (g: Record<string, unknown>) => Object.values(g).join('\n');
@@ -13,12 +13,12 @@ const OVF = raw(import.meta.glob('../../scripts/overflow-check.mjs', { query: '?
 const PROG = raw(import.meta.glob('../screens/Progress.tsx', { query: '?raw', import: 'default', eager: true }));
 
 describe('v7.2.3 version', () => {
-  it('is 7.2.3 with a plain-words note and a v723 cache', () => {
-    expect(APP_VERSION).toBe('7.2.3');
-    const t = CHANGELOG[0].items.join(' ');
+  it('is 7.2.4, keeps the 7.2.3 note, v724 cache', () => {
+    expect(APP_VERSION).toBe('7.2.4');
+    const t = CHANGELOG.find((c) => c.version === '7.2.3')!.items.join(' ');
     expect(t).toMatch(/Tutorials now scroll the page/);
     expect(t).toMatch(/Graphical bug fixes/);
-    expect(SW).toMatch(/valleybook-v723-/); expect(SW).not.toMatch(/valleybook-v722-/);
+    expect(SW).toMatch(/valleybook-v724-/); expect(SW).not.toMatch(/valleybook-v723-/);
   });
 });
 
@@ -46,33 +46,38 @@ describe('v7.2.3 tutorial targets scroll into view', () => {
   });
 });
 
-describe('v7.2.3 no strip at the bottom of the iOS home-screen app', () => {
-  const iPhone = { innerWidth: 430, screenWidth: 430, screenHeight: 932, standalone: true };
-  it('measures the missing status-bar height when iOS lays the page out short', () => {
-    expect(viewportGap({ ...iPhone, innerHeight: 873 })).toBe(59); // the screenshot: 176px at 3x
-    expect(viewportGap({ ...iPhone, innerHeight: 932 })).toBe(0);
-    expect(viewportGap({ innerWidth: 932, innerHeight: 430, screenWidth: 430, screenHeight: 932, standalone: true })).toBe(0); // landscape, fine
-    expect(viewportGap({ innerWidth: 932, innerHeight: 400, screenWidth: 430, screenHeight: 932, standalone: true })).toBe(30); // landscape, short
+describe('v7.2.4 no strip at the bottom of the iOS home-screen app', () => {
+  const iPhone = { innerWidth: 393, screenWidth: 393, screenHeight: 852, standalone: true };
+  it('always fills the real screen in standalone, short innerHeight or not', () => {
+    expect(fullHeight({ ...iPhone, innerHeight: 852 })).toBe(852); // the case v7.2.3 missed: innerHeight right, fixed boxes short
+    expect(fullHeight({ ...iPhone, innerHeight: 793 })).toBe(852);
+    expect(fullHeight({ innerWidth: 852, innerHeight: 393, screenWidth: 393, screenHeight: 852, standalone: true })).toBe(393); // landscape
+    expect(fullHeight({ innerWidth: 852, innerHeight: 340, screenWidth: 393, screenHeight: 852, standalone: true })).toBe(393);
   });
-  it('does nothing in a browser tab, split view, or for gaps bigger than a status bar', () => {
-    expect(viewportGap({ ...iPhone, innerHeight: 800, standalone: false })).toBe(0); // Safari's own toolbars
-    expect(viewportGap({ ...iPhone, innerWidth: 320, innerHeight: 873 })).toBe(0);
-    expect(viewportGap({ ...iPhone, innerHeight: 700 })).toBe(0);
-    expect(viewportGap({ ...iPhone, innerHeight: 0 })).toBe(0);
+  it('leaves browsers, split view and desktop alone', () => {
+    expect(fullHeight({ ...iPhone, innerHeight: 700, standalone: false })).toBe(0);
+    expect(fullHeight({ ...iPhone, innerWidth: 320, innerHeight: 852 })).toBe(0);
   });
   it('re-measures on launch, rotation, resize, visual-viewport resize, pageshow and coming back', () => {
     expect(MAIN).toMatch(/watchViewport\(\)/);
     const VP = raw(import.meta.glob('../lib/viewport.ts', { query: '?raw', import: 'default', eager: true }));
-    for (const ev of ["'resize'", "'orientationchange'", "'pageshow'", 'visualViewport', 'visibilitychange']) expect(VP).toContain(ev);
+    for (const ev of ["'resize'", "'orientationchange'", "'pageshow'", 'visualViewport', 'visibilitychange', "'vb-sa'", "'--vb-h'"]) expect(VP).toContain(ev);
   });
-  it('the app shell, tab bar, sky and full-screen layers reach down through the gap', () => {
-    expect(CSS).toMatch(/\.app, \.sky, \.popcorn, \.tour, \.onb, \.sheet-wrap, \.dd-scrim, \.oops\.full, \.rotate-lock \{ bottom: calc\(-1 \* var\(--vb-gap, 0px\)\); \}/);
-    expect(CSS).toMatch(/\.tabbar \{ bottom: calc\(-1 \* var\(--vb-gap, 0px\)\); \}/);
-    expect(HTML).toMatch(/id="boot" style="position:fixed;inset:0;bottom:calc\(-1 \* var\(--vb-gap, 0px\)\);background:linear-gradient/);
+  it('full-screen layers get an explicit screen height and the tab bar is pinned to it, only in standalone', () => {
+    expect(CSS).toMatch(/html\.vb-sa \{ --vb-full: max\(100lvh, var\(--vb-h, 0px\)\); \}/);
+    expect(CSS).toMatch(/html\.vb-sa \.app, html\.vb-sa \.sky,[\s\S]{0,200}html\.vb-sa #boot \{ top: 0; bottom: auto; height: var\(--vb-full\); \}/);
+    expect(CSS).toMatch(/html\.vb-sa \.tabbar \{ top: auto; bottom: calc\(100% - var\(--vb-full\)\); \}/);
+    expect(CSS).not.toMatch(/--vb-gap/); expect(HTML).not.toMatch(/--vb-gap/);
   });
-  it('any leftover gap shows the bottom surface (tab bar cream, grass or snow), not sky blue', () => {
-    expect(CSS).toMatch(/html \{ background-color: var\(--bar\); background-image: linear-gradient\(var\(--sky-1\), var\(--sky-1\)\); background-repeat: no-repeat; background-size: 100% 50%; \}/);
-    expect(CSS).toMatch(/html:has\(\.meadow\) \{ background-color: #6aa744; \}/);
-    expect(CSS).toMatch(/html:has\(\.meadow\.s3\) \{ background-color: #c6f3ff; \}/);
+  it('any leftover strip is grass tiles (snow in winter) on the front page and tab-bar cream elsewhere, not sky blue', () => {
+    const HOME = raw(import.meta.glob('../screens/Home.tsx', { query: '?raw', import: 'default', eager: true }));
+    expect(HOME).toMatch(/setProperty\('--meadow-tile', `url\(\.\/\$\{tiles\.s\}\)`\)/);
+    expect(CSS).toMatch(/html:has\(\.meadow\) \{ background-color: var\(--sky-1\);[\s\S]{0,120}var\(--meadow-tile/);
+    expect(CSS).toMatch(/background-position: left 0 bottom 0, left 0 bottom 32px, left 0 bottom 64px;/);
+    expect(CSS).toMatch(/html \{ background-color: var\(--sky-1\); background-image: linear-gradient\(var\(--bar\), var\(--bar\)\);/);
+  });
+  it('nothing green or cream behind the status bar: the canvas colour is sky (wood under a top bar)', () => {
+    const tail = CSS.slice(CSS.indexOf('v7.2.4 iOS home-screen app strip'));
+    expect(tail).not.toMatch(/html[^{]*\{ background-color: (#6aa744|#c6f3ff|var\(--bar\))/);
   });
 });
