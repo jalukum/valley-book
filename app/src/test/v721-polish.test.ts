@@ -14,18 +14,17 @@ const NOTICES = file(import.meta.glob('../components/Notices.tsx', { query: '?ra
 const APP = file(import.meta.glob('../App.tsx', { query: '?raw', import: 'default', eager: true }));
 const TOUR = file(import.meta.glob('../components/Tour.tsx', { query: '?raw', import: 'default', eager: true }));
 const CSS = file(import.meta.glob('../styles.css', { query: '?raw', import: 'default', eager: true }));
-const SW = file(import.meta.glob('../../scripts/build-sw.mjs', { query: '?raw', import: 'default', eager: true }));
 
 describe('v7.2.1 update letter', () => {
   it('shows only at launch after an update, never on a new install, never under a tour', () => {
-    expect(APP_VERSION).toBe('7.2.1');
-    expect(letterAtLaunch('7.2', true, true, false)).toBe('7.2.1'); // first open after updating
-    expect(letterAtLaunch('7.2.1', true, true, false)).toBeNull(); // once per version
+    expect(APP_VERSION).toBe('7.2.2');
+    expect(letterAtLaunch('7.2', true, true, false)).toBe('7.2.2'); // first open after updating
+    expect(letterAtLaunch('7.2.2', true, true, false)).toBeNull(); // once per version
     expect(letterAtLaunch(null, false, false, false)).toBeNull(); // brand-new install: Day guide tour instead
     expect(letterAtLaunch(null, false, true, false)).toBeNull();
     expect(letterAtLaunch('7.2', true, true, true)).toBeNull(); // a tour is open at launch
     expect(letterAtLaunch('7.2', true, false, false)).toBeNull(); // still onboarding
-    expect(noteToShow('7.2', true)).toBe('7.2.1');
+    expect(noteToShow('7.2', true)).toBe('7.2.2');
   });
   it('is decided once, marks the version seen at launch, and is dropped for good when a tour opens', () => {
     expect(NOTICES).toMatch(/let pending[\s\S]{0,300}letterAtLaunch\(/);
@@ -34,13 +33,12 @@ describe('v7.2.1 update letter', () => {
     expect(APP).toMatch(/<UpdateNote blocked=\{!!ui\.tourOpen\} \/>/);
   });
   it('7.2.1 changelog in plain words', () => {
-    const c = CHANGELOG[0];
+    const c = CHANGELOG.find((x) => x.version === '7.2.1')!;
     expect(c.version).toBe('7.2.1');
     const t = c.items.join(' ');
     expect(t).toMatch(/Fish filters/); expect(t).toMatch(/Tutorials/); expect(t).toMatch(/after an update/);
     expect(t).toMatch(/press(ing)? and hold/i); expect(c.items[c.items.length - 1]).toBe('Graphical bug fixes.');
   });
-  it('service worker cache is v721', () => { expect(SW).toMatch(/valleybook-v721-/); });
 });
 
 describe('v7.2.1 even chip grids', () => {

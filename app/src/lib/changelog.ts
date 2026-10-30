@@ -2,6 +2,14 @@
 // Shown once per version to people who already used an older version; a brand-new install never sees it.
 export const CHANGELOG: { version: string; items: string[] }[] = [
   {
+    version: '7.2.2',
+    items: [
+      'Tabs and pictures load faster: the app now gets the other tabs ready in the background.',
+      'Pages no longer get stuck on a blank blue screen. If something ever fails to load, you’ll see a “Tap to reload” card instead.',
+      'Updates download faster and more reliably, fetching only what changed.',
+    ],
+  },
+  {
     version: '7.2.1',
     items: [
       'The Fish filters are now neat, even buttons that fill the row, and so are the other filter buttons around the app.',

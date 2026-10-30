@@ -4,6 +4,7 @@ import { Children, useEffect, useState, type CSSProperties, type ReactNode } fro
 import type { Spr } from '../types';
 import { goBack } from '../lib/router';
 import { items, core } from '../data';
+import { isWarm, noteSprite } from '../lib/warm';
 
 const url = (s: string) => './' + s;
 
@@ -12,7 +13,11 @@ export function Sprite({ spr, size = 32, alt = '', className = '', eager = false
   if (!spr) return null;
   const k = size / Math.max(spr.w, spr.h);
   const w = Math.round(spr.w * k), h = Math.round(spr.h * k);
-  return <img className={'spr ' + className} src={url(spr.s)} width={w} height={h} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" draggable={false} />;
+  const src = url(spr.s);
+  noteSprite(src);
+  // v7.2.2: sprites already fetched + decoded by the idle warm-up paint at once (eager, sync); the rest stay lazy.
+  const warm = isWarm(src);
+  return <img className={'spr ' + className} src={src} width={w} height={h} alt={alt} loading={eager || warm ? 'eager' : 'lazy'} decoding={warm ? 'sync' : 'async'} fetchPriority={eager ? 'high' : undefined} draggable={false} />;
 }
 export function ItemIcon({ qid, size = 32, eager }: { qid: string | null | undefined; size?: number; eager?: boolean }) {
   const it = qid ? items[qid] : null;

@@ -1,5 +1,5 @@
 import { Lk } from './components/Link';
-import { lazy, Suspense, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useRoute } from './lib/router';
 import { Ui } from './components/ui';
 import { DateSheetHost } from './components/DateSheet';
@@ -25,9 +25,15 @@ import { CollectionsHub, MuseumScreen, FishScreen, ShippingScreen, RecipesScreen
 import { GoalsHub, PerfectionScreen, WalnutsScreen, OrdersScreen, AchievementsScreen, SlayerScreen, NotesScreen, PowersScreen, IslandScreen } from './screens/Goals';
 import { ProfilesScreen, AboutScreen } from './screens/Profiles';
 
-const VillagerScreen = lazy(() => import('./screens/Villager'));
-const MapsScreen = lazy(() => import('./screens/Maps').then((m) => ({ default: m.MapsScreen })));
-const ItemScreen = lazy(() => import('./screens/Item'));
+import { lazyRetry } from './lib/lazyload';
+import { startWarmup } from './lib/warm';
+import { loadGifts, loadSchedules } from './data';
+import { ErrorBoundary, PageLoading } from './components/ErrorBoundary';
+
+// v7.2.2: lazy screens retry a failed download, then reload once (see lib/lazyload); idle warm-up preloads them.
+const VillagerScreen = lazyRetry(() => import('./screens/Villager'));
+const MapsScreen = lazyRetry(() => import('./screens/Maps').then((m) => ({ default: m.MapsScreen })));
+const ItemScreen = lazyRetry(() => import('./screens/Item'));
 
 type Tab = 'home' | 'today' | 'progress' | 'villagers' | 'search' | 'more';
 const TAB_OF: Record<string, Tab> = {
@@ -91,6 +97,11 @@ export default function App() {
   // Portrait lock where the browser allows it (installed Android PWAs); iOS ignores it, so the CSS overlay covers phones.
   useEffect(() => { try { const o = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> }; o?.lock?.('portrait')?.catch(() => {}); } catch { /* not supported */ } }, []);
   const ui = useUi();
+  // v7.2.2: once the first screen has painted, use idle moments to fetch the other screens and decode other tabs' sprites.
+  useEffect(() => {
+    const t = setTimeout(() => startWarmup([VillagerScreen.preload, ItemScreen.preload, MapsScreen.preload, loadGifts, loadSchedules]), 700);
+    return () => clearTimeout(t);
+  }, []);
   const tab = TAB_OF[r[0] ?? ''] ?? 'today';
   const letter = useLetterOpen();
   // v7.2: each tab's own short tutorial plays the first time that tab is opened on this device (after the update letter, if any).
@@ -122,9 +133,11 @@ export default function App() {
         <div className="rl-card"><Ui k="Junimo" size={64} eager /><b>Turn your phone upright to keep playing</b><small>Valley Book is made for portrait.</small></div>
       </div>
       <main className="main" key={'page:' + r.join('/')}>
-        <Suspense fallback={<div className="loading">Loading…</div>}>
-          <Screen r={r} />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoading />}>
+            <Screen r={r} />
+          </Suspense>
+        </ErrorBoundary>
       </main>
       {tab !== 'home' && <nav className="tabbar" aria-label="Sections" data-tour="tabbar">
         <span className="tab-hl" aria-hidden style={{ transform: `translateX(${tabs.findIndex((t) => t.id === tab) * 100}%)` }} />
