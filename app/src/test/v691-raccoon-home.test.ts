@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { core } from '../data';
 import { TOUR } from '../lib/tour';
-import { RACCOON_HOME, WINDOW_BOX, homeTufts, nextPeekDelay, PEEK_MIN_MS, PEEK_MAX_MS, PEEK_SHOW_MS, PIXEL_SCALE, homeBottom, MIN_BOTTOM, meadowScatter, clearOfDoor } from '../lib/meadow';
+import { RACCOON_HOME, WINDOW_BOX, homeTufts, nextPeekDelay, PEEK_MIN_MS, PEEK_MAX_MS, PEEK_SHOW_MS, PIXEL_SCALE, homeFit, ROOTS_AT, FOOT_SINK, DEEP_SINK, meadowScatter, clearOfDoor } from '../lib/meadow';
 const raw = (g: Record<string, unknown>) => Object.values(g)[0] as string;
 const css = raw(import.meta.glob('../styles.css', { query: '?raw', import: 'default', eager: true }));
 const home = raw(import.meta.glob('../screens/Home.tsx', { query: '?raw', import: 'default', eager: true }));
@@ -17,28 +17,36 @@ describe('v6.9.1 the real Giant Stump raccoon home on the meadow', () => {
     expect(css).not.toMatch(/crown-sway/);                   // a stump doesn't sway
     expect(JSON.stringify(sources['Giant_Stump_Home.png'])).toMatch(/UNMODIFIED/);
   });
-  it('sits further back: integer 1x pixel scale (the far layer’s), raised on the ground, behind trees, forage and Junimos', () => {
-    expect(RACCOON_HOME.scale).toBe(1);
-    expect(RACCOON_HOME.scale).toBeLessThan(PIXEL_SCALE);
-    expect(RACCOON_HOME.bottom).toBeGreaterThan(30);         // the side trees stand at 30 px
-    expect(RACCOON_HOME.bottom + RACCOON_HOME.h * RACCOON_HOME.scale).toBeLessThanOrEqual(240 - 60); // fully inside the meadow
+  it('v6.9.2 stands ON the ground at the trees’ 2x scale where there is room, behind the trees, forage and Junimos', () => {
+    expect(RACCOON_HOME.scale).toBe(PIXEL_SCALE);
+    expect(ROOTS_AT - 30).toBeGreaterThan(0); expect(ROOTS_AT - 30).toBeLessThanOrEqual(4); // roots just above the side trees' trunk line
+    const tall = homeFit(400, 2);
+    expect(tall).toEqual({ scale: 2, bottom: -FOOT_SINK });
+    expect(tall.bottom + (RACCOON_HOME.h - RACCOON_HOME.roots) * 2 - 30).toBeLessThanOrEqual(8);
+    expect(homeFit(400, 3).scale).toBe(2);
+    expect(homeFit(217, 2)).toEqual({ scale: 2, bottom: -FOOT_SINK });           // 390x844
+    expect(homeFit(305, 3).scale).toBe(2);                                         // 430x932
+    const short = homeFit(148, 2);                                                 // 375x667: sink lower, never float or reach a button
+    expect(short.scale).toBe(1.5);
+    expect(short.bottom).toBeGreaterThanOrEqual(-DEEP_SINK);
+    expect(short.bottom + RACCOON_HOME.h * short.scale + 4).toBeLessThanOrEqual(148);
+    for (const room of [120, 148, 160, 200, 217, 260, 305]) for (const dpr of [1, 2, 3]) {
+      const f = homeFit(room, dpr);
+      expect(Number.isInteger(Math.round(f.scale * dpr * 1e6) / 1e6), `${room}@${dpr}`).toBe(true); // whole device px per game px
+      expect(f.scale).toBeGreaterThanOrEqual(1);
+    }
     const i = home.indexOf('<RaccoonHome season={season} />');
     expect(i).toBeGreaterThan(home.indexOf("'m-ground entry-ground'"));
     expect(i).toBeLessThan(home.indexOf('{meadowTrees(season)'));
     expect(i).toBeLessThan(home.indexOf("t.layer === 'mid'"));
     expect(i).toBeLessThan(home.indexOf('MEADOW_JUNIMOS.map'));
-    expect(css).toMatch(/\.m-rac \{[^}]*filter: saturate\(\.9\d\) brightness\(1\.0\d\);/); // a few % of haze, no blur
+    expect(css).toMatch(/\.m-rac \{[^}]*filter: saturate\(\.9\d\) brightness\(1\.0\d\);/); // a few % of tint, no blur
     expect(css).not.toMatch(/\.m-rac[^{]*\{[^}]*blur/);
-  });
-  it('sinks (never below the side trees’ line) only when a short screen brings the buttons down to it', () => {
-    expect(homeBottom(400)).toBe(40);
-    expect(homeBottom(110 + 4 + 33)).toBe(33);
-    expect(homeBottom(50)).toBe(MIN_BOTTOM);
-    expect(MIN_BOTTOM).toBe(30);
     expect(home).toMatch(/window\.addEventListener\('resize', fit\)/);
   });
   it('is grounded: a shadow under the roots and grass tufts over its foot', () => {
     expect(core.ui['rhome:Shadow']).toBeTruthy();
+    expect(home).toMatch(/top: px\(roots - sh\.h \/ 2\)/);
     expect(home.indexOf('rh-shadow')).toBeLessThan(home.indexOf("'rh-stump'"));
     expect(home.indexOf('homeTufts(season)')).toBeGreaterThan(home.indexOf("'rh-stump'"));
     for (const s of [0, 1, 2, 3]) for (const t of homeTufts(s)) expect(core.ui[t.k], t.k).toBeTruthy();

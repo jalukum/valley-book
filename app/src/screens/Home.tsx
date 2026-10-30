@@ -3,7 +3,7 @@ import { SEASONS, weekday, core, items } from '../data';
 import { Ui } from '../components/ui';
 import { Brand, FarmPill } from './Today';
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
-import { meadowTrees, groundAtlas, treeSize, groundTiles, meadowScatter, type Tuft, RACCOON_HOME, WINDOW_BOX, homeTufts, homeBottom, nextPeekDelay, PEEK_SHOW_MS, clearOfDoor } from '../lib/meadow';
+import { meadowTrees, groundAtlas, treeSize, groundTiles, meadowScatter, type Tuft, RACCOON_HOME, WINDOW_BOX, homeTufts, homeFit, nextPeekDelay, PEEK_SHOW_MS, clearOfDoor } from '../lib/meadow';
 
 /** Launch screen: title, farm switcher, then one Stardew menu-box per main section, standing on real farm grass. */
 export const BUBBLES: { id: string; href: string; icon: string; title: string; line: string; size?: number }[] = [
@@ -79,10 +79,9 @@ function Meadow({ season }: { season: number }) {
   );
 }
 
-const px = (n: number) => n * RACCOON_HOME.scale + 'px';
 const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** v6.9.1 the raccoons' home in the meadow's middle gap (see RACCOON_HOME): the real Giant Stump, unmodified, set back on the far
+/** v6.9.2 the raccoons' home in the meadow's middle gap (see RACCOON_HOME, homeFit): the real Giant Stump, unmodified, on the meadow
  *  grass (behind the side trees, forage and Junimos) with a soft pixel shadow and grass at its foot. Every 6–15 s a kit rises up
  *  behind the lit window's bars. The timer only runs while the page is visible and not under reduced motion. */
 function RaccoonHome({ season }: { season: number }) {
@@ -90,13 +89,15 @@ function RaccoonHome({ season }: { season: number }) {
   const [peek, setPeek] = useState(0);
   // Keep the chimney clear of the menu buttons on short screens: sink the stump (never below the side trees' line) if a button reaches it.
   const ref = useRef<HTMLDivElement>(null);
-  const [bottom, setBottom] = useState<number>(RACCOON_HOME.bottom);
+  const [{ scale, bottom }, setFit] = useState(() => homeFit(240, window.devicePixelRatio || 1));
+  const dpr = Math.max(1, Math.round(window.devicePixelRatio || 1));
+  const px = (n: number) => Math.round(n * scale * dpr) / dpr + 'px'; // game px → CSS px on whole device pixels
   useLayoutEffect(() => {
     const fit = () => {
       const el = ref.current, m = el?.parentElement;
       if (!el || !m) return;
       const bub = [...document.querySelectorAll('.bubbles .bubble')].reduce((a, b) => Math.max(a, b.getBoundingClientRect().bottom), 0);
-      setBottom(homeBottom(m.getBoundingClientRect().bottom - bub));
+      setFit(homeFit(m.getBoundingClientRect().bottom - bub, window.devicePixelRatio || 1));
     };
     fit();
     window.addEventListener('resize', fit);
@@ -120,11 +121,11 @@ function RaccoonHome({ season }: { season: number }) {
     return () => { clearTimeout(timer); document.removeEventListener('visibilitychange', onVis); };
   }, []);
   if (!stump) return null;
-  const { w, h, shadow: sh } = RACCOON_HOME, [bx, by, bw, bh] = WINDOW_BOX;
-  const img = (s: { s: string }, cls: string) => <img className={cls} src={'./' + s.s} width={w * RACCOON_HOME.scale} height={h * RACCOON_HOME.scale} alt="" draggable={false} />;
+  const { w, h, roots, shadow: sh } = RACCOON_HOME, [bx, by, bw, bh] = WINDOW_BOX;
+  const img = (s: { s: string }, cls: string) => <img className={cls} src={'./' + s.s} style={{ width: px(w), height: px(h) }} alt="" draggable={false} />;
   return (
-    <div ref={ref} className={'m-rac' + (peek ? ' peek' : '')} style={{ width: px(w), height: px(h), marginLeft: px(-w / 2), bottom }}>
-      {shadow && <img className="rh-shadow" src={'./' + shadow.s} style={{ width: px(sh.w), height: px(sh.h), left: px((w - sh.w) / 2), top: px(h - sh.h + sh.drop) }} alt="" draggable={false} />}
+    <div ref={ref} className={'m-rac' + (peek ? ' peek' : '')} style={{ width: px(w), height: px(h), marginLeft: px(-w / 2), bottom }} data-scale={scale}>
+      {shadow && <img className="rh-shadow" src={'./' + shadow.s} style={{ width: px(sh.w), height: px(sh.h), left: px((w - sh.w) / 2), top: px(roots - sh.h / 2) }} alt="" draggable={false} />}
       {img(stump, 'rh-stump')}
       {kit && (
         <span key={peek} className="rh-peek" style={{ left: px(bx), top: px(by), width: px(bw), height: px(bh) }}>
@@ -134,7 +135,7 @@ function RaccoonHome({ season }: { season: number }) {
       {bars && img(bars, 'rh-bars')}
       {homeTufts(season).map((t, i) => {
         const spr = core.ui[t.k];
-        return spr && <img key={i} className="rh-tuft" src={'./' + spr.s} style={{ left: px(t.x - t.w / 2), top: px(h - t.h + 2), width: px(t.w), height: px(t.h) }} alt="" draggable={false} />;
+        return spr && <img key={i} className="rh-tuft" src={'./' + spr.s} style={{ left: px(t.x - t.w / 2), top: px(roots - t.h + 4), width: px(t.w), height: px(t.h) }} alt="" draggable={false} />;
       })}
     </div>
   );

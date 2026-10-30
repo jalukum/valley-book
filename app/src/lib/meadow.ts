@@ -128,18 +128,29 @@ export function meadowScatter(season: number, seed = 1729): Tuft[] {
   return out;
 }
 
-/** v6.9.1 the raccoon home: the REAL Giant Stump (wiki: Giant_Stump.png, the 1.6 in-game screenshot at exactly 3×), unmodified,
- *  cut out by app/scripts/make-raccoon-home.py at 1 game px per pixel. It stands on the far grass like the back tufts, so it is drawn
- *  at their 1× scale (half the foreground's PIXEL_SCALE): a little further away than the side trees. One sprite for every season
- *  (the wiki has no seasonal stump). A stump doesn't sway. Sizes in game px. */
-export const RACCOON_HOME = { w: 100, h: 110, scale: 1, bottom: 40, shadow: { w: 108, h: 14, drop: 5 } } as const;
+/** v6.9.2 the raccoon home: the REAL Giant Stump (wiki: Giant_Stump.png, the 1.6 in-game screenshot at exactly 3×), unmodified,
+ *  cut out by app/scripts/make-raccoon-home.py at 1 game px per pixel. It stands ON the meadow ground like the side trees, at their
+ *  2× game-pixel scale where the screen has room (else the largest crisp scale that fits); depth comes only from being drawn behind
+ *  the side trees and Junimos plus a slight tint. One sprite for every season (the wiki has no seasonal stump). A stump doesn't sway.
+ *  Sizes in game px; ROOTS = the row where the roots meet the ground (the steps and door raccoons sit on the grass below it). */
+export const RACCOON_HOME = { w: 100, h: 110, roots: 87, scale: PIXEL_SCALE, shadow: { w: 108, h: 14 } } as const;
 /** The lit window's glass box (x, y, w, h in game px): a kit rises up behind its bars every so often. */
 export const WINDOW_BOX = [26, 51, 10, 13] as const;
-/** How high the stump stands given the room between the meadow's bottom edge and the lowest menu button (CSS px):
- *  its usual 40 px, sunk 1 px at a time to clear the buttons by HOME_GAP, never below MIN_BOTTOM (the side trees' line). */
-export const HOME_GAP = 4, MIN_BOTTOM = 30;
-export const homeBottom = (room: number) =>
-  Math.max(MIN_BOTTOM, Math.min(RACCOON_HOME.bottom, Math.floor(room - HOME_GAP - RACCOON_HOME.h * RACCOON_HOME.scale)));
+/** Fit on the meadow, given the room (CSS px) from the meadow's bottom edge (= the screen's) up to the lowest menu button:
+ *  roots at ROOTS_AT (3 px above the side trees' trunks at 30), the sprite's foot (steps) at most FOOT_SINK px under the screen edge
+ *  behind the front grass; if a button would still reach the chimney the stump sinks lower (down to DEEP_SINK, partly behind the
+ *  Junimos and foreground grass) rather than float. Scale = the largest k/dpr ≤ 2 (whole device pixels per game pixel) that fits. */
+export const HOME_GAP = 4, ROOTS_AT = 33, FOOT_SINK = 8, DEEP_SINK = 24;
+export function homeFit(room: number, dpr = 2) {
+  const { h, roots } = RACCOON_HOME, below = h - roots, d = Math.max(1, Math.round(dpr));
+  for (let k = PIXEL_SCALE * d; k >= d; k--) {
+    const sc = k / d;
+    let bottom = Math.max(-FOOT_SINK, ROOTS_AT - below * sc);
+    bottom = Math.min(bottom, Math.floor(room - HOME_GAP - h * sc));
+    if (bottom >= -DEEP_SINK || k === d) return { scale: sc, bottom: Math.max(bottom, -DEEP_SINK) };
+  }
+  return { scale: 1, bottom: 0 };
+}
 /** Peeks: a kit every 6–15 s (random), up for ~1.6 s. */
 export const PEEK_MIN_MS = 6000, PEEK_MAX_MS = 15000, PEEK_SHOW_MS = 1600;
 export const nextPeekDelay = (r: number) => Math.round(PEEK_MIN_MS + Math.min(Math.max(r, 0), 1) * (PEEK_MAX_MS - PEEK_MIN_MS));

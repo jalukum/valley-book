@@ -841,17 +841,14 @@ img.pt { border-radius: 6px; }
 @keyframes jun-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes jun-run { 0% { transform: translateX(-40px); opacity: 0; } 3% { opacity: 1; } 45% { transform: translateX(calc(46cqw)); } 52% { transform: translateX(calc(46cqw + 6px)) translateY(-3px); } 60% { transform: translateX(calc(52cqw)); } 97% { opacity: 1; } 100% { transform: translateX(calc(100cqw + 40px)); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .m-jun { display: none; } }
-/* v6.9.1 the raccoons' home: the real Giant Stump at the far layer's 1x scale, set back on the far grass (bottom set inline). */
-.m-rac { position: absolute; left: 50%; bottom: 40px; pointer-events: none; filter: saturate(.94) brightness(1.03); } /* a few percent of air: further away than the side trees; crisp, no blur */
+/* v6.9.2 the raccoons' home: the real Giant Stump standing on the meadow ground at the trees' scale (scale + bottom set inline). */
+.m-rac { position: absolute; left: 50%; bottom: 0; pointer-events: none; filter: saturate(.94) brightness(1.03); } /* a few percent of air: just behind the side trees; crisp, no blur */
 .m-rac img { position: absolute; left: 0; top: 0; display: block; image-rendering: pixelated; pointer-events: none; }
-.m-rac .rh-tuft { filter: saturate(.8) brightness(1.1); }       /* same haze as the far tufts */
 .rh-peek { position: absolute; overflow: hidden; }
 .rh-peek i { position: absolute; display: block; background: 0 0 / 100% 100% no-repeat; image-rendering: pixelated; transform: var(--hide); }
 .m-rac.peek .rh-peek i { animation: rh-peek 1.6s both; }
 @keyframes rh-peek { 0% { transform: var(--hide); animation-timing-function: steps(3, end); } 25%, 80% { transform: translate(0, 0); animation-timing-function: steps(3, end); } 100% { transform: var(--hide); } }
 @media (prefers-reduced-motion: reduce) { .m-rac.peek .rh-peek i { animation: none; } }
-/* v6.9 crown sway: the tufts' gust (same 3.25 s period and 35/65% shape, scaled down), hinged where the crown meets the trunk */
-/* pop out in 2-px (1 game px) steps, peek ~1 s, duck back */
 
 /* ---------- v6: popcorn Junimos on inner pages (behind content, no taps) ---------- */
 .popcorn { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
