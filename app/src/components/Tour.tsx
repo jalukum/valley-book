@@ -48,7 +48,7 @@ export function Tour({ route }: { route: string }) {
         <b>{step.title}</b>
         <p>{missing && step.altBody ? step.altBody : step.body}</p>
         <div className="tour-nav">
-          <button className="btn ghost" onClick={close}>Skip tour</button>
+          <button className="btn ghost" data-sfx="close" onClick={close}>Skip tour</button>
           <span className="grow" />
           {canBack && <button className="btn ghost" onClick={back}>Back</button>}
           {step.tap ? <button className="btn primary" onClick={() => go('#/' + step.tap)}>Open it</button> : i < TOUR.length - 1 ? <button className="btn primary" onClick={next}>Next</button> : <button className="btn primary" onClick={close}>Done</button>}

@@ -61,8 +61,8 @@ export function Onboarding({ mode = 'first', profileId, onClose }: { mode?: Mode
         <div className="onb-card">
           <div className="onb-scroll pad"><FarmNameStep name={name} setName={setName} type={type} setType={setType} title="Edit your farm" /></div>
           <div className="onb-nav">
-            <button className="btn ghost" onClick={onClose}>Cancel</button>
-            <button className="btn primary" onClick={save}>Save</button>
+            <button className="btn ghost" data-sfx="close" onClick={onClose}>Cancel</button>
+            <button className="btn primary" data-sfx="save" onClick={save}>Save</button>
           </div>
         </div>
       </div>
@@ -103,12 +103,12 @@ export function Onboarding({ mode = 'first', profileId, onClose }: { mode?: Mode
           </>
         )}
         <div className="onb-nav">
-          {step > 0 ? <button className="btn ghost" onClick={() => setStep(step - 1)}>Back</button>
-            : mode === 'new' ? <button className="btn ghost" onClick={onClose}>Cancel</button>
-            : <button className="btn ghost" onClick={finish}>Skip</button>}
+          {step > 0 ? <button className="btn ghost" data-sfx="back" onClick={() => setStep(step - 1)}>Back</button>
+            : mode === 'new' ? <button className="btn ghost" data-sfx="close" onClick={onClose}>Cancel</button>
+            : <button className="btn ghost" data-sfx="save" onClick={finish}>Skip</button>}
           {step < steps.length - 1
             ? <button className="btn primary" onClick={next}>Next</button>
-            : <button className="btn primary" onClick={finish}>{mode === 'new' ? 'Start farming!' : 'Let’s go!'}</button>}
+            : <button className="btn primary" data-sfx="save" onClick={finish}>{mode === 'new' ? 'Start farming!' : 'Let’s go!'}</button>}
         </div>
       </div>
     </div>

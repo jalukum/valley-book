@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import { useSyncExternalStore, type ReactNode } from 'react';
+import { sfxEnabled, setSfxEnabled, onSfxChange, playSfx } from '../lib/sfx';
 import { core, npcById } from '../data';
 import { useProfile, isDone, setUi } from '../lib/state';
 import { ccProgress, jojaProgress, doneCount, walnutsFound, walnutTotal } from '../lib/progress';
@@ -83,9 +84,22 @@ export function MoreHub() {
       <HubRows rows={rows} />
       <section className="panel">
         <div className="list">
+          <SoundToggle />
           <button className="nav-row" onClick={() => { location.hash = '#/'; setTimeout(() => setUi({ tourOpen: true }), 50); }}><span className="row-ic"><Ui k="Quest" size={28} /></span><span className="row-main"><b>Replay tutorial</b><small>A quick tour of the Day guide and its tiles</small></span><span className="chev-r" /></button>
         </div>
       </section>
     </div>
+  );
+}
+
+/** v6.9 More → Sound effects on/off (default on, kept in localStorage 'sdv:sfx'). Turning it on plays the toggle sound once. */
+export function SoundToggle() {
+  const on = useSyncExternalStore(onSfxChange, sfxEnabled, () => true);
+  return (
+    <button className="nav-row sw-row" role="switch" aria-checked={on} data-sfx="none" onClick={() => { setSfxEnabled(!on); if (!on) playSfx('toggle'); }}>
+      <span className="row-ic"><ItemIcon qid="(BC)209" /></span>
+      <span className="row-main"><b>Sound effects</b><small>Soft taps and chimes when you press things</small></span>
+      <span className={'pswitch' + (on ? ' on' : '')} aria-hidden><i /></span>
+    </button>
   );
 }

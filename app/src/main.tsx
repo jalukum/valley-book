@@ -5,8 +5,10 @@ import '@fontsource/pixelify-sans/latin-700.css';
 import './styles.css';
 import App from './App';
 import { lockPageZoom } from './lib/nozoom';
+import { installSfx } from './lib/sfx';
 
 lockPageZoom(document);
+installSfx(document);
 
 createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
 

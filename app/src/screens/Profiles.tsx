@@ -37,7 +37,7 @@ export function ProfilesScreen() {
             const on = p.id === store.activeId;
             return (
               <div key={p.id} className={'row farm' + (on ? ' active' : '')}>
-                <button className="row-btn" onClick={() => switchProfile(p.id)} aria-pressed={on}>
+                <button className="row-btn" data-sfx="toggle" onClick={() => switchProfile(p.id)} aria-pressed={on}>
                   <span className={'radio' + (on ? ' on' : '')} aria-hidden />
                   <span className="farm-ic" title={farmInfo(p.farmType).name + ' Farm'}><Ui k={farmIconKey(p.farmType)} size={30} /></span>
                   <span className="row-main"><span className="row-t">{p.name}</span><span className="row-s">{farmInfo(p.farmType).name} Farm · {SEASONS[p.date.season]} {p.date.day}, Year {p.date.year} · CC {Math.floor(ccProgress(core, p).percent)}% · Perfection {perfection(core, p).percent}%</span></span>
@@ -61,7 +61,7 @@ export function ProfilesScreen() {
         </div>
         <input ref={fileRef} type="file" accept="application/json,.json,text/plain" hidden onChange={async (e) => { const f = e.target.files?.[0]; if (f) doImport(await f.text()); e.target.value = ''; }} />
         <textarea className="ta" value={text} onChange={(e) => setText(e.target.value)} placeholder="Or paste exported text here" rows={4} />
-        <button className="btn wide" disabled={!text.trim()} onClick={() => doImport(text)}>Import pasted text</button>
+        <button className="btn wide" data-sfx="save" disabled={!text.trim()} onClick={() => doImport(text)}>Import pasted text</button>
         {msg && <p className="hint strong" role="status">{msg}</p>}
       </Panel>
       <div className="foot-links"><a href="#/about">About</a></div>

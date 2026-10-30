@@ -229,6 +229,10 @@ button.link { padding: 6px 0; }
 .row.static { cursor: default; }
 .nav-row:active, .row-btn:active, .row.check:active { background: var(--paper-2); }
 .nav-row.big { min-height: 56px; }
+.pswitch { flex: none; position: relative; width: 44px; height: 24px; margin-right: 4px; background: var(--paper-3); border: 2px solid var(--wood-d); border-radius: 4px; box-shadow: inset 0 2px 0 rgba(0,0,0,.12); }
+.pswitch i { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: var(--paper); border: 2px solid var(--wood-d); border-radius: 2px; transition: transform .15s steps(3); }
+.pswitch.on { background: var(--acc); }
+.pswitch.on i { transform: translateX(20px); }
 .seas { color: var(--acc-d); font-weight: 600; margin-right: 6px; }
 .reward { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--ink-2); }
 .rewards { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 3px; }
@@ -835,6 +839,21 @@ img.pt { border-radius: 6px; }
 @keyframes jun-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes jun-run { 0% { transform: translateX(-40px); opacity: 0; } 3% { opacity: 1; } 45% { transform: translateX(calc(46cqw)); } 52% { transform: translateX(calc(46cqw + 6px)) translateY(-3px); } 60% { transform: translateX(calc(52cqw)); } 97% { opacity: 1; } 100% { transform: translateX(calc(100cqw + 40px)); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .m-jun { display: none; } }
+.m-rac { position: absolute; left: 50%; bottom: 30px; pointer-events: none; }
+.m-rac img { position: absolute; left: 0; top: 0; display: block; image-rendering: pixelated; pointer-events: none; }
+/* v6.9 crown sway: the tufts' gust (same 3.25 s period and 35/65% shape, scaled down), hinged where the crown meets the trunk */
+.m-rac .rt-crown { transform-origin: 50% 66%; animation: crown-sway 3.25s ease-in-out infinite; }
+@keyframes crown-sway { 0%, 100% { transform: skewX(0); } 35% { transform: skewX(-1.2deg); } 65% { transform: skewX(.4deg); } }
+.m-rac .rt-door { opacity: 0; }
+.m-rac.peek-door .rt-door { animation: rt-door 1.6s step-end both; }
+@keyframes rt-door { 0% { opacity: 0; } 6%, 94% { opacity: 1; } 100% { opacity: 0; } }
+.rt-peek { position: absolute; overflow: hidden; }
+.rt-peek i { position: absolute; display: block; background: 0 0 / 100% 100% no-repeat; image-rendering: pixelated; transform: var(--hide); }
+/* pop out in 2-px (1 game px) steps, peek ~1 s, duck back */
+.m-rac.peek-door .rt-peek.door i, .m-rac.peek-window .rt-peek.window i, .m-rac.peek-hollow .rt-peek.hollow i { animation: rt-peek 1.6s both; }
+@keyframes rt-peek { 0% { transform: var(--hide); animation-timing-function: steps(4, end); } 20%, 80% { transform: translate(0, 0); animation-timing-function: steps(4, end); } 100% { transform: var(--hide); } }
+.m-rac.peek-door .rt-peek.door i { animation-delay: .1s; }
+@media (prefers-reduced-motion: reduce) { .m-rac .rt-crown { animation: none; } .rt-peek.hollow i { transform: none; } .m-rac .rt-door, .rt-peek.door i, .rt-peek.window i { animation: none; } }
 
 /* ---------- v6: popcorn Junimos on inner pages (behind content, no taps) ---------- */
 .popcorn { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }

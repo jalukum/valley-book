@@ -91,7 +91,7 @@ export function Sheet({ open, onClose, title, children, closeLabel = 'Done' }: {
   return (
     <div className="sheet-wrap" onClick={onClose}>
       <div className="sheet" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
-        <div className="sheet-h"><h2>{title}</h2><button className="btn sm" onClick={onClose}>{closeLabel}</button></div>
+        <div className="sheet-h"><h2>{title}</h2><button className="btn sm" data-sfx="close" onClick={onClose}>{closeLabel}</button></div>
         <div className="sheet-b">{children}</div>
       </div>
     </div>
@@ -99,7 +99,7 @@ export function Sheet({ open, onClose, title, children, closeLabel = 'Done' }: {
 }
 
 export function Chip({ on, onClick, children }: { on?: boolean; onClick?: () => void; children: ReactNode }) {
-  return <button className={'chip' + (on ? ' on' : '')} onClick={onClick} aria-pressed={!!on}>{children}</button>;
+  return <button className={'chip' + (on ? ' on' : '')} onClick={onClick} aria-pressed={on === undefined ? undefined : on}>{children}</button>;
 }
 
 export function MissingToggle({ value, onChange }: { value: boolean; onChange: (v: boolean) => void }) {

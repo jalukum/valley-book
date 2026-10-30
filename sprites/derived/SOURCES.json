@@ -537,5 +537,69 @@
    182
   ],
   "note": "Spring panel (1 of 4) of the grown Pine Tree, pixels unedited (wiki image is the game sprite at 2x). Common tree: the spring meadow uses common trees because Green Rain Trees only appear from the summer Green Rain on (wiki: Green_Rain_Trees)."
+ },
+ "RaccoonTree_Trunk.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/9/9a/Giant_Stump.png",
+  "crop": [
+   124,
+   41,
+   222,
+   112
+  ],
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. Giant Stump trunk: the wiki screenshot is the game at exactly 3x; nearest-centre sampled back to 1 game px (offset x2 y0), crop 124,41..222,112 (98x71), grass/sky pixels made transparent. Edits: the cut face, the kits on top, chimney and flower removed and the top rebuilt as a rounded bark dome from the trunk's own bark rows; the hollow's kit replaced with bark and an empty dark hole (it peeks out at runtime). Placed at (7,32) on a 112x103 canvas."
+ },
+ "RaccoonTree_Trunk_Winter.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/9/9a/Giant_Stump.png",
+  "crop": [
+   124,
+   41,
+   222,
+   112
+  ],
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. Giant Stump trunk: the wiki screenshot is the game at exactly 3x; nearest-centre sampled back to 1 game px (offset x2 y0), crop 124,41..222,112 (98x71), grass/sky pixels made transparent. Edits: the cut face, the kits on top, chimney and flower removed and the top rebuilt as a rounded bark dome from the trunk's own bark rows; the hollow's kit replaced with bark and an empty dark hole (it peeks out at runtime). Placed at (7,32) on a 112x103 canvas. Winter: a 1-px snow cap (ffffff over aae7ff) on the dome, the same snow colours as the wiki winter tree panels."
+ },
+ "RaccoonTree_Crown_Spring.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/d/d3/Oak_Stage_5.png",
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. Crown: the Oak Stage 5 spring panel (wiki image at 2x, sampled to 1 game px), leafy part above row 60, pasted six times (some mirrored) around the trunk top. Same canvas as the trunk; the app sways this layer."
+ },
+ "RaccoonTree_Crown_Summer.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/d/d3/Oak_Stage_5.png",
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. Crown: the Oak Stage 5 summer panel (wiki image at 2x, sampled to 1 game px), leafy part above row 60, pasted six times (some mirrored) around the trunk top. Same canvas as the trunk; the app sways this layer."
+ },
+ "RaccoonTree_Crown_Fall.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/d/d3/Oak_Stage_5.png",
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. Crown: the Oak Stage 5 fall panel (wiki image at 2x, sampled to 1 game px), leafy part above row 60, pasted six times (some mirrored) around the trunk top. Same canvas as the trunk; the app sways this layer."
+ },
+ "RaccoonTree_Crown_Winter.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/d/d3/Oak_Stage_5.png",
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. Bare winter boughs: the Oak Stage 5 winter panel above row 72, its purple-brown bark ramp mapped onto the Giant Stump's own bark colours so it matches the trunk, pasted three times (two mirrored) and trimmed where the boughs meet the dome."
+ },
+ "RaccoonTree_Door_Open.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/9/9a/Giant_Stump.png",
+  "note": "Custom composite (v6.9, the raccoon tree that was never struck down), built pixel-for-pixel by app/scripts/make-raccoon-tree.py. The doorway (x52..59, y90..101 on the canvas) filled with the stump's darkest bark colour (3e2724), shown while Mr. Raccoon leans out."
+ },
+ "Raccoon_Head.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/5/5e/Raccoon_Icon.png",
+  "note": "Mr. Raccoon's head: File:Raccoon_Icon.png (3x) sampled to 1 game px and trimmed to 19x14. Peeks out of the raccoon tree's door. The wiki has no separate Mrs. Raccoon sprite, so she is not shown."
+ },
+ "Raccoon_Kit_Head.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/9/9a/Giant_Stump.png",
+  "crop": [
+   66,
+   35,
+   76,
+   44
+  ],
+  "note": "A raccoon kit's head cut from the Giant Stump screenshot's hollow (trunk crop coords, 1 game px). Peeks out of the window and hollow."
+ },
+ "Raccoon_Kit_Head_2.png": {
+  "from": "https://stardewvalleywiki.com/mediawiki/images/en/9/9a/Giant_Stump.png",
+  "crop": [
+   82,
+   52,
+   92,
+   61
+  ],
+  "note": "The second kit's head from the Giant Stump screenshot's right root (trunk crop coords, 1 game px). Peeks out of the hollow."
  }
 }
