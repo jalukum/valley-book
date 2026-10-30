@@ -88,6 +88,14 @@ export default function App() {
   useEffect(() => { try { const o = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> }; o?.lock?.('portrait')?.catch(() => {}); } catch { /* not supported */ } }, []);
   const ui = useUi();
   const tab = TAB_OF[r[0] ?? ''] ?? 'today';
+  // v6.8.1: wood theme-color behind the iOS status bar while a wooden top bar is on screen; sky otherwise.
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    const upd = () => { const wood = !!document.querySelector('.topbar'); meta?.setAttribute('content', wood ? '#b47d43' : '#6fc2ee'); };
+    upd();
+    const mo = new MutationObserver(upd); mo.observe(document.body, { childList: true, subtree: true });
+    return () => mo.disconnect();
+  }, []);
   const tabs: { id: Tab; href: string; label: string; icon: React.ReactElement }[] = [
     { id: 'today', href: '#/today', label: 'Today', icon: <Ui k="Junimo" size={28} eager /> },
     { id: 'progress', href: '#/progress', label: 'Progress', icon: <Ui k="Junimo Bundle" size={28} eager /> },
@@ -102,6 +110,7 @@ export default function App() {
       <div className="rotate-lock" role="status">
         <div className="rl-card"><Ui k="Junimo" size={64} eager /><b>Turn your phone upright to keep playing</b><small>Valley Book is made for portrait.</small></div>
       </div>
+      <div className="sat-cap" aria-hidden />
       <main className="main" key={r.join('/')}>
         <Suspense fallback={<div className="loading">Loading…</div>}>
           <Screen r={r} />

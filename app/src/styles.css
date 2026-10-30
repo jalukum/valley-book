@@ -31,12 +31,12 @@
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { margin: 0; padding: 0; }
-html { background-color: var(--sky-2); background-image: linear-gradient(180deg, var(--sky-1), var(--sky-2) 35%, var(--sky-3) 80%); background-attachment: fixed; min-height: 100%; -webkit-text-size-adjust: 100%; scrollbar-width: none; }
+html { background-color: var(--sky-2); min-height: 100%; -webkit-text-size-adjust: 100%; scrollbar-width: none; }
 html::-webkit-scrollbar, *::-webkit-scrollbar { display: none; width: 0; height: 0; }
 * { scrollbar-width: none; }
 body {
   font: 15px/1.4 var(--body); color: var(--ink); overflow-x: hidden; min-height: 100dvh;
-  background: transparent; /* the sky gradient lives on <html> so the ambient .sky layer (z-index -1) shows above it */
+  background: transparent; /* v6.8.1: the sky gradient lives on .app (the scroller), so the ambient .sky layer (z-index -1) shows above it */
 }
 body.noscroll { overflow: hidden; }
 h1, h2, h3 { font-family: var(--head); font-weight: 700; margin: 0; letter-spacing: .2px; }
@@ -54,7 +54,15 @@ small { font-size: 12.5px; }
 /* v6.8 no rubber-band: html/body never scroll; the app shell is a fixed full-screen scroller whose overscroll is switched off,
    so iOS (installed app and Safari) can't bounce past the real top or bottom of the UI. Sticky top bar + fixed tab bar unchanged. */
 html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
-.app { position: fixed; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; }
+.app { position: fixed; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; 
+  background-color: var(--sky-2); background-image: linear-gradient(180deg, var(--sky-1), var(--sky-2) 35%, var(--sky-3) 80%); }
+/* v6.8.1 status bar on clean wood: on screens with the wooden top bar (:has(.topbar)), a solid wood cap fills env(safe-area-inset-top) outside
+   the scroll content (fixed, opaque, no blur/fade), and html/body + theme-color are wood too, so iOS has nothing grey or
+   translucent to tint the status-bar area with. The front page (no top bar) keeps its sky. */
+html:has(.topbar), html:has(.topbar) body { background-color: #a5703a; }
+.app:not(:has(.topbar)) .sat-cap { display: none; } /* Today's plan page and the front page have no wooden bar: sky stays */
+.sat-cap { position: fixed; top: 0; left: 0; right: 0; height: var(--sat); z-index: 21; pointer-events: none;
+  background-color: #b47d43; background-image: linear-gradient(180deg, rgba(255,225,170,.28) 0 2px, transparent 2px); }
 body.noscroll .app { overflow: hidden; }
 .sheet-b { overscroll-behavior: contain; }
 .main { max-width: 720px; margin: 0 auto; padding: calc(var(--sat) + 4px) 12px calc(var(--tabh) + var(--sab) + 20px); overflow-x: clip; }
