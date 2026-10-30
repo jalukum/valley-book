@@ -749,6 +749,8 @@ img.pt { border-radius: 6px; }
   image-rendering: pixelated; image-rendering: crisp-edges; box-shadow: 0 -2px 0 rgba(47,90,30,.6); }
 @media (prefers-reduced-motion: reduce) { .bubble.b2, .bubble.b4 { transform: none; } .bubble { animation: none; } }
 @media (max-height: 700px) { .bubble, .bubble:not(.b0) { min-height: 92px; } .bub-t small { display: none; } .bubble.b0 .bub-t small { display: block; } }
+/* v6.9.1 a little tighter on 600–700 px screens so the raccoons' stump home has room between the buttons and the grass */
+@media (max-height: 700px) and (min-height: 601px) { .entry-h { gap: 5px; padding-top: 2px; } .bubbles { gap: 12px 14px; } .bubble, .bubble:not(.b0) { min-height: 84px; } }
 /* v6.8.3 very short screens (iPhone 5/SE1 568pt, small Androids in landscape-ish windows): shrink the front page gracefully
    so the five buttons and a strip of meadow still fit with no clipping: smaller logo, tighter header, compact buttons. */
 @media (max-height: 600px) {
@@ -759,8 +761,8 @@ img.pt { border-radius: 6px; }
   .entry-h .brand h1 { font-size: 28px; }
   .entry-h .farm-pill { padding: 5px 6px 5px 10px; }
   .entry-h .fp-t b { font-size: 17px; }
-  .bubbles { gap: 10px 12px; padding: 4px 6px 36px; }
-  .bubble, .bubble:not(.b0) { min-height: 78px; padding: 7px 6px 6px; gap: 3px; }
+  .bubbles { gap: 8px 12px; padding: 4px 6px 36px; }
+  .bubble, .bubble:not(.b0) { min-height: 74px; padding: 7px 6px 6px; gap: 3px; }
   .bubble.b0 { padding: 7px 12px; }
   .bubble.b0 .bub-t small { display: none; }
   .bubble.b0 .bub-ic img { width: 40px !important; height: 40px !important; }
@@ -839,21 +841,17 @@ img.pt { border-radius: 6px; }
 @keyframes jun-hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes jun-run { 0% { transform: translateX(-40px); opacity: 0; } 3% { opacity: 1; } 45% { transform: translateX(calc(46cqw)); } 52% { transform: translateX(calc(46cqw + 6px)) translateY(-3px); } 60% { transform: translateX(calc(52cqw)); } 97% { opacity: 1; } 100% { transform: translateX(calc(100cqw + 40px)); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .m-jun { display: none; } }
-.m-rac { position: absolute; left: 50%; bottom: 30px; pointer-events: none; }
+/* v6.9.1 the raccoons' home: the real Giant Stump at the far layer's 1x scale, set back on the far grass (bottom set inline). */
+.m-rac { position: absolute; left: 50%; bottom: 40px; pointer-events: none; filter: saturate(.94) brightness(1.03); } /* a few percent of air: further away than the side trees; crisp, no blur */
 .m-rac img { position: absolute; left: 0; top: 0; display: block; image-rendering: pixelated; pointer-events: none; }
+.m-rac .rh-tuft { filter: saturate(.8) brightness(1.1); }       /* same haze as the far tufts */
+.rh-peek { position: absolute; overflow: hidden; }
+.rh-peek i { position: absolute; display: block; background: 0 0 / 100% 100% no-repeat; image-rendering: pixelated; transform: var(--hide); }
+.m-rac.peek .rh-peek i { animation: rh-peek 1.6s both; }
+@keyframes rh-peek { 0% { transform: var(--hide); animation-timing-function: steps(3, end); } 25%, 80% { transform: translate(0, 0); animation-timing-function: steps(3, end); } 100% { transform: var(--hide); } }
+@media (prefers-reduced-motion: reduce) { .m-rac.peek .rh-peek i { animation: none; } }
 /* v6.9 crown sway: the tufts' gust (same 3.25 s period and 35/65% shape, scaled down), hinged where the crown meets the trunk */
-.m-rac .rt-crown { transform-origin: 50% 66%; animation: crown-sway 3.25s ease-in-out infinite; }
-@keyframes crown-sway { 0%, 100% { transform: skewX(0); } 35% { transform: skewX(-1.2deg); } 65% { transform: skewX(.4deg); } }
-.m-rac .rt-door { opacity: 0; }
-.m-rac.peek-door .rt-door { animation: rt-door 1.6s step-end both; }
-@keyframes rt-door { 0% { opacity: 0; } 6%, 94% { opacity: 1; } 100% { opacity: 0; } }
-.rt-peek { position: absolute; overflow: hidden; }
-.rt-peek i { position: absolute; display: block; background: 0 0 / 100% 100% no-repeat; image-rendering: pixelated; transform: var(--hide); }
 /* pop out in 2-px (1 game px) steps, peek ~1 s, duck back */
-.m-rac.peek-door .rt-peek.door i, .m-rac.peek-window .rt-peek.window i, .m-rac.peek-hollow .rt-peek.hollow i { animation: rt-peek 1.6s both; }
-@keyframes rt-peek { 0% { transform: var(--hide); animation-timing-function: steps(4, end); } 20%, 80% { transform: translate(0, 0); animation-timing-function: steps(4, end); } 100% { transform: var(--hide); } }
-.m-rac.peek-door .rt-peek.door i { animation-delay: .1s; }
-@media (prefers-reduced-motion: reduce) { .m-rac .rt-crown { animation: none; } .rt-peek.hollow i { transform: none; } .m-rac .rt-door, .rt-peek.door i, .rt-peek.window i { animation: none; } }
 
 /* ---------- v6: popcorn Junimos on inner pages (behind content, no taps) ---------- */
 .popcorn { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }

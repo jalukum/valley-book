@@ -107,9 +107,9 @@ describe('navigation: no duplicate Goals hub', () => {
   it('goal pages fall back to their own hub, not #/goals', () => expect(all).not.toContain('back="#/goals"'));
 });
 describe('tutorial', () => {
-  it('describes the Progress / More split and never mentions a Goals page', () => {
+  it('names Progress and More in the tab steps and never mentions a Goals page', () => {
     const txt = JSON.stringify(TOUR);
     expect(txt).not.toMatch(/\bGoals\b/);
-    expect(txt).toMatch(/Progress has your checklists/);
+    expect(TOUR.find((s) => s.target === 'tab-progress')!.body).toMatch(/Checklists/);
   });
 });

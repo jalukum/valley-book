@@ -128,33 +128,27 @@ export function meadowScatter(season: number, seed = 1729): Tuft[] {
   return out;
 }
 
-/** v6.9 the raccoon tree: the Giant Stump (wiki: Raccoon, Giant_Stump.png, the 1.6 in-game screenshot at exactly 3×) as if it had
- *  never been cut down: its real trunk with the raccoons' door, lit window and hollow, under a crown of real Oak leaf clusters
- *  (wiki: Oak_Stage_5.png, 2×) in the season's panel. Built pixel-for-pixel by app/scripts/make-raccoon-tree.py at 1 game px per
- *  pixel, so it is drawn at PIXEL_SCALE like the Junimos and common trees. Canvas and openings are in game px. */
-export const RACCOON_TREE = { w: 112, h: 103 } as const;
-export type PeekSpot = 'door' | 'window' | 'hollow';
-/** x, y, w, h of each opening (game px, from make-raccoon-tree.py) + who peeks out of it and how. */
-export const PEEK_SPOTS: Record<PeekSpot, { box: [number, number, number, number]; who: string; from: 'below' | 'side' }> = {
-  door: { box: [52, 90, 8, 12], who: 'rac:Mr', from: 'side' },       // Mr. Raccoon leans out of the doorway
-  window: { box: [32, 74, 12, 13], who: 'rac:Kit', from: 'below' },  // a kit pops up behind the window sill
-  hollow: { box: [73, 62, 10, 13], who: 'rac:Kit2', from: 'below' }, // a kit rises out of the hollow
-};
-export const PEEK_ORDER: PeekSpot[] = ['door', 'window', 'hollow'];
-/** Peeks: one head every 6–15 s (random), out for ~1.6 s. */
+/** v6.9.1 the raccoon home: the REAL Giant Stump (wiki: Giant_Stump.png, the 1.6 in-game screenshot at exactly 3×), unmodified,
+ *  cut out by app/scripts/make-raccoon-home.py at 1 game px per pixel. It stands on the far grass like the back tufts, so it is drawn
+ *  at their 1× scale (half the foreground's PIXEL_SCALE): a little further away than the side trees. One sprite for every season
+ *  (the wiki has no seasonal stump). A stump doesn't sway. Sizes in game px. */
+export const RACCOON_HOME = { w: 100, h: 110, scale: 1, bottom: 40, shadow: { w: 108, h: 14, drop: 5 } } as const;
+/** The lit window's glass box (x, y, w, h in game px): a kit rises up behind its bars every so often. */
+export const WINDOW_BOX = [26, 51, 10, 13] as const;
+/** How high the stump stands given the room between the meadow's bottom edge and the lowest menu button (CSS px):
+ *  its usual 40 px, sunk 1 px at a time to clear the buttons by HOME_GAP, never below MIN_BOTTOM (the side trees' line). */
+export const HOME_GAP = 4, MIN_BOTTOM = 30;
+export const homeBottom = (room: number) =>
+  Math.max(MIN_BOTTOM, Math.min(RACCOON_HOME.bottom, Math.floor(room - HOME_GAP - RACCOON_HOME.h * RACCOON_HOME.scale)));
+/** Peeks: a kit every 6–15 s (random), up for ~1.6 s. */
 export const PEEK_MIN_MS = 6000, PEEK_MAX_MS = 15000, PEEK_SHOW_MS = 1600;
 export const nextPeekDelay = (r: number) => Math.round(PEEK_MIN_MS + Math.min(Math.max(r, 0), 1) * (PEEK_MAX_MS - PEEK_MIN_MS));
-/** Never the same opening twice in a row. */
-export function pickPeek(r: number, last: PeekSpot | null): PeekSpot {
-  const opts = PEEK_ORDER.filter((s) => s !== last);
-  return opts[Math.min(opts.length - 1, Math.floor(Math.max(r, 0) * opts.length))];
+/** Grass at the stump's foot (x in game px from its left edge; drawn over the base so it sits IN the grass, not on top of it). */
+export function homeTufts(season: number) {
+  const { weeds, tuft } = meadowKinds(season);
+  const t = (x: number, k: string | undefined) => (k ? { x, k, w: 16, h: 16 } : { x, k: tuft, w: 15, h: 25 }); // weeds 1×, Fiber at back-tuft size
+  return [t(4, undefined), t(22, weeds[0]), t(76, weeds[1]), t(95, undefined)];
 }
-export const raccoonTree = (season: number) => {
-  const s = ((season % 4) + 4) % 4;
-  return { trunk: s === 3 ? 'rtree:Trunk:3' : 'rtree:Trunk', crown: 'rtree:Crown:' + s, door: 'rtree:DoorOpen' };
-};
-/** Crown sway: the tufts' gust (SWAY_S) at the canopy centre's delay, so the wind reaches it in step with the grass. */
-export const CROWN_SWAY_DELAY = -Math.round(0.5 * SWAY_S * 100) / 100;
 /** Keep the raccoons' front door in view: no mid/front grass tuft stands within DOOR_CLEAR % of the meadow's centre. */
 export const DOOR_CLEAR = 7;
 export const clearOfDoor = (t: { x: number; layer: Layer }) => t.layer === 'back' || Math.abs(t.x - 50) >= DOOR_CLEAR;

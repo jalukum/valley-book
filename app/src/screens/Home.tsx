@@ -2,8 +2,8 @@ import { useProfile } from '../lib/state';
 import { SEASONS, weekday, core, items } from '../data';
 import { Ui } from '../components/ui';
 import { Brand, FarmPill } from './Today';
-import { useEffect, useState, type CSSProperties } from 'react';
-import { meadowTrees, groundAtlas, treeSize, groundTiles, meadowScatter, type Tuft, RACCOON_TREE, PEEK_SPOTS, PEEK_ORDER, PIXEL_SCALE, raccoonTree, nextPeekDelay, pickPeek, PEEK_SHOW_MS, CROWN_SWAY_DELAY, clearOfDoor, type PeekSpot } from '../lib/meadow';
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
+import { meadowTrees, groundAtlas, treeSize, groundTiles, meadowScatter, type Tuft, RACCOON_HOME, WINDOW_BOX, homeTufts, homeBottom, nextPeekDelay, PEEK_SHOW_MS, clearOfDoor } from '../lib/meadow';
 
 /** Launch screen: title, farm switcher, then one Stardew menu-box per main section, standing on real farm grass. */
 export const BUBBLES: { id: string; href: string; icon: string; title: string; line: string; size?: number }[] = [
@@ -63,7 +63,7 @@ function Meadow({ season }: { season: number }) {
       {row(BACK_TILES, 'm-ground far')}
       {scatter.filter((t) => t.layer === 'back').map(tuft)}
       {row(MAIN_TILES, 'm-ground entry-ground')}
-      <RaccoonTree season={season} />
+      <RaccoonHome season={season} />
       {meadowTrees(season).map((t, i) => {
         const s = core.ui[t.k];
         if (!s) return null;
@@ -79,54 +79,62 @@ function Meadow({ season }: { season: number }) {
   );
 }
 
-const px = (n: number) => n * PIXEL_SCALE + 'px';
+const px = (n: number) => n * RACCOON_HOME.scale + 'px';
 const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** v6.9 the raccoon tree in the meadow's middle gap (see RACCOON_TREE): trunk, swaying crown, and every 6–15 s one raccoon head
- *  peeking out of the door, window or hollow. The timer only runs while the page is visible and not under reduced motion
- *  (then a kit sits still in the hollow, as in the game's own screenshot). */
-function RaccoonTree({ season }: { season: number }) {
-  const t = raccoonTree(season);
-  const trunk = core.ui[t.trunk], crown = core.ui[t.crown], door = core.ui[t.door];
-  const [peek, setPeek] = useState<{ spot: PeekSpot; n: number } | null>(null);
+/** v6.9.1 the raccoons' home in the meadow's middle gap (see RACCOON_HOME): the real Giant Stump, unmodified, set back on the far
+ *  grass (behind the side trees, forage and Junimos) with a soft pixel shadow and grass at its foot. Every 6–15 s a kit rises up
+ *  behind the lit window's bars. The timer only runs while the page is visible and not under reduced motion. */
+function RaccoonHome({ season }: { season: number }) {
+  const stump = core.ui['rhome:Stump'], bars = core.ui['rhome:Bars'], shadow = core.ui['rhome:Shadow'], kit = core.ui['rac:Kit'];
+  const [peek, setPeek] = useState(0);
+  // Keep the chimney clear of the menu buttons on short screens: sink the stump (never below the side trees' line) if a button reaches it.
+  const ref = useRef<HTMLDivElement>(null);
+  const [bottom, setBottom] = useState<number>(RACCOON_HOME.bottom);
+  useLayoutEffect(() => {
+    const fit = () => {
+      const el = ref.current, m = el?.parentElement;
+      if (!el || !m) return;
+      const bub = [...document.querySelectorAll('.bubbles .bubble')].reduce((a, b) => Math.max(a, b.getBoundingClientRect().bottom), 0);
+      setBottom(homeBottom(m.getBoundingClientRect().bottom - bub));
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, []);
   useEffect(() => {
     if (reducedMotion()) return;
-    let timer = 0, last: PeekSpot | null = null, n = 0;
+    let timer = 0, n = 0;
     const schedule = () => {
       clearTimeout(timer);
       if (document.hidden) return;
       timer = window.setTimeout(() => {
         if (document.hidden) return;
-        last = pickPeek(Math.random(), last);
-        setPeek({ spot: last, n: ++n });
-        timer = window.setTimeout(() => { setPeek(null); schedule(); }, PEEK_SHOW_MS);
+        setPeek(++n);
+        timer = window.setTimeout(() => { setPeek(0); schedule(); }, PEEK_SHOW_MS);
       }, nextPeekDelay(Math.random()));
     };
-    const onVis = () => { if (document.hidden) { clearTimeout(timer); setPeek(null); } else schedule(); };
+    const onVis = () => { if (document.hidden) { clearTimeout(timer); setPeek(0); } else schedule(); };
     document.addEventListener('visibilitychange', onVis);
     schedule();
     return () => { clearTimeout(timer); document.removeEventListener('visibilitychange', onVis); };
   }, []);
-  if (!trunk || !crown) return null;
-  const W = px(RACCOON_TREE.w), H = px(RACCOON_TREE.h);
+  if (!stump) return null;
+  const { w, h, shadow: sh } = RACCOON_HOME, [bx, by, bw, bh] = WINDOW_BOX;
+  const img = (s: { s: string }, cls: string) => <img className={cls} src={'./' + s.s} width={w * RACCOON_HOME.scale} height={h * RACCOON_HOME.scale} alt="" draggable={false} />;
   return (
-    <div className={'m-rac' + (peek ? ' peek-' + peek.spot : '')} style={{ width: W, height: H, marginLeft: px(-RACCOON_TREE.w / 2) }}>
-      <img className="rt-trunk" src={'./' + trunk.s} width={RACCOON_TREE.w * PIXEL_SCALE} height={RACCOON_TREE.h * PIXEL_SCALE} alt="" draggable={false} />
-      {door && <img className="rt-door" src={'./' + door.s} width={RACCOON_TREE.w * PIXEL_SCALE} height={RACCOON_TREE.h * PIXEL_SCALE} alt="" draggable={false} />}
-      <img className="rt-crown" src={'./' + crown.s} width={RACCOON_TREE.w * PIXEL_SCALE} height={RACCOON_TREE.h * PIXEL_SCALE} style={{ animationDelay: CROWN_SWAY_DELAY + 's' }} alt="" draggable={false} />
-      {PEEK_ORDER.map((spot) => {
-        const p = PEEK_SPOTS[spot], who = core.ui[p.who];
-        if (!who) return null;
-        const [x, y, w, h] = p.box;
-        // heads sit on the opening's bottom edge ("below") or lean in from the doorway's right jamb ("side")
-        const head = p.from === 'side'
-          ? { left: 0, top: px(h - who.h), '--hide': `translateX(${px(w)})` }
-          : { left: px(Math.round((w - who.w) / 2)), top: px(h - who.h), '--hide': `translateY(${px(who.h)})` };
-        return (
-          <span key={spot + (peek?.spot === spot ? peek.n : '')} className={'rt-peek ' + spot + ' from-' + p.from} style={{ left: px(x), top: px(y), width: px(w), height: px(h) }}>
-            <i style={{ ...head, width: px(who.w), height: px(who.h), backgroundImage: `url(./${who.s})` } as CSSProperties} />
-          </span>
-        );
+    <div ref={ref} className={'m-rac' + (peek ? ' peek' : '')} style={{ width: px(w), height: px(h), marginLeft: px(-w / 2), bottom }}>
+      {shadow && <img className="rh-shadow" src={'./' + shadow.s} style={{ width: px(sh.w), height: px(sh.h), left: px((w - sh.w) / 2), top: px(h - sh.h + sh.drop) }} alt="" draggable={false} />}
+      {img(stump, 'rh-stump')}
+      {kit && (
+        <span key={peek} className="rh-peek" style={{ left: px(bx), top: px(by), width: px(bw), height: px(bh) }}>
+          <i style={{ left: px(Math.round((bw - kit.w) / 2)), top: px(bh - kit.h), width: px(kit.w), height: px(kit.h), backgroundImage: `url(./${kit.s})`, '--hide': `translateY(${px(kit.h)})` } as CSSProperties} />
+        </span>
+      )}
+      {bars && img(bars, 'rh-bars')}
+      {homeTufts(season).map((t, i) => {
+        const spr = core.ui[t.k];
+        return spr && <img key={i} className="rh-tuft" src={'./' + spr.s} style={{ left: px(t.x - t.w / 2), top: px(h - t.h + 2), width: px(t.w), height: px(t.h) }} alt="" draggable={false} />;
       })}
     </div>
   );

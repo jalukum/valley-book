@@ -186,15 +186,12 @@ ui['tree:Pine:3'] = { s: pub('sprites/derived/Tree_Pine_Winter.png'), w: 96, h: 
 ui['ground:Tiles:3'] = { s: pub('sprites/derived/Ground_Tiles_Winter.png'), w: 64, h: 16 };
 ui['air:leaf'] = { s: pub('sprites/derived/Particle_Leaf.png'), w: 32, h: 8 };
 ui['air:petal'] = { s: pub('sprites/derived/Particle_Petal.png'), w: 28, h: 7 };
-// v6.9 the raccoon tree (see ../sprites/derived/SOURCES.json and scripts/make-raccoon-tree.py): the wiki's Giant Stump screenshot
-// sampled back to 1 game px, regrown with real Oak leaf clusters per season; heads = a kit from the same screenshot and File:Raccoon_Icon.png.
-ui['rtree:Trunk'] = { s: pub('sprites/derived/RaccoonTree_Trunk.png'), w: 112, h: 103 };
-ui['rtree:Trunk:3'] = { s: pub('sprites/derived/RaccoonTree_Trunk_Winter.png'), w: 112, h: 103 };
-for (const [i, n] of [[0, 'Spring'], [1, 'Summer'], [2, 'Fall'], [3, 'Winter']]) ui['rtree:Crown:' + i] = { s: pub(`sprites/derived/RaccoonTree_Crown_${n}.png`), w: 112, h: 103 };
-ui['rtree:DoorOpen'] = { s: pub('sprites/derived/RaccoonTree_Door_Open.png'), w: 112, h: 103 };
-ui['rac:Mr'] = { s: pub('sprites/derived/Raccoon_Head.png'), w: 19, h: 14 };
+// v6.9.1 the raccoon home (see ../sprites/derived/SOURCES.json and scripts/make-raccoon-home.py): the wiki's real Giant Stump,
+// unmodified, sampled back to 1 game px; window bars from the same sprite; a kit head from the same screenshot; an app-made shadow.
+ui['rhome:Stump'] = { s: pub('sprites/derived/Giant_Stump_Home.png'), w: 100, h: 110 };
+ui['rhome:Bars'] = { s: pub('sprites/derived/Giant_Stump_Window_Bars.png'), w: 100, h: 110 };
+ui['rhome:Shadow'] = { s: pub('sprites/derived/Giant_Stump_Shadow.png'), w: 108, h: 14 };
 ui['rac:Kit'] = { s: pub('sprites/derived/Raccoon_Kit_Head.png'), w: 10, h: 9 };
-ui['rac:Kit2'] = { s: pub('sprites/derived/Raccoon_Kit_Head_2.png'), w: 10, h: 9 };
 ui['sky:Sun'] = { s: pub('sprites/derived/Sun.png'), w: 16, h: 16 }; // File:Sunny.png with its flat cyan backdrop keyed out
 const nameToQid = new Map(Object.entries(items).map(([q, v]) => [v.n.toLowerCase(), q]));
 const powerIcons = JSON.parse(await readFile(path.join(ROOT, 'sprites/derived/powers.json'), 'utf8'));

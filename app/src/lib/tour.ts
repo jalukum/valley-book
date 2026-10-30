@@ -20,6 +20,12 @@ export const TOUR: TStep[] = [
   { route: 'today', target: 'tile-orders', title: 'Special Orders', body: 'Jobs from the Special Orders board outside Pierre’s. New ones go up every Monday.', alt: 'tiles',
     altBody: 'An Orders tile appears from Fall 2 of Year 1, once the Special Orders board opens outside Pierre’s.' },
   { route: 'today', target: 'road', title: 'Road to Perfection', body: 'Your big-picture goal. Tap to see each phase and what’s next.' },
-  { route: 'today', target: 'tabbar', title: 'Getting around', body: 'Use the bar below to jump between sections: Progress has your checklists (bundles, museum, orders, walnuts…), More has perfection, achievements, secret notes, powers and settings. Tap the Valley Book title to go back to the start screen. You can replay this tour any time from the More tab (Replay tutorial).' },
+  { route: 'today', target: 'tabbar', title: 'Getting around', body: 'This bar takes you to each part of the book. Here’s what each one does.' },
+  { route: 'today', target: 'tab-today', title: 'Today', body: 'Your Day guide: today’s plan, fish, forage and more.' },
+  { route: 'today', target: 'tab-progress', title: 'Progress', body: 'Checklists to tick off: bundles, museum, quests and more.' },
+  { route: 'today', target: 'tab-villagers', title: 'Villagers', body: 'Birthdays, loved gifts and where everyone is.' },
+  { route: 'today', target: 'tab-search', title: 'Search', body: 'Look up any item, fish, villager or recipe.' },
+  { route: 'today', target: 'tab-more', title: 'More', body: 'Perfection, saves and settings. Replay tutorial in the More tab shows this tour again.' },
+  { route: 'today', target: 'home', title: 'Back to the front page', body: 'Tap here anytime to get back to the front page.' },
 ];
 

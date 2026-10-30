@@ -71,7 +71,7 @@ export function FarmPill() {
 
 export function Brand({ home }: { home?: boolean }) {
   const inner = <><Ui k="Junimo" size={30} eager /><h1>Valley Book</h1></>;
-  return home ? <div className="brand">{inner}</div> : <a className="brand" href="#/" aria-label="Valley Book — back to the start screen">{inner}<span className="home-ic">Home</span></a>;
+  return home ? <div className="brand">{inner}</div> : <a className="brand" href="#/" data-tour="home" aria-label="Valley Book — back to the start screen">{inner}<span className="home-ic">Home</span></a>;
 }
 
 type Tile = { k: string; title: string; n: number | string; icon: ReactNode; href: string };

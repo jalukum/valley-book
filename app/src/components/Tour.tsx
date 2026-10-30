@@ -24,7 +24,7 @@ export function Tour({ route }: { route: string }) {
     };
     const upd = () => { el = find(); setRect(el ? el.getBoundingClientRect() : null); };
     upd();
-    if (el && step.target !== 'tabbar') (el as HTMLElement).scrollIntoView({ block: 'center', behavior: 'instant' as ScrollBehavior });
+    if (el && step.target !== 'tabbar' && !step.target.startsWith('tab-')) (el as HTMLElement).scrollIntoView({ block: 'center', behavior: 'instant' as ScrollBehavior });
     upd();
     const t = setTimeout(upd, 80);
     window.addEventListener('resize', upd); window.addEventListener('scroll', upd, true);

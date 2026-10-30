@@ -137,7 +137,7 @@ describe('v6 sprites and copy', () => {
   });
   it('tutorial says the replay button is in the More tab, and never says "Birthday calendar"', () => {
     const text = JSON.stringify(STEPS);
-    expect(text).toMatch(/replay this tour[^"]*More tab/i);
+    expect(text).toMatch(/Replay tutorial in the More tab/);
     expect(text).not.toMatch(/from Progress/);
     expect(text).not.toMatch(/birthday calendar/i);
     const scr = Object.values(SCREENS).join('\n');
