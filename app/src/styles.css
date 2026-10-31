@@ -1305,3 +1305,14 @@ html:has(.topbar) { background-color: #a5703a; }
 html:has(.meadow) { background-color: var(--sky-1); image-rendering: pixelated;
   background-image: var(--meadow-tile, linear-gradient(#6aa744, #6aa744)), var(--meadow-tile, none), var(--meadow-tile, none);
   background-repeat: repeat-x; background-size: 128px 32px; background-position: left 0 bottom 0, left 0 bottom 32px, left 0 bottom 64px; }
+
+/* ---------- v7.2.5 iOS home-screen app strip after rotating (WebKit bug 313800) ---------- */
+/* Sometimes after landscape → portrait iOS leaves the web view a status bar short; the band below is outside the page, so no element (fixed,
+   100lvh, anything) can reach it and iOS paints it with the page's background colour. lib/viewport.ts nudges WebKit to relayout and retries
+   for ~2.5 s; while the window is still short (html.vb-short) the background colour is the bottom surface — the front page's grass, the tab
+   bar's cream — so the band reads as more grass / a taller tab bar, and the top of the canvas keeps a sky (or wood) cap for the clock area. */
+html.vb-sa, html.vb-sa body { height: 100vh; }
+html.vb-short { background-repeat: no-repeat; background-position: left top; background-size: 100% 50%; }
+html.vb-short:has(.tabbar) { background-color: var(--bar); background-image: linear-gradient(var(--sky-1), var(--sky-1)); }
+html.vb-short:has(.topbar):has(.tabbar) { background-color: var(--bar); background-image: linear-gradient(#a5703a, #a5703a); }
+html.vb-short:has(.meadow) { background-color: #4ba721; background-image: linear-gradient(var(--sky-1), var(--sky-1)); }

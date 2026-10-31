@@ -2,6 +2,10 @@
 // Shown once per version to people who already used an older version; a brand-new install never sees it.
 export const CHANGELOG: { version: string; items: string[] }[] = [
   {
+    version: '7.2.5',
+    items: ['Fixed the strip that could appear at the bottom of the screen on iPhones after turning the phone sideways and back.'],
+  },
+  {
     version: '7.2.4',
     items: ['Fixed a strip at the bottom of the screen on some iPhones: the front page’s grass and the tab bar now reach all the way down.'],
   },

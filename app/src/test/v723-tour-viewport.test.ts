@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { APP_VERSION, CHANGELOG } from '../lib/changelog';
-import { fullHeight } from '../lib/viewport';
+import { fullHeight, isShort } from '../lib/viewport';
 import { TOURS } from '../lib/tour';
 
 const raw = (g: Record<string, unknown>) => Object.values(g).join('\n');
@@ -13,12 +13,12 @@ const OVF = raw(import.meta.glob('../../scripts/overflow-check.mjs', { query: '?
 const PROG = raw(import.meta.glob('../screens/Progress.tsx', { query: '?raw', import: 'default', eager: true }));
 
 describe('v7.2.3 version', () => {
-  it('is 7.2.4, keeps the 7.2.3 note, v724 cache', () => {
-    expect(APP_VERSION).toBe('7.2.4');
+  it('is 7.2.5, keeps the 7.2.3 note, v725 cache', () => {
+    expect(APP_VERSION).toBe('7.2.5');
     const t = CHANGELOG.find((c) => c.version === '7.2.3')!.items.join(' ');
     expect(t).toMatch(/Tutorials now scroll the page/);
     expect(t).toMatch(/Graphical bug fixes/);
-    expect(SW).toMatch(/valleybook-v724-/); expect(SW).not.toMatch(/valleybook-v723-/);
+    expect(SW).toMatch(/valleybook-v725-/); expect(SW).not.toMatch(/valleybook-v72[34]-/);
   });
 });
 
@@ -77,7 +77,35 @@ describe('v7.2.4 no strip at the bottom of the iOS home-screen app', () => {
     expect(CSS).toMatch(/html \{ background-color: var\(--sky-1\); background-image: linear-gradient\(var\(--bar\), var\(--bar\)\);/);
   });
   it('nothing green or cream behind the status bar: the canvas colour is sky (wood under a top bar)', () => {
-    const tail = CSS.slice(CSS.indexOf('v7.2.4 iOS home-screen app strip'));
+    const tail = CSS.slice(CSS.indexOf('v7.2.4 iOS home-screen app strip'), CSS.indexOf('v7.2.5 iOS home-screen app strip'));
     expect(tail).not.toMatch(/html[^{]*\{ background-color: (#6aa744|#c6f3ff|var\(--bar\))/);
+  });
+});
+
+describe('v7.2.5 strip after rotating (WebKit bug 313800)', () => {
+  const VP = raw(import.meta.glob('../lib/viewport.ts', { query: '?raw', import: 'default', eager: true }));
+  const P = { innerWidth: 393, screenWidth: 393, screenHeight: 852, standalone: true };
+  it('detects a window a status bar short, but not a full one, a browser tab or landscape', () => {
+    expect(isShort({ ...P, innerHeight: 793 })).toBe(true);
+    expect(isShort({ ...P, innerHeight: 793, visualHeight: 852 })).toBe(false);
+    expect(isShort({ ...P, innerHeight: 852 })).toBe(false);
+    expect(isShort({ ...P, innerHeight: 793, standalone: false })).toBe(false);
+    expect(isShort({ innerWidth: 852, innerHeight: 393, screenWidth: 393, screenHeight: 852, standalone: true })).toBe(false);
+  });
+  it('retries on the next frames and at 50–2500 ms after every change, nudging WebKit while still short', () => {
+    expect(VP).toMatch(/\[50, 150, 300, 600, 1000, 1600, 2500\]/);
+    expect(VP).toMatch(/requestAnimationFrame\(\(\) => \{ tick\(\); requestAnimationFrame\(tick\); \}\)/);
+    expect(VP).toMatch(/classList\.contains\('vb-short'\)\) \{ nudge\(\)/);
+    expect(VP).toMatch(/scrollTo\(0, 0\)/); expect(VP).toMatch(/meta\[name="viewport"\]/); expect(VP).toMatch(/root\.style\.height = '101%'/);
+    for (const ev of ['resize', 'orientationchange', 'pageshow']) expect(VP).toContain(`addEventListener('${ev}', soon)`);
+    expect(VP).toMatch(/visualViewport\?\.addEventListener\('resize', soon\)/);
+  });
+  it('while short, the page background is the bottom surface with a sky/wood cap at the top', () => {
+    const t = CSS.slice(CSS.indexOf('v7.2.5 iOS home-screen app strip'));
+    expect(t).toMatch(/html\.vb-sa, html\.vb-sa body \{ height: 100vh; \}/);
+    expect(t).toMatch(/html\.vb-short:has\(\.tabbar\) \{ background-color: var\(--bar\); background-image: linear-gradient\(var\(--sky-1\), var\(--sky-1\)\); \}/);
+    expect(t).toMatch(/html\.vb-short:has\(\.topbar\):has\(\.tabbar\) \{ background-color: var\(--bar\); background-image: linear-gradient\(#a5703a, #a5703a\); \}/);
+    expect(t).toMatch(/html\.vb-short:has\(\.meadow\) \{ background-color: #4ba721; background-image: linear-gradient\(var\(--sky-1\), var\(--sky-1\)\); \}/);
+    expect(t).toMatch(/html\.vb-short \{ background-repeat: no-repeat; background-position: left top; background-size: 100% 50%; \}/);
   });
 });
